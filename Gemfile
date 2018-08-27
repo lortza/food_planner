@@ -37,17 +37,32 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
+  %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
+    gem lib, git: "https://github.com/rspec/#{lib}.git", branch: 'master'
+  end
+  gem 'better_errors' # creates console in browser for errors
+  gem 'binding_of_caller' # goes with better_errors
+  gem 'bullet' # detects n+1 queries
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot_rails' # factory support for rspec
+  gem 'pry-rails'
+  gem 'reek'
+  gem 'rubocop', '~> 0.58.2', require: false
 end
 
 group :development do
-  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'magic_frozen_string_literal'
+  gem 'rails-erd', require: false # generates table diagram
+  gem 'rubycritic', require: false # provides stats on code build
+  # Spring speeds up development by keeping your application running
+  # in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # Access an IRB console on exception pages or by using <%= console %>
+  # anywhere in the code.
+  gem 'web-console', '>= 3.3.0'
 end
 
 
