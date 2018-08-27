@@ -21,3 +21,5 @@ Style/BlockDelimiters:
     - !ruby/regexp /.*_spec\.rb$/
 Style/EmptyMethod:
   EnforcedStyle: expanded
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: consistent_comma
