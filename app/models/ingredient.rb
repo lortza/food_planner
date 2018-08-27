@@ -12,7 +12,7 @@ class Ingredient < ApplicationRecord
     tsp
   ].freeze
 
-  STYLE = %w[
+  STYLES = %w[
     chopped
     cooked
     diced
@@ -27,4 +27,14 @@ class Ingredient < ApplicationRecord
     soaked\ overnight
     uncooked
   ].freeze
+
+  validates :recipe_id,
+            :name,
+            :quantity,
+            :measurement_unit,
+            :preparation_style,
+            presence: true
+
+  validates :measurement_unit, inclusion: { in: UNITS }
+  validates :preparation_style, inclusion: { in: STYLES }
 end
