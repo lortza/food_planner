@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2018_08_28_021902) do
     t.date "start_date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "people_served", default: 0, null: false
   end
 
   create_table "recipes", force: :cascade do |t|
