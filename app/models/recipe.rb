@@ -15,6 +15,8 @@ class Recipe < ApplicationRecord
             :instructions,
             :source_name,
             :source_url,
+            :prep_time,
+            :cook_time,
             presence: true
 
   def provide_default_source

@@ -36,20 +36,23 @@ RSpec.describe Recipe, type: :model do
       end
     end
 
-        expect(recipe).to_not be_valid
-      end
-    end
-
-    context 'when it does not have a servings' do
-      it 'is not valid' do
-        recipe.servings = nil
-        expect(recipe).to_not be_valid
-      end
-    end
-
-    context 'when it does not have a instructions' do
+    context 'when it does not have instructions' do
       it 'is not valid' do
         recipe.instructions = nil
+        expect(recipe).to_not be_valid
+      end
+    end
+
+    context 'when it does not have a prep_time' do
+      it 'is not valid' do
+        recipe.prep_time = nil
+        expect(recipe).to_not be_valid
+      end
+    end
+
+    context 'when it does not have a cook_time' do
+      it 'is not valid' do
+        recipe.cook_time = nil
         expect(recipe).to_not be_valid
       end
     end
