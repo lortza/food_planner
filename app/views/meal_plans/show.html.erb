@@ -5,9 +5,11 @@
     <h2>Stats</h2>
     <ul>
       <li>Recipes: <%= @meal_plan.recipes.count %></li>
-      <li>Total Time: TBD</li>
       <li>Total Ingredients: TBD</li>
       <li>Yield: <%= @meal_plan.meals %> Meals for <%= @meal_plan.people_served %> People</li>
+      <li>Total Prep Time: <%= display_minutes(@meal_plan.total_prep_time) %></li>
+      <li>Total Cook Time: <%= display_minutes(@meal_plan.total_cook_time) %></li>
+      <li>Total Time: <%= display_minutes(@meal_plan.total_time) %></li>
     </ul>
   </div>
 

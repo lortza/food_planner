@@ -2,19 +2,17 @@
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 
 Recipe.destroy_all
+MealPlan.destroy_all
 
 recipe = Recipe.create!(
   title: 'Sample Recipe',
   source_name: 'RecipeSite',
   source_url: 'http://www.google.com',
   servings: 2,
+  prep_time: 10,
+  cook_time: 20,
   instructions: "Lorem ipsum dolor sit amet.\n\nConsectetur adipisicing elit, sed do eiusmod tempor incididunt.\n\nUt labore et dolore magna aliqua.\nUt enim ad minim veniam\nExcepteur sint occaecat cupidatat non proident\nSunt in culpa qui officia deserunt mollit anim id est laborum."
 )
 
@@ -59,6 +57,8 @@ poboy_instructions = [
 poboy = Recipe.create!(
   title: "Veggie Po'boy",
   servings: 4,
+  prep_time: 10,
+  cook_time: 20,
   instructions: poboy_instructions.join("\n\n")
 )
 
@@ -134,6 +134,8 @@ caraotas_instructions = [
 caraotas = Recipe.create!(
   title: "Caraotas Negras",
   servings: 4,
+  prep_time: 10,
+  cook_time: 20,
   instructions: caraotas_instructions.join("\n\n")
 )
 

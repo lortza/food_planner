@@ -11,6 +11,7 @@ class RecipesController < ApplicationController
   end
 
   def new
+    @recipe = Recipe.new(Recipe::DEFAULT_PARAMS)
   end
 
   def edit

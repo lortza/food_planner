@@ -23,4 +23,9 @@ module RecipesHelper
       "(#{detail.recipe.title})",
     ].join(' ')
   end
+
+  def display_minutes(time)
+    return "#{time/60}h #{time%60}m" if time > 60
+    return "#{time}m"
+  end
 end
