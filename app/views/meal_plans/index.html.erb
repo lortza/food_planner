@@ -3,7 +3,7 @@
 <ul>
   <% @meal_plans.each do |plan| %>
     <li>
-      <h3><%= link_to plan.start_date_to_s, meal_plan_path(plan) %></h3>
+      <h3><%= link_to plan.start_date.to_s(:long), meal_plan_path(plan) %></h3>
       <p><%= display_recipes(plan) %></p>
     </li>
   <% end %>

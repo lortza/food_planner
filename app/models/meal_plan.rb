@@ -8,7 +8,5 @@ class MealPlan < ApplicationRecord
     all.order(start_date: :DESC)
   end
 
-  def start_date_to_s
-    start_date.strftime('%B %e, %Y')
   end
 end
