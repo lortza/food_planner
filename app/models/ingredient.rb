@@ -2,6 +2,7 @@
 
 class Ingredient < ApplicationRecord
   belongs_to :recipe
+  before_save :format_name
 
   UNITS = %w[
     can
@@ -48,4 +49,7 @@ class Ingredient < ApplicationRecord
 
   validates :measurement_unit, inclusion: { in: UNITS }
   validates :preparation_style, inclusion: { in: STYLES }
+  def format_name
+    self.name = name.downcase
+  end
 end
