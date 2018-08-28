@@ -1,0 +1,15 @@
+<h1><%= @recipe.title %></h1>
+<p>Servings: <%= @recipe.servings %></p>
+<p>Source: <%= link_to @recipe.source_name, @recipe.source_url, target: '_blank' %></p>
+
+<h3>Ingredients</h3>
+<ul>
+  <% @recipe.ingredients.each do |ingredient| %>
+    <li><%= ingredient_display(ingredient) %></li>
+  <% end %>
+</ul>
+
+<h3>Instructions</h3>
+<ol>
+  <%= simple_format(@recipe.instructions, {}, wrapper_tag: 'li') %>
+</ol>

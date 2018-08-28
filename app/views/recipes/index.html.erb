@@ -1,0 +1,23 @@
+<h1>Recipes#index</h1>
+<p>Find me in app/views/recipes/index.html.erb</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Servings</th>
+      <th>Source</th>
+      <th>Ingredient Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recipes.each do |recipe| %>
+      <tr>
+        <td><%= link_to recipe.title, recipe_path(recipe) %></td>
+        <td><%= recipe.servings %></td>
+        <td><%= link_to recipe.source_name, recipe.source_url %></td>
+        <td><%= recipe.ingredients.count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
