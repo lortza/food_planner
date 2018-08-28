@@ -8,6 +8,7 @@
       <th>Source</th>
       <th>Ingredients</th>
       <th>Meal Plans</th>
+      <th>Last Prepared</th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +19,7 @@
         <td><%= link_to recipe.source_name, recipe.source_url %></td>
         <td><%= recipe.ingredients.count %></td>
         <td><%= recipe.meal_plans.count %></td>
+        <td><%= recipe.last_prepared %></td>
       </tr>
     <% end %>
   </tbody>
