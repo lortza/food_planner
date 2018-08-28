@@ -4,6 +4,8 @@ class MealPlan < ApplicationRecord
   has_many :meal_plan_recipes, dependent: :nullify
   has_many :recipes, through: :meal_plan_recipes
 
+  validates :start_date, :people_served, presence: true
+
   def self.ordered
     all.order(start_date: :DESC)
   end
@@ -24,7 +26,7 @@ class MealPlan < ApplicationRecord
     total_prep_time + total_cook_time
   end
 
-  def total_ingredients
+  def total_unique_ingredients
     # Option 1: SQL is faster
     # Ingredient.select(:name).distinct
     #           .joins('INNER JOIN recipes ON recipes.id = ingredients.recipe_id')

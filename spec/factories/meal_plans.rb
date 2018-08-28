@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :meal_plan do
-    start_date { rand((Time.zone.today - 100)...Time.zone.today) }
+    start_date { rand((Time.zone.today - 10)...Time.zone.today) }
     people_served { 2 }
   end
 end
