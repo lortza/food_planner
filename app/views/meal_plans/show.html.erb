@@ -1,0 +1,35 @@
+<h1>Meal Plan for <%= @meal_plan.start_date_to_s %></h1>
+
+<div class="row">
+  <div class="col-12 col-sm-6">
+    <h2>Stats</h2>
+    <ul>
+      <li>Recipes: <%= @meal_plan.recipes.count %></li>
+      <li>Total Time: TBD</li>
+      <li>Total Ingredients: TBD</li>
+    </ul>
+  </div>
+
+  <div class="col-12 col-sm-6">
+    <h2>Recipes</h2>
+    <ol>
+      <% @meal_plan.recipes.each do |recipe| %>
+      <li><%= link_to recipe.title, recipe_path(recipe) %></li>
+      <% end %>
+    </ol>
+  </div>
+</div><!-- row -->
+
+<h2>Ingredient Breakdown</h2>
+<div class="row">
+  <% @ingredient_set.each do |ingredient, details| %>
+  <div class="col-12 col-md-6 col-lg-4">
+    <h3><%= ingredient %></h3>
+    <ul>
+      <% details.each do |detail| %>
+      <li><%= detail_display(detail) %></li>
+      <% end %>
+    </ul>
+  </div><!-- cols -->
+  <% end %>
+</div><!-- row -->

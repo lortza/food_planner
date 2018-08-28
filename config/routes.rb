@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   root 'recipes#index'
 
   resources :recipes
+  resources :meal_plans
 end
