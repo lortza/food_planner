@@ -2,6 +2,8 @@
 
 class Recipe < ApplicationRecord
   has_many :ingredients, dependent: :destroy
+  has_many :meal_plan_recipes, dependent: :nullify
+  has_many :meal_plans, through: :meal_plan_recipes
 
   before_validation :provide_default_source, on: :create
 
