@@ -26,6 +26,12 @@ ActiveRecord::Schema.define(version: 2018_08_27_154648) do
     t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
   end
 
+  create_table "meal_plans", force: :cascade do |t|
+    t.date "start_date", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "recipes", force: :cascade do |t|
     t.string "title", default: "", null: false
     t.string "source_name", default: "", null: false
