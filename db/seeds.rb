@@ -100,7 +100,7 @@ poboy.ingredients.create!([
   },
   {
     quantity: 3,
-    measurement_unit: 'cups',
+    measurement_unit: 'cup',
     name: 'salad greens',
     preparation_style: 'chopped'
   },
@@ -132,7 +132,9 @@ caraotas_instructions = [
   "Bring mixture to boil."
 ]
 caraotas = Recipe.create!(
-  title: "Caraotas Negras",
+  title: 'Caraotas Negras',
+  source_name: 'GOYA',
+  source_url: 'https://www.goya.com/en/recipes/dishes-desserts/caraotas-negras',
   servings: 4,
   prep_time: 10,
   cook_time: 20,
