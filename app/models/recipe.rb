@@ -5,6 +5,7 @@ class Recipe < ApplicationRecord
   has_many :meal_plan_recipes, dependent: :nullify
   has_many :meal_plans, through: :meal_plan_recipes
 
+  DEFAULT_SOURCE = { source_name: 'Original Creation', source_url: '/' }.freeze
   DEFAULT_PARAMS = { prep_time: 10, cook_time: 20 }.freeze
 
   before_validation :provide_default_source, on: :create
@@ -17,8 +18,8 @@ class Recipe < ApplicationRecord
             presence: true
 
   def provide_default_source
-    self.source_name = 'Original Creation' if source_name.blank?
-    self.source_url = '/' if source_url.blank?
+    self.source_name = DEFAULT_SOURCE[:source_name] if source_name.blank?
+    self.source_url = DEFAULT_SOURCE[:source_url] if source_url.blank?
   end
 
   def last_prepared

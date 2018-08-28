@@ -17,16 +17,25 @@ RSpec.describe Recipe, type: :model do
       end
     end
 
-    context 'when it does not have a source_name' do
-      xit 'is not valid' do
-        recipe.source_name = nil
+    context 'when it does not have a source' do
+      let(:recipe_missing_source) { create(:recipe, source_name: '', source_url: '') }
+
+      it 'is provided a source name' do
+        expect(recipe_missing_source.source_name).to eq(Recipe::DEFAULT_SOURCE[:source_name])
+      end
+
+      it 'is provided a source url' do
+        expect(recipe_missing_source.source_url).to eq(Recipe::DEFAULT_SOURCE[:source_url])
+      end
+    end
+
+    context 'when it does not have servings' do
+      it 'is not valid' do
+        recipe.servings = nil
         expect(recipe).to_not be_valid
       end
     end
 
-    context 'when it does not have a source_url' do
-      xit 'is not valid' do
-        recipe.source_url = nil
         expect(recipe).to_not be_valid
       end
     end
