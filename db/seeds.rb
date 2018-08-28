@@ -202,3 +202,158 @@ caraotas.ingredients.create!([
     preparation_style: 'finely chopped'
   }
 ])
+
+
+pad_thai_instructions = [
+  "Cook pasta according to package directions. Toss with 1 teaspoon olive oil.",
+  "In a small bowl, whisk soy sauce, peanut butter, sugar, chili flakes, and 1 tablespoon water until smooth. Set aside.",
+  "Cook onion and bell peppers",
+  "Add in tofu and cook for another 2 minutes.",
+  "Add cooked pasta and peanut butter mixture to pan",
+  "Add chopped cilantro.",
+  "Garnish with crushed peanuts, bean sprouts, or lime wedge if desired.",
+]
+pad_thai = Recipe.create!(
+  title: 'Quick Pad Thai',
+  source_name: "Women's Health Magazine",
+  source_url: 'https://subscribe.hearstmags.com/circulation/shared/index.html',
+  servings: 4,
+  prep_time: 10,
+  cook_time: 20,
+  instructions: pad_thai_instructions.join("\n\n")
+)
+
+pad_thai.ingredients.create!([
+  {
+    quantity: 0.25,
+    measurement_unit: 'cup',
+    name: 'peanut butter'
+  },
+  {
+    quantity: 0.5,
+    measurement_unit: 'cup',
+    name: 'red bell pepper',
+    preparation_style: 'finely chopped'
+  },
+  {
+    quantity: 1,
+    measurement_unit: 'T',
+    name: 'soy sauce'
+  },
+  {
+    quantity: 1,
+    measurement_unit: 'tsp',
+    name: 'brown sugar'
+  },
+  {
+    quantity: 0.5,
+    measurement_unit: 'T',
+    name: 'rice vinegar'
+  },
+  {
+    quantity: 8,
+    measurement_unit: 'ounce',
+    name: 'spaghetti',
+    preparation_style: 'cooked'
+  },
+  {
+    quantity: 1,
+    measurement_unit: 'tsp',
+    name: 'crushed red pepper',
+  },
+  {
+    quantity: 4,
+    measurement_unit: 'sprig',
+    name: 'fresh cilantro',
+    preparation_style: 'chopped'
+  }
+])
+
+
+lentil_soup_instructions = [
+  "Simmer soup mix and water for 30 minutes.",
+  "Add cut-up carrots, celery and onion.",
+  "Continue cooking for 30 minutes or until ingredients are soft.",
+  "Cool soup enough to blend.",
+  "Place soup in blender, and blend until smooth. <-- skip this",
+  "Add 1 cup Milk (rice, soy, etc.) to blended soup.",
+  "Season to taste and warm soup to serving temperature- but do not boil.",
+  "Note, broth can be substituted for water.",
+]
+lentil_soup = Recipe.create!(
+  title: 'Creamy Lentil Soup',
+  source_name: "Bob's Red Mill",
+  source_url: 'https://www.bobsredmill.com/recipes/how-to-make/creamed-vegi-soup/',
+  servings: 4,
+  prep_time: 20,
+  cook_time: 30,
+  instructions: lentil_soup_instructions.join("\n\n")
+)
+
+lentil_soup.ingredients.create!([
+  {
+    quantity: 1,
+    measurement_unit: 'can',
+    name: 'coconut milk'
+  },
+  {
+    quantity: 3,
+    measurement_unit: 'cup',
+    name: 'water'
+  },
+  {
+    quantity: 0.333,
+    measurement_unit: 'cup',
+    name: 'dry red lentils',
+    preparation_style: 'sorted'
+  },
+  {
+    quantity: 0.333,
+    measurement_unit: 'cup',
+    name: 'dry brown lentils',
+    preparation_style: 'sorted'
+  },
+  {
+    quantity: 0.25,
+    measurement_unit: 'cup',
+    name: 'yellow lentils',
+    preparation_style: 'sorted'
+  },
+  {
+    quantity: 0.125,
+    measurement_unit: 'cup',
+    name: 'couscous',
+    preparation_style: 'uncooked'
+  },
+  {
+    quantity: 2,
+    measurement_unit: 'leaf',
+    name: 'bay leaf'
+  },
+  {
+    quantity: 0.5,
+    measurement_unit: 'tsp',
+    name: 'sea salt',
+  },
+  {
+    quantity: 2,
+    measurement_unit: 'stalk',
+    name: 'celery',
+    preparation_style: 'finely chopped'
+  },
+  {
+    quantity: 2,
+    measurement_unit: 'whole',
+    name: 'carrot',
+    preparation_style: 'finely chopped'
+  }
+])
+
+
+5.times do
+  MealPlan.create!(
+    start_date: rand((Date.today - 100)...Date.today),
+    people_served: 2,
+    recipes: Recipe.all.sample(rand(2..5))
+  )
+end
