@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :meal_plan do
-    start_date "2018-08-27"
+    start_date { rand((Time.zone.today - 100)...Time.zone.today) }
+    people_served { 2 }
   end
 end

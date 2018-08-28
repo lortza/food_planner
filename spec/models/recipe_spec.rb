@@ -57,4 +57,25 @@ RSpec.describe Recipe, type: :model do
       end
     end
   end
+
+  describe '#last_prepared' do
+    let(:meal_plan_today) { create(:meal_plan, start_date: Time.zone.today) }
+    let(:meal_plan_yesterday) { create(:meal_plan, start_date: Time.zone.yesterday) }
+    let(:recipe) { create(:recipe) }
+
+    it 'returns the start_date of the most recent meal plan this recipe was included in' do
+      meal_plan_today.recipes << recipe
+      meal_plan_yesterday.recipes << recipe
+
+      expect(recipe.last_prepared).to eq(meal_plan_today.start_date)
+    end
+  end
+
+  describe '#total_time' do
+    it 'adds the prep and cook times together' do
+      recipe.prep_time = 1
+      recipe.cook_time = 1
+      expect(recipe.total_time).to eq(2)
+    end
+  end
 end
