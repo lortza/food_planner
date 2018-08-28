@@ -13,6 +13,7 @@ class Ingredient < ApplicationRecord
     ounce
     slice
     sprig
+    stalk
     T
     tsp
     whole
@@ -36,6 +37,7 @@ class Ingredient < ApplicationRecord
     ribboned
     sliced
     soaked\ overnight
+    sorted
     thinly\ sliced
     uncooked
   ].freeze
