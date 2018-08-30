@@ -14,10 +14,25 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(Recipe::DEFAULT_PARAMS)
   end
 
+  def create
+    @recipe = Recipe.new(recipe_params)
+
+    if @recipe.save
+      redirect_to recipe_url(@recipe)
+    else
+      render :new
+    end
+  end
+
   def edit
   end
 
   def update
+    if @recipe.update(recipe_params)
+      redirect_to recipe_url(@recipe), notice: 'Recipe Updated'
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -34,6 +49,8 @@ class RecipesController < ApplicationController
                                    :servings,
                                    :source_name,
                                    :source_url,
+                                   :prep_time,
+                                   :cook_time,
                                    :instructions)
   end
 end

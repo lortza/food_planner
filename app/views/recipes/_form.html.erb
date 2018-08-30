@@ -1,0 +1,43 @@
+<div class="recipe-form">
+  <%= form_for(recipe) do |form| %>
+    <%= render 'shared/errors', object: recipe %>
+
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title, autofocus: true, class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :source_name %>
+      <%= form.text_field :source_name, class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :source_url %>
+      <%= form.text_field :source_url, class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :servings %>
+      <%= form.number_field :servings, class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= form.label 'Prep Time (min)' %>
+      <%= form.number_field :prep_time, class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= form.label 'Cook Time (min)' %>
+      <%= form.number_field :cook_time, class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= form.label :instructions %>
+      <%= form.text_area :instructions, class: 'form-control' %>
+    </div>
+
+    <%= form.submit class: button_classes %>
+
+  <% end %>
+</div>

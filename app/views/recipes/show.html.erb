@@ -1,3 +1,5 @@
+<div class="right"><%= link_to 'Edit', edit_recipe_path(@recipe), class: button_classes %></div>
+
 <h1><%= @recipe.title %></h1>
 <p>Source: <%= link_to @recipe.source_name, @recipe.source_url, target: '_blank' %></p>
 <ul>

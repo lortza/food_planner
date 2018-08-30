@@ -6,7 +6,9 @@ class Recipe < ApplicationRecord
   has_many :meal_plans, through: :meal_plan_recipes
 
   DEFAULT_SOURCE = { source_name: 'Original Creation', source_url: '/' }.freeze
-  DEFAULT_PARAMS = { prep_time: 10, cook_time: 20 }.freeze
+  DEFAULT_PARAMS = { prep_time: 10,
+                     cook_time: 20,
+                     servings: 2 }.freeze
 
   before_validation :provide_default_source, on: :create
 
