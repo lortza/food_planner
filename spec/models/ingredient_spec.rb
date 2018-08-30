@@ -39,26 +39,28 @@ RSpec.describe Ingredient, type: :model do
       end
 
       it 'must be one from the list of units' do
-        expect(Ingredient::UNITS).to include(ingredient.measurement_unit)
+        ingredient.measurement_unit = Ingredient::UNITS.sample
+        expect(ingredient).to be_valid
 
         ingredient.measurement_unit = invalid_unit
-        expect(Ingredient::UNITS).to_not include(ingredient.measurement_unit)
+        expect(ingredient).to_not be_valid
       end
     end
 
     context 'a valid preparation_style' do
       let(:invalid_style) { 'invalid style' }
 
-      it 'must not be blank' do
+      it 'may be blank' do
         ingredient.preparation_style = nil
-        expect(ingredient).to_not be_valid
+        expect(ingredient).to be_valid
       end
 
       it 'must be one from the list of styles' do
-        expect(Ingredient::STYLES).to include(ingredient.preparation_style)
+        ingredient.preparation_style = Ingredient::STYLES.sample
+        expect(ingredient).to be_valid
 
         ingredient.preparation_style = invalid_style
-        expect(Ingredient::STYLES).to_not include(ingredient.preparation_style)
+        expect(ingredient).to_not be_valid
       end
     end
   end
