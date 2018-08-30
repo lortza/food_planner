@@ -7,10 +7,13 @@ class Ingredient < ApplicationRecord
   UNITS = %w[
     can
     cup
+    dozen
     handful
     leaf
+    loaf
     quart
     ounce
+    pint
     slice
     sprig
     stalk
@@ -24,6 +27,7 @@ class Ingredient < ApplicationRecord
     cooked
     crumbled
     diced
+    dried
     dry
     chopped
     crushed
@@ -36,8 +40,10 @@ class Ingredient < ApplicationRecord
     raw
     ribboned
     sliced
+    sliced\ in\ half
     soaked\ overnight
     sorted
+    thawed
     thinly\ sliced
     uncooked
   ].freeze
