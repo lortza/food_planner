@@ -4,9 +4,9 @@
 <p>Source: <%= link_to @recipe.source_name, @recipe.source_url, target: '_blank' %></p>
 <ul>
   <li>Servings: <%= @recipe.servings %></li>
-  <li>Prep Time: <%= display_minutes(@recipe.prep_time) %></li>
-  <li>Cook Time: <%= display_minutes(@recipe.cook_time) %></li>
-  <li>Total Time: <%= display_minutes(@recipe.total_time) %></li>
+  <li>Prep Time: <%= display_time(@recipe.prep_time) %></li>
+  <li>Cook Time: <%= display_time(@recipe.cook_time) %></li>
+  <li>Total Time: <%= display_time(@recipe.total_time) %></li>
 </ul>
 
 <h3>Ingredients</h3>

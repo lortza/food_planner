@@ -5,11 +5,11 @@
     <h2>Stats</h2>
     <ul>
       <li>Recipes: <%= @meal_plan.recipes.count %></li>
-      <li>Yield: <%= @meal_plan.meals %> Meals for <%= @meal_plan.people_served %> People</li>
-      <li>Total Prep Time: <%= display_minutes(@meal_plan.total_prep_time) %></li>
-      <li>Total Cook Time: <%= display_minutes(@meal_plan.total_cook_time) %></li>
-      <li>Total Time: <%= display_minutes(@meal_plan.total_time) %></li>
-      <li>Total Ingredients: <%= @meal_plan.total_ingredients %></li>
+      <li>Yield: <%= @meal_plan.total_servings %> (<%= @meal_plan.meals %> Meals for <%= @meal_plan.people_served %> People)</li>
+      <li>Total Prep Time: <%= display_time(@meal_plan.total_prep_time) %></li>
+      <li>Total Cook Time: <%= display_time(@meal_plan.total_cook_time) %></li>
+      <li>Total Time: <%= display_time(@meal_plan.total_time) %></li>
+      <li>Total Ingredients: <%= @meal_plan.total_unique_ingredients %></li>
     </ul>
   </div>
 
@@ -26,7 +26,7 @@
 <h2>Ingredient Breakdown</h2>
 <div class="row">
   <% @ingredient_set.each do |ingredient, details| %>
-  <div class="col-12 col-md-6 col-lg-4">
+  <div class="col-12 col-md-6 col-xl-4">
     <h3><%= ingredient %></h3>
     <ul>
       <% details.each do |detail| %>
