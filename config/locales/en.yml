@@ -31,3 +31,9 @@
 
 en:
   hello: "Hello world"
+  date:
+    formats:
+      default:
+        '%m-%d-%Y'
+      month_as_text:
+        '%B %e, %Y'
