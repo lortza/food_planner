@@ -4,7 +4,7 @@ class MealPlansController < ApplicationController
   before_action :set_meal_plan, only: [:show]
 
   def index
-    @meal_plans = MealPlan.ordered
+    @meal_plans = MealPlan.includes(:recipes).most_recent_first
   end
 
   def show

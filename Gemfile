@@ -56,7 +56,7 @@ end
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'magic_frozen_string_literal'
-  gem 'rails-erd', require: false # generates table diagram
+  gem 'rails-erd', require: false # generates table diagram run `bundle exec erd`
   gem 'rubycritic', require: false # provides stats on code build
   # Spring speeds up development by keeping your application running
   # in the background. Read more: https://github.com/rails/spring

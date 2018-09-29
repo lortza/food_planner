@@ -2,7 +2,7 @@
 
 class Recipe < ApplicationRecord
   has_many :ingredients, dependent: :destroy
-  has_many :meal_plan_recipes, dependent: :nullify
+  has_many :meal_plan_recipes, dependent: :destroy
   has_many :meal_plans, through: :meal_plan_recipes
 
   DEFAULT_SOURCE = { source_name: 'Original Creation', source_url: '/' }.freeze
@@ -11,6 +11,7 @@ class Recipe < ApplicationRecord
                      servings: 2 }.freeze
 
   before_validation :provide_default_source, on: :create
+  before_save :instructions_to_lines
 
   validates :title,
             :servings,
@@ -20,6 +21,11 @@ class Recipe < ApplicationRecord
             :prep_time,
             :cook_time,
             presence: true
+
+  def self.by_title
+    order(:title)
+    # all.includes(:meal_plans).order('meal_plans.start_date, DESC')
+  end
 
   def provide_default_source
     self.source_name = DEFAULT_SOURCE[:source_name] if source_name.blank?
@@ -32,5 +38,9 @@ class Recipe < ApplicationRecord
 
   def total_time
     prep_time + cook_time
+  end
+
+  def instructions_to_lines
+    self.instructions = instructions.gsub(/\r/, "\n")
   end
 end
