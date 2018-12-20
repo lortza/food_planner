@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   root 'recipes#index'
 
   resources :recipes
+  get 'temp_tiles', to: :temp_tiles, controller: 'recipes'
+
   resources :meal_plans
 end

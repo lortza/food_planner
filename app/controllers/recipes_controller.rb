@@ -1,10 +1,16 @@
 # frozen_string_literal: true
 
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: [:show, :edit, :update, :destroy]
+  before_action :set_recipe, only: %i[show edit update destroy]
 
   def index
     @recipes = Recipe.by_title
+  end
+
+  def temp_tiles
+    # randomly generated temporaty placeholder recipes
+    @recipes = Recipe.by_title
+    @prep_plan_recipes = Recipe.all.sample(5)
   end
 
   def show
