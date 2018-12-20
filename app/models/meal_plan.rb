@@ -10,6 +10,12 @@ class MealPlan < ApplicationRecord
     order(start_date: :DESC)
   end
 
+  def self.date_for_upcoming_sunday
+    closest_sunday = Date.parse('Sunday')
+    days_to_add = closest_sunday > Time.zone.today ? 0 : 7
+    closest_sunday + days_to_add
+  end
+
   def total_servings
     recipes.pluck(:servings).reduce(:+)
   end
