@@ -3,6 +3,7 @@ Documentation:
 Rails:
   Enabled: true
 AllCops:
+  TargetRubyVersion: 2.5
   DefaultFormatter: progress
   Exclude:
     - spec/rails_helper.rb
