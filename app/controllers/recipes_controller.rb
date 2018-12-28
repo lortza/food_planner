@@ -7,12 +7,6 @@ class RecipesController < ApplicationController
     @recipes = Recipe.by_title
   end
 
-  def temp_tiles
-    # randomly generated temporaty placeholder recipes
-    @recipes = Recipe.by_title
-    @prep_plan_recipes = Recipe.all.sample(5)
-  end
-
   def show
   end
 
