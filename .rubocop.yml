@@ -3,7 +3,7 @@ Documentation:
 Rails:
   Enabled: true
 AllCops:
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 2.5.0
   DefaultFormatter: progress
   Exclude:
     - spec/rails_helper.rb
@@ -12,6 +12,7 @@ AllCops:
     - 'config/**/*'
     - 'db/**/*'
     - 'script/**/*'
+    - '**/*.erb'
 Metrics/BlockLength:
   Exclude:
     - !ruby/regexp /.*_spec\.rb$/
