@@ -12,7 +12,7 @@ AllCops:
     - 'config/**/*'
     - 'db/**/*'
     - 'script/**/*'
-    - '**/*.erb'
+    # - '**/*.erb'
 Metrics/BlockLength:
   Exclude:
     - !ruby/regexp /.*_spec\.rb$/

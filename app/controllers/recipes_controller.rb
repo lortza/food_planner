@@ -49,6 +49,7 @@ class RecipesController < ApplicationController
                                    :servings,
                                    :source_name,
                                    :source_url,
+                                   :image_url,
                                    :prep_time,
                                    :cook_time,
                                    :instructions)

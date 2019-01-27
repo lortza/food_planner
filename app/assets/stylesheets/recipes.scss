@@ -4,3 +4,13 @@
     height: 400px;
   }
 }
+
+.image-container {
+  width: 100%;
+  max-width: 300px;
+  height: 200px;
+  overflow: hidden;
+  .image {
+    width: 100%;
+  }
+}
