@@ -1,10 +1,11 @@
 # frozen_string_literal: true
 
 class Ingredient < ApplicationRecord
-  belongs_to :recipe
+  belongs_to :recipe, inverse_of: :ingredients
   before_save :format_name
 
   UNITS = %w[
+    \
     can
     cup
     dozen
@@ -23,6 +24,7 @@ class Ingredient < ApplicationRecord
   ].freeze
 
   STYLES = %w[
+    \ 
     chopped
     cooked
     crumbled

@@ -12,6 +12,7 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new(Recipe::DEFAULT_PARAMS)
+    @recipe.ingredients.build
   end
 
   def create
@@ -25,6 +26,7 @@ class RecipesController < ApplicationController
   end
 
   def edit
+    @recipe.ingredients.build
   end
 
   def update
@@ -52,6 +54,17 @@ class RecipesController < ApplicationController
                                    :image_url,
                                    :prep_time,
                                    :cook_time,
-                                   :instructions)
+                                   :instructions,
+                                   { :ingredients_attributes => [
+                                     :id,
+                                     :recipe_id,
+                                     :quantity,
+                                     :measurement_unit,
+                                     :name,
+                                     :preparation_style,
+                                     :_destroy
+                                   ] }
+                                  )
+
   end
 end
