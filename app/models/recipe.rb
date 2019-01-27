@@ -46,6 +46,6 @@ class Recipe < ApplicationRecord
   end
 
   def instructions_to_lines
-    self.instructions = instructions.tr(/\r/, "\n")
+    self.instructions = instructions.gsub(/\r/, "\n")
   end
 end
