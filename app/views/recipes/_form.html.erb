@@ -18,6 +18,11 @@
     </div>
 
     <div class="field">
+      <%= form.label :image_url %>
+      <%= form.text_field :image_url, class: 'form-control' %>
+    </div>
+
+    <div class="field">
       <%= form.label :servings %>
       <%= form.number_field :servings, class: 'form-control' %>
     </div>
@@ -44,11 +49,7 @@
       <tbody>
         <%= form.fields_for :ingredients do |f_ingredient| %>
         <tr>
-          <td><%= f_ingredient.text_field :name %></td>
-          <td><%= f_ingredient.number_field :quantity %></td>
-          <td><%= select_tag('measurement_units', options_for_select(Ingredient::UNITS, selected: f_ingredient.object.measurement_unit)) %></td>
-          <td><%= select_tag('preparation_styles', options_for_select(Ingredient::STYLES, selected: f_ingredient.object.preparation_style)) %></td>
-          <td><%= link_to 'remove', '/' %></td>
+          <%= render 'ingredients/form_fields', f_ingredient: f_ingredient %>
         </tr>
         <% end %>
       </tbody>

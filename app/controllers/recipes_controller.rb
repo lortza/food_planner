@@ -12,7 +12,7 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new(Recipe::DEFAULT_PARAMS)
-    @recipe.ingredients.build
+    @recipe.ingredients.build({quantity: nil})
   end
 
   def create
@@ -26,7 +26,7 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    @recipe.ingredients.build
+    @recipe.ingredients.build({quantity: nil})
   end
 
   def update
@@ -55,16 +55,15 @@ class RecipesController < ApplicationController
                                    :prep_time,
                                    :cook_time,
                                    :instructions,
-                                   { :ingredients_attributes => [
+                                   { ingredients_attributes: [
                                      :id,
                                      :recipe_id,
+                                     :name,
                                      :quantity,
                                      :measurement_unit,
-                                     :name,
                                      :preparation_style,
                                      :_destroy
                                    ] }
                                   )
-
   end
 end
