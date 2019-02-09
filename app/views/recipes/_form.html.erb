@@ -1,27 +1,28 @@
 <div class="recipe-form">
   <%= form_for(recipe) do |form| %>
-    <%= render 'shared/errors', object: recipe %>
+  <%= render 'shared/errors', object: recipe %>
 
-    <div class="field">
-      <%= form.label :title %>
-      <%= form.text_field :title, autofocus: true, class: 'form-control' %>
-    </div>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, autofocus: true, class: 'form-control' %>
+  </div>
 
-    <div class="field">
-      <%= form.label :source_name %>
-      <%= form.text_field :source_name, class: 'form-control' %>
-    </div>
+  <div class="field">
+    <%= form.label :source_name %>
+    <%= form.text_field :source_name, class: 'form-control' %>
+  </div>
 
-    <div class="field">
-      <%= form.label :source_url %>
-      <%= form.text_field :source_url, class: 'form-control' %>
-    </div>
+  <div class="field">
+    <%= form.label :source_url %>
+    <%= form.text_field :source_url, class: 'form-control' %>
+  </div>
 
-    <div class="field">
-      <%= form.label :image_url %>
-      <%= form.text_field :image_url, class: 'form-control' %>
-    </div>
+  <div class="field">
+    <%= form.label :image_url %>
+    <%= form.text_field :image_url, class: 'form-control' %>
+  </div>
 
+  <div class="stats-container">
     <div class="field">
       <%= form.label :servings %>
       <%= form.number_field :servings, class: 'form-control' %>
@@ -36,32 +37,33 @@
       <%= form.label 'Cook Time (min)' %>
       <%= form.number_field :cook_time, class: 'form-control' %>
     </div>
+  </div>
 
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Qty</th>
-          <th>Measurement</th>
-          <th>Preparation Style</th>
-        </tr>
-      </thead>
-      <tbody>
-        <%= form.fields_for :ingredients do |f_ingredient| %>
-        <tr>
-          <%= render 'ingredients/form_fields', f_ingredient: f_ingredient %>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+  <table class="table table-ingredients">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Qty</th>
+        <th>Measurement</th>
+        <th>Preparation Style</th>
+        <th>Delete?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= form.fields_for :ingredients do |f_ingredient| %>
+      <tr>
+        <%= render 'ingredients/form_fields', f_ingredient: f_ingredient %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
+<div class="field">
+  <%= form.label :instructions %>
+  <%= form.text_area :instructions, class: 'form-control' %>
+</div>
 
-    <div class="field">
-      <%= form.label :instructions %>
-      <%= form.text_area :instructions, class: 'form-control' %>
-    </div>
+<%= form.submit class: button_classes %>
 
-    <%= form.submit class: button_classes %>
-
-  <% end %>
+<% end %>
 </div>
