@@ -1,10 +1,10 @@
 Documentation:
-  Enabled: false
+  Enabled:                         false
 Rails:
-  Enabled: true
+  Enabled:                         true
 AllCops:
-  TargetRubyVersion: 2.5.0
-  DefaultFormatter: progress
+  TargetRubyVersion:               2.5
+  # DefaultFormatter:              progress
   Exclude:
     - spec/rails_helper.rb
     - spec/spec_helper.rb
@@ -17,11 +17,11 @@ Metrics/BlockLength:
   Exclude:
     - !ruby/regexp /.*_spec\.rb$/
 Metrics/LineLength:
-  Max: 99
+  Max:                             99
 Style/BlockDelimiters:
   Exclude:
     - !ruby/regexp /.*_spec\.rb$/
 Style/EmptyMethod:
-  EnforcedStyle: expanded
+  EnforcedStyle:                   expanded
 Style/TrailingCommaInArrayLiteral:
-  EnforcedStyleForMultiline: consistent_comma
+  EnforcedStyleForMultiline:       consistent_comma
