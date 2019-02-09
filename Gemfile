@@ -48,10 +48,11 @@ group :development, :test do
   gem 'factory_bot_rails' # factory support for rspec
   gem 'pry-rails'
   gem 'reek'
-  gem 'rubocop', '~> 0.61.1', require: false
+  gem 'rubocop', '~> 0.63.1', require: false
 end
 
 group :development do
+  gem 'awesome_print'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'magic_frozen_string_literal'
   gem 'rails-erd', require: false # generates table diagram run `bundle exec erd`
