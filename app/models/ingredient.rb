@@ -6,10 +6,13 @@ class Ingredient < ApplicationRecord
 
   UNITS = %w[
     \
+    bunch
     can
+    clove
     cup
     dozen
     handful
+    lb
     leaf
     loaf
     quart
@@ -24,7 +27,7 @@ class Ingredient < ApplicationRecord
   ].freeze
 
   STYLES = %w[
-    \ 
+    \
     chopped
     cooked
     crumbled
@@ -39,8 +42,10 @@ class Ingredient < ApplicationRecord
     julienned
     matchsticked
     minced
+    piece
     raw
     ribboned
+    shredded
     sliced
     sliced\ in\ half
     soaked\ overnight
