@@ -3,8 +3,8 @@
 class Recipe < ApplicationRecord
   has_many :ingredients, inverse_of: :recipe, dependent: :destroy
   accepts_nested_attributes_for :ingredients,
-                                :reject_if => :all_blank,  # Option: validates that at least 1 ingredient should be present
-                                :allow_destroy => true # Option: allows a user to delete an ingredient via a checkbox on the edit form (see below)
+                                reject_if: :all_blank,  # Option: validates that at least 1 ingredient should be present
+                                allow_destroy: true # Option: allows a user to delete an ingredient via a checkbox on the edit form (see below)
   has_many :preparations, dependent: :destroy
   has_many :meal_plan_recipes, dependent: :destroy
   has_many :meal_plans, through: :meal_plan_recipes

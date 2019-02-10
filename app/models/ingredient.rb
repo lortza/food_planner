@@ -55,15 +55,14 @@ class Ingredient < ApplicationRecord
     uncooked
   ].freeze
 
-  validates :recipe_id,
-            :name,
+  validates :name,
             :quantity,
             :measurement_unit,
             presence: true
 
   validates :measurement_unit, inclusion: { in: UNITS }
-  validates :preparation_style, inclusion: { in: STYLES },
-                                if: -> { preparation_style.present? }
+  # validates :preparation_style, inclusion: { in: STYLES },
+                                # if: -> { preparation_style.present? }
 
   def format_name
     self.name = name.downcase

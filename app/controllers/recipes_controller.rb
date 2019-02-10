@@ -12,12 +12,11 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new(Recipe::DEFAULT_PARAMS)
-    @recipe.ingredients.build({quantity: nil})
+    15.times { @recipe.ingredients.build({quantity: nil}) }
   end
 
   def create
     @recipe = Recipe.new(recipe_params)
-
     if @recipe.save
       redirect_to recipe_url(@recipe)
     else
@@ -57,7 +56,6 @@ class RecipesController < ApplicationController
                                    :instructions,
                                    { ingredients_attributes: [
                                      :id,
-                                     :recipe_id,
                                      :name,
                                      :quantity,
                                      :measurement_unit,
