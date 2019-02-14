@@ -53,6 +53,7 @@ class RecipesController < ApplicationController
                                    :image_url,
                                    :prep_time,
                                    :cook_time,
+                                   :reheat_time,
                                    :instructions,
                                    { ingredients_attributes: [
                                      :id,

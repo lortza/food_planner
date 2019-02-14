@@ -7,14 +7,16 @@
     <%= form.text_field :title, autofocus: true, class: 'form-control' %>
   </div>
 
-  <div class="field">
-    <%= form.label :source_name %>
-    <%= form.text_field :source_name, class: 'form-control' %>
-  </div>
+  <div class="row">
+    <div class="field col-sm">
+      <%= form.label :source_name %>
+      <%= form.text_field :source_name, class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :source_url %>
-    <%= form.text_field :source_url, class: 'form-control' %>
+    <div class="field col-sm">
+      <%= form.label :source_url %>
+      <%= form.text_field :source_url, class: 'form-control' %>
+    </div>
   </div>
 
   <div class="field">
@@ -22,20 +24,25 @@
     <%= form.text_field :image_url, class: 'form-control' %>
   </div>
 
-  <div class="stats-container">
-    <div class="field">
+  <div class="row">
+    <div class="field col-sm">
       <%= form.label :servings %>
       <%= form.number_field :servings, class: 'form-control' %>
     </div>
 
-    <div class="field">
+    <div class="field col-sm">
       <%= form.label 'Prep Time (min)' %>
       <%= form.number_field :prep_time, class: 'form-control' %>
     </div>
 
-    <div class="field">
+    <div class="field col-sm">
       <%= form.label 'Cook Time (min)' %>
       <%= form.number_field :cook_time, class: 'form-control' %>
+    </div>
+
+    <div class="field col-sm">
+      <%= form.label 'Reheat Time (min)' %>
+      <%= form.number_field :reheat_time, class: 'form-control' %>
     </div>
   </div>
 

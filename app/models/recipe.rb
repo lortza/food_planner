@@ -26,6 +26,7 @@ class Recipe < ApplicationRecord
             :source_url,
             :prep_time,
             :cook_time,
+            :reheat_time,
             presence: true
 
   def self.by_title

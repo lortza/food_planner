@@ -1,13 +1,31 @@
-<div class="right"><%= link_to 'Edit', edit_recipe_path(@recipe), class: button_classes %></div>
+<div class="row">
+  <div class="col-11">
+    <h1><%= @recipe.title %></h1>
+    <p>Source: <%= link_to @recipe.source_name, @recipe.source_url, target: '_blank' %></p>
+  </div>
+  <div class="col-1">
+    <div class="right"><%= link_to 'Edit', edit_recipe_path(@recipe), class: button_classes %></div>
+  </div>
+</div>
 
-<h1><%= @recipe.title %></h1>
-<p>Source: <%= link_to @recipe.source_name, @recipe.source_url, target: '_blank' %></p>
-<ul>
-  <li>Servings: <%= @recipe.servings %></li>
-  <li>Prep Time: <%= display_time(@recipe.prep_time) %></li>
-  <li>Cook Time: <%= display_time(@recipe.cook_time) %></li>
-  <li>Total Time: <%= display_time(@recipe.total_time) %></li>
-</ul>
+<div class="row">
+  <div class="col-6">
+    <ul>
+      <li>Servings: <%= @recipe.servings %></li>
+      <li>Prep Time: <%= display_time(@recipe.prep_time) %></li>
+      <li>Cook Time: <%= display_time(@recipe.cook_time) %></li>
+      <li>Total Time: <%= display_time(@recipe.total_time) %></li>
+      <li>Reheat Time: <%= display_time(@recipe.reheat_time) %></li>
+    </ul>
+  </div>
+  <div class="col-6">
+    <div class="image-container">
+      <%= image_tag @recipe.image_url, {class: 'image'} %>
+    </div>
+  </div>
+</div>
+
+
 
 <h3>Ingredients</h3>
 <ul>

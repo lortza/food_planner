@@ -13,6 +13,7 @@ recipe = Recipe.create!(
   servings: 2,
   prep_time: 10,
   cook_time: 20,
+  reheat_time: 20,
   instructions: "Lorem ipsum dolor sit amet.\n\nConsectetur adipisicing elit, sed do eiusmod tempor incididunt.\n\nUt labore et dolore magna aliqua.\nUt enim ad minim veniam\nExcepteur sint occaecat cupidatat non proident\nSunt in culpa qui officia deserunt mollit anim id est laborum."
 )
 
@@ -59,6 +60,7 @@ poboy = Recipe.create!(
   servings: 4,
   prep_time: 10,
   cook_time: 20,
+  reheat_time: 20,
   instructions: poboy_instructions.join("\n\n")
 )
 
@@ -138,6 +140,7 @@ caraotas = Recipe.create!(
   servings: 4,
   prep_time: 10,
   cook_time: 20,
+  reheat_time: 10,
   instructions: caraotas_instructions.join("\n\n")
 )
 
@@ -220,6 +223,7 @@ pad_thai = Recipe.create!(
   servings: 4,
   prep_time: 10,
   cook_time: 20,
+  reheat_time: 10,
   instructions: pad_thai_instructions.join("\n\n")
 )
 
@@ -287,6 +291,7 @@ lentil_soup = Recipe.create!(
   servings: 4,
   prep_time: 20,
   cook_time: 30,
+  reheat_time: 10,
   instructions: lentil_soup_instructions.join("\n\n")
 )
 
@@ -356,6 +361,7 @@ blended_lentils = Recipe.create!(
   servings: 4,
   prep_time: 10,
   cook_time: 30,
+  reheat_time: 10,
   instructions: [
     "Peel and chop the onion and add to a pot with the olive oil and cumin and sauté until slightly softened.",
     "Add the carrots and toss together. Then the lentils and toss together with the other vegetables.",
@@ -416,6 +422,7 @@ quiche = Recipe.create!(
   servings: 4,
   prep_time: 10,
   cook_time: 30,
+  reheat_time: 20,
   instructions: [
     "Preheat oven 350F (or just use a toaster oven so you don't have to preheat)",
     "Prebake the crust for about 10 mi. Keep an eye on it because you don't want it to get too deformed in the process.",
@@ -494,6 +501,7 @@ red_lentil_curry = Recipe.create!(
   servings: 4,
   prep_time: 20,
   cook_time: 30,
+  reheat_time: 20,
   instructions: [
     "Cook down the onions and tomatoes",
     "Add in the spices, simmer for about 30 seconds",
@@ -582,6 +590,7 @@ gnocchi = Recipe.create!(
   servings: 4,
   prep_time: 10,
   cook_time: 30,
+  reheat_time: 30,
   instructions: [
     "When Preparing in Advance",
     "Divide all of the veg into 2 containers.",
