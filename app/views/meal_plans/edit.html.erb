@@ -3,3 +3,5 @@
 <h1>Edit the Plan for <%= @meal_plan.start_date %> </h1>
 
 <%= render 'form', meal_plan: @meal_plan %>
+
+<%= render partial: 'shared/delete_footer', locals: { object: @meal_plan } %>

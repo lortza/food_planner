@@ -25,8 +25,8 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    @recipe.ingredients.build({quantity: nil})
-    # 15.times { @recipe.ingredients.build({quantity: nil}) }
+    # @recipe.ingredients.build({quantity: nil})
+    3.times { @recipe.ingredients.build({quantity: nil}) }
   end
 
   def update

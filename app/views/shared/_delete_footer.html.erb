@@ -1,0 +1,3 @@
+<footer class='footer__delete'>
+  <%= link_to "Delete #{object.class.name}",  object,  method: :delete, data: { confirm: 'Are you sure? This action cannot be undone.' }, class: 'btn btn-sm btn-outline-danger mb-5' %>
+</footer>

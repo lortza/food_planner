@@ -5,6 +5,12 @@
   float: right;
 }
 
+.footer__delete {
+  margin-top: 2rem;
+  border-top: 1px solid gray;
+  padding-top: 1rem;
+}
+
 /* BOOTSTRAP OVERRIDES */
 .card {
   height: $card_height;
