@@ -1,0 +1,37 @@
+<%= form_for(meal_plan) do |form| %>
+  <%= render 'shared/errors', object: meal_plan %>
+
+  <form>
+    <div class="form-group row">
+      <%= form.label :start_date, class: 'col-sm-3 col-form-label' %>
+      <div class="col-sm-9">
+        <%= form.date_field :start_date, autofocus: true, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= form.label :people_served, class: 'col-sm-3 col-form-label' %>
+      <div class="col-sm-9">
+        <%= form.number_field :people_served, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-3">Select Recipes</div>
+
+      <div class="col-sm-9">
+        <%= form.collection_check_boxes :recipe_ids, Recipe.all.by_title, :id, :title do |r| %>
+          <div class='form-check'>
+            <%= r.check_box class: 'form-check-input' %>
+            <%= r.label class: 'form-check-label' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-9 offset-sm-3">
+        <%= form.submit class: button_classes %>
+      </div>
+    </div>
+  </form>
+
+<% end %>
