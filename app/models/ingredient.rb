@@ -12,6 +12,7 @@ class Ingredient < ApplicationRecord
     cup
     dozen
     handful
+    inch
     lb
     leaf
     loaf
@@ -63,6 +64,15 @@ class Ingredient < ApplicationRecord
   validates :measurement_unit, inclusion: { in: UNITS }
   # validates :preparation_style, inclusion: { in: STYLES },
                                 # if: -> { preparation_style.present? }
+
+
+  def self.by_id
+    order(:id)
+  end
+
+  def whole_number?
+    quantity % 1 == 0
+  end
 
   def format_name
     self.name = name.downcase

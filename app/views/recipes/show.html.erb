@@ -29,8 +29,17 @@
 
 <h3>Ingredients</h3>
 <ul>
-  <% @recipe.ingredients.each do |ingredient| %>
-    <li><%= ingredient_display(ingredient) %></li>
+  <% @recipe.ingredients.by_id.each do |ingredient| %>
+    <li>
+      <div class="row">
+        <div class="col-sm">
+          <%= ingredient_display(ingredient) %>
+        </div>
+        <div class="col-sm">
+          <%= ingredient.preparation_style %>
+        </div>
+      </div> <!-- row -->
+    </li>
   <% end %>
 </ul>
 

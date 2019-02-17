@@ -3,3 +3,5 @@
 <%= render 'form', recipe: @recipe %>
 
 <%= link_to 'Cancel', @recipe, class: 'btn btn-sm btn-primary' %>
+
+<%= link_to 'Delete',  @recipe,  method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>

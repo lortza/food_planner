@@ -11,7 +11,7 @@ class RecipesController < ApplicationController
   end
 
   def new
-    @recipe = Recipe.new(Recipe::DEFAULT_PARAMS)
+    @recipe = Recipe.new
     15.times { @recipe.ingredients.build({quantity: nil}) }
   end
 
@@ -26,6 +26,7 @@ class RecipesController < ApplicationController
 
   def edit
     @recipe.ingredients.build({quantity: nil})
+    # 15.times { @recipe.ingredients.build({quantity: nil}) }
   end
 
   def update
@@ -37,7 +38,10 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-  end
+   Recipe.find(params[:id]).destroy
+   flash[:success] = "Recipe deleted"
+   redirect_to recipes_path
+ end
 
   private
 

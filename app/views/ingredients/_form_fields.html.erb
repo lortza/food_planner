@@ -1,11 +1,11 @@
-<td><%= f_ingredient.text_field :name, class: 'form-control' %></td>
-<td><%= f_ingredient.number_field :quantity, class: 'form-control input__small' %></td>
+<td><%= f_ingredient.text_field :quantity, class: 'form-control input__small' %></td>
 <td>
   <%= f_ingredient.select :measurement_unit,
                           options_for_select(Ingredient::UNITS, selected: f_ingredient.object.measurement_unit),
                           {},
                           class: 'form-control' %>
 </td>
+<td><%= f_ingredient.text_field :name, class: 'form-control' %></td>
 <td>
   <%= f_ingredient.text_field :preparation_style,
                               placeholder: 'Ex: rinsed and drained',

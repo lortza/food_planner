@@ -5,14 +5,13 @@ module RecipesHelper
     [
       qty_display(ingredient),
       ingredient.measurement_unit,
-      ingredient.preparation_style,
       ingredient.name,
     ].join(' ')
   end
 
   def qty_display(ingredient)
-    return ingredient.quantity.to_i if ingredient.quantity >= 1
-    return ingredient.quantity.to_r if ingredient.quantity.positive?
+    return ingredient.quantity.to_i if ingredient.whole_number?
+    ingredient.quantity.round(3)
   end
 
   def detail_display(detail)

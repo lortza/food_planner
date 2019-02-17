@@ -11,17 +11,22 @@
       <th>Ingredients</th>
       <th>Meal Plans</th>
       <th>Last Prepared</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
     <% @recipes.each do |recipe| %>
       <tr>
-        <td><%= link_to recipe.title, recipe_path(recipe) %></td>
+        <td><%= recipe.id %> <%= link_to recipe.title, recipe_path(recipe) %></td>
         <td><%= recipe.servings %></td>
         <td><%= link_to recipe.source_name, recipe.source_url %></td>
         <td><%= recipe.ingredients.count %></td>
         <td><%= recipe.meal_plans.count %></td>
         <td><%= recipe.last_prepared %></td>
+        <td><%= link_to 'Delete', recipe,
+                      method: :delete,
+                      data: { confirm: "Are you sure you want to delete #{recipe.title}? This action cannot be undone." },
+                      class: 'btn btn-sm btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
