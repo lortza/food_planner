@@ -2,12 +2,11 @@
 
 <h1>Recipe Index</h1>
 
-<table class="table table-sm">
+<table class="table table-sm table__recipes-index">
   <thead>
     <tr>
-      <th>Title</th>
+      <th colspan='2'>Title</th>
       <th>Servings</th>
-      <th>Source</th>
       <th>Ingredients</th>
       <th>Meal Plans</th>
       <th>Last Prepared</th>
@@ -17,9 +16,11 @@
   <tbody>
     <% @recipes.each do |recipe| %>
       <tr>
+        <td><div class="img__container">
+          <%= image_tag recipe.image_url %>
+        </div></td>
         <td><%= recipe.id %> <%= link_to recipe.title, recipe_path(recipe) %></td>
         <td><%= recipe.servings %></td>
-        <td><%= link_to recipe.source_name, recipe.source_url %></td>
         <td><%= recipe.ingredients.count %></td>
         <td><%= recipe.meal_plans.count %></td>
         <td><%= recipe.last_prepared %></td>

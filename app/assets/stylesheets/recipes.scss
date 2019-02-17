@@ -1,3 +1,19 @@
+$table_thumbnail: 40px;
+.table__recipes-index {
+  .img__container {
+    width: $table_thumbnail;
+    height: $table_thumbnail;
+    overflow: hidden;
+    img {
+      width: 100%;
+      min-width: $table_thumbnail;
+      min-height: $table_thumbnail;
+      height: 100%;
+      margin: 0 auto;
+    }
+  }
+}
+
 .recipe-form {
   textarea {
     width: 100%;
