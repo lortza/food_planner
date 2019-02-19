@@ -4,7 +4,11 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[show edit update destroy]
 
   def index
-    @recipes = Recipe.by_title
+    if params[:search]
+      @recipes = Recipe.search(params[:search]).by_title
+    else
+      @recipes = Recipe.by_title
+    end
   end
 
   def show
@@ -38,10 +42,10 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-   Recipe.find(params[:id]).destroy
-   flash[:success] = "Recipe deleted"
-   redirect_to recipes_path
- end
+    Recipe.find(params[:id]).destroy
+    flash[:success] = "Recipe deleted"
+    redirect_to recipes_path
+  end
 
   private
 

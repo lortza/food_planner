@@ -2,33 +2,37 @@
 
 <h1>Recipe Index</h1>
 
-<table class="table table-sm table__recipes-index">
-  <thead>
-    <tr>
-      <th colspan='2'>Title</th>
-      <th>Servings</th>
-      <th>Ingredients</th>
-      <th>Meal Plans</th>
-      <th>Last Prepared</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @recipes.each do |recipe| %>
-      <tr>
-        <td><div class="img__container">
-          <%= image_tag recipe.image_url %>
-        </div></td>
-        <td><%= recipe.id %> <%= link_to recipe.title, recipe_path(recipe) %></td>
-        <td><%= recipe.servings %></td>
-        <td><%= recipe.ingredients.count %></td>
-        <td><%= recipe.meal_plans.count %></td>
-        <td><%= recipe.last_prepared %></td>
-        <td><%= link_to 'Delete', recipe,
-                      method: :delete,
-                      data: { confirm: "Are you sure you want to delete #{recipe.title}? This action cannot be undone." },
-                      class: 'btn btn-sm btn-danger' %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% if @recipes.present? %>
+    <table class="table table-sm table__recipes-index">
+      <thead>
+        <tr>
+          <th colspan='2'>Title</th>
+          <th>Servings</th>
+          <th>Ingredients</th>
+          <th>Meal Plans</th>
+          <th>Last Prepared</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @recipes.each do |recipe| %>
+          <tr>
+            <td><div class="img__container">
+              <%= image_tag recipe.image_url %>
+            </div></td>
+            <td><%= recipe.id %> <%= link_to recipe.title, recipe_path(recipe) %></td>
+            <td><%= recipe.servings %></td>
+            <td><%= recipe.ingredients.count %></td>
+            <td><%= recipe.meal_plans.count %></td>
+            <td><%= recipe.last_prepared %></td>
+            <td><%= link_to 'Delete', recipe,
+                          method: :delete,
+                          data: { confirm: "Are you sure you want to delete #{recipe.title}? This action cannot be undone." },
+                          class: 'btn btn-sm btn-danger' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>There are no recipes containing the term(s) <%= params[:search] %>.</p>
+  <% end %>

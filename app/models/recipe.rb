@@ -29,6 +29,14 @@ class Recipe < ApplicationRecord
             :reheat_time,
             presence: true
 
+  def self.search(terms)
+    if terms.blank?
+      all
+    else
+      where("title ILIKE ?", "%#{terms}%")
+    end
+  end
+
   def self.by_title
     order(:title)
     # all.includes(:meal_plans).order('meal_plans.start_date, DESC')
