@@ -6,6 +6,7 @@ class Ingredient < ApplicationRecord
 
   UNITS = %w[
     \
+    box
     bunch
     can
     clove
@@ -22,6 +23,7 @@ class Ingredient < ApplicationRecord
     slice
     sprig
     stalk
+    stick
     T
     tsp
     whole

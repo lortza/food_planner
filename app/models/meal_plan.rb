@@ -37,6 +37,11 @@ class MealPlan < ApplicationRecord
     (total_time * assumed_efficiency_rate).to_i
   end
 
+  def recommended_start_time
+    end_time = '5:00 PM'.to_time
+    (end_time - estimated_time * 60).strftime("%I:%M %p")
+  end
+
   def total_unique_ingredients
     # Option 1: SQL is faster
     # Ingredient.select(:name).distinct
