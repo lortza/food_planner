@@ -58,11 +58,13 @@ class RecipesController < ApplicationController
                                    :servings,
                                    :source_name,
                                    :source_url,
+                                   :pepperplate_url,
                                    :image_url,
                                    :prep_time,
                                    :cook_time,
                                    :reheat_time,
                                    :instructions,
+                                   :notes,
                                    { ingredients_attributes: [
                                      :id,
                                      :name,

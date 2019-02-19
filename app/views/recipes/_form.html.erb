@@ -24,6 +24,11 @@
     <%= form.text_field :image_url, class: 'form-control' %>
   </div>
 
+  <div class="field">
+    <%= form.label :pepperplate_url %>
+    <%= form.text_field :pepperplate_url, class: 'form-control' %>
+  </div>
+
   <div class="row">
     <div class="field col-sm">
       <%= form.label :servings %>
@@ -44,6 +49,11 @@
       <%= form.label 'Reheat Time (min)' %>
       <%= form.number_field :reheat_time, class: 'form-control' %>
     </div>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes, class: 'form-control' %>
   </div>
 
   <table class="table table-ingredients">
@@ -67,7 +77,7 @@
 
 <div class="field">
   <%= form.label :instructions %>
-  <%= form.text_area :instructions, class: 'form-control' %>
+  <%= form.text_area :instructions, class: 'form-control instructions' %>
 </div>
 
 <%= form.submit class: button_classes('primary mt-3') %>

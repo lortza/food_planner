@@ -1,7 +1,12 @@
 <div class="row">
   <div class="col-11">
     <h1><%= @recipe.title %></h1>
-    <p>Source: <%= link_to @recipe.source_name, @recipe.source_url, target: '_blank' %></p>
+    <p>
+      Source: <%= link_to @recipe.source_name, @recipe.source_url, title: @recipe.source_name, target: '_blank' %>
+      <% if @recipe.pepperplate_url %>
+       | <%= link_to 'Pepperplate', @recipe.pepperplate_url, title: 'pepperplate', target: '_blank' %>
+      <% end %>
+    </p>
   </div>
   <div class="col-1">
     <div class="right"><%= link_to 'Edit', edit_recipe_path(@recipe), class: button_classes %></div>
@@ -17,6 +22,7 @@
       <li>Total Time: <%= display_time(@recipe.total_time) %></li>
       <li>Reheat Time: <%= display_time(@recipe.reheat_time) %></li>
     </ul>
+    <p><%= @recipe.notes %></p>
   </div>
   <div class="col-6">
     <div class="image-container">
