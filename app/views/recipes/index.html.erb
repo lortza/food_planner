@@ -20,15 +20,12 @@
             <td><div class="img__container">
               <%= image_tag recipe.image_url %>
             </div></td>
-            <td><%= recipe.id %> <%= link_to recipe.title, recipe_path(recipe) %></td>
+            <td><%= link_to recipe.title, recipe_path(recipe) %></td>
             <td><%= recipe.servings %></td>
             <td><%= recipe.ingredients.count %></td>
             <td><%= recipe.meal_plans.count %></td>
             <td><%= recipe.last_prepared %></td>
-            <td><%= link_to 'Delete', recipe,
-                          method: :delete,
-                          data: { confirm: "Are you sure you want to delete #{recipe.title}? This action cannot be undone." },
-                          class: 'btn btn-sm btn-danger' %></td>
+            <td><%= link_to 'Edit', edit_recipe_path(recipe), class: button_classes('outline-info') %></td>
           </tr>
         <% end %>
       </tbody>
