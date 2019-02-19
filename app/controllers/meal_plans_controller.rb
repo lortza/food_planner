@@ -39,6 +39,12 @@ class MealPlansController < ApplicationController
     end
   end
 
+  def destroy
+    MealPlan.find(params[:id]).destroy
+    flash[:success] = "Meal Plan deleted"
+    redirect_to meal_plans_path
+  end
+
   private
 
   def set_meal_plan
