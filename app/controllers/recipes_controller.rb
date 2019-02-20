@@ -7,7 +7,7 @@ class RecipesController < ApplicationController
     if params[:search]
       @recipes = Recipe.search(params[:search]).by_title
     else
-      @recipes = Recipe.by_title
+      @recipes = Recipe.active.by_title
     end
   end
 
@@ -65,6 +65,7 @@ class RecipesController < ApplicationController
                                    :reheat_time,
                                    :instructions,
                                    :notes,
+                                   :archived,
                                    { ingredients_attributes: [
                                      :id,
                                      :name,

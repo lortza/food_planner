@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_19_035332) do
+ActiveRecord::Schema.define(version: 2019_02_20_002603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2019_02_19_035332) do
     t.integer "reheat_time"
     t.string "pepperplate_url"
     t.text "notes"
+    t.boolean "archived", default: false
   end
 
   add_foreign_key "ingredients", "recipes"

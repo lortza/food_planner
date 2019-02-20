@@ -42,6 +42,18 @@ class Recipe < ApplicationRecord
     # all.includes(:meal_plans).order('meal_plans.start_date, DESC')
   end
 
+  def self.active
+    where(archived: false)
+  end
+
+  def active?
+    archived == false
+  end
+
+  def frequency
+    meal_plans.count
+  end
+
   def provide_default_source
     self.source_name = DEFAULT_SOURCE[:source_name] if source_name.blank?
     self.source_url = DEFAULT_SOURCE[:source_url] if source_url.blank?

@@ -20,7 +20,7 @@
             <td><div class="img__container">
               <%= image_tag recipe.image_url %>
             </div></td>
-            <td><%= link_to recipe.title, recipe_path(recipe) %></td>
+            <td><%= link_to recipe.title, recipe_path(recipe) %> <%= status_flag(recipe) %></td>
             <td><%= recipe.servings %></td>
             <td><%= recipe.ingredients.count %></td>
             <td><%= recipe.meal_plans.count %></td>

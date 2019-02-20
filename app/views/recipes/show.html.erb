@@ -3,7 +3,7 @@
     <h1><%= @recipe.title %></h1>
     <p>
       Source: <%= link_to @recipe.source_name, @recipe.source_url, title: @recipe.source_name, target: '_blank' %>
-      <% if @recipe.pepperplate_url %>
+      <% unless @recipe.pepperplate_url.blank? %>
        | <%= link_to 'Pepperplate', @recipe.pepperplate_url, title: 'pepperplate', target: '_blank' %>
       <% end %>
     </p>
@@ -21,6 +21,7 @@
       <li>Cook Time: <%= display_time(@recipe.cook_time) %></li>
       <li>Total Time: <%= display_time(@recipe.total_time) %></li>
       <li>Reheat Time: <%= display_time(@recipe.reheat_time) %></li>
+      <li>Prepared: <%= pluralize(@recipe.frequency, 'time') %></li>
     </ul>
     <p><%= @recipe.notes %></p>
   </div>

@@ -22,4 +22,12 @@ module RecipesHelper
       "(#{detail.recipe.title})",
     ].join(' ')
   end
+
+  def status_flag(recipe)
+    case
+    when !recipe.active? then 'archived'
+    when recipe.last_prepared == nil then 'new'
+    when recipe.last_prepared < Date.today.prev_month(4) then 'been a while'
+    end
+  end
 end
