@@ -23,11 +23,10 @@ module ApplicationHelper
     TimeHelper.display_time(minutes)
   end
 
-  def display_link_to_plan?
-    # if there is a plan for next sunday, show it
-    return true if plan_for_next_sunday
-    # else if there is a next plan, show the next plan
-    # else show no link
+  def display_link_to_plan
+    if plan_for_next_sunday
+      link_to "Coming up: #{plan_for_next_sunday.start_date}", plan_for_next_sunday, class: 'dropdown-item'
+    end
   end
 
   def plan_for_next_sunday

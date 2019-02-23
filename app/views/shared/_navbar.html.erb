@@ -18,7 +18,7 @@
           Meal Plans
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= render 'shared/upcoming_meal_plan_link' %>
+          <%= display_link_to_plan %>
           <%= link_to 'All Meal Plans', meal_plans_path, class: 'dropdown-item' %>
           <%= link_to '+ New Meal Plan', new_meal_plan_path, class: 'dropdown-item' %>
         </div>

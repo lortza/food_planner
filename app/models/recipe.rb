@@ -17,7 +17,7 @@ class Recipe < ApplicationRecord
   }.freeze
 
   before_validation :provide_default_source, on: :create
-  before_save :instructions_to_lines
+  # before_save :instructions_to_lines
 
   validates :title,
             :servings,
