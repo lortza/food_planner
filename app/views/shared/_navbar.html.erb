@@ -36,6 +36,9 @@
           <%= link_to 'Action', recipes_path, class: 'dropdown-item' %>
         </div>
       </li>
+      <li class="nav-item">
+        <%= session_links %>
+      </li>
     </ul>
     <%= form_tag(recipes_path, :method => "get", id: 'search-form', class: 'form-inline my-2 my-lg-0' ) do %>
       <%= text_field_tag :search, params[:search], placeholder: "Search Recipes", class: 'form-control mr-sm-2' %>

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Recipe < ApplicationRecord
+  belongs_to :user
   has_many :ingredients, inverse_of: :recipe, dependent: :destroy
   accepts_nested_attributes_for :ingredients,
                                 reject_if: :all_blank,  # Option: validates that at least 1 ingredient should be present

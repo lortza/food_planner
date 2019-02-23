@@ -5,8 +5,22 @@
 
 Recipe.destroy_all
 MealPlan.destroy_all
+User.destroy_all
+
+admin_user = User.create!({
+  email: 'admin@email.com',
+  password: 'password',
+  password_confirmation: 'password'
+})
+
+User.create!({
+  email: 'user2@email.com',
+  password: 'password',
+  password_confirmation: 'password'
+})
 
 recipe = Recipe.create!(
+  user_id: admin_user.id,
   title: 'Sample Recipe',
   source_name: 'RecipeSite',
   source_url: 'http://www.google.com',
@@ -56,6 +70,7 @@ poboy_instructions = [
   "Enjoy with a side of chips",
 ]
 poboy = Recipe.create!(
+  user_id: admin_user.id,
   title: "Veggie Po'boy",
   servings: 4,
   prep_time: 10,
@@ -134,6 +149,7 @@ caraotas_instructions = [
   "Bring mixture to boil."
 ]
 caraotas = Recipe.create!(
+  user_id: admin_user.id,
   title: 'Caraotas Negras',
   source_name: 'GOYA',
   source_url: 'https://www.goya.com/en/recipes/dishes-desserts/caraotas-negras',
@@ -217,6 +233,7 @@ pad_thai_instructions = [
   "Garnish with crushed peanuts, bean sprouts, or lime wedge if desired.",
 ]
 pad_thai = Recipe.create!(
+  user_id: admin_user.id,
   title: 'Quick Pad Thai',
   source_name: "Women's Health Magazine",
   source_url: 'https://subscribe.hearstmags.com/circulation/shared/index.html',
@@ -285,6 +302,7 @@ lentil_soup_instructions = [
   "Note, broth can be substituted for water.",
 ]
 lentil_soup = Recipe.create!(
+  user_id: admin_user.id,
   title: 'Creamy Lentil Soup',
   source_name: "Bob's Red Mill",
   source_url: 'https://www.bobsredmill.com/recipes/how-to-make/creamed-vegi-soup/',
@@ -355,6 +373,7 @@ lentil_soup.ingredients.create!([
 ])
 
 blended_lentils = Recipe.create!(
+  user_id: admin_user.id,
   title: 'Blended Red Lentil Soup',
   source_name: 'Loving it Vegan',
   source_url: 'https://lovingitvegan.com/vegan-lentil-soup/',
@@ -418,6 +437,7 @@ blended_lentils.ingredients.create!([
 
 
 quiche = Recipe.create!(
+  user_id: admin_user.id,
   title: 'Quiche',
   servings: 4,
   prep_time: 10,
@@ -495,6 +515,7 @@ quiche.ingredients.create!([
 
 
 red_lentil_curry = Recipe.create!(
+  user_id: admin_user.id,
   title: 'Red Lentil Curry',
   source_name: 'Jessica in the Kitchen',
   source_url: 'https://jessicainthekitchen.com/red-lentil-curry-vegan/',
@@ -584,6 +605,7 @@ red_lentil_curry.ingredients.create!([
 
 
 gnocchi = Recipe.create!(
+  user_id: admin_user.id,
   title: 'Creamy Cherry Tomato & Summer Squash Gnocchi',
   source_name: 'Cookie + Kate',
   source_url: 'http://cookieandkate.com/2015/creamy-cherry-tomato-summer-squash-pasta/',
@@ -690,8 +712,17 @@ gnocchi.ingredients.create!([
   )
 end
 
-# MealPlan.create!(
-#   start_date: Date.today + 4,
-#   people_served: 2,
-#   recipes: Recipe.last(4)
-# )
+# 3.times do
+#   Preparation.create!(
+#     date: Date.today + 4,
+#     recipe: Recipe.all.sample
+#   )
+#   Preparation.create!(
+#     date: Date.today - 3,
+#     recipe: Recipe.all.sample
+#   )
+#   Preparation.create!(
+#     date: Date.today + 7,
+#     recipe: Recipe.all.sample
+#   )
+# end
