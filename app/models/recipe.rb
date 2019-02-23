@@ -6,7 +6,6 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :ingredients,
                                 reject_if: :all_blank,  # Option: validates that at least 1 ingredient should be present
                                 allow_destroy: true # Option: allows a user to delete an ingredient via a checkbox on the edit form (see below)
-  has_many :preparations, dependent: :destroy
   has_many :meal_plan_recipes, dependent: :destroy
   has_many :meal_plans, through: :meal_plan_recipes
 
@@ -41,6 +40,11 @@ class Recipe < ApplicationRecord
   def self.by_title
     order(:title)
     # all.includes(:meal_plans).order('meal_plans.start_date, DESC')
+  end
+
+  def self.for_prep_date(date)
+    # WIP
+    # Recipe.joins(:preparations).where(preparations: {date: date})
   end
 
   def self.active

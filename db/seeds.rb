@@ -711,18 +711,3 @@ gnocchi.ingredients.create!([
     recipes: Recipe.all.sample(rand(2..5))
   )
 end
-
-# 3.times do
-#   Preparation.create!(
-#     date: Date.today + 4,
-#     recipe: Recipe.all.sample
-#   )
-#   Preparation.create!(
-#     date: Date.today - 3,
-#     recipe: Recipe.all.sample
-#   )
-#   Preparation.create!(
-#     date: Date.today + 7,
-#     recipe: Recipe.all.sample
-#   )
-# end

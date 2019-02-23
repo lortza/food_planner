@@ -42,14 +42,6 @@ ActiveRecord::Schema.define(version: 2019_02_23_220915) do
     t.integer "people_served", default: 0, null: false
   end
 
-  create_table "preparations", force: :cascade do |t|
-    t.date "date"
-    t.bigint "recipe_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["recipe_id"], name: "index_preparations_on_recipe_id"
-  end
-
   create_table "recipes", force: :cascade do |t|
     t.string "title", default: "", null: false
     t.string "source_name", default: "", null: false
@@ -84,6 +76,5 @@ ActiveRecord::Schema.define(version: 2019_02_23_220915) do
   add_foreign_key "ingredients", "recipes"
   add_foreign_key "meal_plan_recipes", "meal_plans"
   add_foreign_key "meal_plan_recipes", "recipes"
-  add_foreign_key "preparations", "recipes"
   add_foreign_key "recipes", "users"
 end
