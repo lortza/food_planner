@@ -25,6 +25,7 @@ WIP food planning app.
 
 ## Related Docs
 * [Devise](https://github.com/plataformatec/devise)
+* [Uglifier](https://github.com/lautis/uglifier) in harmony mode
 
 
 ## WIP Notes:
