@@ -13,7 +13,7 @@ module ApplicationHelper
 
   def session_links
     if current_user
-      link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link'
+      link_to "Sign Out #{current_user.email}", destroy_user_session_path, method: :delete, class: 'nav-link'
     else
       link_to 'Sign In', user_session_path, class: 'nav-link'
     end
@@ -24,9 +24,14 @@ module ApplicationHelper
   end
 
   def display_link_to_plan
-    if plan_for_next_sunday
-      link_to "Coming up: #{plan_for_next_sunday.start_date}", plan_for_next_sunday, class: 'dropdown-item'
-    end
+    return link_to "Today's Plan: #{plan_for_today.start_date}", user_meal_plan_path(current_user, plan_for_today), class: 'dropdown-item' if plan_for_today
+    return link_to "Coming up: #{plan_for_next_sunday.start_date}", user_meal_plan_path(current_user, plan_for_next_sunday), class: 'dropdown-item' if plan_for_next_sunday
+  end
+
+  private
+
+  def plan_for_today
+    MealPlan.find_by(start_date: Date.today)
   end
 
   def plan_for_next_sunday
