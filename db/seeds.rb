@@ -465,13 +465,13 @@ Ingredient.create!([
   {recipe_id: recipe_88.id, quantity: 2.0, measurement_unit: "stalk", name: "celery", preparation_style: ""}
 ])
 
-meal_plan_43 = MealPlan.create!({start_date: "2007-11-22", people_served: 4})
-meal_plan_42 = MealPlan.create!({start_date: "2018-10-24", people_served: 2})
-meal_plan_44 = MealPlan.create!({start_date: "2018-11-22", people_served: 2})
-meal_plan_39 = MealPlan.create!({start_date: "2019-02-10", people_served: 2})
-meal_plan_37 = MealPlan.create!({start_date: "2019-02-17", people_served: 2})
-meal_plan_40 = MealPlan.create!({start_date: "2019-02-24", people_served: 2})
-meal_plan_41 = MealPlan.create!({start_date: "2019-03-03", people_served: 2})
+meal_plan_43 = MealPlan.create!({user_id: user.id, start_date: "2007-11-22", people_served: 4})
+meal_plan_42 = MealPlan.create!({user_id: user.id, start_date: "2018-10-24", people_served: 2})
+meal_plan_44 = MealPlan.create!({user_id: user.id, start_date: "2018-11-22", people_served: 2})
+meal_plan_39 = MealPlan.create!({user_id: user.id, start_date: "2019-02-10", people_served: 2})
+meal_plan_37 = MealPlan.create!({user_id: user.id, start_date: "2019-02-17", people_served: 2})
+meal_plan_40 = MealPlan.create!({user_id: user.id, start_date: "2019-02-24", people_served: 2})
+meal_plan_41 = MealPlan.create!({user_id: user.id, start_date: "2019-03-03", people_served: 2})
 
 MealPlanRecipe.create!([
   {meal_plan_id: meal_plan_37.id, recipe_id: recipe_68.id},
