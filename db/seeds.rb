@@ -4,9 +4,9 @@ MealPlan.destroy_all
 Ingredient.destroy_all
 User.destroy_all
 
-user = User.create!([
+user = User.create!(
   {email: "admin@email.com", password: 'password', password_confirmation: 'password', admin: true}
-])
+)
 
 recipe_49 = Recipe.create!(
   {user_id: user.id, title: "Veggie Po'boy", source_name: "Warm Kitchen", source_url: "https://warmkitchen.wordpress.com/2014/11/12/its-a-veggie-po-boy-yall/", servings: 4, instructions: "Turn your oven onto broil\r\n\r\nCut your bread into 6″ lengths, then cut it open\r\n\r\nPlace both side face up on a baking tray and top both pieces of bread with cheese and banana peppers\r\n\r\nBroil for just a few minutes while you prep the other vegetables\r\n\r\nThinly slice your cucumbers and bell pepper\r\n\r\nCheck your poboy bread\r\n\r\nThinly slice your tomatoes and onion\r\n\r\nPrep your greens\r\n\r\nCheck your bread\r\n\r\nWhen the bread and cheese are getting all goldeny and delicious, pull them out\r\n\r\nTop with all of your vegetables, then close the lid\r\n\r\nEnjoy with a side of chips", prep_time: 10, cook_time: 20, image_url: "http://cdn2.pepperplate.com/recipes/bcb751ba9ab749dbb0f48ffb083a72c5.jpg", reheat_time: 20, pepperplate_url: "http://www.pepperplate.com/recipes/view.aspx?id=15454393", notes: "", archived: false}
