@@ -28,7 +28,6 @@ group :development, :test do
   gem 'binding_of_caller' # goes with better_errors
   gem 'bullet' # detects n+1 queries
   gem 'byebug', platforms: %i[mri mingw x64_mingw] # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'factory_bot_rails' # factory support for rspec
   gem 'pry-rails'
   gem 'reek'
   gem 'rubocop', '~> 0.63.1', require: false
@@ -45,6 +44,12 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
+end
+
+group :test do
+  gem 'factory_bot_rails' # factory support for rspec
+  gem "launchy"             # open browser with save_and_open_page
+  gem "shoulda-matchers"    # library for easier testing syntax
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
