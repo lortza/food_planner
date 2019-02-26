@@ -32,8 +32,8 @@ module ApplicationHelper
   end
 
   def display_link_to_plan
-    return link_to "Today's Plan: #{plan_for_today.start_date}", user_meal_plan_path(current_user, plan_for_today), class: 'dropdown-item' if plan_for_today
-    return link_to "Coming up: #{plan_for_next_sunday.start_date}", user_meal_plan_path(current_user, plan_for_next_sunday), class: 'dropdown-item' if plan_for_next_sunday
+    return link_to "Today's Plan: #{plan_for_today.start_date}", meal_plan_path(plan_for_today), class: 'dropdown-item' if plan_for_today
+    return link_to "Coming up: #{plan_for_next_sunday.start_date}", meal_plan_path(plan_for_next_sunday), class: 'dropdown-item' if plan_for_next_sunday
   end
 
   private
