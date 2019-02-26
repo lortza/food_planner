@@ -10,12 +10,12 @@ RSpec.describe Recipe, type: :model do
       end
     end
 
-    context 'when it does not have a title' do
-      it 'is not valid' do
-        recipe.title = nil
-        expect(recipe).to_not be_valid
-      end
-    end
+    it { should validate_presence_of(:title) }
+    it { should validate_presence_of(:servings) }
+    it { should validate_presence_of(:instructions) }
+    it { should validate_presence_of(:prep_time) }
+    it { should validate_presence_of(:cook_time) }
+    it { should validate_presence_of(:reheat_time) }
 
     context 'when it does not have a source' do
       let(:recipe_missing_source) { create(:recipe, source_name: '', source_url: '') }
@@ -26,34 +26,6 @@ RSpec.describe Recipe, type: :model do
 
       it 'is provided a source url' do
         expect(recipe_missing_source.source_url).to eq(Recipe::DEFAULT_SOURCE[:source_url])
-      end
-    end
-
-    context 'when it does not have servings' do
-      it 'is not valid' do
-        recipe.servings = nil
-        expect(recipe).to_not be_valid
-      end
-    end
-
-    context 'when it does not have instructions' do
-      it 'is not valid' do
-        recipe.instructions = nil
-        expect(recipe).to_not be_valid
-      end
-    end
-
-    context 'when it does not have a prep_time' do
-      it 'is not valid' do
-        recipe.prep_time = nil
-        expect(recipe).to_not be_valid
-      end
-    end
-
-    context 'when it does not have a cook_time' do
-      it 'is not valid' do
-        recipe.cook_time = nil
-        expect(recipe).to_not be_valid
       end
     end
   end

@@ -10,29 +10,21 @@ RSpec.describe MealPlan, type: :model do
       end
     end
 
-    context 'when it does not have a start_date' do
-      it 'is not valid' do
-        meal_plan.start_date = nil
-        expect(meal_plan).to_not be_valid
-      end
-    end
-
-    context 'when it does not have a people_served' do
-      it 'is not valid' do
-        meal_plan.people_served = nil
-        expect(meal_plan).to_not be_valid
-      end
-    end
+    it { should validate_presence_of(:start_date) }
+    it { should validate_presence_of(:people_served) }
   end
 
-  describe 'self.ordered' do
+  describe 'self.most_recent_first' do
     it 'displays all meal plans in descending start_date order' do
       meal_plan1 = create(:meal_plan, start_date: Time.zone.yesterday)
       meal_plan2 = create(:meal_plan, start_date: Time.zone.today)
 
-      expect(MealPlan.ordered.first).to eq(meal_plan2)
-      expect(MealPlan.ordered.last).to eq(meal_plan1)
+      expect(MealPlan.most_recent_first.first).to eq(meal_plan2)
+      expect(MealPlan.most_recent_first.last).to eq(meal_plan1)
     end
+  end
+
+  describe 'self.date_for_upcoming_sunday' do
   end
 
   describe '#total_servings' do
@@ -88,6 +80,19 @@ RSpec.describe MealPlan, type: :model do
       end
 
       expect(meal_plan.total_time).to eq(total_standard_time)
+    end
+  end
+
+  describe '#estimated_time' do
+    xit "will output a time #{MealPlan::EFFICIENCY_RATE} shorter than the total cook time" do
+    end
+  end
+
+  describe '#recommended_start_time' do
+    xit 'outputs in time format' do
+    end
+
+    xit "will never be later than #{MealPlan::PREP_END_TIME}" do
     end
   end
 

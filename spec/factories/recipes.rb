@@ -2,11 +2,13 @@
 
 FactoryBot.define do
   factory :recipe do
+    user
     sequence(:title) { |n| "Recipe Title #{n}" }
     sequence(:source_name) { |n| "Recipe Source #{n}" }
     sequence(:source_url) { |n| "http://recipesource#{n}.com" }
     prep_time { rand(10..20) }
     cook_time { rand(10..60) }
+    reheat_time { rand(10..60) }
     servings { rand(10) }
     instructions {
       [
