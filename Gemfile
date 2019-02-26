@@ -13,6 +13,9 @@ gem 'coffee-rails', '~> 4.2'    # Use CoffeeScript for .coffee assets and views
 gem 'jbuilder', '~> 2.5'        # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'devise'                    # User authentication
 gem 'bootsnap', '>= 1.1.0', require: false # Reduces boot times through caching; required in config/boot.rb
+gem 'nokogiri', '>= 1.8.5'      # Upgrade for security update
+gem 'rack', '>= 2.0.6'          # Upgrade for security update
+gem 'loofah', '>= 2.2.3'        # Upgrade for security update
 # gem 'redis', '~> 4.0'           # Use Redis adapter to run Action Cable in production
 # gem 'mini_magick', '~> 4.8'  # Use ActiveStorage variant
 # gem 'capistrano-rails', group: :development # Use Capistrano for deployment
