@@ -7,6 +7,9 @@ class MealPlan < ApplicationRecord
 
   validates :start_date, :people_served, presence: true
 
+  PREP_END_TIME = '5:00 PM'.to_time
+  EFFICIENCY_RATE = 0.66
+
   def self.most_recent_first
     order(start_date: :DESC)
   end
@@ -34,13 +37,11 @@ class MealPlan < ApplicationRecord
   end
 
   def estimated_time
-    assumed_efficiency_rate = 0.66
-    (total_time * assumed_efficiency_rate).to_i
+      (total_time * EFFICIENCY_RATE).to_i
   end
 
   def recommended_start_time
-    end_time = '5:00 PM'.to_time
-    (end_time - estimated_time * 60).strftime("%I:%M %p")
+    (PREP_END_TIME - estimated_time * 60).strftime("%I:%M %p")
   end
 
   def total_unique_ingredients

@@ -1,0 +1,20 @@
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Recipes
+  </a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <%= link_to 'Recipes Index', user_recipes_path(current_user), class: 'dropdown-item' %>
+    <%= link_to 'New Recipe', new_user_recipe_path(current_user), class: 'dropdown-item' %>
+  </div>
+</li>
+
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Meal Plans
+  </a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <%= display_link_to_plan %>
+    <%= link_to 'All Meal Plans', user_meal_plans_path(current_user), class: 'dropdown-item' %>
+    <%= link_to '+ New Meal Plan', new_user_meal_plan_path(current_user), class: 'dropdown-item' %>
+  </div>
+</li>

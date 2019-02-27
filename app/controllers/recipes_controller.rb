@@ -5,9 +5,9 @@ class RecipesController < ApplicationController
 
   def index
     if params[:search]
-      @recipes = Recipe.search(params[:search]).by_title
+      @recipes = current_user.recipes.search(params[:search]).by_title
     else
-      @recipes = Recipe.active.by_title
+      @recipes = current_user.recipes.active.by_title
     end
   end
 
@@ -15,12 +15,12 @@ class RecipesController < ApplicationController
   end
 
   def new
-    @recipe = Recipe.new
+    @recipe = current_user.recipes.new
     15.times { @recipe.ingredients.build({quantity: nil}) }
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = current_user.recipes.new(recipe_params)
     if @recipe.save
       redirect_to recipe_url(@recipe)
     else

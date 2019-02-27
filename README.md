@@ -1,5 +1,7 @@
 # Food Planner
 
+Live on heroku as [myfoodplanner](http://myfoodplanner.herokuapp.com)
+
 WIP food planning app.
 
 * Ruby 2.5.0
@@ -26,7 +28,7 @@ WIP food planning app.
 ## Related Docs
 * [Devise](https://github.com/plataformatec/devise)
 * [Uglifier](https://github.com/lautis/uglifier) in harmony mode
-
+* [Shoulda Matchers](https://github.com/thoughtbot/shoulda-matchers)
 
 ## WIP Notes:
 
