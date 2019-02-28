@@ -15,7 +15,9 @@
 </div>
 
 <div class="row">
-  <div class="col-6">
+  <div class="col">
+    <h5>Stats</h5>
+
     <ul>
       <li>Servings: <%= @recipe.servings %></li>
       <li>Prep Time: <%= display_time(@recipe.prep_time) %></li>
@@ -26,7 +28,18 @@
     </ul>
     <p><%= @recipe.notes %></p>
   </div>
-  <div class="col-6">
+
+  <div class="col">
+    <h5>Related Meal Plans</h5>
+    <ul>
+      <% @recipe.meal_plans.order(start_date: :desc).limit(6).each do |plan| %>
+        <li><%= link_to "#{l plan.start_date, format: :month_as_text}", plan %></li>
+      <% end %>
+    </ul>
+    <p><%= @recipe.notes %></p>
+  </div>
+
+  <div class="col">
     <div class="image-container">
       <%= image_tag @recipe.image_url, {class: 'image'} %>
     </div>
