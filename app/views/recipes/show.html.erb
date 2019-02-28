@@ -26,7 +26,6 @@
       <li>Reheat Time: <%= display_time(@recipe.reheat_time) %></li>
       <li>Prepared: <%= pluralize(@recipe.frequency, 'time') %></li>
     </ul>
-    <p><%= @recipe.notes %></p>
   </div>
 
   <div class="col">
@@ -37,7 +36,6 @@
         <li><%= link_to "#{l plan.start_date, format: :month_as_text}", plan %></li>
       <% end %>
     </ul>
-    <p><%= @recipe.notes %></p>
   </div>
 
   <div class="col">
@@ -47,7 +45,7 @@
   </div>
 </div>
 
-
+<p><%= @recipe.notes %></p>
 
 <h3>Ingredients</h3>
 <ul>
