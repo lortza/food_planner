@@ -1,4 +1,6 @@
-<h1>Meal Plans Index</h1>
+<div class="right"><%= link_to 'New Meal Plan', new_meal_plan_path, class: button_classes %></div>
+
+<h1>Meal Plans</h1>
 
 <ul>
   <% @meal_plans.each do |plan| %>
