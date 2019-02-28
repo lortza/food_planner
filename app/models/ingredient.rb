@@ -7,6 +7,7 @@ class Ingredient < ApplicationRecord
   UNITS = %w[
     \
     box
+    bulb
     bunch
     can
     clove
@@ -14,6 +15,7 @@ class Ingredient < ApplicationRecord
     dozen
     handful
     inch
+    jar
     lb
     leaf
     loaf
