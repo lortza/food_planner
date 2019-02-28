@@ -19,7 +19,7 @@
       <div class="col-sm-3">Select Recipes</div>
 
       <div class="col-sm-9">
-        <%= form.collection_check_boxes :recipe_ids, Recipe.active.by_title, :id, :title do |r| %>
+        <%= form.collection_check_boxes :recipe_ids, current_user.recipes.active.by_title, :id, :title_and_date do |r| %>
           <div class='form-check'>
             <%= r.check_box class: 'form-check-input' %>
             <%= r.label class: 'form-check-label' %>

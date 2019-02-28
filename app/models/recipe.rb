@@ -64,6 +64,10 @@ class Recipe < ApplicationRecord
     self.source_url = DEFAULT_SOURCE[:source_url] if source_url.blank?
   end
 
+  def title_and_date
+    last_prepared ? title + ": #{last_prepared}" : title
+  end
+
   def last_prepared
     meal_plans.pluck(:start_date).max
   end
