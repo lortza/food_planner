@@ -23,6 +23,10 @@ module RecipesHelper
     ].join(' ')
   end
 
+  def guaranteed_image(recipe)
+    recipe.image_url.present? ? recipe.image_url : 'recipe_placeholder.jpg'
+  end
+
   def status_flag(recipe)
     case
     when !recipe.active? then 'archived'

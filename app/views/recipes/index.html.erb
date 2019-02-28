@@ -18,9 +18,9 @@
         <% @recipes.each do |recipe| %>
           <tr>
             <td><div class="img__container">
-              <%= image_tag recipe.image_url %>
+              <%= link_to (image_tag guaranteed_image(recipe)), recipe %>
             </div></td>
-            <td><%= link_to recipe.title, recipe_path(recipe) %> <%= status_flag(recipe) %></td>
+            <td><%= link_to recipe.title, recipe %> <%= status_flag(recipe) %></td>
             <td><%= recipe.servings %></td>
             <td><%= recipe.ingredients.count %></td>
             <td><%= recipe.meal_plans.count %></td>
