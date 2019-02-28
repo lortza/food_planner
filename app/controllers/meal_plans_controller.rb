@@ -4,7 +4,7 @@ class MealPlansController < ApplicationController
   before_action :set_meal_plan, only: [:show, :edit, :update, :destroy]
 
   def index
-    @meal_plans = MealPlan.includes(:recipes).most_recent_first
+    @meal_plans = current_user.meal_plans.includes(:recipes).most_recent_first
   end
 
   def show
@@ -16,11 +16,11 @@ class MealPlansController < ApplicationController
       people_served: 2,
       start_date: MealPlan.date_for_upcoming_sunday
     }
-    @meal_plan = MealPlan.new(default_params)
+    @meal_plan = current_user.meal_plans.new(default_params)
   end
 
   def create
-    @meal_plan = MealPlan.new(meal_plan_params)
+    @meal_plan = current_user.meal_plans.new(meal_plan_params)
     if @meal_plan.save
       redirect_to meal_plan_url(@meal_plan)
     else
