@@ -14,15 +14,19 @@ class Ingredient < ApplicationRecord
     cup
     dozen
     handful
+    head
     inch
     jar
+    large
     lb
     leaf
     loaf
+    medium
     quart
     ounce
     pint
     slice
+    small
     sprig
     stalk
     stick
