@@ -20,6 +20,10 @@ class MealPlan < ApplicationRecord
     closest_sunday + days_to_add
   end
 
+  def self.upcoming
+    where('start_date >= ?', Date.today).order(start_date: :asc)
+  end
+
   def total_servings
     recipes.pluck(:servings).reduce(:+)
   end

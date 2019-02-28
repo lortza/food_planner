@@ -7,7 +7,8 @@ class MockupsController < ApplicationController
 
   def recipes
     # randomly generated temporaty placeholder recipes
-    @recipes = Recipe.by_title
+    @recipes = current_user.recipes.by_title
+    @upcoming_meal_plans = MealPlan.upcoming
   end
 
   # def shopping_lists

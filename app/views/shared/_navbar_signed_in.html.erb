@@ -3,8 +3,8 @@
     Recipes
   </a>
   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-    <%= link_to 'Recipes Index', recipes_path, class: 'dropdown-item' %>
-    <%= link_to 'New Recipe', new_recipe_path, class: 'dropdown-item' %>
+    <%= link_to 'All Recipes', recipes_path, class: 'dropdown-item' %>
+    <%= link_to '+ New Recipe', new_recipe_path, class: 'dropdown-item' %>
   </div>
 </li>
 
@@ -19,6 +19,7 @@
   </div>
 </li>
 
+<% if current_user.admin? %>
 <li class="nav-item dropdown">
   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Mockups
@@ -30,3 +31,4 @@
     <%= link_to 'Action', recipes_path, class: 'dropdown-item' %>
   </div>
 </li>
+<% end %>

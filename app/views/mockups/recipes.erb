@@ -24,23 +24,22 @@
 
   <!-- RIGHT SIDE -->
   <div class="col-sm-4">
-    <% if @upcoming_prep_dates.any? %>
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <%= @current_plan_date %>
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <% @upcoming_prep_dates.each do |date| %>
-          <%= link_to date, '#', class: 'dropdown-item' %>
-        <% end %>
-      </div>
-    </div>
-
+    <% if @upcoming_meal_plans.any? %>
     <div class="card">
       <div class="card-body">
-        <h3 class="card-title">Prep Date <%= @current_plan_date %></h3>
+        <h3 class="card-title">Recipes for</h3>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= @upcoming_meal_plans.first.start_date %>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <% @upcoming_meal_plans.each do |plan| %>
+              <%= link_to plan.start_date, '#', class: 'dropdown-item' %>
+            <% end %>
+          </div>
+        </div>
         <ul>
-          <% @prep_plan_recipes.each do |recipe| %>
+          <% @upcoming_meal_plans.first.recipes.each do |recipe| %>
             <li><%= recipe.title %></li>
           <% end %>
         </ul>
