@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_24_195309) do
+ActiveRecord::Schema.define(version: 2019_03_01_012652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2019_02_24_195309) do
     t.integer "prep_time", default: 0, null: false
     t.integer "cook_time", default: 0, null: false
     t.string "image_url", default: "", null: false
-    t.integer "reheat_time"
+    t.integer "reheat_time", default: 0
     t.string "pepperplate_url"
     t.text "notes"
     t.boolean "archived", default: false
