@@ -2,7 +2,7 @@
 <td>
   <%= f_ingredient.select :measurement_unit,
                           options_for_select(Ingredient::UNITS, selected: f_ingredient.object.measurement_unit),
-                          {},
+                          {include_blank: true},
                           class: 'form-control' %>
 </td>
 <td><%= f_ingredient.text_field :name, class: 'form-control' %></td>

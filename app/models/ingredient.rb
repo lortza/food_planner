@@ -5,7 +5,6 @@ class Ingredient < ApplicationRecord
   before_save :format_name
 
   UNITS = %w[
-    \
     box
     bulb
     bunch
