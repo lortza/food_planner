@@ -1,8 +1,12 @@
 # Food Planner
 
-Live on heroku as [myfoodplanner](http://myfoodplanner.herokuapp.com)
+[![Build Status](https://travis-ci.com/lortza/sorrygirl.svg?branch=master)](https://travis-ci.com/lortza/food_planner)
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/bce541f2a6d63bc5fa1e/maintainability)](https://codeclimate.com/github/lortza/food_planner/maintainability)
 
 WIP food planning app.
+
+Live on heroku as [myfoodplanner](http://myfoodplanner.herokuapp.com)
 
 * Ruby 2.5.0
 * Rails 5.2
