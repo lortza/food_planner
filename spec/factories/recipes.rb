@@ -6,10 +6,10 @@ FactoryBot.define do
     sequence(:title) { |n| "Recipe Title #{n}" }
     sequence(:source_name) { |n| "Recipe Source #{n}" }
     sequence(:source_url) { |n| "http://recipesource#{n}.com" }
-    prep_time { rand(10..20) }
-    cook_time { rand(10..60) }
-    reheat_time { rand(10..60) }
-    servings { rand(10) }
+    prep_time { rand(0..20) }
+    cook_time { rand(0..60) }
+    reheat_time { rand(0..60) }
+    servings { rand(1..10) }
     instructions {
       [
         'Lorem ipsum dolor sit amet.',

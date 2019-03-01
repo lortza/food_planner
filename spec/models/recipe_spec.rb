@@ -17,6 +17,17 @@ RSpec.describe Recipe, type: :model do
     it { should validate_presence_of(:cook_time) }
     it { should validate_presence_of(:reheat_time) }
 
+    it 'ensures that 1 of [prep_time | cook_time | reheat_time] has a value' do
+      recipe = build(:recipe, prep_time: 0, cook_time: 0, reheat_time: 0)
+      expect(recipe).to_not be_valid
+
+      recipe = build(:recipe, prep_time: 1, cook_time: 0, reheat_time: 0)
+      expect(recipe).to be_valid
+
+      recipe = build(:recipe, prep_time: 0, cook_time: 1, reheat_time: 0)
+      expect(recipe).to be_valid
+    end
+
     context 'when it does not have a source' do
       let(:recipe_missing_source) { create(:recipe, source_name: '', source_url: '') }
 

@@ -29,6 +29,10 @@ class Recipe < ApplicationRecord
             :reheat_time,
             presence: true
 
+  validates :prep_time, numericality: { other_than: 0 }, if: -> {cook_time == 0 && reheat_time == 0}
+  validates :cook_time, numericality: { other_than: 0 }, if: -> {reheat_time == 0 && prep_time == 0}
+  validates :reheat_time, numericality: { other_than: 0 }, if: -> {prep_time == 0 && cook_time == 0}
+
   def self.search(terms)
     if terms.blank?
       all
