@@ -31,6 +31,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'reek'
   gem 'rubocop', '~> 0.63.1', require: false
+  gem 'shoulda-matchers'    # library for easier testing syntax
 end
 
 group :development do
@@ -49,7 +50,6 @@ end
 group :test do
   gem 'factory_bot_rails' # factory support for rspec
   gem 'launchy'             # open browser with save_and_open_page
-  gem 'shoulda-matchers'    # library for easier testing syntax
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
