@@ -3,16 +3,10 @@
   <%= render 'shared/errors', object: recipe %>
 
   <div class="row">
-    <div class="col-sm-10">
+    <div class="col">
       <div class="field">
         <%= form.label :title %>
         <%= form.text_field :title, autofocus: true, class: 'form-control' %>
-      </div>
-    </div>
-    <div class="col-sm-2">
-      <div class="field">
-        <%= form.label :archived %>
-        <%= form.check_box :archived, class: 'form-control' %>
       </div>
     </div>
   </div> <!-- row -->
@@ -61,10 +55,20 @@
     </div>
   </div>
 
-  <div class="field">
-    <%= form.label :notes %>
-    <%= form.text_area :notes, class: 'form-control' %>
-  </div>
+  <div class="row">
+    <div class="col-sm-10">
+      <div class="field">
+        <%= form.label :notes %>
+        <%= form.text_area :notes, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div class="field">
+        <%= form.label :archived %>
+        <%= form.check_box :archived, class: 'form-control' %>
+      </div>
+    </div>
+  </div> <!-- row -->
 
   <table class="table table-ingredients">
     <thead>
