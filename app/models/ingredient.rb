@@ -8,7 +8,6 @@ class Ingredient < ApplicationRecord
     box
     bulb
     bunch
-    can
     clove
     cup
     dozen
