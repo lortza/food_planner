@@ -68,8 +68,9 @@ class Recipe < ApplicationRecord
     self.source_url = DEFAULT_SOURCE[:source_url] if source_url.blank?
   end
 
-  def title_and_date
-    last_prepared ? title + ": #{last_prepared}" : title
+  def checkbox_label
+    output = "#{title} (#{servings} servings)"
+    last_prepared ? output + ": #{last_prepared}" : output
   end
 
   def last_prepared
