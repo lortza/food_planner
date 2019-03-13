@@ -21,7 +21,7 @@
     <h2>Recipes</h2>
     <ol>
       <% @meal_plan.recipes.each do |recipe| %>
-      <li><%= link_to recipe.title, recipe_path(recipe) %></li>
+      <li><%= link_to recipe.title, recipe_path(recipe) %> (<%= recipe.servings %> servings)</li>
       <% end %>
     </ol>
   </section>
