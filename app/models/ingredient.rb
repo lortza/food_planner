@@ -78,21 +78,12 @@ class Ingredient < ApplicationRecord
   #   toasted\ sesame \oil
   # ].freeze
 
-  # FRACTIONS = {
-  #   '1/8' => 0.125,
-  #   '1/4' => 0.25,
-  #   '1/2' => 0.5,
-  #   '1/3' => 0.333,
-  #   '2/3' => 0.666,
-  #   '3/4' => 0.75,
-  # }
-
-
   validates :name,
             :quantity,
             :measurement_unit,
             presence: true
 
+  validates :quantity, numericality: true
   validates :measurement_unit, inclusion: { in: UNITS }
   # validates :preparation_style, inclusion: { in: STYLES },
                                 # if: -> { preparation_style.present? }
