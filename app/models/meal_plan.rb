@@ -41,11 +41,11 @@ class MealPlan < ApplicationRecord
   end
 
   def estimated_time
-      (total_time * EFFICIENCY_RATE).to_i
+    (total_time * EFFICIENCY_RATE).to_i
   end
 
   def recommended_start_time
-    (PREP_END_TIME - estimated_time * 60).strftime("%I:%M %p")
+    (PREP_END_TIME - estimated_time * 60).strftime('%I:%M %p')
   end
 
   def total_unique_ingredients

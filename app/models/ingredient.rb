@@ -85,25 +85,23 @@ class Ingredient < ApplicationRecord
 
   validates :quantity, numericality: true
   validates :measurement_unit, inclusion: { in: UNITS }
-  # validates :preparation_style, inclusion: { in: STYLES },
-                                # if: -> { preparation_style.present? }
-
+  # validates :preparation_style, inclusion: { in: STYLES }, if: -> { preparation_style.present? }
 
   def self.by_id
     order(:id)
   end
 
   def whole_number?
-    quantity % 1 == 0
+    (quantity % 1).zero?
   end
 
   def format_name
     self.name = name.downcase
   end
 
-  def convert_to_food
-    "https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=PfhKwJCw0KYwX5XFCfJjjOAShhc2lzTGWXkWBMgL&location=Denver+CO"
-  end
+  # def convert_to_food
+  #   'WIP'
+  # end
 
   # def self.parse(list)
   #   %Q(
@@ -114,7 +112,7 @@ class Ingredient < ApplicationRecord
   #     2 tablespoons agave nectar
   #     3/4 inch piece of fresh ginger, peeled and roughly chopped
   #     1 clove garlic
-  #     totally optional: 1/4 teaspoon toasted sesame oil, which isn’t raw, but tastes good!
+  #     totally optional: 1/4 teaspoon toasted sesame oil
   #   ).split("\n").map(&:strip)
   # end
 

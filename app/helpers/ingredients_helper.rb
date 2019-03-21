@@ -21,6 +21,18 @@ module IngredientsHelper
   def qty_display(ingredient)
     return ingredient.quantity.to_i if ingredient.whole_number?
 
+    if known_fraction(ingredient.quantity)
+      known_fraction(ingredient.quantity)
+    elsif ingredient.quantity >= 0.3 && ingredient.quantity <= 0.4
+      known_fraction(0.33)
+    elsif ingredient.quantity >= 0.6 && ingredient.quantity <= 0.7
+      return known_fraction(0.66)
+    else
+      ingredient.quantity.round(3)
+    end
+  end
+
+  def known_fraction(number)
     fractions = {
       0.125 => '1/8',
       0.25 => '1/4',
@@ -29,14 +41,6 @@ module IngredientsHelper
       0.66 => '2/3',
       0.75 => '3/4'
     }
-    if fractions[ingredient.quantity]
-      fractions[ingredient.quantity]
-    elsif ingredient.quantity >= 0.3 && ingredient.quantity <= 0.4
-      fractions[0.33]
-    elsif ingredient.quantity >= 0.6 && ingredient.quantity <= 0.7
-      return fractions[0.66]
-    else
-      ingredient.quantity.round(3)
-    end
+    fractions[number]
   end
 end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class MealPlansController < ApplicationController
-  before_action :set_meal_plan, only: [:show, :edit, :update, :destroy]
+  before_action :set_meal_plan, only: %i[show edit update destroy]
 
   def index
     @meal_plans = current_user.meal_plans.includes(:recipes).most_recent_first
@@ -41,7 +41,7 @@ class MealPlansController < ApplicationController
 
   def destroy
     MealPlan.find(params[:id]).destroy
-    flash[:success] = "Meal Plan deleted"
+    flash[:success] = 'Meal Plan deleted'
     redirect_to meal_plans_path
   end
 

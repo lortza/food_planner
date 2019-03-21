@@ -16,7 +16,7 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = current_user.recipes.new
-    15.times { @recipe.ingredients.build({quantity: nil}) }
+    15.times { @recipe.ingredients.build(quantity: nil) }
   end
 
   def create
@@ -29,8 +29,8 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    # @recipe.ingredients.build({quantity: nil})
-    3.times { @recipe.ingredients.build({quantity: nil}) }
+    # @recipe.ingredients.build(quantity: nil)
+    3.times { @recipe.ingredients.build(quantity: nil) }
   end
 
   def update
@@ -43,7 +43,7 @@ class RecipesController < ApplicationController
 
   def destroy
     Recipe.find(params[:id]).destroy
-    flash[:success] = "Recipe deleted"
+    flash[:success] = 'Recipe deleted'
     redirect_to recipes_path
   end
 
@@ -66,14 +66,13 @@ class RecipesController < ApplicationController
                                    :instructions,
                                    :notes,
                                    :archived,
-                                   { ingredients_attributes: [
-                                     :id,
-                                     :name,
-                                     :quantity,
-                                     :measurement_unit,
-                                     :preparation_style,
-                                     :_destroy
-                                   ] }
-                                  )
+                                   ingredients_attributes: %i[
+                                     id
+                                     name
+                                     quantity
+                                     measurement_unit
+                                     preparation_style
+                                     _destroy
+                                   ])
   end
 end

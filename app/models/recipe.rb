@@ -4,8 +4,8 @@ class Recipe < ApplicationRecord
   belongs_to :user
   has_many :ingredients, inverse_of: :recipe, dependent: :destroy
   accepts_nested_attributes_for :ingredients,
-                                reject_if: :all_blank,  # Option: validates that at least 1 ingredient should be present
-                                allow_destroy: true # Option: allows a user to delete an ingredient via a checkbox on the edit form (see below)
+                                reject_if: :all_blank, # at least 1 ingredient should be present
+                                allow_destroy: true # allows user to delete ingredient via checkbox
   has_many :meal_plan_recipes, dependent: :destroy
   has_many :meal_plans, through: :meal_plan_recipes
 
@@ -29,15 +29,15 @@ class Recipe < ApplicationRecord
             :reheat_time,
             presence: true
 
-  validates :prep_time, numericality: { other_than: 0 }, if: -> {cook_time == 0 && reheat_time == 0}
-  validates :cook_time, numericality: { other_than: 0 }, if: -> {reheat_time == 0 && prep_time == 0}
-  validates :reheat_time, numericality: { other_than: 0 }, if: -> {prep_time == 0 && cook_time == 0}
+  validates :prep_time, numericality: { other_than: 0 }, if: -> { cook_time == 0 && reheat_time == 0 }
+  validates :cook_time, numericality: { other_than: 0 }, if: -> { reheat_time == 0 && prep_time == 0 }
+  validates :reheat_time, numericality: { other_than: 0 }, if: -> { prep_time == 0 && cook_time == 0 }
 
   def self.search(terms)
     if terms.blank?
       all
     else
-      where("title ILIKE ?", "%#{terms}%")
+      where('title ILIKE ?', "%#{terms}%")
     end
   end
 
