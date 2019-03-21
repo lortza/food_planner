@@ -15,7 +15,6 @@ RSpec.describe Ingredient, type: :model do
       it { should validate_inclusion_of(:measurement_unit).in_array(Ingredient::UNITS) }
     end
 
-
     context 'a valid preparation_style' do
       let(:invalid_style) { 'invalid style' }
 

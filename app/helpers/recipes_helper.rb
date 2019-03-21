@@ -24,14 +24,18 @@ module RecipesHelper
   end
 
   def guaranteed_image(recipe)
-    recipe.image_url.present? ? recipe.image_url : 'recipe_placeholder.jpg'
+    # TIL .presence returns the receiver if it’s present otherwise returns nil
+    recipe.image_url.presence || 'recipe_placeholder.jpg'
   end
 
   def status_flag(recipe)
-    case
-    when !recipe.active? then 'archived'
-    when recipe.last_prepared == nil then 'new'
-    when recipe.last_prepared < Date.today.prev_month(4) then 'been a while'
+    if !recipe.active?
+      'archived'
+    elsif recipe.last_prepared.nil?
+      'new'
+    elsif recipe.last_prepared < Date.today.prev_month(4)
+      'been a while'
+    else
     end
   end
 end

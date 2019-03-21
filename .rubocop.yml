@@ -11,6 +11,7 @@ AllCops:
     - 'config/**/*'
     - 'db/**/*'
     - 'script/**/*'
+    - 'lib/tasks/**/*'
     # - '**/*.erb'
 
 Metrics/BlockLength:
@@ -19,7 +20,9 @@ Metrics/BlockLength:
     - 'lib/tasks/*'
 
 Metrics/LineLength:
-  Max: 99
+  Max: 100
+  Exclude:
+  - !ruby/regexp /.*_spec\.rb$/
 Style/BlockDelimiters:
   Exclude:
     - !ruby/regexp /.*_spec\.rb$/
