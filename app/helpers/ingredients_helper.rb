@@ -21,14 +21,20 @@ module IngredientsHelper
   def qty_display(ingredient)
     return ingredient.quantity.to_i if ingredient.whole_number?
 
-    if known_fraction(ingredient.quantity)
-      known_fraction(ingredient.quantity)
-    elsif ingredient.quantity >= 0.3 && ingredient.quantity <= 0.4
+    process_fraction(ingredient.quantity)
+  end
+
+  private
+
+  def process_fraction(number)
+    if known_fraction(number)
+      known_fraction(number)
+    elsif number >= 0.3 && number <= 0.4
       known_fraction(0.33)
-    elsif ingredient.quantity >= 0.6 && ingredient.quantity <= 0.7
-      return known_fraction(0.66)
+    elsif number >= 0.6 && number <= 0.7
+      known_fraction(0.66)
     else
-      ingredient.quantity.round(3)
+      number.round(3)
     end
   end
 

@@ -14,6 +14,7 @@ module RecipesHelper
     elsif recipe.last_prepared < Date.today.prev_month(4)
       'been a while'
     else
+      ''
     end
   end
 end

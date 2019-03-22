@@ -84,15 +84,34 @@ RSpec.describe MealPlan, type: :model do
   end
 
   describe '#estimated_time' do
-    xit "will output a time #{MealPlan::EFFICIENCY_RATE} shorter than the total cook time" do
+    let(:meal_plan) { create(:meal_plan) }
+
+    it 'will output a time shorter than the total cook time' do
+      minutes = 100
+      rate = 0.5
+      est_time = 50
+      allow(meal_plan).to receive(:total_time).and_return(minutes)
+      allow(meal_plan).to receive(:efficiency_rate).and_return(rate)
+
+      expect(meal_plan.estimated_time).to be < meal_plan.total_time
+      expect(meal_plan.estimated_time).to eq(est_time)
     end
   end
 
   describe '#recommended_start_time' do
-    xit 'outputs in time format' do
+    let(:meal_plan) { create(:meal_plan) }
+
+    it 'outputs in time format' do
+      time = '12:00 PM'.to_time
+      est_minutes = 60
+      expected_time = '11:00 AM'.to_time.strftime('%I:%M %p')
+      allow(meal_plan).to receive(:prep_end_time).and_return(time)
+      allow(meal_plan).to receive(:estimated_time).and_return(est_minutes)
+
+      expect(meal_plan.recommended_start_time).to eq(expected_time)
     end
 
-    xit "will never be later than #{MealPlan::PREP_END_TIME}" do
+    xit 'will never be later than MealPlan::PREP_END_TIME' do
     end
   end
 
