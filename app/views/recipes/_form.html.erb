@@ -89,10 +89,21 @@
   </tbody>
 </table>
 
-<div class="field">
-  <%= form.label :instructions %>
-  <%= form.text_area :instructions, class: 'form-control instructions' %>
-</div>
+<div class="row">
+  <div class="col-lg-6 col-md-12">
+    <div class="field">
+      <%= form.label 'Preparation Instructions' %>
+      <%= form.text_area :instructions, class: 'form-control instructions' %>
+    </div>
+  </div>
+
+  <div class="col-lg-6 col-md-12">
+    <div class="field">
+      <%= form.label :reheat_instructions %>
+      <%= form.text_area :reheat_instructions, class: 'form-control instructions' %>
+    </div>
+  </div>
+</div><!-- row -->
 
 <%= form.submit class: button_classes('primary mt-3') %>
 

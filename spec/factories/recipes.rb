@@ -21,5 +21,12 @@ FactoryBot.define do
         'Sunt in culpa qui officia deserunt mollit anim id est laborum.',
       ].join("\n\n")
     }
+    reheat_instructions {
+      [
+        'Reheat by lorem ipsum dolor sit amet.',
+        'Nisi ut aliquip ex ea commodo consequat.',
+        'Excepteur sint occaecat cupidatat non proident.'
+      ].join("\n\n")
+    }
   end
 end

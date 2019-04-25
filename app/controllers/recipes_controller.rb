@@ -64,6 +64,7 @@ class RecipesController < ApplicationController
                                    :cook_time,
                                    :reheat_time,
                                    :instructions,
+                                   :reheat_instructions,
                                    :notes,
                                    :archived,
                                    ingredients_attributes: %i[

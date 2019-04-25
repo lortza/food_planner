@@ -41,11 +41,11 @@ class MealPlan < ApplicationRecord
   end
 
   def estimated_time
-    (total_time * EFFICIENCY_RATE).to_i
+    (total_time * efficiency_rate).to_i
   end
 
   def recommended_start_time
-    (PREP_END_TIME - estimated_time * 60).strftime('%I:%M %p')
+    (prep_end_time - estimated_time * 60).strftime('%I:%M %p')
   end
 
   def total_unique_ingredients
@@ -62,6 +62,16 @@ class MealPlan < ApplicationRecord
 
   def meals
     total_servings / people_served
+  end
+
+  private
+
+  def efficiency_rate
+    EFFICIENCY_RATE
+  end
+
+  def prep_end_time
+    PREP_END_TIME
   end
 
   # def add_to_calendar_url(date)

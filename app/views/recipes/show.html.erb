@@ -59,7 +59,14 @@
   <%= render partial: 'related_recipes', locals: {recipe: @recipe} %>
 </div><!-- row -->
 
-<h3>Instructions</h3>
+<h3>Preparation Instructions</h3>
 <ol>
   <%= simple_format(@recipe.instructions, {}, wrapper_tag: 'li') %>
 </ol>
+
+<% unless @recipe.reheat_instructions.blank? %>
+  <h3>Reheat Instructions</h3>
+  <ol>
+    <%= simple_format(@recipe.reheat_instructions, {}, wrapper_tag: 'li') %>
+  </ol>
+<% end %>
