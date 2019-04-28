@@ -89,11 +89,16 @@
   </tbody>
 </table>
 
+<div class="field">
+  <%= form.label 'Instructions' %>
+  <%= form.text_area :instructions, class: 'form-control instructions' %>
+</div>
+
 <div class="row">
   <div class="col-lg-6 col-md-12">
     <div class="field">
-      <%= form.label 'Preparation Instructions' %>
-      <%= form.text_area :instructions, class: 'form-control instructions' %>
+      <%= form.label 'Prep Day Instructions' %>
+      <%= form.text_area :prep_day_instructions, class: 'form-control instructions' %>
     </div>
   </div>
 

@@ -64,6 +64,7 @@ class RecipesController < ApplicationController
                                    :cook_time,
                                    :reheat_time,
                                    :instructions,
+                                   :prep_day_instructions,
                                    :reheat_instructions,
                                    :notes,
                                    :archived,
