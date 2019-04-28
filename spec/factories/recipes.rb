@@ -21,6 +21,14 @@ FactoryBot.define do
         'Sunt in culpa qui officia deserunt mollit anim id est laborum.',
       ].join("\n\n")
     }
+    prep_day_instructions {
+      [
+        'On prep day, lorem ipsum dolor sit amet.',
+        'Sint occaecat cupidatat non proident.',
+        'Aliquip ex ea commodo consequat.'
+      ].join("\n\n")
+    }
+
     reheat_instructions {
       [
         'Reheat by lorem ipsum dolor sit amet.',

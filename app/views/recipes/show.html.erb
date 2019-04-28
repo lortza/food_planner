@@ -60,20 +60,39 @@
 </div><!-- row -->
 
 <h3>Instructions</h3>
-<ol>
-  <%= simple_format(@recipe.instructions, {}, wrapper_tag: 'li') %>
-</ol>
+<div class="card mb-5">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#regular" role="tab" aria-controls="regular" aria-selected="true">Regular</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#prep-day" role="tab" aria-controls="prep-day" aria-selected="false">Prep Day</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#reheat" role="tab" aria-controls="reheat" aria-selected="false">Reheat</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="regular" role="tabpanel" aria-labelledby="regular-tab">
+        <ol>
+          <%= simple_format(@recipe.instructions, {}, wrapper_tag: 'li') %>
+        </ol>
+      </div>
 
-<% unless @recipe.prep_day_instructions.blank? %>
-  <h3>Prep Day Instructions</h3>
-  <ol>
-    <%= simple_format(@recipe.prep_day_instructions, {}, wrapper_tag: 'li') %>
-  </ol>
-<% end %>
+      <div class="tab-pane fade" id="prep-day" role="tabpanel" aria-labelledby="prep-day-tab">
+        <ol>
+          <%= simple_format(@recipe.prep_day_instructions, {}, wrapper_tag: 'li') %>
+        </ol>
+      </div>
 
-<% unless @recipe.reheat_instructions.blank? %>
-  <h3>Reheat Instructions</h3>
-  <ol>
-    <%= simple_format(@recipe.reheat_instructions, {}, wrapper_tag: 'li') %>
-  </ol>
-<% end %>
+      <div class="tab-pane fade" id="reheat" role="tabpanel" aria-labelledby="reheat-tab">
+        <ol>
+          <%= simple_format(@recipe.reheat_instructions, {}, wrapper_tag: 'li') %>
+        </ol>
+      </div>
+    </div><!-- tab-content -->
+  </div><!-- card body -->
+</div><!-- card -->
