@@ -29,6 +29,14 @@ Live on heroku as [myfoodplanner](http://myfoodplanner.herokuapp.com)
 * run RuboCop: `rubocop`
 * run tests: `bundle exec rspec`
 
+### Linters
+This project uses [rubocop](https://github.com/rubocop-hq/rubocop) and [scss-lint](https://github.com/sds/scss-lint). Run them locally on your machine like this:
+```
+bundle exec rubocop
+
+bundle exec scss-lint app/assets/stylesheets/**.scss
+```
+
 ## Related Docs
 * [Devise](https://github.com/plataformatec/devise)
 * [Uglifier](https://github.com/lautis/uglifier) in harmony mode
