@@ -1,4 +1,4 @@
-@import 'dimensions';
+@import 'variables';
 @import 'recipes';
 
 .right {
@@ -6,16 +6,16 @@
 }
 
 .footer__delete {
+  border-top: 1px solid $gray;
   margin-top: 2rem;
-  border-top: 1px solid gray;
   padding-top: 1rem;
 }
 
-/* BOOTSTRAP OVERRIDES */
+// BOOTSTRAP OVERRIDES
 .card {
-  // height: $card_height;
+  // height: $card-height;
   .card-img-top {
-    height: $card_image_height;
-    background-color: gray;
+    background-color: $gray;
+    height: $card-image-height;
   }
 }

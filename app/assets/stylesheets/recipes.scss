@@ -1,39 +1,39 @@
-$table_thumbnail: 40px;
+@import 'variables';
+
 .table__recipes-index {
   .img__container {
-    width: $table_thumbnail;
-    height: $table_thumbnail;
+    height: $table-thumbnail;
     overflow: hidden;
+    width: $table-thumbnail;
+
     img {
-      width: 100%;
-      min-width: $table_thumbnail;
-      min-height: $table_thumbnail;
       height: 100%;
       margin: 0 auto;
+      min-height: $table-thumbnail;
+      min-width: $table-thumbnail;
+      width: 100%;
     }
   }
 }
 
 .recipe-form {
   .instructions {
-    width: 100%;
     height: 400px;
+    width: 100%;
   }
-  .input__small {
-    width: 4.5rem;
-  }
+
+  .input__small { width: 4.5rem; }
+
   .table-ingredients {
+    border: 0;
     margin-top: 1rem;
-    border: none;
   }
 }
 
 .image-container {
-  width: 100%;
-  max-width: 300px;
   height: 200px;
+  max-width: 300px;
   overflow: hidden;
-  .image {
-    width: 100%;
-  }
+  width: 100%;
+  .image { width: 100%; }
 }

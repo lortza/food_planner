@@ -10,7 +10,7 @@ FactoryBot.define do
     cook_time { rand(0..60) }
     reheat_time { rand(0..60) }
     servings { rand(1..10) }
-    instructions {
+    instructions do
       [
         'Lorem ipsum dolor sit amet.',
         'Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.',
@@ -20,21 +20,21 @@ FactoryBot.define do
         'Excepteur sint occaecat cupidatat non proident.',
         'Sunt in culpa qui officia deserunt mollit anim id est laborum.',
       ].join("\n\n")
-    }
-    prep_day_instructions {
+    end
+    prep_day_instructions do
       [
         'On prep day, lorem ipsum dolor sit amet.',
         'Sint occaecat cupidatat non proident.',
-        'Aliquip ex ea commodo consequat.'
+        'Aliquip ex ea commodo consequat.',
       ].join("\n\n")
-    }
+    end
 
-    reheat_instructions {
+    reheat_instructions do
       [
         'Reheat by lorem ipsum dolor sit amet.',
         'Nisi ut aliquip ex ea commodo consequat.',
-        'Excepteur sint occaecat cupidatat non proident.'
+        'Excepteur sint occaecat cupidatat non proident.',
       ].join("\n\n")
-    }
+    end
   end
 end
