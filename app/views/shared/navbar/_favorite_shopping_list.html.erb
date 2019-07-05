@@ -1,0 +1,4 @@
+<% if current_user.favorite_list %>
+  <%= link_to current_user.favorite_list.name, shopping_list_path(current_user.favorite_list), class: 'dropdown-item' %>
+  <div class='dropdown-divider'></div>
+<% end %>
