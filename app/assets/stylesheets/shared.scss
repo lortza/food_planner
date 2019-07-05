@@ -11,6 +11,22 @@
   padding-top: 1rem;
 }
 
+// SEARCH BAR
+.search-icon {
+  color: $medium-gray;
+  float: right;
+  position: relative;
+  right: 14px;
+  top: 25px;
+}
+
+.clear-search {
+  font-size: 90%;
+  margin-bottom: 2em;
+  text-align: center;
+  a { color: $medium-gray; }
+}
+
 // BOOTSTRAP OVERRIDES
 .card {
   // height: $card-height;

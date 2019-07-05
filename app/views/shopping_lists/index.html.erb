@@ -1,0 +1,17 @@
+<%= link_to 'New Shopping List', new_shopping_list_path, class: button_class('primary right') %>
+
+<h1>Shopping Lists</h1>
+
+<% if current_user.shopping_lists.any? %>
+  <%= render partial: 'shared/search_form', locals: { url: shopping_lists_path } %>
+
+  <% @shopping_lists.each do |shopping_list| %>
+    <article class='index-shopping-list'>
+      <h3><%= link_to shopping_list.name, edit_shopping_list_path(shopping_list) %></h3>
+    </article>
+  <% end %>
+
+<% else %>
+  <p>Create a New Shopping List</p>
+  <%= link_to 'New Shopping List', new_shopping_list_path, class: button_class('primary btn-wide') %>
+<% end %>

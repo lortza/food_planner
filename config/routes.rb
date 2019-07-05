@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :recipes
   resources :meal_plans
+  resources :shopping_lists
 
   get 'mockups/recipes'
 end
