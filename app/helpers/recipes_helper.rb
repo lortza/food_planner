@@ -11,7 +11,7 @@ module RecipesHelper
       'archived'
     elsif recipe.last_prepared.nil?
       'new'
-    elsif recipe.last_prepared < Date.today.prev_month(4)
+    elsif recipe.last_prepared < Time.zone.today.prev_month(4)
       'been a while'
     else
       ''
