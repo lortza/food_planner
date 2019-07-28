@@ -5,6 +5,9 @@ class Ingredient < ApplicationRecord
   before_save :format_name
 
   UNITS = %w[
+    7oz\ can
+    15oz\ can
+    30oz\ can
     box
     bulb
     bunch
