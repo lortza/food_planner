@@ -53,6 +53,7 @@ group :test do
   gem 'factory_bot_rails' # factory support for rspec
   gem 'launchy' # open browser with save_and_open_page
   gem 'shoulda-matchers', '3.1.2' # library for easier testing syntax
+  gem 'webdrivers' # to help with testing
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
