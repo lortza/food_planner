@@ -8,7 +8,7 @@ WIP food planning app.
 
 Live on heroku as [myfoodplanner](http://myfoodplanner.herokuapp.com)
 
-* Ruby 2.5.0
+* Ruby 2.5.3
 * Rails 5.2
 * Postgres
 * RuboCop
