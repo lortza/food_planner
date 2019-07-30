@@ -1,6 +1,6 @@
 @import 'variables';
 
-.index-shopping-list {
+.list {
   border-top: 1px solid $light-gray;
   color: $default-text;
   padding: .6rem;
@@ -9,5 +9,13 @@
     font-size: 1.25rem;
     margin-bottom: 0;
     a { color: $default-text; }
+  }
+
+  .list-actions {
+    font-size: .85rem;
+    a {
+      color: $medium-gray;
+      &:hover { color: $default-text; }
+    }
   }
 }

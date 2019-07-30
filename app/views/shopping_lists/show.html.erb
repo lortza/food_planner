@@ -1,0 +1,11 @@
+<%= link_to 'Back', shopping_lists_path, class: button_class('primary right') %>
+<%= link_to 'Add Item', new_shopping_list_shopping_list_item_path(@shopping_list), class: button_class('primary right') %>
+
+<h1><%= @shopping_list.name %></h1>
+<!-- <div id='new-form-placeholder'></div> -->
+
+<% @shopping_list.shopping_list_items.each do |item| %>
+  <article class='list'>
+    <h3><%= item.name %> | <%#= link_to 'edit', edit_shopping_list_shopping_list_item_path(@shopping_list, item) %></h3>
+  </article>
+<% end %>

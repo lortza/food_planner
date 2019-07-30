@@ -7,7 +7,8 @@ Rails.application.routes.draw do
 
   resources :recipes
   resources :meal_plans
-  resources :shopping_lists
+  resources :shopping_lists, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+  end
 
   get 'mockups/recipes'
 end
