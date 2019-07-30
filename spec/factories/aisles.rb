@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :aisle do
-    user
+    user_id { create(:user).id }
     sequence(:name) { |n| "ingredient name #{n}" }
     sequence(:number) { |n| n }
   end
