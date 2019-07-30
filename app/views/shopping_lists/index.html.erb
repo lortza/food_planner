@@ -5,7 +5,13 @@
 
   <% @shopping_lists.each do |shopping_list| %>
     <article class='list'>
-      <h3><%= link_to shopping_list.name, shopping_list_path(shopping_list) %> <span class='list-actions right'><%= link_to 'edit', edit_shopping_list_path(shopping_list) %></span></h3>
+      <h3>
+        <%= link_to shopping_list.name, shopping_list_path(shopping_list) %>
+        <span class='list-actions right'>
+          <%= link_to 'edit', edit_shopping_list_path(shopping_list) %> |
+          <%= link_to 'delete', shopping_list, method: :delete, data: { confirm: 'Are you sure? This action cannot be undone.' } %>
+        </span>
+      </h3>
     </article>
   <% end %>
 
