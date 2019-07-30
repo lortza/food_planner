@@ -21,7 +21,7 @@ class MealPlan < ApplicationRecord
   end
 
   def self.upcoming
-    where('start_date >= ?', Date.today).order(start_date: :asc)
+    where('start_date >= ?', Time.zone.today).order(start_date: :asc)
   end
 
   def total_servings

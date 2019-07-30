@@ -43,7 +43,7 @@ module ApplicationHelper
   private
 
   def plan_for_today
-    MealPlan.find_by(start_date: Date.today)
+    MealPlan.find_by(start_date: Time.zone.today)
   end
 
   def plan_for_next_sunday
