@@ -5,6 +5,7 @@ class Aisle < ApplicationRecord
   has_many :shopping_list_items, dependent: :destroy
 
   validates :name,
-            :number,
-            presence: true
+            presence: true,
+            uniqueness: { scope: :user_id }
+
 end

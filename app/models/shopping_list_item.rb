@@ -11,4 +11,11 @@ class ShoppingListItem < ApplicationRecord
             :aisle_id,
             :shopping_list_id,
             presence: true
+
+  scope :not_purchased, -> { where(purchased: false) }
+  scope :purchased, -> { where(purchased: true) }
+
+  def self.by_recently_edited
+    order(updated_at: 'DESC')
+  end
 end

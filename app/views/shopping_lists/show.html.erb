@@ -4,8 +4,26 @@
 <h1><%= @shopping_list.name %></h1>
 <!-- <div id='new-form-placeholder'></div> -->
 
-<% @shopping_list.shopping_list_items.each do |item| %>
+<% @shopping_list.shopping_list_items.not_purchased.group_by(&:aisle).each do |aisle, items| %>
+  <% if aisle %>
+    <%= aisle.number %> <%= aisle.name %>
+    <% items.each do |item| %>
+      <article class='list'>
+        <h3>
+          <%= item.quantity %> <%= item.name %>
+          <span class='list-actions right'><%= link_to 'edit', edit_shopping_list_shopping_list_item_path(@shopping_list, item) %></span>
+        </h3>
+      </article>
+    <% end %>
+  <% end %>
+<% end %>
+
+purchased
+<% @shopping_list.shopping_list_items.purchased.by_recently_edited.each do |item| %>
   <article class='list'>
-    <h3><%= item.name %> | <%#= link_to 'edit', edit_shopping_list_shopping_list_item_path(@shopping_list, item) %></h3>
+    <h3>
+      <span class="item_purchased"><%= item.quantity %> <%= item.name %></span>
+      <span class='list-actions right'><%= link_to 'edit', edit_shopping_list_shopping_list_item_path(@shopping_list, item) %></span>
+    </h3>
   </article>
 <% end %>

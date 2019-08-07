@@ -18,4 +18,8 @@
       &:hover { color: $default-text; }
     }
   }
+  .item_purchased {
+    color: gray;
+    text-decoration: line-through;
+  }
 }
