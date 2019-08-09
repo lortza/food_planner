@@ -27,6 +27,12 @@ class ShoppingListItemsController < ApplicationController
       render :edit
     end
   end
+  #
+  # def destroy
+  #   ShoppingListItem.find(params[:id]).destroy
+  #   flash[:success] = 'ShoppingListItem deleted'
+  #   redirect_to shopping_list_items_path
+  # end
 
   private
 
