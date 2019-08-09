@@ -18,4 +18,16 @@ class ShoppingListItem < ApplicationRecord
   def self.by_recently_edited
     order(updated_at: 'DESC')
   end
+
+  # Set the item's purchased setting to true and save the item
+  def mark_as_purchased!
+    self.purchased = true
+    self.save!
+  end
+
+  # Set the item's purchased setting to false and save the item
+  def mark_as_unpurchased!
+    self.purchased = false
+    self.save!
+  end
 end
