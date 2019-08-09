@@ -1,29 +1,31 @@
 <%= link_to 'Back', shopping_lists_path, class: button_class('primary right') %>
-<%= link_to 'Add Item', new_shopping_list_shopping_list_item_path(@shopping_list), class: button_class('primary right') %>
 
 <h1><%= @shopping_list.name %></h1>
 <!-- <div id='new-form-placeholder'></div> -->
+<article class='list'>
+  <%= link_to 'Add an Item...', new_shopping_list_shopping_list_item_path(@shopping_list) %>
+</article>
 
-<% @shopping_list.shopping_list_items.not_purchased.group_by(&:aisle).each do |aisle, items| %>
+<% @shopping_list.shopping_list_items.includes(:aisle).not_purchased.group_by(&:aisle).each do |aisle, items| %>
   <% if aisle %>
-    <%= aisle.number %> <%= aisle.name %>
+    <h4 class='aisle'><%= aisle.number %> <%= aisle.name %></h4>
     <% items.each do |item| %>
       <article class='list'>
-        <h3>
+        <p class='list-item'>
           <%= item.quantity %> <%= item.name %>
-          <span class='list-actions right'><%= link_to 'edit', edit_shopping_list_shopping_list_item_path(@shopping_list, item) %></span>
-        </h3>
+          <span class='right'> <%= link_to "", edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: 'fas fa-info-circle' %></span>
+        </p>
       </article>
     <% end %>
   <% end %>
 <% end %>
 
-purchased
+<h4 class='aisle'>Crossed Off</h4>
 <% @shopping_list.shopping_list_items.purchased.by_recently_edited.each do |item| %>
   <article class='list'>
-    <h3>
-      <span class="item_purchased"><%= item.quantity %> <%= item.name %></span>
-      <span class='list-actions right'><%= link_to 'edit', edit_shopping_list_shopping_list_item_path(@shopping_list, item) %></span>
-    </h3>
+    <p class='list-item item-purchased'>
+      <span class='item-name'><%= item.quantity %> <%= item.name %></span>
+      <span class='item-icon right'> <%= link_to "", edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: 'fas fa-info-circle' %></span>
+    </p>
   </article>
 <% end %>
