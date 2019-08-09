@@ -11,6 +11,12 @@
   padding-top: 1rem;
 }
 
+// Links
+a { color: $link-color;}
+a.icon:link { text-decoration: none; }
+a.back-icon:link { font-size: 1.5rem; }
+
+
 // SEARCH BAR
 .search-icon {
   color: $medium-gray;
@@ -27,8 +33,6 @@
   a { color: $medium-gray; }
 }
 
-a { color: $link-color;}
-a.icon:link { text-decoration: none; }
 
 // BOOTSTRAP OVERRIDES
 .card {

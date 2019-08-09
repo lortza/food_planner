@@ -3,16 +3,16 @@
 .aisle {
   background-color: $brand-secondary;
   color: $white;
-  font-size: 1rem;
+  font-size: .75rem;
   font-weight: normal;
   margin-bottom: 0;
-  padding: 10px;
+  padding: 5px 8px;
 }
 
 .list {
   border-top: 1px solid $light-gray;
   color: $default-text;
-  padding: .6rem;
+  padding: .5rem;
 
   .list-actions {
     font-size: .85rem;
@@ -26,7 +26,7 @@
   }
 
   .list-item {
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: normal;
     margin-bottom: 0;
     a { color: $default-text; }
