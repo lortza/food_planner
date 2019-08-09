@@ -3,5 +3,19 @@ $card-image-height: 100px;
 $card-height: $card-image-height * 4;
 $table-thumbnail: 40px;
 
-// Colors
+// Colors: Brand Assignments
+$brand-dark-blue: #2b5f6e;
+$brand-light-blue: #369EBA;
+$brand-purple: #7A3C50;
+$brand-brown: #3B3711;
+$brand-yellow: #BAB13F;
+$brand-secondary: $brand-light-blue;
+
+// Colors: Other
+$white: #fff;
+$default-text: $brand-dark-blue;
+$light-gray: #f1f1f1;
 $gray: #808080;
+$medium-gray: #ccc;
+$link-color: $brand-light-blue;
+// $error: ff0000;

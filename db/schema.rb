@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_28_143731) do
+ActiveRecord::Schema.define(version: 2019_08_07_000016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "aisles", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "name"
+    t.string "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_aisles_on_user_id"
+  end
 
   create_table "ingredients", force: :cascade do |t|
     t.bigint "recipe_id"
@@ -66,6 +75,27 @@ ActiveRecord::Schema.define(version: 2019_04_28_143731) do
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
+  create_table "shopping_list_items", force: :cascade do |t|
+    t.bigint "shopping_list_id"
+    t.bigint "aisle_id"
+    t.float "quantity"
+    t.string "name"
+    t.boolean "purchased", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["aisle_id"], name: "index_shopping_list_items_on_aisle_id"
+    t.index ["shopping_list_id"], name: "index_shopping_list_items_on_shopping_list_id"
+  end
+
+  create_table "shopping_lists", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "favorite", default: false
+    t.index ["user_id"], name: "index_shopping_lists_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -79,9 +109,13 @@ ActiveRecord::Schema.define(version: 2019_04_28_143731) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "aisles", "users"
   add_foreign_key "ingredients", "recipes"
   add_foreign_key "meal_plan_recipes", "meal_plans"
   add_foreign_key "meal_plan_recipes", "recipes"
   add_foreign_key "meal_plans", "users"
   add_foreign_key "recipes", "users"
+  add_foreign_key "shopping_list_items", "aisles"
+  add_foreign_key "shopping_list_items", "shopping_lists"
+  add_foreign_key "shopping_lists", "users"
 end

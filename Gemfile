@@ -28,7 +28,7 @@ group :development, :test do
   gem 'better_errors' # creates console in browser for errors
   gem 'binding_of_caller' # goes with better_errors
   gem 'bullet' # detects n+1 queries
-  gem 'byebug', platforms: %i[mri mingw x64_mingw] # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platforms: %i[mri mingw x64_mingw] # Call 'byebug' anywhere in the code to get a debugger console
   gem 'pry-rails'
   gem 'reek'
 end

@@ -2,6 +2,7 @@ MealPlanRecipe.destroy_all
 Recipe.destroy_all
 MealPlan.destroy_all
 Ingredient.destroy_all
+Aisle.destroy_all
 User.destroy_all
 
 user = User.create!(
@@ -498,4 +499,23 @@ MealPlanRecipe.create!([
   {meal_plan_id: meal_plan_43.id, recipe_id: recipe_87.id },
   {meal_plan_id: meal_plan_44.id, recipe_id: recipe_68.id },
   {meal_plan_id: meal_plan_44.id, recipe_id: recipe_72.id}
+])
+
+# Shopping Lists
+Aisle.create!([
+  { user_id: user.id, number: '0_1', name: 'produce: fruits' },
+  { user_id: user.id, number: '0_1_back_wall', name: 'produce: greens' },
+  { user_id: user.id, number: '0_2', name: 'produce: peppers' },
+  { user_id: user.id, number: '0_2_back_wall', name: 'produce: vegetables' },
+  { user_id: user.id, number: '0_3', name: 'produce: potatoes & roots' },
+  { user_id: user.id, number: '01', name: 'bread & tortillas' },
+])
+
+shopping_list = user.shopping_lists.create(name: 'grocery')
+
+ShoppingListItem.create!([
+  { aisle_id: user.aisles.first.id, quantity: 2, name: 'apple' },
+  { aisle_id: user.aisles.first.id, quantity: 1, name: 'blueberries' },
+  { aisle_id: user.aisles.second.id, quantity: 1, name: 'salad greens' },
+  { aisle_id: user.aisles.second.id, quantity: 1, name: 'bulb of fennel' },
 ])

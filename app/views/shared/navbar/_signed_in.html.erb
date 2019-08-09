@@ -19,6 +19,16 @@
   </div>
 </li>
 
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Shopping Lists
+  </a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <%= render partial: 'shared/navbar/favorite_shopping_list' %>
+    <%= link_to 'All Shopping lists', shopping_lists_path, class: 'dropdown-item' %>
+  </div>
+</li>
+
 <% if current_user.admin? %>
 <li class="nav-item dropdown">
   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
