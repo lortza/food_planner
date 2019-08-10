@@ -20,13 +20,13 @@ class ShoppingListItem < ApplicationRecord
   end
 
   # Set the item's purchased setting to true and save the item
-  def mark_as_purchased!
+  def mark_as_complete!
     self.purchased = true
     self.save!
   end
 
   # Set the item's purchased setting to false and save the item
-  def mark_as_unpurchased!
+  def mark_as_uncomplete!
     self.purchased = false
     self.save!
   end

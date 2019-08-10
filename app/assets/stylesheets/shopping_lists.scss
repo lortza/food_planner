@@ -3,21 +3,21 @@
 .aisle {
   background-color: $brand-secondary;
   color: $white;
-  font-size: 1rem;
+  font-size: .75rem;
   font-weight: normal;
   margin-bottom: 0;
-  padding: 10px;
+  padding: 5px 8px;
 }
 
 .list {
   border-top: 1px solid $light-gray;
   color: $default-text;
-  padding: .6rem;
+  padding: .5rem;
 
   .list-actions {
-    font-size: .85rem;
+    font-size: 1.5rem;
     a {
-      color: $medium-gray;
+      padding-left: 15px;
       &:hover {
         color: $default-text;
         text-decoration: none;
@@ -26,19 +26,17 @@
   }
 
   .list-item {
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: normal;
     margin-bottom: 0;
     a { color: $default-text; }
   }
 
-  .item-purchased {
+  .item-crossed-off {
     color: $medium-gray;
     text-decoration: line-through;
     font-weight: normal;
-    .item-icon {
-      a:link { color: $medium-gray; }
-      a:visited { color: $medium-gray; }
-    }
+    a:link { color: $medium-gray; }
+    a:visited { color: $medium-gray; }
   }
 }

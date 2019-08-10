@@ -1,7 +1,5 @@
-<%= link_to 'Back', shopping_lists_path, class: button_class('primary right') %>
-
 <h1>
-  <%= link_to "", shopping_lists_path, class: "icon fas fa-arrow-left" %>
+  <%= link_to "", shopping_lists_path, class: Icon.back %>
   <%= @shopping_list.name %>
 </h1>
 <!-- <div id='new-form-placeholder'></div> -->
@@ -15,8 +13,8 @@
     <% items.each do |item| %>
       <article class='list'>
         <p class='list-item'>
-          <%= item.quantity %> <%= item.name %>
-          <span class='right'> <%= link_to "", edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: 'icon fas fa-info-circle' %></span>
+          <%= link_to "#{item.quantity} #{item.name}", list_item_completions_path(id: item.id), method: :post %>
+          <span class='right'> <%= link_to "", edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: Icon.edit %></span>
         </p>
       </article>
     <% end %>
@@ -26,9 +24,9 @@
 <h4 class='aisle'>Crossed Off</h4>
 <% @shopping_list.shopping_list_items.purchased.by_recently_edited.each do |item| %>
   <article class='list'>
-    <p class='list-item item-purchased'>
-      <span class='item-name'><%= item.quantity %> <%= item.name %></span>
-      <span class='item-icon right'> <%= link_to "", edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: 'icon fas fa-info-circle' %></span>
+    <p class='list-item item-crossed-off'>
+      <%= link_to "#{item.quantity} #{item.name}", list_item_completion_path(item), method: :delete %>
+      <%= link_to "", edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: "right #{Icon.edit}" %>
     </p>
   </article>
 <% end %>
