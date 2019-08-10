@@ -7,6 +7,7 @@
   <% @shopping_lists.each do |shopping_list| %>
     <article class='list'>
       <h3>
+        <%= toggle_favorite(shopping_list) %> 
         <%= link_to shopping_list.name, shopping_list_path(shopping_list) %>
         <span class='list-actions right'>
           <%= link_to "", edit_shopping_list_path(shopping_list), class: Icon.edit %>

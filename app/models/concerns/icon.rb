@@ -10,4 +10,12 @@ module Icon
   def self.delete
     'icon far fa-trash-alt'
   end
+
+  def self.star_filled # '★'
+    'icon fas fa-star'
+  end
+
+  def self.star_outline # '☆'
+    'icon far fa-star'
+  end
 end
