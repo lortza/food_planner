@@ -12,7 +12,7 @@
     <h4 class='aisle'><%= aisle.number %> <%= aisle.name %></h4>
     <% items.each do |item| %>
       <article class='list'>
-        <p id="<%= dom_id(item) %>" class='list-item'>
+        <p class='list-item'>
           <%= link_to "#{item.quantity} #{item.name}", list_item_completions_path(id: item.id), method: :post %>
           <span class='right'> <%= link_to "", edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: Icon.edit %></span>
         </p>
@@ -24,7 +24,7 @@
 <h4 class='aisle'>Crossed Off</h4>
 <% @shopping_list.shopping_list_items.purchased.by_recently_edited.each do |item| %>
   <article class='list'>
-    <p id="<%= dom_id(item) %>" class='list-item item-crossed-off'>
+    <p class='list-item item-crossed-off'>
       <%= link_to "#{item.quantity} #{item.name}", list_item_completion_path(item), method: :delete %>
       <%= link_to "", edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: "right #{Icon.edit}" %>
     </p>
