@@ -503,6 +503,7 @@ MealPlanRecipe.create!([
 
 # Shopping Lists
 Aisle.create!([
+  { user_id: user.id, number: '0', name: 'Unassigned' },
   { user_id: user.id, number: '0_1', name: 'produce: fruits' },
   { user_id: user.id, number: '0_1_back_wall', name: 'produce: greens' },
   { user_id: user.id, number: '0_2', name: 'produce: peppers' },
