@@ -25,8 +25,8 @@
 <% @shopping_list.shopping_list_items.purchased.by_recently_edited.each do |item| %>
   <article class='list'>
     <p id="<%= dom_id(item) %>" class='list-item item-crossed-off'>
-      <span class='item-name'><%= link_to "#{item.quantity} #{item.name}", list_item_completion_path(item), method: :delete %></span>
-      <span class='item-icon right'> <%= link_to "", edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: "icon #{Icon.edit}" %></span>
+      <%= link_to "#{item.quantity} #{item.name}", list_item_completion_path(item), method: :delete %>
+      <%= link_to "", edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: "right #{Icon.edit}" %>
     </p>
   </article>
 <% end %>

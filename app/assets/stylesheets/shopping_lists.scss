@@ -36,9 +36,7 @@
     color: $medium-gray;
     text-decoration: line-through;
     font-weight: normal;
-    .item-icon {
-      a:link { color: $medium-gray; }
-      a:visited { color: $medium-gray; }
-    }
+    a:link { color: $medium-gray; }
+    a:visited { color: $medium-gray; }
   }
 }
