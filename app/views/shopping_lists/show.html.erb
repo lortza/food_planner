@@ -1,5 +1,5 @@
 <h1>
-  <%= link_to "", shopping_lists_path, class: "icon back-icon fas fa-arrow-left" %>
+  <%= link_to "", shopping_lists_path, class: Icon.back %>
   <%= @shopping_list.name %>
 </h1>
 <!-- <div id='new-form-placeholder'></div> -->
@@ -14,7 +14,7 @@
       <article class='list'>
         <p class='list-item'>
           <%= item.quantity %> <%= item.name %>
-          <span class='right'> <%= link_to "", edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: 'icon fas fa-info-circle' %></span>
+          <span class='right'> <%= link_to "", edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: Icon.edit %></span>
         </p>
       </article>
     <% end %>
@@ -26,7 +26,7 @@
   <article class='list'>
     <p class='list-item item-purchased'>
       <span class='item-name'><%= item.quantity %> <%= item.name %></span>
-      <span class='item-icon right'> <%= link_to "", edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: 'icon fas fa-info-circle' %></span>
+      <span class='item-icon right'> <%= link_to "", edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: "icon #{Icon.edit}" %></span>
     </p>
   </article>
 <% end %>

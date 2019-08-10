@@ -15,9 +15,9 @@
   padding: .5rem;
 
   .list-actions {
-    font-size: .85rem;
+    font-size: 1.5rem;
     a {
-      color: $medium-gray;
+      padding-left: 15px;
       &:hover {
         color: $default-text;
         text-decoration: none;
