@@ -10,6 +10,10 @@ class ShoppingList < ApplicationRecord
   validates :name,
             presence: true
 
+  def self.by_favorite
+    order(favorite: :desc)
+  end
+
   def favorite!
     self.favorite = true
     self.save!
