@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-class ListItemCompletionsController < ApplicationController
+class CompletedShoppingListItemsController < ApplicationController
   before_action :set_shopping_list_item, only: %i[create destroy]
 
   def create
-    @shopping_list_item.mark_as_complete!
+    @shopping_list_item.complete!
     redirect_to shopping_list_url(@shopping_list_item.shopping_list)
   end
 
   def destroy
-    @shopping_list_item.mark_as_uncomplete!
+    @shopping_list_item.uncomplete!
     redirect_to shopping_list_url(@shopping_list_item.shopping_list)
   end
 

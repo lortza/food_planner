@@ -5,15 +5,14 @@
   <%= render 'form', shopping_list: @shopping_list %>
 
   <% @shopping_lists.each do |shopping_list| %>
-    <article class='list'>
-      <h3>
+      <h3 class='list'>
+        <%= toggle_favorite(shopping_list) %>
         <%= link_to shopping_list.name, shopping_list_path(shopping_list) %>
         <span class='list-actions right'>
           <%= link_to "", edit_shopping_list_path(shopping_list), class: Icon.edit %>
           <%= link_to "", shopping_list, method: :delete, data: { confirm: 'Are you sure? This action cannot be undone.' }, class: Icon.delete %>
         </span>
       </h3>
-    </article>
   <% end %>
 
 <% else %>
