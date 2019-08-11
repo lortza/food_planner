@@ -4,6 +4,9 @@ class ShoppingListFavoritesController < ApplicationController
   before_action :set_shopping_list, only: %i[create destroy]
 
   def create
+    user = @shopping_list.user
+    user.shopping_lists.each { |list| list.unfavorite! }
+
     @shopping_list.favorite!
     redirect_to shopping_lists_url
   end
