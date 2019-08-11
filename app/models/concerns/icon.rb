@@ -12,10 +12,10 @@ module Icon
   end
 
   def self.star_filled # '★'
-    'icon fas fa-star'
+    'icon star star-filled fas fa-star'
   end
 
   def self.star_outline # '☆'
-    'icon far fa-star'
+    'icon star star-outline far fa-star'
   end
 end

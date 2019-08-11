@@ -11,10 +11,14 @@
   padding-top: 1rem;
 }
 
-// Links
+// Links & Icons
 a { color: $link-color;}
 a.icon:link { text-decoration: none; }
 a.back-icon:link { font-size: 1.5rem; }
+
+a.star:link { font-size: 1.25rem; }
+a.star-filled:link, a.star-filled:visited { color: $brand-yellow; }
+a.star-outline:link, a.star-outline:visited { color: $light-gray; }
 
 
 // SEARCH BAR
