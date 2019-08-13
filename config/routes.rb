@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   devise_for :users, skip: [:registrations] # this 'skip' prevents people from freating new acconuts
 
+  resources :aisles, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :recipes
   resources :meal_plans
   resources :shopping_lists, only: [:index, :new, :create, :show, :edit, :update, :destroy] do

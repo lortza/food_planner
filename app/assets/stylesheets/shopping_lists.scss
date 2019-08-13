@@ -9,12 +9,12 @@
   padding: 5px 8px;
 }
 
-.list {
+.index-item {
   border-top: 1px solid $light-gray;
   color: $default-text;
   padding: .5rem;
 
-  .list-actions {
+  .index-item-actions {
     font-size: 1.5rem;
     a {
       padding-left: 15px;
@@ -25,7 +25,7 @@
     }
   }
 
-  .list-item {
+  .shopping-list-item {
     font-size: 1rem;
     font-weight: normal;
     margin-bottom: 0;

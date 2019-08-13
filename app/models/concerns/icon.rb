@@ -1,14 +1,18 @@
 module Icon
   def self.back
-    'icon back-icon fas fa-arrow-left'
+    'icon nav-link-icon fas fa-arrow-left left'
+  end
+
+  def self.delete
+    'icon far fa-trash-alt'
   end
 
   def self.edit
     'icon fas fa-info-circle'
   end
 
-  def self.delete
-    'icon far fa-trash-alt'
+  def self.new
+    'icon nav-link-icon fas fa-plus-circle right'
   end
 
   def self.star_filled # '★'

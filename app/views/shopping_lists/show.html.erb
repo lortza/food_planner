@@ -3,17 +3,17 @@
   <%= @shopping_list.name %>
 </h1>
 <!-- <div id='new-form-placeholder'></div> -->
-<article class='list'>
+<article class='index-item'>
   <%= link_to 'Add an Item...', new_shopping_list_shopping_list_item_path(@shopping_list) %>
 </article>
 
 <% @shopping_list.shopping_list_items.order(:aisle_id).includes(:aisle).not_purchased.group_by(&:aisle).each do |aisle, items| %>
   <% if aisle %>
-    <h4 class='aisle'><%= aisle.number %> <%= aisle.name %></h4>
+    <h4 class='aisle'><%= aisle.name %></h4>
     <% items.each do |item| %>
-      <article class='list'>
-        <p class='list-item'>
-          <%= link_to "#{item.qty_rounded} #{item.name}", completed_shopping_list_items_path(id: item.id), method: :post %>
+      <article class='index-item'>
+        <p class='shopping-list-item'>
+          <%= link_to "#{item.name} #{display_quantity(item)}", completed_shopping_list_items_path(id: item.id), method: :post %>
           <span class='right'> <%= link_to "", edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: Icon.edit %></span>
         </p>
       </article>
@@ -23,9 +23,9 @@
 
 <h4 class='aisle'>Crossed Off</h4>
 <% @shopping_list.shopping_list_items.purchased.by_recently_edited.each do |item| %>
-  <article class='list'>
-    <p class='list-item item-crossed-off'>
-      <%= link_to "#{item.quantity} #{item.name}", completed_shopping_list_item_path(item), method: :delete %>
+  <article class='index-item'>
+    <p class='shopping-list-item item-crossed-off'>
+      <%= link_to "#{item.name} #{display_quantity(item)}", completed_shopping_list_item_path(item), method: :delete %>
       <%= link_to "", edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: "right #{Icon.edit}" %>
     </p>
   </article>

@@ -11,7 +11,6 @@ RSpec.describe Aisle, type: :model do
 
       it { should validate_presence_of(:name) }
       it { should validate_uniqueness_of(:name).scoped_to(:user_id) }
-      # it { should validate_presence_of(:number) }
     end
   end
 end
