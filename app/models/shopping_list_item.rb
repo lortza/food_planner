@@ -19,6 +19,10 @@ class ShoppingListItem < ApplicationRecord
     order(updated_at: 'DESC')
   end
 
+  def qty_rounded
+    quantity.to_i
+  end
+
   # Set the item's purchased setting to true and save the item
   def complete!
     self.purchased = true

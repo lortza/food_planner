@@ -30,6 +30,14 @@ RSpec.describe ShoppingListItem, type: :model do
     end
   end
 
+  describe '#qty_rounded' do
+    let(:shopping_list_item) { build(:shopping_list_item, quantity: 5.0) }
+
+    it 'returns an intergerized version of the quantity' do
+      expect(shopping_list_item.qty_rounded).to eq(5)
+    end
+  end
+
   describe '#complete!' do
     it 'sets the "purchased" attribute to true and saves the item' do
       item = create(:shopping_list_item, purchased: false)
