@@ -53,7 +53,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
   end
 
-  def recipe_params
+  def recipe_params # rubocop:disable Metrics/MethodLength
     params.require(:recipe).permit(:title,
                                    :servings,
                                    :source_name,
