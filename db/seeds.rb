@@ -503,13 +503,13 @@ MealPlanRecipe.create!([
 
 # Shopping Lists
 Aisle.create!([
-  { user_id: user.id, number: '0', name: 'Unassigned' },
-  { user_id: user.id, number: '0_1', name: 'produce: fruits' },
-  { user_id: user.id, number: '0_1_back_wall', name: 'produce: greens' },
-  { user_id: user.id, number: '0_2', name: 'produce: peppers' },
-  { user_id: user.id, number: '0_2_back_wall', name: 'produce: vegetables' },
-  { user_id: user.id, number: '0_3', name: 'produce: potatoes & roots' },
-  { user_id: user.id, number: '01', name: 'bread & tortillas' },
+  { user_id: user.id, name: 'Unassigned' },
+  { user_id: user.id, name: 'produce: fruits' },
+  { user_id: user.id, name: 'produce: greens' },
+  { user_id: user.id, name: 'produce: peppers' },
+  { user_id: user.id, name: 'produce: vegetables' },
+  { user_id: user.id, name: 'produce: potatoes & roots' },
+  { user_id: user.id, name: 'bread & tortillas' },
 ])
 
 shopping_list = user.shopping_lists.create(name: 'grocery')

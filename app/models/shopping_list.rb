@@ -5,7 +5,7 @@ class ShoppingList < ApplicationRecord
 
   belongs_to :user
   has_many :shopping_list_items, dependent: :destroy
-  has_many :items, class_name: 'ShoppingListItem'
+  has_many :items, class_name: 'ShoppingListItem', dependent: :destroy
 
   validates :name,
             presence: true
@@ -15,12 +15,10 @@ class ShoppingList < ApplicationRecord
   end
 
   def favorite!
-    self.favorite = true
-    self.save!
+    update!(favorite: true)
   end
 
   def unfavorite!
-    self.favorite = false
-    self.save!
+    update!(favorite: false)
   end
 end

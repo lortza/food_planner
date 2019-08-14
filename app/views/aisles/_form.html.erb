@@ -1,0 +1,18 @@
+<%= form_for(aisle) do |form| %>
+  <%= render 'shared/errors', object: aisle %>
+
+    <div class='field'>
+      <%= form.label :name %>
+      <%= form.text_field :name, autofocus: true, placeholder: 'Enter aisle name', class: 'form-control' %>
+    </div>
+
+    <div class='field'>
+      <%#= form.label 'select list' %>
+    </div>
+
+    <div class='field'>
+      <%#= form.label 'select vendor' %>
+    </div>
+
+    <%= form.submit class: button_classes %>
+<% end %>

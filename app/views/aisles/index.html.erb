@@ -1,0 +1,21 @@
+<h1>
+  <%= link_to "", new_aisle_path, class: Icon.new %>
+  Aisles
+</h1>
+
+<% if current_user.aisles.any? %>
+
+  <% @aisles.each do |aisle| %>
+    <h3 class='index-item'>
+      <%= link_to aisle.name, aisle_path(aisle) %> <span style="font-size: 1rem;"></span>
+      <span class='index-item-actions right'>
+        <%= link_to "", edit_aisle_path(aisle), class: Icon.edit %>
+        <%= link_to "", aisle, method: :delete, data: { confirm: 'Are you sure? This action cannot be undone.' }, class: Icon.delete %>
+      </span>
+    </h3>
+  <% end %>
+
+<% else %>
+  <p>Create a New Aisle</p>
+  <%= link_to 'New Aisle', new_aisle_path, class: button_class('primary btn-wide') %>
+<% end %>
