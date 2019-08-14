@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable Metrics/LineLength
 FactoryBot.define do
   factory :recipe do
     user
@@ -39,4 +38,3 @@ FactoryBot.define do
     end
   end
 end
-# rubocop:enable Metrics/LineLength
