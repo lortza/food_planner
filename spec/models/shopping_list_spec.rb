@@ -16,7 +16,7 @@ RSpec.describe ShoppingList, type: :model do
   describe '.by_favorite' do
     it 'returns results with the favorite first' do
       favorite_list = create(:shopping_list, favorite: true)
-      regular_list = create(:shopping_list, favorite: false)
+      create(:shopping_list, favorite: false)
       ordered_lists = ShoppingList.by_favorite
 
       expect(ordered_lists.first).to eq(favorite_list)

@@ -21,9 +21,14 @@ module ApplicationHelper
 
   def session_links
     if current_user
-      link_to "Sign Out #{current_user.email}", destroy_user_session_path, method: :delete, class: 'nav-link'
+      link_to "Sign Out #{current_user.email}",
+              destroy_user_session_path,
+              method: :delete,
+              class: 'nav-link'
     else
-      link_to 'Sign In', user_session_path, class: 'nav-link'
+      link_to 'Sign In',
+              user_session_path,
+              class: 'nav-link'
     end
   end
 
