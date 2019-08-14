@@ -52,7 +52,7 @@ end
 group :test do
   gem 'factory_bot_rails' # factory support for rspec
   gem 'launchy' # open browser with save_and_open_page
-  gem 'shoulda-matchers', '3.1.2' # library for easier testing syntax
+  gem 'shoulda-matchers', '4.1.2' # library for easier testing syntax
   gem 'webdrivers' # to help with testing
 end
 
