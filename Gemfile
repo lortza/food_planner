@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.3'
 
 gem 'bootsnap', '>= 1.1.0', require: false # Reduces boot times through caching; required in config/boot.rb
-gem 'coffee-rails', '~> 4.2'    # Use CoffeeScript for .coffee assets and views
+gem 'coffee-rails', '~> 5.0'    # Use CoffeeScript for .coffee assets and views
 gem 'devise'                    # User authentication
 gem 'jbuilder', '~> 2.5'        # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'loofah', '>= 2.2.3'        # Upgrade for security update
