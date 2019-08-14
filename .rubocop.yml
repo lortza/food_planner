@@ -22,7 +22,7 @@ AllCops:
 Metrics/BlockLength:
   Exclude:
     - !ruby/regexp /.*_spec\.rb$/
-    - 'spec/factories/*'
+    - 'spec/factories/**/*'
     - 'lib/tasks/*'
 
 Metrics/LineLength:

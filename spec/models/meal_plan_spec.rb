@@ -102,9 +102,9 @@ RSpec.describe MealPlan, type: :model do
     let(:meal_plan) { create(:meal_plan) }
 
     it 'outputs in time format' do
-      time = '12:00 PM'.to_time
+      time = Time.zone.parse('12:00 PM')
       est_minutes = 60
-      expected_time = '11:00 AM'.to_time.strftime('%I:%M %p')
+      expected_time = Time.zone.parse('11:00 AM').strftime('%I:%M %p')
       allow(meal_plan).to receive(:prep_end_time).and_return(time)
       allow(meal_plan).to receive(:estimated_time).and_return(est_minutes)
 

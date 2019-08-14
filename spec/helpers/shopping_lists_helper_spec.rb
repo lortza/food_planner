@@ -7,7 +7,7 @@ RSpec.describe ShoppingListsHelper, type: :helper do
     it 'when a list is favorited, it links to unfavorite' do
       list = create(:shopping_list, favorite: true)
       output = toggle_favorite(list)
-      http_destroy_verb = "delete"
+      http_destroy_verb = 'delete'
 
       expect(output).to include(http_destroy_verb)
     end
@@ -15,7 +15,7 @@ RSpec.describe ShoppingListsHelper, type: :helper do
     it 'when a list is not favorited, it links to favorite' do
       list = create(:shopping_list, favorite: false)
       output = toggle_favorite(list)
-      http_create_verb = "post"
+      http_create_verb = 'post'
 
       expect(output).to include(http_create_verb)
     end

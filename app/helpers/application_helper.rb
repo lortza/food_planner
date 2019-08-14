@@ -21,9 +21,14 @@ module ApplicationHelper
 
   def session_links
     if current_user
-      link_to "Sign Out #{current_user.email}", destroy_user_session_path, method: :delete, class: 'nav-link'
+      link_to "Sign Out #{current_user.email}",
+              destroy_user_session_path,
+              method: :delete,
+              class: 'nav-link'
     else
-      link_to 'Sign In', user_session_path, class: 'nav-link'
+      link_to 'Sign In',
+              user_session_path,
+              class: 'nav-link'
     end
   end
 
@@ -36,8 +41,8 @@ module ApplicationHelper
   end
 
   def display_link_to_plan
-    return link_to "Today's Plan: #{plan_for_today.start_date}", meal_plan_path(plan_for_today), class: 'dropdown-item' if plan_for_today
-    return link_to "Coming up: #{plan_for_next_sunday.start_date}", meal_plan_path(plan_for_next_sunday), class: 'dropdown-item' if plan_for_next_sunday
+    return link_to "Today's Plan: #{plan_for_today.start_date}", meal_plan_path(plan_for_today), class: 'dropdown-item' if plan_for_today # rubocop:disable Metrics/LineLength
+    return link_to "Coming up: #{plan_for_next_sunday.start_date}", meal_plan_path(plan_for_next_sunday), class: 'dropdown-item' if plan_for_next_sunday # rubocop:disable Metrics/LineLength
   end
 
   private

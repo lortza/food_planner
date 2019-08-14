@@ -5,7 +5,7 @@ class ShoppingListFavoritesController < ApplicationController
 
   def create
     user = @shopping_list.user
-    user.shopping_lists.each { |list| list.unfavorite! }
+    user.shopping_lists.each(&:unfavorite!)
 
     @shopping_list.favorite!
     redirect_to shopping_lists_url

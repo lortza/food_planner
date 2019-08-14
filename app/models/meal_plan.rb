@@ -7,7 +7,7 @@ class MealPlan < ApplicationRecord
 
   validates :start_date, :people_served, presence: true
 
-  PREP_END_TIME = '5:00 PM'.to_time
+  PREP_END_TIME = Time.zone.parse('5:00 PM')
   EFFICIENCY_RATE = 0.66
 
   def self.most_recent_first
