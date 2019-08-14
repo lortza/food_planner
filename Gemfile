@@ -12,7 +12,7 @@ gem 'jbuilder', '~> 2.5'        # Build JSON APIs with ease. Read more: https://
 gem 'loofah', '>= 2.2.3'        # Upgrade for security update
 gem 'nokogiri', '>= 1.8.5'      # Upgrade for security update
 gem 'pg', '>= 0.18', '< 2.0'
-gem 'puma', '~> 3.11'           # Use Puma as the app server
+gem 'puma', '~> 4.1'            # Use Puma as the app server
 gem 'rack', '>= 2.0.6'          # Upgrade for security update
 gem 'rails', '~> 5.2.3'
 gem 'sass-rails', '~> 5.0'      # Use SCSS for stylesheets
