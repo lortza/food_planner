@@ -1,7 +1,7 @@
 @import 'variables';
 
-.table__recipes-index {
-  .img__container {
+.table--recipes-index {
+  .img--container {
     height: $table-thumbnail;
     overflow: hidden;
     width: $table-thumbnail;
@@ -22,7 +22,7 @@
     width: 100%;
   }
 
-  .input__small { width: 4.5rem; }
+  .input--small { width: 4.5rem; }
 
   .table-ingredients {
     border: 0;

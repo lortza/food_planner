@@ -13,30 +13,32 @@
   border-top: 1px solid $light-gray;
   color: $default-text;
   padding: .5rem;
+}
 
-  .index-item-actions {
-    font-size: 1.5rem;
-    a {
-      padding-left: 15px;
-      &:hover {
-        color: $default-text;
-        text-decoration: none;
-      }
+.index-item-actions {
+  font-size: 1.5rem;
+
+  a {
+    padding-left: 15px;
+
+    &:hover {
+      color: $default-text;
+      text-decoration: none;
     }
   }
+}
 
-  .shopping-list-item {
-    font-size: 1rem;
-    font-weight: normal;
-    margin-bottom: 0;
-    a { color: $default-text; }
-  }
+.shopping-list-item {
+  font-size: 1rem;
+  font-weight: normal;
+  margin-bottom: 0;
+  a { color: $default-text; }
+}
 
-  .item-crossed-off {
-    color: $medium-gray;
-    text-decoration: line-through;
-    font-weight: normal;
-    a:link { color: $medium-gray; }
-    a:visited { color: $medium-gray; }
-  }
+.item-crossed-off {
+  color: $medium-gray;
+  font-weight: normal;
+  text-decoration: line-through;
+  a:link { color: $medium-gray; }
+  a:visited { color: $medium-gray; }
 }
