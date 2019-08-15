@@ -15,6 +15,4 @@ Rails.application.routes.draw do
 
   resources :completed_shopping_list_items, only: [:create, :destroy]
   resources :shopping_list_favorites, only: [:create, :destroy]
-
-  get 'mockups/recipes'
 end
