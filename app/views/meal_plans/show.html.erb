@@ -29,7 +29,7 @@
 
 <button id='button__ingredients-toggle' class='btn btn-sm btn-outline-secondary right opened'>Collapse All</button>
 <h2>Ingredient Breakdown</h2>
-<section id='section__ingredient-breakdown' class="row">
+<section id='section__ingredient-breakdown' class='row ingredient-breakdown'>
   <% @ingredient_set.each do |ingredient, details| %>
   <div class="col-12 col-md-6 col-xl-4">
     <h3><%= ingredient %> <i class="caret fas fa-caret-down"></i></h3>
