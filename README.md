@@ -13,6 +13,7 @@ Live on heroku as [myfoodplanner](http://myfoodplanner.herokuapp.com)
 * Postgres
 * RuboCop
 * RSpec
+- [Dependabot](https://app.dependabot.com/accounts/lortza/) dependency manager
 
 ## Features
 
