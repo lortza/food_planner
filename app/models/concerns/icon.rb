@@ -24,4 +24,8 @@ module Icon
   def self.star_outline
     'icon star star-outline far fa-star'
   end
+
+  def self.sync
+    'icon nav-link-icon fas fa-sync right'
+  end
 end
