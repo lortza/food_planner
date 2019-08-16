@@ -10,7 +10,7 @@ module Icon
   end
 
   def self.edit
-    'icon fas fa-info-circle'
+    'icon fas fa-info-circle right'
   end
 
   def self.new
