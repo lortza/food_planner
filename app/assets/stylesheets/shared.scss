@@ -12,18 +12,17 @@
 }
 
 // Links & Icons
-a {
-  color: $link-color;
-  .icon:link { text-decoration: none; }
-  .nav-link-icon:link { font-size: 1.5rem; }
-  .star:link { font-size: 1.25rem; }
+a { color: $link-color; }
+.icon:link { text-decoration: none; }
+.nav-link-icon:link { font-size: 1.5rem; }
+.nav-link-icon.right { margin-top: .85rem; }
+.star:link { font-size: 1.25rem; }
 
-  .star-filled:link,
-  .star-filled:visited { color: $brand-yellow; }
+.star-filled:link,
+.star-filled:visited { color: $brand-yellow; }
 
-  .star-outline:link,
-  .star-outline:visited { color: $light-gray; }
-}
+.star-outline:link,
+.star-outline:visited { color: $light-gray; }
 
 
 // SEARCH BAR
