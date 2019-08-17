@@ -1,0 +1,21 @@
+@import 'variables';
+
+.icon:link { text-decoration: none; }
+.nav-link-icon:link { font-size: 1.5rem; }
+.nav-link-icon.right { margin-top: .85rem; }
+.star:link { font-size: 1.25rem; }
+
+.star-filled:link,
+.star-filled:visited { color: $brand-yellow; }
+
+.star-outline:link,
+.star-outline:visited { color: $light-gray; }
+
+// WIP idea to replace Icon ruby class
+// .icon-back {
+//   @extend .icon;
+//   @extend .left;
+//   @extend .nav-link-icon;
+//   @extend .fas;
+//   @extend .fa-arrow-left;
+// }
