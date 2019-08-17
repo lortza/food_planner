@@ -15,7 +15,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.0'            # Use Puma as the app server
 gem 'rack', '>= 2.0.6'          # Upgrade for security update
 gem 'rails', '~> 5.2.3'         # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'sass-rails', '~> 5.0'      # Use SCSS for stylesheets
+gem 'sass-rails', '~> 6.0'      # Use SCSS for stylesheets
 gem 'uglifier', '>= 1.3.0'      # Use Uglifier as compressor for JavaScript assets
 # gem 'redis', '~> 4.0'           # Use Redis adapter to run Action Cable in production
 # gem 'mini_magick', '~> 4.8'  # Use ActiveStorage variant
