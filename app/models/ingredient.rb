@@ -95,10 +95,6 @@ class Ingredient < ApplicationRecord
     order(:id)
   end
 
-  def whole_number?
-    (quantity % 1).zero?
-  end
-
   def format_name
     self.name = name.downcase
   end

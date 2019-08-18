@@ -19,7 +19,7 @@ module IngredientsHelper
   end
 
   def qty_display(ingredient)
-    return ingredient.quantity.to_i if ingredient.whole_number?
+    return ingredient.quantity.to_i if NumbersHelper.whole_number?(ingredient.quantity)
 
     process_fraction(ingredient.quantity)
   end
