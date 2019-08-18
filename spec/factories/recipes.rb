@@ -37,4 +37,10 @@ FactoryBot.define do
       ].join("\n\n")
     end
   end
+
+  trait :with_2_ingredients do
+    after :create do |recipe|
+      create_list :ingredient, 2, recipe: recipe
+    end
+  end
 end

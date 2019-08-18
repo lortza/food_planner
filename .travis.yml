@@ -11,7 +11,7 @@ before_script:
   - psql -c 'create database travis_ci_test;' -U postgres
   - export DISPLAY=:99.0
 script:
-  - bundle exec rubocop
+  # - bundle exec rubocop
   - bundle exec scss-lint app/assets/stylesheets/**.scss
   - bundle exec rake db:create
   - bundle exec rake db:migrate

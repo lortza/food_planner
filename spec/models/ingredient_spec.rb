@@ -3,6 +3,10 @@
 RSpec.describe Ingredient, type: :model do
   let(:ingredient) { build(:ingredient) }
 
+  context 'associations' do
+    it { should belong_to(:recipe) }
+  end
+
   describe 'a valid ingredient' do
     context 'when has valid params' do
       it 'is valid' do

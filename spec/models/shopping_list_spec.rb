@@ -3,6 +3,12 @@
 RSpec.describe ShoppingList, type: :model do
   let(:shopping_list) { build(:shopping_list) }
 
+  context 'associations' do
+    it { should belong_to(:user) }
+    it { should have_many(:shopping_list_items) }
+    it { should have_many(:items) }
+  end
+
   describe 'a valid shopping_list' do
     context 'when has valid params' do
       it 'is valid' do
@@ -10,6 +16,23 @@ RSpec.describe ShoppingList, type: :model do
       end
 
       it { should validate_presence_of(:name) }
+    end
+  end
+
+  describe 'self.default' do
+    let(:user) { create(:user) }
+    let(:shopping_list) { create(:shopping_list, user: user) }
+
+    it 'returns the existing shopping list called "grocery" that belongs to the current_user' do
+      existing_list = create(:shopping_list, user: user, name: 'grocery')
+      retured_list = ShoppingList.default(user)
+
+      expect(retured_list).to eq(existing_list)
+    end
+
+    it 'creates a new list called "grocery" for the user if one does not exist' do
+      retured_list = ShoppingList.default(user)
+      expect(retured_list.name).to eq('grocery')
     end
   end
 

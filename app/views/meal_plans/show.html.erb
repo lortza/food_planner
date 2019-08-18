@@ -24,6 +24,7 @@
       <li><%= link_to recipe.title, recipe_path(recipe) %> (<%= recipe.servings %> servings)</li>
       <% end %>
     </ol>
+    <%= link_to 'Add Ingredients to Shopping List', bulk_list_item_managers_path(params: { shopping_list_id: ShoppingList.default(current_user).id, meal_plan_id: @meal_plan.id }), method: 'POST', class: button_classes %>
   </section>
 </div><!-- row -->
 

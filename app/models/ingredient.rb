@@ -5,6 +5,7 @@ class Ingredient < ApplicationRecord
   before_save :format_name
 
   UNITS = %w[
+    4oz\ can
     7oz\ can
     15oz\ can
     30oz\ can
@@ -92,10 +93,6 @@ class Ingredient < ApplicationRecord
 
   def self.by_id
     order(:id)
-  end
-
-  def whole_number?
-    (quantity % 1).zero?
   end
 
   def format_name

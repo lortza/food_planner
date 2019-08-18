@@ -10,6 +10,13 @@ class ShoppingList < ApplicationRecord
   validates :name,
             presence: true
 
+  def self.default(user)
+    default_name = 'grocery'
+    list = user.shopping_lists.where('name ILIKE ?', default_name).first
+    list = create!(name: default_name, user_id: user.id) if list.nil?
+    list
+  end
+
   def self.by_favorite
     order(favorite: :desc)
   end
