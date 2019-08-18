@@ -3,6 +3,15 @@
 RSpec.describe Recipe, type: :model do
   let(:recipe) { build(:recipe) }
 
+  context 'associations' do
+    it { should belong_to(:user) }
+    it { should have_many(:ingredients) }
+    it { should have_many(:meal_plan_recipes) }
+    it { should have_many(:meal_plans).through(:meal_plan_recipes) }
+
+    it { should accept_nested_attributes_for(:ingredients).allow_destroy(true) }
+  end
+
   describe 'a valid recipe' do
     context 'when has valid params' do
       it 'is valid' do

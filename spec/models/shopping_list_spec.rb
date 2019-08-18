@@ -3,6 +3,12 @@
 RSpec.describe ShoppingList, type: :model do
   let(:shopping_list) { build(:shopping_list) }
 
+  context 'associations' do
+    it { should belong_to(:user) }
+    it { should have_many(:shopping_list_items) }
+    it { should have_many(:items) }
+  end
+
   describe 'a valid shopping_list' do
     context 'when has valid params' do
       it 'is valid' do

@@ -3,6 +3,13 @@
 RSpec.describe MealPlan, type: :model do
   let(:meal_plan) { build(:meal_plan) }
 
+  context 'associations' do
+    it { should belong_to(:user) }
+    it { should have_many(:meal_plan_recipes) }
+    it { should have_many(:recipes).through(:meal_plan_recipes) }
+    it { should have_many(:ingredients).through(:recipes) }
+  end
+
   describe 'a valid meal_plan' do
     context 'when has valid params' do
       it 'is valid' do

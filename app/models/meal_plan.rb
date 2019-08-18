@@ -4,6 +4,7 @@ class MealPlan < ApplicationRecord
   belongs_to :user
   has_many :meal_plan_recipes, dependent: :destroy
   has_many :recipes, through: :meal_plan_recipes
+  has_many :ingredients, through: :recipes
 
   validates :start_date, :people_served, presence: true
 

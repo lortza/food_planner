@@ -3,6 +3,11 @@
 RSpec.describe Aisle, type: :model do
   let(:aisle) { build(:aisle) }
 
+  context 'associations' do
+    it { should belong_to(:user) }
+    it { should have_many(:shopping_list_items) }
+  end
+
   describe 'a valid aisle' do
     context 'when has valid params' do
       it 'is valid' do
