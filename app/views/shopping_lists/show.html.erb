@@ -23,7 +23,7 @@
 <% end %>
 
 <h4 class='aisle'>Crossed Off</h4>
-<% @shopping_list.shopping_list_items.purchased.by_recently_edited.each do |item| %>
+<% @shopping_list.shopping_list_items.purchased.by_recently_edited.limit(10).each do |item| %>
   <article class='index-item'>
     <p class='shopping-list-item item-crossed-off'>
       <%= link_to "#{item.name} #{display_quantity(item)}", completed_shopping_list_item_path(item), method: :delete %>
