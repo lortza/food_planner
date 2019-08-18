@@ -515,8 +515,8 @@ Aisle.create!([
 shopping_list = user.shopping_lists.create(name: 'grocery')
 
 ShoppingListItem.create!([
-  { aisle_id: user.aisles.first.id, quantity: 2, name: 'apple' },
-  { aisle_id: user.aisles.first.id, quantity: 1, name: 'blueberries' },
-  { aisle_id: user.aisles.second.id, quantity: 1, name: 'salad greens' },
-  { aisle_id: user.aisles.second.id, quantity: 1, name: 'bulb of fennel' },
+  { shopping_list_id: shopping_list.id, aisle_id: user.aisles.first.id, quantity: 2, name: 'apple' },
+  { shopping_list_id: shopping_list.id, aisle_id: user.aisles.first.id, quantity: 1, name: 'blueberries' },
+  { shopping_list_id: shopping_list.id, aisle_id: user.aisles.second.id, quantity: 1, name: 'salad greens' },
+  { shopping_list_id: shopping_list.id, aisle_id: user.aisles.second.id, quantity: 1, name: 'bulb of fennel' },
 ])

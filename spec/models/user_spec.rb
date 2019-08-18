@@ -11,4 +11,12 @@ RSpec.describe User, type: :model do
     it { should have_many(:shopping_lists) }
     it { should have_many(:aisles) }
   end
+
+  describe '#favorite_list' do
+    xit 'returns a single shopping list' do
+    end
+
+    xit 'returns a shopping_list that is marked as favorite for this user' do
+    end
+  end
 end

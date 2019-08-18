@@ -19,6 +19,23 @@ RSpec.describe ShoppingList, type: :model do
     end
   end
 
+  describe 'self.default' do
+    let(:user) { create(:user) }
+    let(:shopping_list) { create(:shopping_list, user: user) }
+
+    it 'returns the existing shopping list called "grocery" that belongs to the current_user' do
+      existing_list = create(:shopping_list, user: user, name: 'grocery')
+      retured_list = ShoppingList.default(user)
+
+      expect(retured_list).to eq(existing_list)
+    end
+
+    it 'creates a new list called "grocery" for the user if one does not exist' do
+      retured_list = ShoppingList.default(user)
+      expect(retured_list.name).to eq('grocery')
+    end
+  end
+
   describe '.by_favorite' do
     it 'returns results with the favorite first' do
       favorite_list = create(:shopping_list, favorite: true)
