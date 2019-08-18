@@ -13,11 +13,7 @@ class ShoppingList < ApplicationRecord
   def self.default(user)
     default_name = 'grocery'
     list = user.shopping_lists.where('name ILIKE ?', default_name).first
-
-    if list.nil?
-      list = create!(name: default_name, user_id: user.id)
-    end
-
+    list = create!(name: default_name, user_id: user.id) if list.nil?
     list
   end
 

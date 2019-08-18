@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BulkListItemManager
   def initialize(shopping_list:, items_source:)
     @shopping_list = shopping_list
@@ -19,21 +21,15 @@ class BulkListItemManager
           name: "#{ingredient.measurement_unit} #{ingredient.name}",
           purchased: false
         )
+      elsif item.purchased?
+        item.update!(
+          quantity: ingredient.quantity,
+          purchased: false
+        )
       else
-        if item.purchased?
-          item.update!(
-            quantity: ingredient.quantity,
-            purchased: false
-          )
-        else
-          item.quantity += ingredient.quantity
-          item.save
-        end
+        item.quantity += ingredient.quantity
+        item.save
       end
     end
-  end
-
-  def item_exists?(item)
-    !item.nil?
   end
 end

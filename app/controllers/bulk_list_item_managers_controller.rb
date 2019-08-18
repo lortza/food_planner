@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class BulkListItemManagersController < ApplicationController
-
   def create
     shopping_list = ShoppingList.find(permitted_params[:shopping_list_id])
     meal_plan = MealPlan.find(permitted_params[:meal_plan_id])
@@ -13,7 +12,6 @@ class BulkListItemManagersController < ApplicationController
 
     redirect_to shopping_list_url(shopping_list)
   end
-
 
   private
 

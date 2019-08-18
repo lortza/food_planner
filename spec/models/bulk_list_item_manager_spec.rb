@@ -2,7 +2,6 @@
 
 RSpec.describe BulkListItemManager, type: :model do
   describe '#add_items_to_list' do
-
     let(:shopping_list) { create(:shopping_list) }
     let(:meal_plan) { create(:meal_plan) }
     let(:recipe1) { create(:recipe, :with_2_ingredients) }
@@ -15,8 +14,8 @@ RSpec.describe BulkListItemManager, type: :model do
         items_source: meal_plan
       )
       manager.add_items_to_list
-      expected_list_items = meal_plan.ingredients.map {|ingredient| "#{ingredient.measurement_unit} #{ingredient.name}"}
-      actual_list_items = shopping_list.shopping_list_items.map {|item| item.name }
+      expected_list_items = meal_plan.ingredients.map { |ingredient| "#{ingredient.measurement_unit} #{ingredient.name}" }
+      actual_list_items = shopping_list.shopping_list_items.map(&:name)
 
       expect(expected_list_items).to eq(actual_list_items)
     end
@@ -31,7 +30,6 @@ RSpec.describe BulkListItemManager, type: :model do
       xit 'assigns the list item to the "Unassigned" aisle' do
       end
     end
-
 
     context 'when an ingredient is already on the shopping list and has an aisle assigned' do
       xit 'does not change that aisle assignment' do
