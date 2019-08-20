@@ -11,8 +11,7 @@ class Aisle < ApplicationRecord
             uniqueness: { scope: :user_id }
 
   def self.unassigned(list)
-    user = User.find(list.user_id)
-    user.aisles
+    list.user.aisles
         .where('name ILIKE ?', 'unassigned')
         .first_or_create(name: 'unassigned')
   end
