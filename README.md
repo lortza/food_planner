@@ -31,8 +31,15 @@ Live on heroku as [myfoodplanner](http://myfoodplanner.herokuapp.com)
 * run tests: `bundle exec rspec`
 
 ### Linters
-This project uses [rubocop](https://github.com/rubocop-hq/rubocop) and [scss-lint](https://github.com/sds/scss-lint). Run them locally on your machine like this:
+This project uses these linters in CI:
+* [reek](https://github.com/troessner/reek)
+* [rubocop](https://github.com/rubocop-hq/rubocop)
+* [scss-lint](https://github.com/sds/scss-lint)
+
+Run them locally on your machine like this:
 ```
+bundle exec reek
+
 bundle exec rubocop
 
 bundle exec scss-lint app/assets/stylesheets/**.scss

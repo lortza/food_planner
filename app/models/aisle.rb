@@ -12,8 +12,8 @@ class Aisle < ApplicationRecord
 
   def self.unassigned(list)
     user = User.find(list.user_id)
-    aisle = user.aisles.where('name ILIKE ?', 'unassigned').first
-    aisle = create!(name: 'unassigned', user_id: user.id) if aisle.nil?
-    aisle
+    user.aisles
+        .where('name ILIKE ?', 'unassigned')
+        .first_or_create(name: 'unassigned')
   end
 end

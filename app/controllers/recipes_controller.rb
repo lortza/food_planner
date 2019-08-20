@@ -4,10 +4,13 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[show edit update destroy]
 
   def index
-    @recipes = if params[:search]
-                 current_user.recipes.search(params[:search]).by_title
+    user_recipes = current_user.recipes
+    search_term = params[:search]
+
+    @recipes = if search_term
+                 user_recipes.search(search_term).by_title
                else
-                 current_user.recipes.active.by_title
+                 user_recipes.active.by_title
                end
   end
 

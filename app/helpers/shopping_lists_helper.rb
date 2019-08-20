@@ -16,7 +16,9 @@ module ShoppingListsHelper
   end
 
   def display_quantity(item)
-    pretty_number = NumbersHelper.prettify_float(item.quantity)
-    "(#{pretty_number})" if item.quantity > 1
+    quantity = item.quantity
+
+    pretty_number = NumbersHelper.prettify_float(quantity)
+    "(#{pretty_number})" if quantity > 1
   end
 end
