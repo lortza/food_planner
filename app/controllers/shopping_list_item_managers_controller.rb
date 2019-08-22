@@ -6,12 +6,14 @@ class ShoppingListItemManagersController < ApplicationController
     meal_plan = MealPlan.find(permitted_params[:meal_plan_id])
     ingredient = Ingredient.where(id: permitted_params[:ingredient_id])
 
-    ShoppingListItemManager.new(
+    manager = ShoppingListItemManager.new(
       shopping_list: shopping_list,
-      ingredients: ingredient || meal_plan.ingredients
-    ).add_items_to_list
+      ingredients: ingredient&.empty? ? meal_plan.ingredients : ingredient
+    )
+    manager.add_items_to_list
 
-    redirect_to shopping_list_url(shopping_list)
+    flash[:success] = "#{ActionController::Base.helpers.pluralize(manager.ingredients.count, 'item')} added."
+    redirect_to meal_plan
   end
 
   private

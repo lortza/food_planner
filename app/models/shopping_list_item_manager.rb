@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ShoppingListItemManager
+  attr_reader :ingredients
+  
   def initialize(shopping_list:, ingredients:)
     @shopping_list = shopping_list
     @ingredients = ingredients
