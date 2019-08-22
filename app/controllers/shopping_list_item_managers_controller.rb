@@ -8,7 +8,7 @@ class ShoppingListItemManagersController < ApplicationController
 
     manager = ShoppingListItemManager.new(
       shopping_list: shopping_list,
-      ingredients: ingredient&.empty? ? meal_plan.ingredients : ingredient
+      ingredients: permitted_params[:ingredient_id] ? ingredient : meal_plan.ingredients
     )
     manager.add_items_to_list
 
