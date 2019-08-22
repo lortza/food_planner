@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
-class BulkListItemManagersController < ApplicationController
+class ShoppingListItemManagersController < ApplicationController
   def create
     shopping_list = ShoppingList.find(permitted_params[:shopping_list_id])
     meal_plan = MealPlan.find(permitted_params[:meal_plan_id])
+    ingredient = Ingredient.where(id: permitted_params[:ingredient_id])
 
-    BulkListItemManager.new(
+    ShoppingListItemManager.new(
       shopping_list: shopping_list,
-      items_source: meal_plan
+      ingredients: ingredient || meal_plan.ingredients
     ).add_items_to_list
 
     redirect_to shopping_list_url(shopping_list)
@@ -17,6 +18,7 @@ class BulkListItemManagersController < ApplicationController
 
   def permitted_params
     params.permit(:shopping_list_id,
-                  :meal_plan_id)
+                  :meal_plan_id,
+                  :ingredient_id)
   end
 end

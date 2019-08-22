@@ -16,5 +16,5 @@ Rails.application.routes.draw do
   resources :completed_shopping_list_items, only: [:create, :destroy]
   resources :shopping_list_favorites, only: [:create, :destroy]
 
-  resources :bulk_list_item_managers, only: [:create]
+  resources :shopping_list_item_managers, only: [:create]
 end

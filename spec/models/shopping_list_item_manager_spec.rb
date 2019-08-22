@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe BulkListItemManager, type: :model do
+RSpec.describe ShoppingListItemManager, type: :model do
   describe '#add_items_to_list' do
     let(:shopping_list) { create(:shopping_list) }
     let(:meal_plan) { create(:meal_plan) }
@@ -9,9 +9,9 @@ RSpec.describe BulkListItemManager, type: :model do
 
     it 'adds all ingredients as shopping_list_items on the given shopping_list' do
       meal_plan.recipes << [recipe1, recipe2]
-      manager = BulkListItemManager.new(
+      manager = ShoppingListItemManager.new(
         shopping_list: shopping_list,
-        items_source: meal_plan
+        ingredients: meal_plan.ingredients
       )
       manager.add_items_to_list
       expected_list_items = meal_plan.ingredients.map { |ingredient| "#{ingredient.measurement_unit} #{ingredient.name}" }
@@ -30,9 +30,9 @@ RSpec.describe BulkListItemManager, type: :model do
         meal_plan.recipes << recipe
         recipe.ingredients << ingredient
 
-        manager = BulkListItemManager.new(
+        manager = ShoppingListItemManager.new(
           shopping_list: shopping_list,
-          items_source: meal_plan
+          ingredients: meal_plan.ingredients
         )
         manager.add_items_to_list
         item = shopping_list.items.last
@@ -44,9 +44,9 @@ RSpec.describe BulkListItemManager, type: :model do
         meal_plan.recipes << recipe
         recipe.ingredients << ingredient
 
-        manager = BulkListItemManager.new(
+        manager = ShoppingListItemManager.new(
           shopping_list: shopping_list,
-          items_source: meal_plan
+          ingredients: meal_plan.ingredients
         )
         manager.add_items_to_list
         item = shopping_list.items.last
@@ -58,9 +58,9 @@ RSpec.describe BulkListItemManager, type: :model do
         meal_plan.recipes << recipe
         recipe.ingredients << ingredient
 
-        manager = BulkListItemManager.new(
+        manager = ShoppingListItemManager.new(
           shopping_list: shopping_list,
-          items_source: meal_plan
+          ingredients: meal_plan.ingredients
         )
         manager.add_items_to_list
         item = shopping_list.items.last
@@ -83,9 +83,9 @@ RSpec.describe BulkListItemManager, type: :model do
           meal_plan.recipes << recipe
           recipe.ingredients << ingredient
 
-          manager = BulkListItemManager.new(
+          manager = ShoppingListItemManager.new(
             shopping_list: shopping_list,
-            items_source: meal_plan
+            ingredients: meal_plan.ingredients
           )
           # add item for the first time
           manager.add_items_to_list
@@ -108,9 +108,9 @@ RSpec.describe BulkListItemManager, type: :model do
           meal_plan.recipes << recipe
           recipe.ingredients << ingredient
 
-          manager = BulkListItemManager.new(
+          manager = ShoppingListItemManager.new(
             shopping_list: shopping_list,
-            items_source: meal_plan
+            ingredients: meal_plan.ingredients
           )
           # add item for the first time
           manager.add_items_to_list
@@ -131,9 +131,9 @@ RSpec.describe BulkListItemManager, type: :model do
           meal_plan.recipes << recipe
           recipe.ingredients << ingredient
 
-          manager = BulkListItemManager.new(
+          manager = ShoppingListItemManager.new(
             shopping_list: shopping_list,
-            items_source: meal_plan
+            ingredients: meal_plan.ingredients
           )
           # add item for the first time
           manager.add_items_to_list
@@ -156,9 +156,9 @@ RSpec.describe BulkListItemManager, type: :model do
           meal_plan.recipes << recipe
           recipe.ingredients << ingredient
 
-          manager = BulkListItemManager.new(
+          manager = ShoppingListItemManager.new(
             shopping_list: shopping_list,
-            items_source: meal_plan
+            ingredients: meal_plan.ingredients
           )
           # add item for the first time
           manager.add_items_to_list

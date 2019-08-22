@@ -24,7 +24,14 @@
       <li><%= link_to recipe.title, recipe_path(recipe) %> (<%= recipe.servings %> servings)</li>
       <% end %>
     </ol>
-    <%= link_to 'Add Ingredients to Shopping List', bulk_list_item_managers_path(params: { shopping_list_id: ShoppingList.default(current_user).id, meal_plan_id: @meal_plan.id }), method: 'POST', class: button_classes %>
+    <%= link_to '+ Add All Ingredients to Grocery List',
+                shopping_list_item_managers_path(
+                  shopping_list_id: ShoppingList.default(current_user).id,
+                  meal_plan_id: @meal_plan.id
+                ),
+                method: 'POST',
+                class: button_classes('info')
+    %>
   </section>
 </div><!-- row -->
 
@@ -36,7 +43,19 @@
     <h3><%= ingredient %> <i class="caret fas fa-caret-down"></i></h3>
     <ul>
       <% details.each do |detail| %>
-      <li><%= detail_display(detail) %></li>
+      <li>
+        <%= detail_display(detail) %>
+        <%= link_to '',
+                    shopping_list_item_managers_path(
+                      shopping_list_id: ShoppingList.default(current_user).id,
+                      meal_plan_id: @meal_plan.id,
+                      ingredient_id: detail.id
+                    ),
+                    method: 'POST',
+                    title: 'add to list',
+                    class: Icon.copy_to_list
+        %>
+      </li>
       <% end %>
     </ul>
   </div><!-- cols -->
