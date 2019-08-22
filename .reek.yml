@@ -1,0 +1,21 @@
+---
+
+### Generic smell configuration
+
+detectors:
+  # You can disable smells completely
+  IrresponsibleModule:
+    enabled: false
+
+  MissingSafeMethod:
+    enabled: false
+
+
+directories:
+  "app/controllers":
+    InstanceVariableAssumption:
+      enabled: false
+
+# Directories and files below will not be scanned at all
+exclude_paths:
+  - db

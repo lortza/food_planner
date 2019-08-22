@@ -30,7 +30,7 @@ group :development, :test do
   gem 'bullet'                  # detects n+1 queries
   gem 'byebug', platforms: %i[mri mingw x64_mingw] # Call 'byebug' anywhere in the code to get a debugger console
   gem 'pry-rails'
-  gem 'reek'
+  gem 'reek'                    # https://github.com/troessner/reek/blob/master/docs/Code-Smells.md
 end
 
 group :development do
