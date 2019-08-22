@@ -29,8 +29,8 @@ class ShoppingListItemsController < ApplicationController
   end
 
   def destroy
-    ShoppingListItem.find(params[:id]).destroy
-    flash[:success] = 'ShoppingListItem deleted'
+    item = ShoppingListItem.find(params[:id]).destroy
+    flash[:warning] = "#{item.name} was deleted."
     redirect_to shopping_list_url(@shopping_list)
   end
 
