@@ -25,7 +25,7 @@
       <% end %>
     </ol>
     <%= link_to '+ Add All Ingredients to Grocery List',
-                shopping_list_item_managers_path(
+                shopping_list_item_builders_path(
                   shopping_list_id: ShoppingList.default(current_user).id,
                   meal_plan_id: @meal_plan.id
                 ),
@@ -40,13 +40,15 @@
 <section id='section__ingredient-breakdown' class='row ingredient-breakdown'>
   <% @ingredient_set.each do |ingredient, details| %>
   <div class="col-12 col-md-6 col-xl-4">
-    <h3><%= ingredient %> <i class="caret fas fa-caret-down"></i></h3>
+    <h3>
+      <%= ingredient %> <i class="caret fas fa-caret-down"></i>
+    </h3>
     <ul>
       <% details.each do |detail| %>
       <li>
         <%= detail_display(detail) %>
         <%= link_to '',
-                    shopping_list_item_managers_path(
+                    shopping_list_item_builders_path(
                       shopping_list_id: ShoppingList.default(current_user).id,
                       meal_plan_id: @meal_plan.id,
                       ingredient_id: detail.id

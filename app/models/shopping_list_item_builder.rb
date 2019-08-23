@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
-class ShoppingListItemManager
-  attr_reader :ingredients
-  
-  def initialize(shopping_list:, ingredients:)
+class ShoppingListItemBuilder
+  attr_reader :ingredients, :meal_plan
+
+  def initialize(shopping_list:, single_ingredient: nil, meal_plan:)
     @shopping_list = shopping_list
-    @ingredients = ingredients
+    @meal_plan = meal_plan
+    @ingredients = single_ingredient.empty? ? meal_plan.ingredients : single_ingredient
   end
 
   def add_ingredient_to_list(ingredient)

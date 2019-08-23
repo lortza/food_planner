@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe ShoppingListItemManager, type: :model do
+RSpec.describe ShoppingListItemBuilder, type: :model do
   describe '#add_items_to_list' do
     let(:shopping_list) { create(:shopping_list) }
     let(:meal_plan) { create(:meal_plan) }
@@ -9,11 +9,11 @@ RSpec.describe ShoppingListItemManager, type: :model do
 
     it 'adds all ingredients as shopping_list_items on the given shopping_list' do
       meal_plan.recipes << [recipe1, recipe2]
-      manager = ShoppingListItemManager.new(
+      builder = ShoppingListItemBuilder.new(
         shopping_list: shopping_list,
         ingredients: meal_plan.ingredients
       )
-      manager.add_items_to_list
+      builder.add_items_to_list
       expected_list_items = meal_plan.ingredients.map { |ingredient| "#{ingredient.measurement_unit} #{ingredient.name}" }
       actual_list_items = shopping_list.shopping_list_items.map(&:name)
 
@@ -30,11 +30,11 @@ RSpec.describe ShoppingListItemManager, type: :model do
         meal_plan.recipes << recipe
         recipe.ingredients << ingredient
 
-        manager = ShoppingListItemManager.new(
+        builder = ShoppingListItemBuilder.new(
           shopping_list: shopping_list,
           ingredients: meal_plan.ingredients
         )
-        manager.add_items_to_list
+        builder.add_items_to_list
         item = shopping_list.items.last
 
         expect(item.quantity).to eq(ingredient.quantity)
@@ -44,11 +44,11 @@ RSpec.describe ShoppingListItemManager, type: :model do
         meal_plan.recipes << recipe
         recipe.ingredients << ingredient
 
-        manager = ShoppingListItemManager.new(
+        builder = ShoppingListItemBuilder.new(
           shopping_list: shopping_list,
           ingredients: meal_plan.ingredients
         )
-        manager.add_items_to_list
+        builder.add_items_to_list
         item = shopping_list.items.last
 
         expect(item.purchased).to eq(false)
@@ -58,11 +58,11 @@ RSpec.describe ShoppingListItemManager, type: :model do
         meal_plan.recipes << recipe
         recipe.ingredients << ingredient
 
-        manager = ShoppingListItemManager.new(
+        builder = ShoppingListItemBuilder.new(
           shopping_list: shopping_list,
           ingredients: meal_plan.ingredients
         )
-        manager.add_items_to_list
+        builder.add_items_to_list
         item = shopping_list.items.last
 
         expect(item.aisle.name).to eq('unassigned')
@@ -83,12 +83,12 @@ RSpec.describe ShoppingListItemManager, type: :model do
           meal_plan.recipes << recipe
           recipe.ingredients << ingredient
 
-          manager = ShoppingListItemManager.new(
+          builder = ShoppingListItemBuilder.new(
             shopping_list: shopping_list,
             ingredients: meal_plan.ingredients
           )
           # add item for the first time
-          manager.add_items_to_list
+          builder.add_items_to_list
 
           item = shopping_list.items.last
           expect(item.aisle.name).to eq('unassigned')
@@ -97,7 +97,7 @@ RSpec.describe ShoppingListItemManager, type: :model do
           item.update!(aisle: aisle)
 
           # add the item for the second time
-          manager.add_items_to_list
+          builder.add_items_to_list
 
           expect(item.aisle.name).to eq('rice aisle')
         end
@@ -108,18 +108,18 @@ RSpec.describe ShoppingListItemManager, type: :model do
           meal_plan.recipes << recipe
           recipe.ingredients << ingredient
 
-          manager = ShoppingListItemManager.new(
+          builder = ShoppingListItemBuilder.new(
             shopping_list: shopping_list,
             ingredients: meal_plan.ingredients
           )
           # add item for the first time
-          manager.add_items_to_list
+          builder.add_items_to_list
 
           item = shopping_list.items.last
           expect(item.quantity).to eq(1)
 
           # add the item for the second time
-          manager.add_items_to_list
+          builder.add_items_to_list
           item.reload
 
           expect(item.quantity).to eq(2)
@@ -131,12 +131,12 @@ RSpec.describe ShoppingListItemManager, type: :model do
           meal_plan.recipes << recipe
           recipe.ingredients << ingredient
 
-          manager = ShoppingListItemManager.new(
+          builder = ShoppingListItemBuilder.new(
             shopping_list: shopping_list,
             ingredients: meal_plan.ingredients
           )
           # add item for the first time
-          manager.add_items_to_list
+          builder.add_items_to_list
 
           item = shopping_list.items.last
           expect(item.quantity).to eq(1)
@@ -146,7 +146,7 @@ RSpec.describe ShoppingListItemManager, type: :model do
           item.reload
 
           # add the item for the second time
-          manager.add_items_to_list
+          builder.add_items_to_list
           item.reload
 
           expect(item.quantity).to eq(ingredient.quantity)
@@ -156,12 +156,12 @@ RSpec.describe ShoppingListItemManager, type: :model do
           meal_plan.recipes << recipe
           recipe.ingredients << ingredient
 
-          manager = ShoppingListItemManager.new(
+          builder = ShoppingListItemBuilder.new(
             shopping_list: shopping_list,
             ingredients: meal_plan.ingredients
           )
           # add item for the first time
-          manager.add_items_to_list
+          builder.add_items_to_list
 
           item = shopping_list.items.last
           expect(item.quantity).to eq(1)
@@ -171,7 +171,7 @@ RSpec.describe ShoppingListItemManager, type: :model do
           item.reload
 
           # add the item for the second time
-          manager.add_items_to_list
+          builder.add_items_to_list
           item.reload
 
           expect(item.purchased).to eq(false)
