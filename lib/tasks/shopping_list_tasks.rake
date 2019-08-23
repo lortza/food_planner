@@ -7,6 +7,8 @@ namespace :shopping_list do
 
   desc 'Add HEB aisles'
   task add_weekly_items: :environment do
+    return if !Date.today.thursday?
+
     user = User.find_by(admin: true)
     weekly_items_list = user.shopping_lists.find_by(name: 'weekly items')
     grocery_list = user.shopping_lists.find_by(name: 'grocery')
@@ -26,7 +28,6 @@ namespace :shopping_list do
       end
     end
   end
-
 
 
   desc 'Add HEB aisles'
