@@ -4,6 +4,31 @@
 # rake shopping_list:task_name
 
 namespace :shopping_list do
+
+  desc 'Add HEB aisles'
+  task add_weekly_items: :environment do
+    user = User.find_by(admin: true)
+    weekly_items_list = user.shopping_lists.find_by(name: 'weekly items')
+    grocery_list = user.shopping_lists.find_by(name: 'grocery')
+
+    puts "Adding #{weekly_items_list.name} to #{grocery_list.name} list..."
+    weekly_items_list.items.each do |item|
+      incoming_item = item.dup
+      puts incoming_item.name
+      if grocery_list.items.map(&:name).include?(incoming_item.name)
+        existing_item = grocery_list.items.find_by(name: incoming_item.name)
+        updated_quantity = existing_item.quantity + incoming_item.quantity
+        updated_quantity = incoming_item.quantity if existing_item.purchased?
+        existing_item.update(quantity: updated_quantity, purchased: false)
+      else
+        incoming_item.purchased = false
+        grocery_list.items << incoming_item
+      end
+    end
+  end
+
+
+
   desc 'Add HEB aisles'
   task heb_aisles: :environment do
     # rake shopping_list:heb_aisles
