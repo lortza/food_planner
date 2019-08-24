@@ -7,6 +7,8 @@ namespace :shopping_list do
 
   desc 'Add HEB aisles'
   task add_weekly_items: :environment do
+    # Heroku runs this daily at 6am UTC / 1am CST: https://dashboard.heroku.com/apps/myfoodplanner/scheduler
+    # UTC is 5 hours ahead of Central Time: https://savvytime.com/converter/utc-to-cst
     if Date.today.tuesday?
       puts "It's Tuesday!"
       user = User.find_by(admin: true)
