@@ -5,6 +5,10 @@ module Icon
     'icon nav-link-icon fas fa-arrow-left left'
   end
 
+  def self.copy_to_list
+    'icon fas fa-file-import'
+  end
+
   def self.delete
     'icon far fa-trash-alt'
   end

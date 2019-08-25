@@ -35,7 +35,6 @@ namespace :shopping_list do
   end
 
 
-
   desc 'Add HEB aisles'
   task heb_aisles: :environment do
     # rake shopping_list:heb_aisles

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe BulkListItemManager, type: :model do
+RSpec.describe ShoppingListItemBuilder, type: :model do
   describe '#add_items_to_list' do
     let(:shopping_list) { create(:shopping_list) }
     let(:meal_plan) { create(:meal_plan) }
@@ -9,11 +9,12 @@ RSpec.describe BulkListItemManager, type: :model do
 
     it 'adds all ingredients as shopping_list_items on the given shopping_list' do
       meal_plan.recipes << [recipe1, recipe2]
-      manager = BulkListItemManager.new(
+      builder = ShoppingListItemBuilder.new(
         shopping_list: shopping_list,
-        items_source: meal_plan
+        single_ingredient: [],
+        meal_plan: meal_plan
       )
-      manager.add_items_to_list
+      builder.add_items_to_list
       expected_list_items = meal_plan.ingredients.map { |ingredient| "#{ingredient.measurement_unit} #{ingredient.name}" }
       actual_list_items = shopping_list.shopping_list_items.map(&:name)
 
@@ -30,11 +31,12 @@ RSpec.describe BulkListItemManager, type: :model do
         meal_plan.recipes << recipe
         recipe.ingredients << ingredient
 
-        manager = BulkListItemManager.new(
+        builder = ShoppingListItemBuilder.new(
           shopping_list: shopping_list,
-          items_source: meal_plan
+          single_ingredient: [],
+          meal_plan: meal_plan
         )
-        manager.add_items_to_list
+        builder.add_items_to_list
         item = shopping_list.items.last
 
         expect(item.quantity).to eq(ingredient.quantity)
@@ -44,11 +46,13 @@ RSpec.describe BulkListItemManager, type: :model do
         meal_plan.recipes << recipe
         recipe.ingredients << ingredient
 
-        manager = BulkListItemManager.new(
+        builder = ShoppingListItemBuilder.new(
           shopping_list: shopping_list,
-          items_source: meal_plan
+          single_ingredient: [],
+          single_ingredient: [],
+          meal_plan: meal_plan
         )
-        manager.add_items_to_list
+        builder.add_items_to_list
         item = shopping_list.items.last
 
         expect(item.purchased).to eq(false)
@@ -58,11 +62,12 @@ RSpec.describe BulkListItemManager, type: :model do
         meal_plan.recipes << recipe
         recipe.ingredients << ingredient
 
-        manager = BulkListItemManager.new(
+        builder = ShoppingListItemBuilder.new(
           shopping_list: shopping_list,
-          items_source: meal_plan
+          single_ingredient: [],
+          meal_plan: meal_plan
         )
-        manager.add_items_to_list
+        builder.add_items_to_list
         item = shopping_list.items.last
 
         expect(item.aisle.name).to eq('unassigned')
@@ -83,12 +88,13 @@ RSpec.describe BulkListItemManager, type: :model do
           meal_plan.recipes << recipe
           recipe.ingredients << ingredient
 
-          manager = BulkListItemManager.new(
+          builder = ShoppingListItemBuilder.new(
             shopping_list: shopping_list,
-            items_source: meal_plan
+            single_ingredient: [],
+            meal_plan: meal_plan
           )
           # add item for the first time
-          manager.add_items_to_list
+          builder.add_items_to_list
 
           item = shopping_list.items.last
           expect(item.aisle.name).to eq('unassigned')
@@ -97,7 +103,7 @@ RSpec.describe BulkListItemManager, type: :model do
           item.update!(aisle: aisle)
 
           # add the item for the second time
-          manager.add_items_to_list
+          builder.add_items_to_list
 
           expect(item.aisle.name).to eq('rice aisle')
         end
@@ -108,18 +114,19 @@ RSpec.describe BulkListItemManager, type: :model do
           meal_plan.recipes << recipe
           recipe.ingredients << ingredient
 
-          manager = BulkListItemManager.new(
+          builder = ShoppingListItemBuilder.new(
             shopping_list: shopping_list,
-            items_source: meal_plan
+            single_ingredient: [],
+            meal_plan: meal_plan
           )
           # add item for the first time
-          manager.add_items_to_list
+          builder.add_items_to_list
 
           item = shopping_list.items.last
           expect(item.quantity).to eq(1)
 
           # add the item for the second time
-          manager.add_items_to_list
+          builder.add_items_to_list
           item.reload
 
           expect(item.quantity).to eq(2)
@@ -131,12 +138,13 @@ RSpec.describe BulkListItemManager, type: :model do
           meal_plan.recipes << recipe
           recipe.ingredients << ingredient
 
-          manager = BulkListItemManager.new(
+          builder = ShoppingListItemBuilder.new(
             shopping_list: shopping_list,
-            items_source: meal_plan
+            single_ingredient: [],
+            meal_plan: meal_plan
           )
           # add item for the first time
-          manager.add_items_to_list
+          builder.add_items_to_list
 
           item = shopping_list.items.last
           expect(item.quantity).to eq(1)
@@ -146,7 +154,7 @@ RSpec.describe BulkListItemManager, type: :model do
           item.reload
 
           # add the item for the second time
-          manager.add_items_to_list
+          builder.add_items_to_list
           item.reload
 
           expect(item.quantity).to eq(ingredient.quantity)
@@ -156,12 +164,13 @@ RSpec.describe BulkListItemManager, type: :model do
           meal_plan.recipes << recipe
           recipe.ingredients << ingredient
 
-          manager = BulkListItemManager.new(
+          builder = ShoppingListItemBuilder.new(
             shopping_list: shopping_list,
-            items_source: meal_plan
+            single_ingredient: [],
+            meal_plan: meal_plan
           )
           # add item for the first time
-          manager.add_items_to_list
+          builder.add_items_to_list
 
           item = shopping_list.items.last
           expect(item.quantity).to eq(1)
@@ -171,7 +180,7 @@ RSpec.describe BulkListItemManager, type: :model do
           item.reload
 
           # add the item for the second time
-          manager.add_items_to_list
+          builder.add_items_to_list
           item.reload
 
           expect(item.purchased).to eq(false)
