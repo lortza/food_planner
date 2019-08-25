@@ -50,6 +50,11 @@ bundle exec scss-lint app/assets/stylesheets/**.scss
 * [Uglifier](https://github.com/lautis/uglifier) in harmony mode
 * [Shoulda Matchers](https://github.com/thoughtbot/shoulda-matchers)
 
+## Heroku Scheduler
+Heroku runs a cron job to add the weekly shopping_list items to the grocery list. This is accomplished with a rake task plus the cron job. The job is set to run daily because heroku doesn't offer a weekly interval. The rake task has a condition to only allow it to run on a specific day of the week. [Configure the cron job](https://dashboard.heroku.com/apps/myfoodplanner/scheduler).
+
+This feature is dependent on my account having both a list named "grocery" and another list named "weekly items." Without either of those specifically-named lists, this job will error. 
+
 ## WIP Notes:
 
 
