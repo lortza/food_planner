@@ -9,12 +9,19 @@ class ShoppingListItemsController < ApplicationController
   end
 
   def create
-    @shopping_list_item = @shopping_list.items.new(shopping_list_item_params)
-    if @shopping_list_item.save
-      redirect_to shopping_list_url(@shopping_list)
+    incoming_item = @shopping_list.items.new(shopping_list_item_params)
+    existing_item = @shopping_list.items.find_by(name: incoming_item.name)
+
+    if existing_item
+      updated_quantity = existing_item.quantity + incoming_item.quantity
+      updated_quantity = incoming_item.quantity if existing_item.purchased?
+      existing_item.update(quantity: updated_quantity, purchased: false)
     else
-      render :new
+      incoming_item.purchased = false
+      @shopping_list.items << incoming_item
     end
+
+    redirect_to shopping_list_url(@shopping_list)
   end
 
   def edit
