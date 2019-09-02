@@ -1,6 +1,6 @@
 # Food Planner
 
-[![Build Status](https://travis-ci.com/lortza/sorrygirl.svg?branch=master)](https://travis-ci.com/lortza/food_planner)
+[![CircleCI](https://circleci.com/gh/lortza/food_planner.svg?style=svg)](https://circleci.com/gh/lortza/food_planner)
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/bce541f2a6d63bc5fa1e/maintainability)](https://codeclimate.com/github/lortza/food_planner/maintainability)
 
@@ -53,7 +53,7 @@ bundle exec scss-lint app/assets/stylesheets/**.scss
 ## Heroku Scheduler
 Heroku runs a cron job to add the weekly shopping_list items to the grocery list. This is accomplished with a rake task plus the cron job. The job is set to run daily because heroku doesn't offer a weekly interval. The rake task has a condition to only allow it to run on a specific day of the week. [Configure the cron job](https://dashboard.heroku.com/apps/myfoodplanner/scheduler).
 
-This feature is dependent on my account having both a list named "grocery" and another list named "weekly items." Without either of those specifically-named lists, this job will error. 
+This feature is dependent on my account having both a list named "grocery" and another list named "weekly items." Without either of those specifically-named lists, this job will error.
 
 ## WIP Notes:
 
