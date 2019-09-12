@@ -1,5 +1,5 @@
+<% content_for(:title, "Food Prep #{@meal_plan.start_date}") %>
 <div class="right"><%= link_to 'Edit', edit_meal_plan_path(@meal_plan), class: button_classes %></div>
-<% content_for(:title, @meal_plan.start_date) %>
 
 <h1>Meal Plan for <%= @meal_plan.start_date.to_s(:long) %></h1>
 

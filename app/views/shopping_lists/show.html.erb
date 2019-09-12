@@ -1,3 +1,5 @@
+<% content_for(:title, @shopping_list.name) %>
+
 <h1>
   <%= link_to "", @shopping_list, title: 'sync', class: Icon.sync %>
   <%= link_to "", shopping_lists_path, class: Icon.back %>
