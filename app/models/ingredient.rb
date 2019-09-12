@@ -99,6 +99,13 @@ class Ingredient < ApplicationRecord
     self.name = name.downcase
   end
 
+  # def to_shopping_list_item
+  #   ShoppingListItem.new(
+  #     quantity: self.quantity,
+  #     name: "#{self.measurement_unit} #{self.name}"
+  #   )
+  # end
+
   # def convert_to_food
   #   'WIP'
   # end
