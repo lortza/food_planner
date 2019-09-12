@@ -2,6 +2,7 @@
 
 [![CircleCI](https://circleci.com/gh/lortza/food_planner.svg?style=svg)](https://circleci.com/gh/lortza/food_planner)
 
+# CodeClimate Quality Badge
 [![Maintainability](https://api.codeclimate.com/v1/badges/bce541f2a6d63bc5fa1e/maintainability)](https://codeclimate.com/github/lortza/food_planner/maintainability)
 
 WIP food planning app.
@@ -20,6 +21,7 @@ Live on heroku as [myfoodplanner](http://myfoodplanner.herokuapp.com)
 * List of recipes & ingredients
 * Display full recipes
 * Display ingredient breakdown for meal prep
+* ERD https://dbdiagram.io/d/5d6ea192ced98361d6de29cd
 
 ## Getting Started
 
