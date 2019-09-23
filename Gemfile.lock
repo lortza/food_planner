@@ -247,9 +247,9 @@ GEM
     psych (3.1.0-x64-mingw32)
     psych (3.1.0-x86-mingw32)
     public_suffix (3.1.1)
-    puma (4.1.1)
+    puma (4.2.0)
       nio4r (~> 2.0)
-    puma (4.1.1-java)
+    puma (4.2.0-java)
       nio4r (~> 2.0)
     rack (2.0.7)
     rack-test (1.1.0)
@@ -426,7 +426,7 @@ DEPENDENCIES
   nokogiri (>= 1.8.5)
   pg (>= 0.18, < 2.0)
   pry-rails
-  puma (~> 4.1)
+  puma (~> 4.2)
   rack (>= 2.0.6)
   rails (~> 6.0.0)
   rails-erd
