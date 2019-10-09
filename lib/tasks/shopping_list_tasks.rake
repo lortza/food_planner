@@ -5,7 +5,7 @@
 
 namespace :shopping_list do
 
-  desc 'Add HEB aisles'
+  desc 'Add Weekly Items'
   task add_weekly_items: :environment do
     # Heroku runs this daily at 6am UTC / 1am CST: https://dashboard.heroku.com/apps/myfoodplanner/scheduler
     # UTC is 5 hours ahead of Central Time: https://savvytime.com/converter/utc-to-cst
@@ -31,6 +31,36 @@ namespace :shopping_list do
       end
     else
       puts "It's not Tuesday. Don't add items to the list today."
+    end
+  end
+
+
+  desc 'Add Monthly Items'
+  task add_monthly_items: :environment do
+    # Heroku runs this daily at 6am UTC / 1am CST: https://dashboard.heroku.com/apps/myfoodplanner/scheduler
+    # UTC is 5 hours ahead of Central Time: https://savvytime.com/converter/utc-to-cst
+    if Date.today == Date.today.end_of_month
+      puts "It's the last day of the month!"
+      user = User.find_by(admin: true)
+      monthly_items_list = user.shopping_lists.find_by(name: 'monthly items')
+      grocery_list = user.shopping_lists.find_by(name: 'grocery')
+
+      puts "Adding #{monthly_items_list.name} to #{grocery_list.name} list..."
+      monthly_items_list.items.each do |item|
+        incoming_item = item.dup
+        puts incoming_item.name
+        if grocery_list.items.map(&:name).include?(incoming_item.name)
+          existing_item = grocery_list.items.find_by(name: incoming_item.name)
+          updated_quantity = existing_item.quantity + incoming_item.quantity
+          updated_quantity = incoming_item.quantity if existing_item.purchased?
+          existing_item.update(quantity: updated_quantity, purchased: false)
+        else
+          incoming_item.purchased = false
+          grocery_list.items << incoming_item
+        end
+      end
+    else
+      puts "It's not the end of the month. Don't add items to the list today."
     end
   end
 
