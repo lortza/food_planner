@@ -33,9 +33,13 @@ class ShoppingListsController < ApplicationController
   end
 
   def destroy
-    ShoppingList.find(params[:id]).destroy
-    flash[:success] = 'ShoppingList deleted'
-    redirect_to shopping_lists_path
+    list = ShoppingList.find(params[:id])
+    if list.deletable?
+      list.destroy
+      redirect_to shopping_lists_url, success: 'ShoppingList Deleted'
+    else
+      redirect_to shopping_lists_url, alert: "#{list.name} is not deletable"
+    end
   end
 
   private

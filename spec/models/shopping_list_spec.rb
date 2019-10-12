@@ -24,7 +24,7 @@ RSpec.describe ShoppingList, type: :model do
     let(:shopping_list) { create(:shopping_list, user: user) }
 
     it 'returns the existing shopping list called "grocery" that belongs to the current_user' do
-      existing_list = create(:shopping_list, user: user, name: 'grocery')
+      existing_list = create(:shopping_list, user: user, name: 'grocery', main: true)
       retured_list = ShoppingList.default(user)
 
       expect(retured_list).to eq(existing_list)
@@ -61,6 +61,28 @@ RSpec.describe ShoppingList, type: :model do
       list.unfavorite!
 
       expect(list.favorite).to eq(false)
+    end
+  end
+
+  describe 'deletable?' do
+    it 'returns false if it is the "main" list' do
+      list = build(:shopping_list, main: true)
+      expect(list.deletable?).to be(false)
+    end
+
+    it 'returns false if it is the "weekly" list' do
+      list = build(:shopping_list, weekly: true)
+      expect(list.deletable?).to be(false)
+    end
+
+    it 'returns false if it is the "monthly" list' do
+      list = build(:shopping_list, monthly: true)
+      expect(list.deletable?).to be(false)
+    end
+
+    it 'returns true if it is any other list' do
+      list = build(:shopping_list)
+      expect(list.deletable?).to be(true)
     end
   end
 end

@@ -12,8 +12,8 @@ namespace :shopping_list do
     if Date.today.tuesday?
       puts "It's Tuesday!"
       user = User.find_by(admin: true)
-      weekly_items_list = user.shopping_lists.find_by(name: 'weekly items')
-      grocery_list = user.shopping_lists.find_by(name: 'grocery')
+      weekly_items_list = user.shopping_lists.find_by(weekly: true)
+      grocery_list = user.shopping_lists.find_by(main: true)
 
       puts "Adding #{weekly_items_list.name} to #{grocery_list.name} list..."
       weekly_items_list.items.each do |item|
@@ -42,8 +42,8 @@ namespace :shopping_list do
     if Date.today == Date.today.end_of_month
       puts "It's the last day of the month!"
       user = User.find_by(admin: true)
-      monthly_items_list = user.shopping_lists.find_by(name: 'monthly items')
-      grocery_list = user.shopping_lists.find_by(name: 'grocery')
+      monthly_items_list = user.shopping_lists.find_by(monthly: true)
+      grocery_list = user.shopping_lists.find_by(main: true)
 
       puts "Adding #{monthly_items_list.name} to #{grocery_list.name} list..."
       monthly_items_list.items.each do |item|
@@ -138,5 +138,14 @@ namespace :shopping_list do
       { user_id: user.id, name: "TAKE OUT OF FREEZER" },
     ])
     puts 'Done'
+  end
+
+
+  desc 'Assign Booleans'
+  task assign_booleans: :environment do
+    user = User.find_by(admin: true)
+    user.shopping_lists.find_by(name: 'grocery').update!(main: true)
+    user.shopping_lists.find_by(name: 'weekly items').update!(weekly: true)
+    user.shopping_lists.find_by(name: 'monthly items').update!(monthly: true)
   end
 end
