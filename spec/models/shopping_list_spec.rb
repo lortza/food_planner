@@ -63,4 +63,26 @@ RSpec.describe ShoppingList, type: :model do
       expect(list.favorite).to eq(false)
     end
   end
+
+  describe 'deletable?' do
+    it 'returns false if it is the "main" list' do
+      list = build(:shopping_list, main: true)
+      expect(list.deletable?).to be(false)
+    end
+
+    it 'returns false if it is the "weekly" list' do
+      list = build(:shopping_list, weekly: true)
+      expect(list.deletable?).to be(false)
+    end
+
+    it 'returns false if it is the "monthly" list' do
+      list = build(:shopping_list, monthly: true)
+      expect(list.deletable?).to be(false)
+    end
+
+    it 'returns true if it is any other list' do
+      list = build(:shopping_list)
+      expect(list.deletable?).to be(true)
+    end
+  end
 end

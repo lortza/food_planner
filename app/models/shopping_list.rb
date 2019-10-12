@@ -20,6 +20,10 @@ class ShoppingList < ApplicationRecord
     order(favorite: :desc)
   end
 
+  def deletable?
+    main == false && weekly == false && monthly == false
+  end
+
   def favorite!
     update!(favorite: true)
   end
