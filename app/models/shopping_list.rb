@@ -12,8 +12,7 @@ class ShoppingList < ApplicationRecord
 
   def self.default(user)
     default_name = 'grocery'
-    user.shopping_lists
-        .where('name ILIKE ?', default_name.downcase)
+    user.shopping_lists.where(main: true)
         .first_or_create(name: default_name)
   end
 
