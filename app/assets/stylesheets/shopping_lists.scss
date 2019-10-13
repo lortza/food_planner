@@ -43,3 +43,11 @@
   a:link { color: $medium-gray; }
   a:visited { color: $medium-gray; }
 }
+
+.recurrence-tag {
+  border: 1px solid $brand-light-blue;
+  border-radius: 5px;
+  color: $brand-light-blue;
+  font-size: .8em;
+  padding: 1px 5px;
+}

@@ -21,4 +21,10 @@ module ShoppingListsHelper
     pretty_number = NumbersHelper.prettify_float(quantity)
     "(#{pretty_number})" if quantity > 1
   end
+
+  def display_recurrence(item)
+    if item.recurrence_frequency.present?
+    "<span class='recurrence-tag'><span class='#{Icon.sync}'></span> #{item.recurrence_frequency}</span>".html_safe
+    end
+  end
 end
