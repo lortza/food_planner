@@ -512,8 +512,6 @@ Aisle.create!([
   { user_id: user.id, name: 'bread & tortillas' },
 ])
 
-user.shopping_lists.create(name: 'weekly items', weekly: true)
-user.shopping_lists.create(name: 'monthly items', monthly: true)
 shopping_list = user.shopping_lists.create(name: 'grocery', main: true)
 
 ShoppingListItem.create!([
