@@ -5,7 +5,7 @@
     <div class='col'>
       <div class='field'>
         <%= form.label :quantity %>
-        <%= form.number_field :quantity, min: 1.0, class: 'form-control' %>
+        <%= form.number_field :quantity, min: 0.0, class: 'form-control' %>
       </div>
     </div>
 
@@ -15,12 +15,31 @@
         <%= form.text_field :name, autofocus: true, placeholder: 'Enter item name', class: 'form-control' %>
       </div>
     </div>
-  </div>
+  </div> <!-- row -->
 
-  <div class='field mb-4'>
+  <div class='field mb-3'>
     <%= form.label :aisle_id %>
     <%= form.collection_select :aisle_id, current_user.aisles.all, :id, :name, {}, class: 'form-control' %>
   </div>
+
+  <div class='form-row mb-2'>
+    <div class='col'>
+      <div class='field'>
+        <%= form.label :recurrence_frequency %>
+        <%= form.select :recurrence_frequency,
+                                options_for_select(ShoppingListItemRecurrence::FREQUENCIES, selected: form.object.recurrence_frequency),
+                                {include_blank: true},
+                                class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class='col'>
+      <div class='field'>
+        <%= form.label :recurrence_quantity %>
+        <%= form.number_field :recurrence_quantity, min: 0.0, class: 'form-control' %>
+      </div>
+    </div>
+  </div> <!-- row -->
 
   <%= form.submit 'Submit', class: button_classes('success form-control') %>
 <% end %>

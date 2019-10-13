@@ -9,26 +9,11 @@ namespace :shopping_list do
   task add_weekly_items: :environment do
     # Heroku runs this daily at 6am UTC / 1am CST: https://dashboard.heroku.com/apps/myfoodplanner/scheduler
     # UTC is 5 hours ahead of Central Time: https://savvytime.com/converter/utc-to-cst
-    if Date.today.tuesday?
-      puts "It's Tuesday!"
-      user = User.find_by(admin: true)
-      weekly_items_list = user.shopping_lists.find_by(weekly: true)
-      grocery_list = user.shopping_lists.find_by(main: true)
+    if Date.today.sunday?
+      puts "Adding weekly items to list..."
 
-      puts "Adding #{weekly_items_list.name} to #{grocery_list.name} list..."
-      weekly_items_list.items.each do |item|
-        incoming_item = item.dup
-        puts incoming_item.name
-        if grocery_list.items.map(&:name).include?(incoming_item.name)
-          existing_item = grocery_list.items.find_by(name: incoming_item.name)
-          updated_quantity = existing_item.quantity + incoming_item.quantity
-          updated_quantity = incoming_item.quantity if existing_item.purchased?
-          existing_item.update(quantity: updated_quantity, purchased: false)
-        else
-          incoming_item.purchased = false
-          grocery_list.items << incoming_item
-        end
-      end
+      weekly_items = ShoppingListItem.where(recurrence_frequency: 'weekly')
+      ShoppingListItemRecurrence.add_items_to_list(weekly_items)
     else
       puts "It's not Tuesday. Don't add items to the list today."
     end
@@ -40,25 +25,10 @@ namespace :shopping_list do
     # Heroku runs this daily at 6am UTC / 1am CST: https://dashboard.heroku.com/apps/myfoodplanner/scheduler
     # UTC is 5 hours ahead of Central Time: https://savvytime.com/converter/utc-to-cst
     if Date.today == Date.today.end_of_month
-      puts "It's the last day of the month!"
-      user = User.find_by(admin: true)
-      monthly_items_list = user.shopping_lists.find_by(monthly: true)
-      grocery_list = user.shopping_lists.find_by(main: true)
+      puts "Adding monthly items to list..."
 
-      puts "Adding #{monthly_items_list.name} to #{grocery_list.name} list..."
-      monthly_items_list.items.each do |item|
-        incoming_item = item.dup
-        puts incoming_item.name
-        if grocery_list.items.map(&:name).include?(incoming_item.name)
-          existing_item = grocery_list.items.find_by(name: incoming_item.name)
-          updated_quantity = existing_item.quantity + incoming_item.quantity
-          updated_quantity = incoming_item.quantity if existing_item.purchased?
-          existing_item.update(quantity: updated_quantity, purchased: false)
-        else
-          incoming_item.purchased = false
-          grocery_list.items << incoming_item
-        end
-      end
+      monthly_items = ShoppingListItem.where(recurrence_frequency: 'monthly')
+      ShoppingListItemRecurrence.add_items_to_list(monthly_items)
     else
       puts "It's not the end of the month. Don't add items to the list today."
     end
@@ -147,5 +117,64 @@ namespace :shopping_list do
     user.shopping_lists.find_by(name: 'grocery').update!(main: true)
     user.shopping_lists.find_by(name: 'weekly items').update!(weekly: true)
     user.shopping_lists.find_by(name: 'monthly items').update!(monthly: true)
+  end
+
+
+  desc 'Add recurrence data to fields'
+  task repeat_data: :environment do
+
+    user = User.find_by(admin: true)
+    grocery_list = user.shopping_lists.find_by(main: true)
+    weekly_items_list = user.shopping_lists.find_by(weekly: true)
+    monthly_list = user.shopping_lists.find_by(name: 'monthly items')
+
+    puts "Adding #{weekly_items_list.name} to #{grocery_list.name} list..."
+    weekly_items_list.items.each do |item|
+      incoming_item = item.dup
+      puts incoming_item.name
+      if grocery_list.items.map(&:name).include?(incoming_item.name)
+        existing_item = grocery_list.items.find_by(name: incoming_item.name)
+        updated_quantity = existing_item.quantity + incoming_item.quantity
+        updated_quantity = incoming_item.quantity if existing_item.purchased?
+
+        existing_item.quantity = updated_quantity
+        existing_item.purchased = false
+        existing_item.recurrence_frequency = 'weekly'
+        existing_item.recurrence_quantity = existing_item.quantity
+        existing_item.save
+
+      else
+        incoming_item.purchased = false
+        incoming_item.recurrence_frequency = 'weekly'
+        incoming_item.recurrence_quantity = incoming_item.quantity
+        incoming_item.save
+        grocery_list.items << incoming_item
+      end
+    end
+
+    monthly_list = user.shopping_lists.find_by(name: 'monthly items')
+    puts "Adding #{monthly_list.name} to #{grocery_list.name} list..."
+    monthly_list.items.each do |item|
+      incoming_item = item.dup
+      puts incoming_item.name
+      if grocery_list.items.map(&:name).include?(incoming_item.name)
+        existing_item = grocery_list.items.find_by(name: incoming_item.name)
+        updated_quantity = existing_item.quantity + incoming_item.quantity
+        updated_quantity = incoming_item.quantity if existing_item.purchased?
+
+        existing_item.quantity = updated_quantity
+        existing_item.purchased = false
+        existing_item.recurrence_frequency = 'monthly'
+        existing_item.recurrence_quantity = existing_item.quantity
+        existing_item.save
+
+      else
+        incoming_item.purchased = false
+        incoming_item.recurrence_frequency = 'monthly'
+        incoming_item.recurrence_quantity = incoming_item.quantity
+        incoming_item.save
+        grocery_list.items << incoming_item
+      end
+    end
   end
 end

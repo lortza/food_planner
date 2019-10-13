@@ -1,7 +1,7 @@
 <% content_for(:title, @shopping_list.name) %>
 
 <h1>
-  <%= link_to "", @shopping_list, title: 'sync', class: Icon.sync %>
+  <%= link_to "", @shopping_list, title: 'sync', class: "#{Icon.sync} right"%>
   <%= link_to "", shopping_lists_path, class: Icon.back %>
   <%= @shopping_list.name %>
 </h1>
@@ -17,6 +17,7 @@
       <article class='index-item'>
         <p class='shopping-list-item'>
           <%= link_to "#{item.name} #{display_quantity(item)}", completed_shopping_list_items_path(id: item.id), method: :post %>
+          <%= display_recurrence(item) %>
           <%= link_to "", edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: Icon.edit %>
         </p>
       </article>

@@ -57,6 +57,8 @@ class ShoppingListItemsController < ApplicationController
                   :aisle_id,
                   :quantity,
                   :name,
-                  :purchased)
+                  :purchased,
+                  :recurrence_frequency,
+                  :recurrence_quantity)
   end
 end

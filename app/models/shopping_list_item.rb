@@ -11,6 +11,8 @@ class ShoppingListItem < ApplicationRecord
             :shopping_list_id,
             presence: true
 
+  # validates :recurrence_frequency, inclusion: { in: ShoppingListItemRecurrence::FREQUENCIES }
+
   scope :not_purchased, -> { where(purchased: false) }
   scope :purchased, -> { where(purchased: true) }
 
