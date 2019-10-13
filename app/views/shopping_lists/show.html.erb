@@ -30,6 +30,7 @@
   <article class='index-item'>
     <p class='shopping-list-item item-crossed-off'>
       <%= link_to "#{item.name} #{display_quantity(item)}", completed_shopping_list_item_path(item), method: :delete %>
+      <%= display_recurrence(item) %>
       <%= link_to "", edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: Icon.edit %>
     </p>
   </article>

@@ -21,7 +21,7 @@ class ShoppingList < ApplicationRecord
   end
 
   def deletable?
-    main == false && weekly == false && monthly == false
+    main == false
   end
 
   def favorite!
