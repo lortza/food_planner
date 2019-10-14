@@ -3,17 +3,30 @@
 class ShoppingListItemRecurrence
   FREQUENCIES = ['weekly', 'monthly']
 
-  def self.add_items_to_list(items)
-    items.each do |item|
-      puts item.name
-      if item.purchased == true
-        item.purchased = false
-        item.quantity = item.recurrence_quantity
-        item.save
-      else
-        item.quantity += item.recurrence_quantity
-        item.save
+  class << self
+    def add_items_to_list(frequency)
+      puts "Adding #{frequency} items to the list..."
+      items = ShoppingListItem.where(recurrence_frequency: frequency)
+
+      items.each do |item|
+        puts item.name
+        if item.purchased == true
+          item.purchased = false
+          item.quantity = item.recurrence_quantity
+          item.save
+        else
+          item.quantity += item.recurrence_quantity
+          item.save
+        end
       end
+    end
+
+    def run_weekly_task?
+      Date.today.tuesday?
+    end
+
+    def run_monthly_task?
+      Date.today == Date.today.end_of_month
     end
   end
 end
