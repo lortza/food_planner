@@ -17,7 +17,7 @@ namespace :shopping_list do
   task add_weekly_items: :environment do
     # Heroku runs this daily at 6am UTC / 1am CST: https://dashboard.heroku.com/apps/myfoodplanner/scheduler
     # UTC is 5 hours ahead of Central Time: https://savvytime.com/converter/utc-to-cst
-    next unless ShoppingListItemRecurrence.run_weekly_task?
+    abort('No items added. It is not Tuesday.') unless ShoppingListItemRecurrence.run_weekly_task?
     ShoppingListItemRecurrence.add_items_to_list('weekly')
   end
 
@@ -26,7 +26,7 @@ namespace :shopping_list do
   task add_monthly_items: :environment do
     # Heroku runs this daily at 6am UTC / 1am CST: https://dashboard.heroku.com/apps/myfoodplanner/scheduler
     # UTC is 5 hours ahead of Central Time: https://savvytime.com/converter/utc-to-cst
-    next unless ShoppingListItemRecurrence.run_monthly_task?
+    abort('No items added. It is not the last day of the month.') unless ShoppingListItemRecurrence.run_monthly_task?
     ShoppingListItemRecurrence.add_items_to_list('monthly')
   end
 
