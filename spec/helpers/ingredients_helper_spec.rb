@@ -13,8 +13,10 @@ RSpec.describe IngredientsHelper, type: :helper do
 
   describe 'detail_display' do
     it "displays an ingredient's qty, unit, prep style, and recipe" do
-      ingredient = build(:ingredient)
-      display_output = "#{ingredient.quantity} #{ingredient.measurement_unit} #{ingredient.preparation_style} (#{ingredient.recipe.title})"
+      recipe = create(:recipe)
+      ingredient = build(:ingredient, quantity: 1, measurement_unit: 'cup', preparation_style: 'dry', recipe: recipe)
+      display_output = "<a href=\"/recipes/#{recipe.id}\">1 cup dry (#{recipe.title})</a>"
+
       expect(helper.detail_display(ingredient)).to eq(display_output)
     end
   end

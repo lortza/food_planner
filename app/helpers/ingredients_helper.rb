@@ -10,12 +10,14 @@ module IngredientsHelper
   end
 
   def detail_display(detail)
-    [
+    ingredient = [
       qty_display(detail),
       detail.measurement_unit,
       detail.preparation_style,
       "(#{detail.recipe.title})",
     ].join(' ')
+
+    link_to ingredient, recipe_path(detail.recipe)
   end
 
   def qty_display(ingredient)
