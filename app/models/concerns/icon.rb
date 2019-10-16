@@ -6,7 +6,7 @@ module Icon
   end
 
   def self.copy_to_list
-    'icon fas fa-file-import'
+    'icon far fa-plus-square'
   end
 
   def self.delete
