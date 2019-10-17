@@ -11,18 +11,18 @@
 </li>
 
 <% if current_user.admin? %>
-<li class="nav-item dropdown">
-  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Manage
-  </a>
-  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-    <%= link_to '+ New Recipe', new_recipe_path, class: 'dropdown-item' %>
-    <%= link_to 'Meal Plans', meal_plans_path, class: 'dropdown-item' %>
-    <div class='dropdown-divider'></div>
-    <%= link_to 'Shopping lists', shopping_lists_path, class: 'dropdown-item' %>
-    <%= render partial: 'shared/navbar/favorite_shopping_list' %>
-    <div class='dropdown-divider'></div>
-    <%= link_to 'Aisles', aisles_path, class: 'dropdown-item' %>
-  </div>
-</li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Manage
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <%= link_to '+ New Recipe', new_recipe_path, class: 'dropdown-item' %>
+      <%= link_to 'Meal Plans', meal_plans_path, class: 'dropdown-item' %>
+      <div class='dropdown-divider'></div>
+      <%= link_to 'Shopping lists', shopping_lists_path, class: 'dropdown-item' %>
+      <%= render partial: 'shared/navbar/favorite_shopping_list' %>
+      <div class='dropdown-divider'></div>
+      <%= link_to 'Aisles', aisles_path, class: 'dropdown-item' %>
+    </div>
+  </li>
 <% end %>
