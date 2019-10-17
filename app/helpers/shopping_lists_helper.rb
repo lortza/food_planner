@@ -19,7 +19,7 @@ module ShoppingListsHelper
     quantity = item.quantity
 
     pretty_number = NumbersHelper.prettify_float(quantity)
-    "(#{pretty_number})" if quantity > 1
+    "(#{pretty_number})" if quantity != 1
   end
 
   def display_recurrence(item)

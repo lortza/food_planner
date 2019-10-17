@@ -41,8 +41,8 @@ module ApplicationHelper
   end
 
   def display_link_to_plan
-    return link_to "Today's Plan: #{plan_for_today.start_date}", meal_plan_path(plan_for_today), class: 'dropdown-item' if plan_for_today # rubocop:disable Metrics/LineLength
-    return link_to "Coming up: #{plan_for_next_sunday.start_date}", meal_plan_path(plan_for_next_sunday), class: 'dropdown-item' if plan_for_next_sunday # rubocop:disable Metrics/LineLength
+    return link_to "Today's Plan: #{plan_for_today.start_date}", meal_plan_path(plan_for_today), class: 'nav-link' if plan_for_today # rubocop:disable Metrics/LineLength
+    return link_to "Coming up: #{plan_for_next_sunday.start_date}", meal_plan_path(plan_for_next_sunday), class: 'nav-link' if plan_for_next_sunday # rubocop:disable Metrics/LineLength
   end
 
   private
