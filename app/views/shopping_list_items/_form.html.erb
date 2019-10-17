@@ -5,7 +5,7 @@
     <div class='col'>
       <div class='field'>
         <%= form.label :quantity %>
-        <%= form.number_field :quantity, min: 0.0, class: 'form-control' %>
+        <%= form.number_field :quantity, class: 'form-control' %>
       </div>
     </div>
 
@@ -17,10 +17,21 @@
     </div>
   </div> <!-- row -->
 
-  <div class='field mb-3'>
-    <%= form.label :aisle_id %>
-    <%= form.collection_select :aisle_id, current_user.aisles.all, :id, :name, {}, class: 'form-control' %>
-  </div>
+  <div class='form-row mb-2'>
+    <div class='col-10'>
+      <div class='field'>
+        <%= form.label :aisle_id %>
+        <%= form.collection_select :aisle_id, current_user.aisles.all, :id, :name, {}, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class='col-2'>
+      <div class='field'>
+        <%= form.label :purchased %><br>
+        <%= form.check_box :purchased %>
+      </div>
+    </div>
+  </div> <!-- row -->
 
   <div class='form-row mb-2'>
     <div class='col'>

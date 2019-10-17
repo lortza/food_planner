@@ -99,7 +99,7 @@ RSpec.describe ShoppingListItemBuilder, type: :model do
           item = shopping_list.items.last
           expect(item.aisle.name).to eq('unassigned')
 
-          #assign an aisle to the item
+          # assign an aisle to the item
           item.update!(aisle: aisle)
 
           # add the item for the second time
