@@ -32,8 +32,8 @@ RSpec.describe ShoppingListsHelper, type: :helper do
       expect(display_quantity(shopping_list_item)).to eq(nil)
     end
 
-    it 'displays nothing if the value is < 1' do
-      shopping_list_item = build(:shopping_list_item, quantity: 0)
+    it 'displays nothing if the value is == 1' do
+      shopping_list_item = build(:shopping_list_item, quantity: 1)
       expect(display_quantity(shopping_list_item)).to eq(nil)
     end
   end
