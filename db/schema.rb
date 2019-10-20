@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_13_233803) do
+ActiveRecord::Schema.define(version: 2019_10_20_190101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 2019_10_13_233803) do
     t.integer "extra_prep_required"
     t.text "reheat_instructions", default: ""
     t.text "prep_day_instructions", default: ""
+    t.string "extra_work_note"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 

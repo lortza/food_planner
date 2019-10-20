@@ -5,6 +5,10 @@ module Icon
     'icon nav-link-icon fas fa-arrow-left left'
   end
 
+  def self.clock
+    'icon far fa-clock text-warning'
+  end
+
   def self.copy_to_list
     'icon far fa-plus-square'
   end

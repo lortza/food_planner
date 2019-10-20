@@ -23,8 +23,8 @@ module ShoppingListsHelper
   end
 
   def display_recurrence(item)
-    if item.recurrence_frequency.present?
+    return if item.recurrence_frequency.blank?
+
     "<span class='recurrence-tag'><span class='#{Icon.sync}'></span> #{item.recurrence_frequency}</span>".html_safe
-    end
   end
 end

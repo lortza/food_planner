@@ -49,7 +49,6 @@ RSpec.describe ShoppingListItemBuilder, type: :model do
         builder = ShoppingListItemBuilder.new(
           shopping_list: shopping_list,
           single_ingredient: [],
-          single_ingredient: [],
           meal_plan: meal_plan
         )
         builder.add_items_to_list

@@ -57,20 +57,21 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params # rubocop:disable Metrics/MethodLength
-    params.require(:recipe).permit(:title,
+    params.require(:recipe).permit(:archived,
+                                   :cook_time,
+                                   :extra_work_note,
+                                   :image_url,
+                                   :instructions,
+                                   :notes,
+                                   :pepperplate_url,
+                                   :prep_day_instructions,
+                                   :prep_time,
+                                   :reheat_instructions,
+                                   :reheat_time,
                                    :servings,
                                    :source_name,
                                    :source_url,
-                                   :pepperplate_url,
-                                   :image_url,
-                                   :prep_time,
-                                   :cook_time,
-                                   :reheat_time,
-                                   :instructions,
-                                   :prep_day_instructions,
-                                   :reheat_instructions,
-                                   :notes,
-                                   :archived,
+                                   :title,
                                    ingredients_attributes: %i[
                                      id
                                      name
