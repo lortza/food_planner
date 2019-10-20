@@ -84,4 +84,8 @@ class Recipe < ApplicationRecord
   def instructions_to_lines
     self.instructions = instructions.tr("\r", "\n")
   end
+
+  def extra_work_required?
+    extra_work_note.present?
+  end
 end

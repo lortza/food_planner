@@ -1,7 +1,7 @@
 <% content_for(:title, @recipe.title) %>
 <div class="row">
   <div class="col-11">
-    <h1><%= @recipe.title %></h1>
+    <h1><%= @recipe.title %> <%= extra_work_flag(@recipe) %></h1>
     <p>
       Source: <%= link_to @recipe.source_name, @recipe.source_url, title: @recipe.source_name, target: '_blank' %>
       <% unless @recipe.pepperplate_url.blank? %>
@@ -24,6 +24,9 @@
       <li>Total Time: <%= display_time(@recipe.total_time) %></li>
       <li>Reheat Time: <%= display_time(@recipe.reheat_time) %></li>
       <li>Prepared: <%= pluralize(@recipe.frequency, 'time') %></li>
+      <% if @recipe.extra_work_required? %>
+        <li>Extra Work Warning: <%= @recipe.extra_work_note %></li>
+      <% end %>
     </ul>
   </div>
 

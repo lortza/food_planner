@@ -21,7 +21,7 @@
     <h2>Recipes</h2>
     <ol>
       <% @meal_plan.recipes.each do |recipe| %>
-      <li><%= link_to recipe.title, recipe_path(recipe) %> (<%= recipe.servings %> servings)</li>
+      <li><%= link_to recipe.title, recipe_path(recipe) %>  <%= extra_work_flag(recipe) %> (<%= recipe.servings %> servings)</li>
       <% end %>
     </ol>
     <%= link_to '+ Add All Ingredients to Grocery List',

@@ -70,4 +70,21 @@ RSpec.describe Recipe, type: :model do
       expect(recipe.total_time).to eq(2)
     end
   end
+
+  describe 'extra_work_required?' do
+    it 'returns true if there is an extra_work_note' do
+      recipe = build(:recipe, extra_work_note: 'lorem')
+      expect(recipe.extra_work_required?).to be(true)
+    end
+
+    it 'returns false if the value is nil' do
+      recipe = build(:recipe, extra_work_note: nil)
+      expect(recipe.extra_work_required?).to be(false)
+    end
+
+    it 'returns false if the value is a blank space' do
+      recipe = build(:recipe, extra_work_note: ' ')
+      expect(recipe.extra_work_required?).to be(false)
+    end
+  end
 end

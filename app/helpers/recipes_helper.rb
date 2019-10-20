@@ -17,4 +17,10 @@ module RecipesHelper
       ''
     end
   end
+
+  def extra_work_flag(recipe)
+    return unless recipe.extra_work_required?
+
+    "<i class=\"#{Icon.clock}\", title=\"Heads Up! #{recipe.extra_work_note}\"></i>".html_safe
+  end
 end
