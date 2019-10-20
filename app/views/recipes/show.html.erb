@@ -1,7 +1,7 @@
 <% content_for(:title, @recipe.title) %>
 <div class="row">
   <div class="col-11">
-    <h1><%= @recipe.title %> <%= extra_work_flag(@recipe) %></h1>
+    <h1><%= @recipe.title %> <small><%= extra_work_flag(@recipe) %></small></h1>
     <p>
       Source: <%= link_to @recipe.source_name, @recipe.source_url, title: @recipe.source_name, target: '_blank' %>
       <% unless @recipe.pepperplate_url.blank? %>
