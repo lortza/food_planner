@@ -1,0 +1,10 @@
+<%= link_to 'Add Recipe To Try', new_experimental_recipe_path, class: button_classes('btn btn-outline-primary right') %>
+
+<h1>Recipes to Try</h1>
+<p>Save interesting recipes that we'd like to try here. Once we make a recipe, if we like it, we will add it in to our regular recipes collection.</p>
+
+<ul>
+  <% @experimental_recipes.each do |recipe| %>
+  <li><%= link_to recipe.title, recipe.source_url, target: '_blank' %> | <%= link_to 'edit', edit_experimental_recipe_path(recipe) %></li>
+  <% end %>
+</ul>

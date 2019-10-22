@@ -1,5 +1,6 @@
 MealPlanRecipe.destroy_all
 Recipe.destroy_all
+ExperimentalRecipe.destroy_all
 MealPlan.destroy_all
 Ingredient.destroy_all
 Aisle.destroy_all
@@ -466,6 +467,23 @@ Ingredient.create!([
   {recipe_id: recipe_88.id, quantity: 2.0, measurement_unit: "stalk", name: "celery", preparation_style: '' }
 ])
 
+# Recipes to Try
+user.experimental_recipes.create!([
+  { title: 'Sausage and Tortelloni soup', source_url: 'https://www.budgetbytes.com/sausage-tortellini-soup/' },
+  { title: 'Sesame Tempeh Bowls', source_url: 'https://www.budgetbytes.com/sesame-tempeh-bowls/' },
+  { title: 'Balsamic Roasted Mushrooms with Kale Mashed Potatoes', source_url: 'https://www.budgetbytes.com/balsamic-roasted-mushrooms-with-herby-kale-mashed-potatoes/' },
+  { title: 'Slow Simmered Black Eyed Peas and Greens', source_url: 'https://www.budgetbytes.com/slow-simmered-black-eyed-peas-greens/' },
+  { title: 'Lemon Blueberry Cornbread', source_url: 'https://www.budgetbytes.com/lemon-blueberry-cornbread-skillet/' },
+  { title: 'Cauliflower Bean Masala', source_url: 'https://www.budgetbytes.com/easy-cauliflower-and-chickpea-masala/' },
+  { title: 'Mushroom Tacos', source_url: 'https://www.pepperplate.com/recipes/view.aspx?id=15772708' },
+  { title: 'Mystery', source_url: 'https://docs.google.com/spreadsheets/d/1sJ52kWpNq28rNRLHCXP6tdkyCrBb0nuaRH40Z0Nib_0/edit#gid=0' },
+  { title: 'Smoky tempeh tacos', source_url: 'https://www.emilieeats.com/smoky-tempeh-tostadas-mango-cabbage-slaw/' },
+  { title: 'Wild rice and tempeh stuffed acorn squash', source_url: 'https://www.emilieeats.com/wild-rice-and-tempeh-stuffed-acorn-squash/' },
+  { title: 'BLTs', source_url: 'https://frommybowl.com/vegan-blt-sandwiches/' },
+])
+
+
+# Meal Plans
 meal_plan_43 = MealPlan.create!({ user_id: user.id, start_date: "2007-11-22", people_served: 4 })
 meal_plan_42 = MealPlan.create!({ user_id: user.id, start_date: "2018-10-24", people_served: 2 })
 meal_plan_44 = MealPlan.create!({ user_id: user.id, start_date: "2018-11-22", people_served: 2 })
