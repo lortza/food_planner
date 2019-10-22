@@ -476,7 +476,7 @@ user.experimental_recipes.create!([
   { title: 'Lemon Blueberry Cornbread', source_url: 'https://www.budgetbytes.com/lemon-blueberry-cornbread-skillet/' },
   { title: 'Cauliflower Bean Masala', source_url: 'https://www.budgetbytes.com/easy-cauliflower-and-chickpea-masala/' },
   { title: 'Mushroom Tacos', source_url: 'https://www.pepperplate.com/recipes/view.aspx?id=15772708' },
-  { title: 'Mystery', source_url: 'https://docs.google.com/spreadsheets/d/1sJ52kWpNq28rNRLHCXP6tdkyCrBb0nuaRH40Z0Nib_0/edit#gid=0' },
+  { title: 'Old Pepperplate recipes', source_url: 'https://docs.google.com/spreadsheets/d/1sJ52kWpNq28rNRLHCXP6tdkyCrBb0nuaRH40Z0Nib_0/edit#gid=0' },
   { title: 'Smoky tempeh tacos', source_url: 'https://www.emilieeats.com/smoky-tempeh-tostadas-mango-cabbage-slaw/' },
   { title: 'Wild rice and tempeh stuffed acorn squash', source_url: 'https://www.emilieeats.com/wild-rice-and-tempeh-stuffed-acorn-squash/' },
   { title: 'BLTs', source_url: 'https://frommybowl.com/vegan-blt-sandwiches/' },
