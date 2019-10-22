@@ -1,0 +1,8 @@
+<% content_for(:title, 'Edit Recipe') %>
+
+<%= link_to 'Cancel', experimental_recipes_path, class: 'btn btn-outline-primary right' %>
+<h1>Editing Recipe Link</h1>
+
+<%= render 'form', experimental_recipe: @experimental_recipe %>
+
+<%= link_to 'Delete',  @experimental_recipe,  method: :delete, data: { confirm: 'Are you sure? This action cannot be undone.' }, class: 'btn btn-sm btn-outline-danger mt-5' %>
