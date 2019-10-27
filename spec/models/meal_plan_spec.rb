@@ -31,7 +31,42 @@ RSpec.describe MealPlan, type: :model do
     end
   end
 
-  describe 'self.date_for_upcoming_sunday' do
+  xdescribe 'self.date_for_upcoming_sunday' do
+  end
+
+  describe 'self.future' do
+    it 'returns a list of meal plans starting today or in the future' do
+      past_plan = create(:meal_plan, start_date: Time.zone.today - 2)
+      todays_plan = create(:meal_plan, start_date: Time.zone.today)
+      upcoming_plan = create(:meal_plan, start_date: Time.zone.today + 2)
+      future_plan = create(:meal_plan, start_date: Time.zone.today + 4)
+
+      future_plans = MealPlan.future
+      expect(future_plans).to_not include(past_plan)
+      expect(future_plans).to include(todays_plan)
+      expect(future_plans).to include(upcoming_plan)
+      expect(future_plans).to include(future_plan)
+    end
+  end
+
+  describe 'upcoming' do
+    it 'returns a single meal plan' do
+      past_plan = create(:meal_plan, start_date: Time.zone.today - 2)
+      upcoming_plan = create(:meal_plan, start_date: Time.zone.today + 2)
+      future_plan = create(:meal_plan, start_date: Time.zone.today + 4)
+
+      expect(MealPlan.upcoming).to_not eq(past_plan)
+      expect(MealPlan.upcoming).to eq(upcoming_plan)
+      expect(MealPlan.upcoming).to_not eq(future_plan)
+    end
+
+    it 'returns the meal plan that is next closest in the future to today' do
+      upcoming_plan = create(:meal_plan, start_date: Time.zone.today + 2)
+      future_plan = create(:meal_plan, start_date: Time.zone.today + 4)
+
+      expect(MealPlan.upcoming).to eq(upcoming_plan)
+      expect(MealPlan.upcoming).to_not eq(future_plan)
+    end
   end
 
   describe '#total_servings' do
