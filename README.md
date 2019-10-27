@@ -25,11 +25,10 @@ Live on heroku as [myfoodplanner](http://myfoodplanner.herokuapp.com)
 ## Getting Started
 
 * Fork & Clone
-* Bundle
-* `rake db:setup`
-* `rake db:seed`
-* run RuboCop: `rubocop`
-* run tests: `bundle exec rspec`
+* `bundle`
+* Set up DB: `rake db:setup` (Runs `db:create`, `db:schema:load` and `db:seed`)
+* Rubocop: `rubocop`
+* Tests: `bundle exec rspec`
 
 ### Linters
 This project uses these linters in CI:
