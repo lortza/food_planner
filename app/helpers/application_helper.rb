@@ -41,17 +41,7 @@ module ApplicationHelper
   end
 
   def display_link_to_plan
-    return link_to "Meal Plan: #{plan_for_today.start_date.to_s(:short)}", meal_plan_path(plan_for_today), class: 'nav-link' if plan_for_today # rubocop:disable Metrics/LineLength
-    return link_to "Meal Plan: #{plan_for_next_sunday.start_date.to_s(:short)}", meal_plan_path(plan_for_next_sunday), class: 'nav-link' if plan_for_next_sunday # rubocop:disable Metrics/LineLength
-  end
-
-  private
-
-  def plan_for_today
-    MealPlan.find_by(start_date: Time.zone.today)
-  end
-
-  def plan_for_next_sunday
-    MealPlan.find_by(start_date: MealPlan.date_for_upcoming_sunday)
+    upcoming = MealPlan.upcoming
+    return link_to "Meal Plan: #{upcoming.start_date.to_s(:short)}", meal_plan_path(upcoming), class: 'nav-link' if upcoming # rubocop:disable Metrics/LineLength
   end
 end
