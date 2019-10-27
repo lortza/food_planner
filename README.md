@@ -27,7 +27,13 @@ Live on heroku as [myfoodplanner](http://myfoodplanner.herokuapp.com)
 * Fork & Clone
 * `bundle`
 * Set up DB: `rake db:setup` (Runs `db:create`, `db:schema:load` and `db:seed`)
+* User: In development, see the seeds file for the user credentials so you can log in
+
+## Rubocop
+Rubocop is used for enforcing style guide
 * Rubocop: `rubocop`
+
+## Tests
 * Tests: `bundle exec rspec`
 
 ### Linters
