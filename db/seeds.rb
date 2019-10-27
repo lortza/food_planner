@@ -1,4 +1,17 @@
-puts 'Running seeds...'
+# Check for existing data
+if User.any? || Recipe.any?
+  message = %(
+    FALED!
+    Seeds were not run because there is already data in the database.
+    To delete all data then replant seeds, run 'rake db:seed:replant'
+    To reset the db and run seeds, run 'rake db:migrate:reset && rake db:seed'
+    For more info, see: https://jacopretorius.net/2014/02/all-rails-db-rake-tasks-and-what-they-do.html
+  )
+ puts message
+ return
+end
+
+puts '**** Running seeds...'
 
 user = User.create!(
         email: 'admin@email.com',
@@ -7,12 +20,13 @@ user = User.create!(
         admin: true
       )
 
+# Recipes
 recipe_seeds = YAML::load_file("#{Rails.root}/db/seed_fixtures/recipes.yml")
-recipe_seeds.each{|seed| seed[:user] = user}
+               .each{|seed| seed[:user] = user}
 
 Recipe.create!(recipe_seeds)
 
-
+# Ingredients
 ingredient_seeds = YAML::load_file("#{Rails.root}/db/seed_fixtures/ingredients.yml")
 ingredient_seeds.each do |seed|
   seed[:recipe] = Recipe.find_by(title: seed[:recipe_title])
@@ -23,13 +37,11 @@ end
 Ingredient.create!(ingredient_seeds)
 
 # Recipes to Try
-user.experimental_recipes.create!([
-  { title: 'Sesame Tempeh Bowls', source_url: 'https://www.budgetbytes.com/sesame-tempeh-bowls/' },
-  { title: 'Mushroom Tacos', source_url: 'https://www.pepperplate.com/recipes/view.aspx?id=15772708' },
-  { title: 'Old Pepperplate recipes', source_url: 'https://docs.google.com/spreadsheets/d/1sJ52kWpNq28rNRLHCXP6tdkyCrBb0nuaRH40Z0Nib_0/edit#gid=0' },
-  { title: 'Smoky tempeh tacos', source_url: 'https://www.emilieeats.com/smoky-tempeh-tostadas-mango-cabbage-slaw/' },
-  { title: 'BLTs', source_url: 'https://frommybowl.com/vegan-blt-sandwiches/' },
-])
+expermimental_recipe_seeds = YAML::load_file(
+                              "#{Rails.root}/db/seed_fixtures/experimental_recipes.yml"
+                              ).each{ |seed| seed[:user] = user }
+
+ExperimentalRecipe.create!(expermimental_recipe_seeds)
 
 
 # Meal Plans
@@ -41,32 +53,38 @@ user.experimental_recipes.create!([
   )
 end
 
-# Add random recipes to each meal plan
+# Meal Plan Recipes
 MealPlan.all.each do |meal_plan|
-  MealPlanRecipe.create!(Recipe.all.sample(5).map{ |recipe| {recipe: recipe, meal_plan: meal_plan} })
+  # Add random recipes to each meal plan
+  MealPlanRecipe.create!(
+    Recipe.all.sample(5).map{ |recipe| {recipe: recipe, meal_plan: meal_plan} }
+  )
 end
 
+# Aisles
+aisle_names = ['Unassigned', 'produce: fruits', 'produce: greens', 'produce: peppers',
+               'produce: vegetables', 'produce: potatoes & roots', 'bread & tortillas']
+
+Aisle.create!(aisle_names.map{ |name| {name: name, user: user} })
+
 # Shopping Lists
-Aisle.create!([
-  { user_id: user.id, name: 'Unassigned' },
-  { user_id: user.id, name: 'produce: fruits' },
-  { user_id: user.id, name: 'produce: greens' },
-  { user_id: user.id, name: 'produce: peppers' },
-  { user_id: user.id, name: 'produce: vegetables' },
-  { user_id: user.id, name: 'produce: potatoes & roots' },
-  { user_id: user.id, name: 'bread & tortillas' },
-])
+ShoppingList.create!(name: 'grocery', main: true, user: user)
 
-shopping_list = user.shopping_lists.create(name: 'grocery', main: true)
+# Shopping List Items
+shopping_list_item_names = ['apple', 'blueberries', 'salad greens', 'bulb of fennel']
 
-ShoppingListItem.create!([
-  { shopping_list_id: shopping_list.id, aisle_id: user.aisles.first.id, quantity: 2, name: 'apple' },
-  { shopping_list_id: shopping_list.id, aisle_id: user.aisles.first.id, quantity: 1, name: 'blueberries' },
-  { shopping_list_id: shopping_list.id, aisle_id: user.aisles.second.id, quantity: 1, name: 'salad greens' },
-  { shopping_list_id: shopping_list.id, aisle_id: user.aisles.second.id, quantity: 1, name: 'bulb of fennel' },
-])
+ShoppingListItem.create!(
+  shopping_list_item_names.map do |name|
+    { shopping_list: ShoppingList.default(user),
+      aisle: user.aisles.sample,
+      quantity: [1, 2].sample,
+      name: name
+    }
+  end
+)
 
-puts "******** SEEDED *******"
+# Output results
+puts "**** Seeds Seeded ****"
 models = %w[User Recipe Ingredient ExperimentalRecipe MealPlan MealPlanRecipe Aisle ShoppingList ShoppingListItem]
 
 models.each { |model| puts "#{model} count: #{model.constantize.count}" }
