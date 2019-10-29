@@ -21,27 +21,35 @@ user = User.create!(
       )
 
 # Recipes
-recipe_seeds = YAML::load_file("#{Rails.root}/db/seed_fixtures/recipes.yml")
+recipe_seed_data = YAML::load_file("#{Rails.root}/db/seed_fixtures/recipes.yml")
                .each{|seed| seed[:user] = user}
 
-Recipe.create!(recipe_seeds)
+Recipe.create!(recipe_seed_data)
 
 # Ingredients
-ingredient_seeds = YAML::load_file("#{Rails.root}/db/seed_fixtures/ingredients.yml")
-ingredient_seeds.each do |seed|
-  seed[:recipe] = Recipe.find_by(title: seed[:recipe_title])
-  seed.except!(:recipe_title)
+ingredient_seed_data = YAML::load_file("#{Rails.root}/db/seed_fixtures/ingredients.yml")
+# Create a hash where the title is the recipe title, and the value is that recipe's id.
+recipe_hash = ingredient_seed_data
+               .map{|i| i[:recipe_title]}.map.each_with_object({}) do |title, hash|
+                 hash[title] = Recipe.find_by(title: title)&.id
+                end
+missing_titles = recipe_hash.select{|_title, id| id.nil? }.keys
+if missing_titles.any?
+  puts "😬 WARNING 😬: Ingredients found for recipes that are not in the database: #{missing_titles.join(', ')}"
+  puts "😬 Ingredients for those recipes not created. You should update '/db/seed_fixtures/ingredients.yml' 😬"
 end
-
-
-Ingredient.create!(ingredient_seeds)
+ingredient_seed_data = ingredient_seed_data.each do |seed|
+                          seed[:recipe_id] = recipe_hash[seed[:recipe_title]]
+                          seed.except!(:recipe_title)
+                        end.reject{|seed| seed[:recipe_id].nil? }
+Ingredient.create!(ingredient_seed_data)
 
 # Recipes to Try
-expermimental_recipe_seeds = YAML::load_file(
+expermimental_recipe_seed_data = YAML::load_file(
                               "#{Rails.root}/db/seed_fixtures/experimental_recipes.yml"
                               ).each{ |seed| seed[:user] = user }
 
-ExperimentalRecipe.create!(expermimental_recipe_seeds)
+ExperimentalRecipe.create!(expermimental_recipe_seed_data)
 
 
 # Meal Plans
@@ -84,7 +92,7 @@ ShoppingListItem.create!(
 )
 
 # Output results
-puts "**** Seeds Seeded ****"
+puts "**** SUCCESS: Seeds created successfully: ****"
 models = %w[User Recipe Ingredient ExperimentalRecipe MealPlan MealPlanRecipe Aisle ShoppingList ShoppingListItem]
 
 models.each { |model| puts "#{model} count: #{model.constantize.count}" }
