@@ -14,12 +14,16 @@ RSpec.describe ShoppingListItemRecurrence, type: :model do
       allow(ShoppingListItemRecurrence).to receive(:today_is_weekly_item_day?).and_return(true)
       weekly_item = create(:shopping_list_item, purchased: true, recurrence_frequency: 'weekly')
 
+      allow(ShoppingListItemRecurrence).to receive(:today_is_biweekly_item_day?).and_return(true)
+      biweekly_item = create(:shopping_list_item, purchased: true, recurrence_frequency: 'biweekly')
+
       allow(ShoppingListItemRecurrence).to receive(:today_is_monthly_item_day?).and_return(true)
       monthly_item = create(:shopping_list_item, purchased: true, recurrence_frequency: 'monthly')
 
       ShoppingListItemRecurrence.check_schedule
 
       expect(weekly_item.reload.purchased).to eq(false)
+      expect(biweekly_item.reload.purchased).to eq(false)
       expect(monthly_item.reload.purchased).to eq(false)
     end
 
@@ -27,12 +31,16 @@ RSpec.describe ShoppingListItemRecurrence, type: :model do
       allow(ShoppingListItemRecurrence).to receive(:today_is_weekly_item_day?).and_return(false)
       weekly_item = create(:shopping_list_item, purchased: true, recurrence_frequency: 'weekly')
 
+      allow(ShoppingListItemRecurrence).to receive(:today_is_biweekly_item_day?).and_return(false)
+      biweekly_item = create(:shopping_list_item, purchased: true, recurrence_frequency: 'biweekly')
+
       allow(ShoppingListItemRecurrence).to receive(:today_is_monthly_item_day?).and_return(false)
       monthly_item = create(:shopping_list_item, purchased: true, recurrence_frequency: 'monthly')
 
       ShoppingListItemRecurrence.check_schedule
 
       expect(weekly_item.reload.purchased).to eq(true)
+      expect(biweekly_item.reload.purchased).to eq(true)
       expect(monthly_item.reload.purchased).to eq(true)
     end
 
