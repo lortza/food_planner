@@ -1739,13 +1739,3 @@
   :measurement_unit: stalk
   :name: celery
   :preparation_style: ''
-- :recipe_title: dontexist
-  :quantity: 2.0
-  :measurement_unit: stalk
-  :name: celery
-  :preparation_style: ''
-- :recipe_title: othernoexisty
-  :quantity: 2.0
-  :measurement_unit: stalk
-  :name: celery
-  :preparation_style: ''

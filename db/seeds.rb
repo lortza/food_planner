@@ -1,15 +1,7 @@
-# Check for existing data
-if User.any? || Recipe.any?
-  message = %(
-    FALED!
-    Seeds were not run because there is already data in the database.
-    To delete all data then replant seeds, run 'rake db:seed:replant'
-    To reset the db and run seeds, run 'rake db:migrate:reset && rake db:seed'
-    For more info, see: https://jacopretorius.net/2014/02/all-rails-db-rake-tasks-and-what-they-do.html
-  )
- puts message
- return
-end
+require "#{Rails.root}/db/seeds_helper.rb"
+include SeedsHelper
+
+check_for_existing_data!
 
 puts '**** Running seeds...'
 
@@ -21,36 +13,21 @@ user = User.create!(
       )
 
 # Recipes
-recipe_seed_data = YAML::load_file("#{Rails.root}/db/seed_fixtures/recipes.yml")
-               .each{|seed| seed[:user] = user}
-
-Recipe.create!(recipe_seed_data)
+recipe_data = YAML::load_file("#{Rails.root}/db/seed_fixtures/recipes.yml")
+processed_recipe_data = assign_user_to_seed_data(recipe_data, user)
+Recipe.create!(processed_recipe_data)
 
 # Ingredients
-ingredient_seed_data = YAML::load_file("#{Rails.root}/db/seed_fixtures/ingredients.yml")
-# Create a hash where the title is the recipe title, and the value is that recipe's id.
-recipe_hash = ingredient_seed_data
-               .map{|i| i[:recipe_title]}.map.each_with_object({}) do |title, hash|
-                 hash[title] = Recipe.find_by(title: title)&.id
-                end
-missing_titles = recipe_hash.select{|_title, id| id.nil? }.keys
-if missing_titles.any?
-  puts "😬 WARNING 😬: Ingredients found for recipes that are not in the database: #{missing_titles.join(', ')}"
-  puts "😬 Ingredients for those recipes not created. You should update '/db/seed_fixtures/ingredients.yml' 😬"
-end
-ingredient_seed_data = ingredient_seed_data.each do |seed|
-                          seed[:recipe_id] = recipe_hash[seed[:recipe_title]]
-                          seed.except!(:recipe_title)
-                        end.reject{|seed| seed[:recipe_id].nil? }
-Ingredient.create!(ingredient_seed_data)
+ingredient_data = YAML::load_file("#{Rails.root}/db/seed_fixtures/ingredients.yml")
+recipe_hash = build_recipe_title_id_hash(ingredient_data)
+notify_if_missing_recipes(ingredient_data, recipe_hash)
+processed_ingredient_data = assign_recipe_to_seed_data(ingredient_data, recipe_hash).reject{ |seed| seed[:recipe_id].nil? }
+Ingredient.create!(processed_ingredient_data)
 
 # Recipes to Try
-expermimental_recipe_seed_data = YAML::load_file(
-                              "#{Rails.root}/db/seed_fixtures/experimental_recipes.yml"
-                              ).each{ |seed| seed[:user] = user }
-
-ExperimentalRecipe.create!(expermimental_recipe_seed_data)
-
+experimental_recipe_seed_data = YAML::load_file("#{Rails.root}/db/seed_fixtures/experimental_recipes.yml")
+processed_experimental_recipe_seed_data = assign_user_to_seed_data(experimental_recipe_seed_data, user)
+ExperimentalRecipe.create!(experimental_recipe_seed_data)
 
 # Meal Plans
 7.times do |i|
@@ -91,8 +68,4 @@ ShoppingListItem.create!(
   end
 )
 
-# Output results
-puts "**** SUCCESS: Seeds created successfully: ****"
-models = %w[User Recipe Ingredient ExperimentalRecipe MealPlan MealPlanRecipe Aisle ShoppingList ShoppingListItem]
-
-models.each { |model| puts "#{model} count: #{model.constantize.count}" }
+output_results
