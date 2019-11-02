@@ -1,5 +1,10 @@
 module SeedsHelper
 
+  MISSING_RECIPE_WARNING = %(
+    WARNING Ingredients found for recipes that are not in the database.
+    Ingredients for those recipes not created. You should update /db/seed_fixtures/ingredients.yml
+  )
+
   def check_for_existing_data!
     return unless User.any? || Recipe.any?
     message = %(
@@ -30,16 +35,14 @@ module SeedsHelper
   def notify_if_missing_recipes(seeds, recipe_id_title_hash)
     missing_titles = recipe_id_title_hash.select{|_title, id| id.nil? }.keys
     return unless missing_titles.any?
-    puts '😬 WARNING: Ingredients found for recipes that are not in the database: 😬'
-    puts "#{missing_titles.join(', ')}"
-    puts "😬 Ingredients for those recipes not created. You should update '/db/seed_fixtures/ingredients.yml' 😬"
+    puts MISSING_RECIPE_WARNING
   end
 
   def assign_recipe_to_seed_data(seeds, recipe_id_title_hash)
     seeds.each do |seed|
       seed[:recipe_id] = recipe_id_title_hash[seed[:recipe_title]]
       seed.except!(:recipe_title)
-    end#.reject{ |seed| seed[:recipe_id].nil? }
+    end
   end
 
   def output_results
