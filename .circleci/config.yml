@@ -45,7 +45,7 @@ jobs:
       # Database setup
       - run: bundle exec rake db:create
       - run: bundle exec rake db:migrate
-      # - run: bundle exec rake db:seed
+      - run: bundle exec rake db:seed
 
       # Run linters!
       # - run: bundle exec rubocop
