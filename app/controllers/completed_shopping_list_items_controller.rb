@@ -24,6 +24,7 @@ class CompletedShoppingListItemsController < ApplicationController
           .permit(:shopping_list_id,
                   :aisle_id,
                   :quantity,
+                  :heb_upc,
                   :name,
                   :purchased)
   end

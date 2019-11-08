@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_22_020626) do
+ActiveRecord::Schema.define(version: 2019_11_08_002856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 2019_10_22_020626) do
     t.datetime "updated_at", null: false
     t.string "recurrence_frequency"
     t.float "recurrence_quantity", default: 0.0
+    t.string "heb_upc"
     t.index ["aisle_id"], name: "index_shopping_list_items_on_aisle_id"
     t.index ["shopping_list_id"], name: "index_shopping_list_items_on_shopping_list_id"
   end

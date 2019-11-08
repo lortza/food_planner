@@ -7,5 +7,6 @@ FactoryBot.define do
     sequence(:name) { |n| "List Item Name #{n}" }
     quantity { 1 }
     purchased { false }
+    heb_upc { '1234' }
   end
 end
