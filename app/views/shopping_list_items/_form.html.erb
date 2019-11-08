@@ -18,10 +18,17 @@
   </div> <!-- row -->
 
   <div class='form-row mb-2'>
-    <div class='col-10'>
+    <div class='col-8'>
       <div class='field'>
         <%= form.label :aisle_id %>
         <%= form.collection_select :aisle_id, current_user.aisles.all, :id, :name, {}, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class='col-2'>
+      <div class='field'>
+        <%= form.label :heb_upc, 'HEB UPC' %>
+        <%= form.text_field :heb_upc, class: 'form-control' %>
       </div>
     </div>
 
