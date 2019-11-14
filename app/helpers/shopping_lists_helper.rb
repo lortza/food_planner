@@ -35,6 +35,6 @@ module ShoppingListsHelper
   end
 
   def display_upc(item)
-    "##{item.heb_upc}" if item.heb_upc
+    "##{item.heb_upc}" if item.heb_upc.present?
   end
 end
