@@ -1,0 +1,1741 @@
+---
+- :recipe_title: Veggie Po'boy
+  :quantity: 8.0
+  :measurement_unit: slice
+  :name: muenster cheese
+  :preparation_style: ''
+- :recipe_title: Veggie Po'boy
+  :quantity: 1.0
+  :measurement_unit: cup
+  :name: cucumber
+  :preparation_style: sliced
+- :recipe_title: Veggie Po'boy
+  :quantity: 2.0
+  :measurement_unit: whole
+  :name: tomato
+  :preparation_style: sliced
+- :recipe_title: Veggie Po'boy
+  :quantity: 0.5
+  :measurement_unit: whole
+  :name: red bell pepper
+  :preparation_style: matchsticked
+- :recipe_title: Veggie Po'boy
+  :quantity: 0.5
+  :measurement_unit: whole
+  :name: green bell pepper
+  :preparation_style: matchsticked
+- :recipe_title: Veggie Po'boy
+  :quantity: 0.25
+  :measurement_unit: cup
+  :name: pitted black olives
+  :preparation_style: sliced
+- :recipe_title: Veggie Po'boy
+  :quantity: 3.0
+  :measurement_unit: cup
+  :name: salad greens
+  :preparation_style: chopped
+- :recipe_title: Veggie Po'boy
+  :quantity: 4.0
+  :measurement_unit: whole
+  :name: po'boy rolls
+  :preparation_style: ''
+- :recipe_title: Veggie Po'boy
+  :quantity: 2.0
+  :measurement_unit: tsp
+  :name: dried oregano
+  :preparation_style: ''
+- :recipe_title: Veggie Po'boy
+  :quantity: 12.0
+  :measurement_unit: leaf
+  :name: fresh basil
+  :preparation_style: chopped
+- :recipe_title: Caraotas Negras
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: plaintain maduro
+  :preparation_style: sliced
+- :recipe_title: Caraotas Negras
+  :quantity: 3.0
+  :measurement_unit: sprig
+  :name: fresh cilantro
+  :preparation_style: chopped
+- :recipe_title: Caraotas Negras
+  :quantity: 1.0
+  :measurement_unit: T
+  :name: adobo seasoning
+  :preparation_style: ''
+- :recipe_title: Caraotas Negras
+  :quantity: 2.0
+  :measurement_unit: ounce
+  :name: queso blanco
+  :preparation_style: crumbled
+- :recipe_title: Caraotas Negras
+  :quantity: 1
+  :measurement_unit: 15oz can
+  :name: canned black beans
+  :preparation_style: finely chopped
+- :recipe_title: Caraotas Negras
+  :quantity: 1.0
+  :measurement_unit: T
+  :name: brown cane sugar
+  :preparation_style: grated
+- :recipe_title: Caraotas Negras
+  :quantity: 1.0
+  :measurement_unit: T
+  :name: garlic
+  :preparation_style: minced
+- :recipe_title: Caraotas Negras
+  :quantity: 0.75
+  :measurement_unit: cup
+  :name: onion
+  :preparation_style: finely chopped
+- :recipe_title: Caraotas Negras
+  :quantity: 0.25
+  :measurement_unit: whole
+  :name: red bell pepper
+  :preparation_style: finely chopped
+- :recipe_title: Caraotas Negras
+  :quantity: 0.25
+  :measurement_unit: whole
+  :name: green bell pepper
+  :preparation_style: finely chopped
+- :recipe_title: Quick Pad Thai
+  :quantity: 0.25
+  :measurement_unit: cup
+  :name: peanut butter
+  :preparation_style: ''
+- :recipe_title: Quick Pad Thai
+  :quantity: 0.5
+  :measurement_unit: cup
+  :name: red bell pepper
+  :preparation_style: finely chopped
+- :recipe_title: Quick Pad Thai
+  :quantity: 1.0
+  :measurement_unit: T
+  :name: soy sauce
+  :preparation_style: ''
+- :recipe_title: Quick Pad Thai
+  :quantity: 1.0
+  :measurement_unit: tsp
+  :name: brown sugar
+  :preparation_style: ''
+- :recipe_title: Quick Pad Thai
+  :quantity: 0.5
+  :measurement_unit: T
+  :name: rice vinegar
+  :preparation_style: ''
+- :recipe_title: Quick Pad Thai
+  :quantity: 8.0
+  :measurement_unit: ounce
+  :name: spaghetti
+  :preparation_style: cooked
+- :recipe_title: Quick Pad Thai
+  :quantity: 1.0
+  :measurement_unit: tsp
+  :name: crushed red pepper
+  :preparation_style: ''
+- :recipe_title: Quick Pad Thai
+  :quantity: 4.0
+  :measurement_unit: sprig
+  :name: fresh cilantro
+  :preparation_style: chopped
+- :recipe_title: Creamy Lentil Soup
+  :quantity: 1
+  :measurement_unit: 15oz can
+  :name: coconut milk
+  :preparation_style: ''
+- :recipe_title: Creamy Lentil Soup
+  :quantity: 3.0
+  :measurement_unit: cup
+  :name: water
+  :preparation_style: ''
+- :recipe_title: Creamy Lentil Soup
+  :quantity: 0.333
+  :measurement_unit: cup
+  :name: dry red lentils
+  :preparation_style: sorted
+- :recipe_title: Creamy Lentil Soup
+  :quantity: 0.333
+  :measurement_unit: cup
+  :name: dry brown lentils
+  :preparation_style: sorted
+- :recipe_title: Creamy Lentil Soup
+  :quantity: 0.125
+  :measurement_unit: cup
+  :name: couscous
+  :preparation_style: uncooked
+- :recipe_title: Creamy Lentil Soup
+  :quantity: 2.0
+  :measurement_unit: leaf
+  :name: bay leaf
+  :preparation_style: ''
+- :recipe_title: Creamy Lentil Soup
+  :quantity: 0.5
+  :measurement_unit: tsp
+  :name: sea salt
+  :preparation_style: ''
+- :recipe_title: Creamy Lentil Soup
+  :quantity: 2.0
+  :measurement_unit: stalk
+  :name: celery
+  :preparation_style: finely chopped
+- :recipe_title: Creamy Lentil Soup
+  :quantity: 2.0
+  :measurement_unit: whole
+  :name: carrot
+  :preparation_style: finely chopped
+- :recipe_title: Blended Red Lentil Soup
+  :quantity: 1.0
+  :measurement_unit: T
+  :name: olive oil
+  :preparation_style: ''
+- :recipe_title: Blended Red Lentil Soup
+  :quantity: 1.0
+  :measurement_unit: tsp
+  :name: cumin
+  :preparation_style: ground
+- :recipe_title: Blended Red Lentil Soup
+  :quantity: 2.0
+  :measurement_unit: whole
+  :name: carrot
+  :preparation_style: chopped
+- :recipe_title: Blended Red Lentil Soup
+  :quantity: 1.0
+  :measurement_unit: cup
+  :name: dry red lentils
+  :preparation_style: sorted
+- :recipe_title: Blended Red Lentil Soup
+  :quantity: 4.0
+  :measurement_unit: cup
+  :name: vegetable stock
+  :preparation_style: ''
+- :recipe_title: Blended Red Lentil Soup
+  :quantity: 1.0
+  :measurement_unit: loaf
+  :name: crusty bread
+  :preparation_style: sliced
+- :recipe_title: Quiche
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: pie crust
+  :preparation_style: ''
+- :recipe_title: Quiche
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: tomato
+  :preparation_style: diced
+- :recipe_title: Quiche
+  :quantity: 6.0
+  :measurement_unit: ounce
+  :name: frozen chopped spinach
+  :preparation_style: thawed
+- :recipe_title: Quiche
+  :quantity: 0.5
+  :measurement_unit: dozen
+  :name: egg
+  :preparation_style: ''
+- :recipe_title: Quiche
+  :quantity: 0.25
+  :measurement_unit: cup
+  :name: feta
+  :preparation_style: crumbled
+- :recipe_title: Quiche
+  :quantity: 0.125
+  :measurement_unit: tsp
+  :name: granulated garlic
+  :preparation_style: ''
+- :recipe_title: Quiche
+  :quantity: 0.125
+  :measurement_unit: tsp
+  :name: onion powder
+  :preparation_style: ''
+- :recipe_title: Quiche
+  :quantity: 0.5
+  :measurement_unit: tsp
+  :name: basil
+  :preparation_style: dried
+- :recipe_title: Quiche
+  :quantity: 0.5
+  :measurement_unit: tsp
+  :name: oregano
+  :preparation_style: dried
+- :recipe_title: Quiche
+  :quantity: 0.125
+  :measurement_unit: tsp
+  :name: sea salt
+  :preparation_style: ''
+- :recipe_title: Red Lentil Curry
+  :quantity: 2.0
+  :measurement_unit: cup
+  :name: onion
+  :preparation_style: chopped
+- :recipe_title: Red Lentil Curry
+  :quantity: 2.0
+  :measurement_unit: cup
+  :name: tomato
+  :preparation_style: diced
+- :recipe_title: Red Lentil Curry
+  :quantity: 0.25
+  :measurement_unit: tsp
+  :name: granulated garlic
+  :preparation_style: ''
+- :recipe_title: Red Lentil Curry
+  :quantity: 1.0
+  :measurement_unit: T
+  :name: fresh ginger root
+  :preparation_style: minced
+- :recipe_title: Red Lentil Curry
+  :quantity: 0.5
+  :measurement_unit: tsp
+  :name: garam masala
+  :preparation_style: ''
+- :recipe_title: Red Lentil Curry
+  :quantity: 0.75
+  :measurement_unit: tsp
+  :name: curry powder
+  :preparation_style: ''
+- :recipe_title: Red Lentil Curry
+  :quantity: 0.25
+  :measurement_unit: tsp
+  :name: cumin
+  :preparation_style: ground
+- :recipe_title: Red Lentil Curry
+  :quantity: 1.0
+  :measurement_unit: T
+  :name: red curry paste
+  :preparation_style: ''
+- :recipe_title: Red Lentil Curry
+  :quantity: 1.0
+  :measurement_unit: cup
+  :name: dry red lentils
+  :preparation_style: sorted
+- :recipe_title: Red Lentil Curry
+  :quantity: 2.0
+  :measurement_unit: cup
+  :name: water
+  :preparation_style: ''
+- :recipe_title: Red Lentil Curry
+  :quantity: 1
+  :measurement_unit: 15oz can
+  :name: coconut milk
+  :preparation_style: ''
+- :recipe_title: Red Lentil Curry
+  :quantity: 0.5
+  :measurement_unit: cup
+  :name: rice
+  :preparation_style: uncooked
+- :recipe_title: Creamy Cherry Tomato & Summer Squash Gnocchi
+  :quantity: 16.0
+  :measurement_unit: ounce
+  :name: gnocchi
+  :preparation_style: uncooked
+- :recipe_title: Creamy Cherry Tomato & Summer Squash Gnocchi
+  :quantity: 1.0
+  :measurement_unit: pint
+  :name: cherry tomato
+  :preparation_style: sliced in half
+- :recipe_title: Creamy Cherry Tomato & Summer Squash Gnocchi
+  :quantity: 2.0
+  :measurement_unit: whole
+  :name: yellow squash
+  :preparation_style: sliced
+- :recipe_title: Creamy Cherry Tomato & Summer Squash Gnocchi
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: zucchini
+  :preparation_style: sliced
+- :recipe_title: Creamy Cherry Tomato & Summer Squash Gnocchi
+  :quantity: 2.0
+  :measurement_unit: T
+  :name: olive oil
+  :preparation_style: ''
+- :recipe_title: Creamy Cherry Tomato & Summer Squash Gnocchi
+  :quantity: 2.0
+  :measurement_unit: T
+  :name: lemon juice
+  :preparation_style: ''
+- :recipe_title: Creamy Cherry Tomato & Summer Squash Gnocchi
+  :quantity: 1.0
+  :measurement_unit: ounce
+  :name: goat cheese
+  :preparation_style: crumbled
+- :recipe_title: Creamy Cherry Tomato & Summer Squash Gnocchi
+  :quantity: 0.125
+  :measurement_unit: tsp
+  :name: granulated garlic
+  :preparation_style: ''
+- :recipe_title: Creamy Cherry Tomato & Summer Squash Gnocchi
+  :quantity: 0.5
+  :measurement_unit: tsp
+  :name: crushed red pepper flakes
+  :preparation_style: ''
+- :recipe_title: Creamy Cherry Tomato & Summer Squash Gnocchi
+  :quantity: 8.0
+  :measurement_unit: leaf
+  :name: fresh basil
+  :preparation_style: chopped
+- :recipe_title: Creamy Cherry Tomato & Summer Squash Gnocchi
+  :quantity: 1.0
+  :measurement_unit: tsp
+  :name: oregano
+  :preparation_style: dried
+- :recipe_title: City O City Breakfast Burrito
+  :quantity: 0.5
+  :measurement_unit: bunch
+  :name: green onion
+  :preparation_style: for serving
+- :recipe_title: City O City Breakfast Burrito
+  :quantity: 1.0
+  :measurement_unit: cup
+  :name: salsa
+  :preparation_style: for serving
+- :recipe_title: Pierogi Pizza
+  :quantity: 8.0
+  :measurement_unit: ounce
+  :name: colby jack cheese
+  :preparation_style: shredded
+- :recipe_title: Pierogi Pizza
+  :quantity: 8.0
+  :measurement_unit: ounce
+  :name: yogurt
+  :preparation_style: ''
+- :recipe_title: Pierogi Pizza
+  :quantity: 0.125
+  :measurement_unit: tsp
+  :name: granulated garlic
+  :preparation_style: ''
+- :recipe_title: Creamy Lentil Soup
+  :quantity: 0.25
+  :measurement_unit: cup
+  :name: dry yellow lentils
+  :preparation_style: sorted
+- :recipe_title: Blended Red Lentil Soup
+  :quantity: 1.0
+  :measurement_unit: cup
+  :name: onion
+  :preparation_style: ''
+- :recipe_title: Cashew Vegan Queso
+  :quantity: 1.0
+  :measurement_unit: cup
+  :name: raw cashews
+  :preparation_style: soaked in hot water for 1 hour
+- :recipe_title: Cashew Vegan Queso
+  :quantity: 0.5
+  :measurement_unit: cup
+  :name: nutritional yeast
+  :preparation_style: ''
+- :recipe_title: Cashew Vegan Queso
+  :quantity: 0.5
+  :measurement_unit: cup
+  :name: water
+  :preparation_style: ''
+- :recipe_title: Cashew Vegan Queso
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: jalapeño pepper
+  :preparation_style: deseeded and chopped
+- :recipe_title: Cashew Vegan Queso
+  :quantity: 0.5
+  :measurement_unit: tsp
+  :name: chili powder
+  :preparation_style: ''
+- :recipe_title: Cashew Vegan Queso
+  :quantity: 0.5
+  :measurement_unit: tsp
+  :name: cumin
+  :preparation_style: ''
+- :recipe_title: Cashew Vegan Queso
+  :quantity: 0.5
+  :measurement_unit: tsp
+  :name: granulated garlic
+  :preparation_style: ''
+- :recipe_title: Cashew Vegan Queso
+  :quantity: 0.5
+  :measurement_unit: tsp
+  :name: sea salt
+  :preparation_style: ''
+- :recipe_title: Cashew Vegan Queso
+  :quantity: 1.0
+  :measurement_unit: T
+  :name: honey
+  :preparation_style: ''
+- :recipe_title: Enfrijoladas
+  :quantity: 2
+  :measurement_unit: 15oz can
+  :name: black beans
+  :preparation_style: rinsed and drained
+- :recipe_title: Enfrijoladas
+  :quantity: 7.0
+  :measurement_unit: ounce
+  :name: chipotle peppers in adobo sauce
+  :preparation_style: ''
+- :recipe_title: Enfrijoladas
+  :quantity: 0.5
+  :measurement_unit: tsp
+  :name: onion powder
+  :preparation_style: ''
+- :recipe_title: Enfrijoladas
+  :quantity: 0.5
+  :measurement_unit: tsp
+  :name: cumin
+  :preparation_style: ''
+- :recipe_title: Enfrijoladas
+  :quantity: 2.0
+  :measurement_unit: cup
+  :name: water
+  :preparation_style: ''
+- :recipe_title: Enfrijoladas
+  :quantity: 12.0
+  :measurement_unit: whole
+  :name: corn tortillas (small)
+  :preparation_style: ''
+- :recipe_title: Enfrijoladas
+  :quantity: 1.0
+  :measurement_unit: bunch
+  :name: cilantro
+  :preparation_style: ''
+- :recipe_title: Enfrijoladas
+  :quantity: 4.0
+  :measurement_unit: ounce
+  :name: queso fresco
+  :preparation_style: ''
+- :recipe_title: Spicy Roasted Cauliflower with Queso
+  :quantity: 24.0
+  :measurement_unit: ounce
+  :name: frozen cauliflower
+  :preparation_style: thawed to about room temp
+- :recipe_title: Spicy Roasted Cauliflower with Queso
+  :quantity: 0.5
+  :measurement_unit: T
+  :name: smoked paprika
+  :preparation_style: ''
+- :recipe_title: Spicy Roasted Cauliflower with Queso
+  :quantity: 0.25
+  :measurement_unit: tsp
+  :name: granulated garlic
+  :preparation_style: ''
+- :recipe_title: Spicy Roasted Cauliflower with Queso
+  :quantity: 0.25
+  :measurement_unit: tsp
+  :name: sea salt
+  :preparation_style: ''
+- :recipe_title: Spicy Roasted Cauliflower with Queso
+  :quantity: 1.0
+  :measurement_unit: T
+  :name: olive oil
+  :preparation_style: ''
+- :recipe_title: Apricot Lentil Soup
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: onion
+  :preparation_style: diced
+- :recipe_title: Apricot Lentil Soup
+  :quantity: 2.0
+  :measurement_unit: clove
+  :name: garlic
+  :preparation_style: minced
+- :recipe_title: Apricot Lentil Soup
+  :quantity: 2.0
+  :measurement_unit: whole
+  :name: carrot
+  :preparation_style: peeled and diced
+- :recipe_title: Apricot Lentil Soup
+  :quantity: 0.5
+  :measurement_unit: cup
+  :name: dried apricots
+  :preparation_style: finely diced
+- :recipe_title: Apricot Lentil Soup
+  :quantity: 1.0
+  :measurement_unit: tsp
+  :name: cumin
+  :preparation_style: ''
+- :recipe_title: Apricot Lentil Soup
+  :quantity: 1.5
+  :measurement_unit: cup
+  :name: dried red lentils
+  :preparation_style: rinsed and drained
+- :recipe_title: Apricot Lentil Soup
+  :quantity: 1
+  :measurement_unit: 15oz can
+  :name: canned diced tomatoes
+  :preparation_style: ''
+- :recipe_title: Apricot Lentil Soup
+  :quantity: 4.0
+  :measurement_unit: cup
+  :name: vegetable stock
+  :preparation_style: ''
+- :recipe_title: Arroz Con Gandules Pigeon Peas
+  :quantity: 0.5
+  :measurement_unit: cup
+  :name: yellow onion
+  :preparation_style: diced
+- :recipe_title: Arroz Con Gandules Pigeon Peas
+  :quantity: 0.5
+  :measurement_unit: whole
+  :name: green bell pepper
+  :preparation_style: diced
+- :recipe_title: Arroz Con Gandules Pigeon Peas
+  :quantity: 2.0
+  :measurement_unit: clove
+  :name: garlic
+  :preparation_style: ''
+- :recipe_title: Arroz Con Gandules Pigeon Peas
+  :quantity: 1
+  :measurement_unit: 15oz can
+  :name: pigeon peas
+  :preparation_style: rinsed and drained
+- :recipe_title: Arroz Con Gandules Pigeon Peas
+  :quantity: 4.0
+  :measurement_unit: ounce
+  :name: tomato sauce
+  :preparation_style: ''
+- :recipe_title: Arroz Con Gandules Pigeon Peas
+  :quantity: 3.0
+  :measurement_unit: cup
+  :name: water
+  :preparation_style: ''
+- :recipe_title: Arroz Con Gandules Pigeon Peas
+  :quantity: 1.0
+  :measurement_unit: tsp
+  :name: cumin
+  :preparation_style: ''
+- :recipe_title: Arroz Con Gandules Pigeon Peas
+  :quantity: 1.0
+  :measurement_unit: tsp
+  :name: coriander
+  :preparation_style: ''
+- :recipe_title: Arroz Con Gandules Pigeon Peas
+  :quantity: 1.0
+  :measurement_unit: tsp
+  :name: paprika
+  :preparation_style: ''
+- :recipe_title: Bread Pudding with Roasted Vegetables
+  :quantity: 2.0
+  :measurement_unit: T
+  :name: fresh parsley
+  :preparation_style: chopped
+- :recipe_title: Arroz Con Gandules Pigeon Peas
+  :quantity: 0.333
+  :measurement_unit: cup
+  :name: coconut flakes
+  :preparation_style: toasted
+- :recipe_title: Spicy Roasted Cauliflower with Queso
+  :quantity: 0.125
+  :measurement_unit: tsp
+  :name: cayenne pepper
+  :preparation_style: ''
+- :recipe_title: Asian Raw Kale Salad
+  :quantity: 1.0
+  :measurement_unit: bunch
+  :name: curly kale
+  :preparation_style: washed, deboned, chopped, and squeezed
+- :recipe_title: Asian Raw Kale Salad
+  :quantity: 0.5
+  :measurement_unit: whole
+  :name: avocado
+  :preparation_style: cubed
+- :recipe_title: Asian Raw Kale Salad
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: red bell pepper
+  :preparation_style: chopped
+- :recipe_title: Asian Raw Kale Salad
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: carrot
+  :preparation_style: peeled and julienned
+- :recipe_title: Asian Raw Kale Salad
+  :quantity: 0.125
+  :measurement_unit: bunch
+  :name: cilantro
+  :preparation_style: chopped
+- :recipe_title: Asian Raw Kale Salad
+  :quantity: 1.0
+  :measurement_unit: T
+  :name: red onion
+  :preparation_style: minced
+- :recipe_title: Asian Raw Kale Salad
+  :quantity: 1.0
+  :measurement_unit: tsp
+  :name: sesame seeds
+  :preparation_style: ''
+- :recipe_title: Asian Raw Kale Salad
+  :quantity: 1.0
+  :measurement_unit: bunch
+  :name: brocolini
+  :preparation_style: ''
+- :recipe_title: Asian Raw Kale Salad
+  :quantity: 0.25
+  :measurement_unit: cup
+  :name: red cabbage
+  :preparation_style: chopped
+- :recipe_title: Asian Raw Kale Salad
+  :quantity: 2.0
+  :measurement_unit: T
+  :name: apple cider vinegar
+  :preparation_style: ''
+- :recipe_title: Asian Raw Kale Salad
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: lime
+  :preparation_style: juiced
+- :recipe_title: Asian Raw Kale Salad
+  :quantity: 2.0
+  :measurement_unit: T
+  :name: honey
+  :preparation_style: ''
+- :recipe_title: Asian Raw Kale Salad
+  :quantity: 3.0
+  :measurement_unit: T
+  :name: olive oil
+  :preparation_style: ''
+- :recipe_title: Asian Raw Kale Salad
+  :quantity: 1.0
+  :measurement_unit: inch
+  :name: ginger
+  :preparation_style: peeled and minced
+- :recipe_title: Bread Pudding with Roasted Vegetables
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: baguette
+  :preparation_style: cut into big cubes and dried
+- :recipe_title: Bread Pudding with Roasted Vegetables
+  :quantity: 1.0
+  :measurement_unit: T
+  :name: olive oil
+  :preparation_style: ''
+- :recipe_title: Bread Pudding with Roasted Vegetables
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: onion
+  :preparation_style: diced
+- :recipe_title: Bread Pudding with Roasted Vegetables
+  :quantity: 2.0
+  :measurement_unit: stalk
+  :name: celery
+  :preparation_style: roughly chopped
+- :recipe_title: Bread Pudding with Roasted Vegetables
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: red bell pepper
+  :preparation_style: roughly chopped
+- :recipe_title: Bread Pudding with Roasted Vegetables
+  :quantity: 8.0
+  :measurement_unit: ounce
+  :name: mushrooms
+  :preparation_style: washed and roughly sliced
+- :recipe_title: Bread Pudding with Roasted Vegetables
+  :quantity: 2.0
+  :measurement_unit: whole
+  :name: zucchini
+  :preparation_style: sliced into thick half moons
+- :recipe_title: Bread Pudding with Roasted Vegetables
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: tomato
+  :preparation_style: roughly chopped
+- :recipe_title: Bread Pudding with Roasted Vegetables
+  :quantity: 2.0
+  :measurement_unit: clove
+  :name: garlic
+  :preparation_style: sliced
+- :recipe_title: Bread Pudding with Roasted Vegetables
+  :quantity: 0.5
+  :measurement_unit: tsp
+  :name: dried thyme
+  :preparation_style: crumbled
+- :recipe_title: Bread Pudding with Roasted Vegetables
+  :quantity: 5.0
+  :measurement_unit: whole
+  :name: egg
+  :preparation_style: ''
+- :recipe_title: Bread Pudding with Roasted Vegetables
+  :quantity: 0.5
+  :measurement_unit: T
+  :name: sea salt
+  :preparation_style: ''
+- :recipe_title: Bread Pudding with Roasted Vegetables
+  :quantity: 0.25
+  :measurement_unit: tsp
+  :name: ground nutmeg
+  :preparation_style: ''
+- :recipe_title: Bread Pudding with Roasted Vegetables
+  :quantity: 2.0
+  :measurement_unit: cup
+  :name: gruyere
+  :preparation_style: or swiss, grated
+- :recipe_title: City O City Breakfast Burrito
+  :quantity: 16.0
+  :measurement_unit: ounce
+  :name: extra firm tofu
+  :preparation_style: drained and crumbled
+- :recipe_title: City O City Breakfast Burrito
+  :quantity: 6.0
+  :measurement_unit: whole
+  :name: flour tortilla (burrito size)
+  :preparation_style: ''
+- :recipe_title: City O City Breakfast Burrito
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: potato
+  :preparation_style: cubed and steamed
+- :recipe_title: City O City Breakfast Burrito
+  :quantity: 0.5
+  :measurement_unit: cup
+  :name: white onion
+  :preparation_style: diced
+- :recipe_title: City O City Breakfast Burrito
+  :quantity: 0.75
+  :measurement_unit: cup
+  :name: red bell pepper
+  :preparation_style: diced
+- :recipe_title: City O City Breakfast Burrito
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: anaheim pepper
+  :preparation_style: finely chopped
+- :recipe_title: City O City Breakfast Burrito
+  :quantity: 0.25
+  :measurement_unit: tsp
+  :name: ground coriander
+  :preparation_style: ''
+- :recipe_title: City O City Breakfast Burrito
+  :quantity: 0.5
+  :measurement_unit: tsp
+  :name: cumin
+  :preparation_style: ''
+- :recipe_title: City O City Breakfast Burrito
+  :quantity: 0.25
+  :measurement_unit: tsp
+  :name: granulated garlic
+  :preparation_style: ''
+- :recipe_title: City O City Breakfast Burrito
+  :quantity: 0.5
+  :measurement_unit: tsp
+  :name: sea salt
+  :preparation_style: ''
+- :recipe_title: City O City Breakfast Burrito
+  :quantity: 1.25
+  :measurement_unit: tsp
+  :name: turmeric
+  :preparation_style: ''
+- :recipe_title: City O City Breakfast Burrito
+  :quantity: 0.25
+  :measurement_unit: cup
+  :name: yogurt
+  :preparation_style: for serving
+- :recipe_title: Bread Pudding with Roasted Vegetables
+  :quantity: 0.5
+  :measurement_unit: cup
+  :name: milk
+  :preparation_style: ''
+- :recipe_title: Arroz Con Gandules Pigeon Peas
+  :quantity: 2.0
+  :measurement_unit: cup
+  :name: uncooked white rice
+  :preparation_style: ''
+- :recipe_title: Pierogi Pizza
+  :quantity: 1.0
+  :measurement_unit: tsp
+  :name: vegetable bouillon
+  :preparation_style: ''
+- :recipe_title: Sweet Potato Gnocchis
+  :quantity: 16.0
+  :measurement_unit: ounce
+  :name: sweet potato gnocchi
+  :preparation_style: ''
+- :recipe_title: Sweet Potato Gnocchis
+  :quantity: 1.0
+  :measurement_unit: bunch
+  :name: broccolini
+  :preparation_style: chopped into bit-size pieces
+- :recipe_title: Sweet Potato Gnocchis
+  :quantity: 4.0
+  :measurement_unit: T
+  :name: butter
+  :preparation_style: ''
+- :recipe_title: Sweet Potato Gnocchis
+  :quantity: 0.125
+  :measurement_unit: tsp
+  :name: ground nutmeg
+  :preparation_style: ''
+- :recipe_title: Sweet Potato Gnocchis
+  :quantity: 0.125
+  :measurement_unit: tsp
+  :name: cinnamon
+  :preparation_style: ''
+- :recipe_title: Sweet Potato Gnocchis
+  :quantity: 0.5
+  :measurement_unit: ounce
+  :name: goat cheese
+  :preparation_style: ''
+- :recipe_title: Corn Chowder
+  :quantity: 16.0
+  :measurement_unit: ounce
+  :name: frozen sweet corn
+  :preparation_style: ''
+- :recipe_title: Corn Chowder
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: onion
+  :preparation_style: chopped
+- :recipe_title: Corn Chowder
+  :quantity: 0.5
+  :measurement_unit: T
+  :name: granulated garlic
+  :preparation_style: ''
+- :recipe_title: Corn Chowder
+  :quantity: 2.0
+  :measurement_unit: stalk
+  :name: celery
+  :preparation_style: chopped
+- :recipe_title: Corn Chowder
+  :quantity: 2.0
+  :measurement_unit: whole
+  :name: carrot
+  :preparation_style: chopped
+- :recipe_title: Corn Chowder
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: red bell pepper
+  :preparation_style: diced
+- :recipe_title: Corn Chowder
+  :quantity: 0.125
+  :measurement_unit: bunch
+  :name: fresh parsley
+  :preparation_style: roughly chopped
+- :recipe_title: Corn Chowder
+  :quantity: 1
+  :measurement_unit: 15oz can
+  :name: coconut milk
+  :preparation_style: well shaken
+- :recipe_title: Corn Chowder
+  :quantity: 2.0
+  :measurement_unit: T
+  :name: flour
+  :preparation_style: ''
+- :recipe_title: Corn Chowder
+  :quantity: 0.5
+  :measurement_unit: tsp
+  :name: cayenne pepper
+  :preparation_style: ''
+- :recipe_title: Corn Chowder
+  :quantity: 0.75
+  :measurement_unit: tsp
+  :name: sea salt
+  :preparation_style: ''
+- :recipe_title: Corn Chowder
+  :quantity: 0.5
+  :measurement_unit: tsp
+  :name: ground nutmeg
+  :preparation_style: ''
+- :recipe_title: Apricot Lentil Soup
+  :quantity: 0.25
+  :measurement_unit: tsp
+  :name: sea salt
+  :preparation_style: ''
+- :recipe_title: Potato Leek Soup
+  :quantity: 2.0
+  :measurement_unit: whole
+  :name: leek
+  :preparation_style: chopped, soaked, washed, drained
+- :recipe_title: Potato Leek Soup
+  :quantity: 3.0
+  :measurement_unit: stalk
+  :name: celery
+  :preparation_style: diced
+- :recipe_title: Potato Leek Soup
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: russet potato
+  :preparation_style: diced
+- :recipe_title: Potato Leek Soup
+  :quantity: 6.0
+  :measurement_unit: cup
+  :name: vegetable stock
+  :preparation_style: ''
+- :recipe_title: Potato Leek Soup
+  :quantity: 1
+  :measurement_unit: 15oz can
+  :name: coconut milk
+  :preparation_style: shaken
+- :recipe_title: Potato Leek Soup
+  :quantity: 0.5
+  :measurement_unit: tsp
+  :name: dried thyme
+  :preparation_style: ''
+- :recipe_title: Potato Leek Soup
+  :quantity: 0.25
+  :measurement_unit: tsp
+  :name: dried rosemary
+  :preparation_style: ''
+- :recipe_title: Potato Leek Soup
+  :quantity: 2.0
+  :measurement_unit: whole
+  :name: bay leaf
+  :preparation_style: ''
+- :recipe_title: Potato Leek Soup
+  :quantity: 0.5
+  :measurement_unit: whole
+  :name: butter
+  :preparation_style: ''
+- :recipe_title: Potato Leek Soup
+  :quantity: 0.25
+  :measurement_unit: tsp
+  :name: sea salt
+  :preparation_style: ''
+- :recipe_title: Potato Leek Soup
+  :quantity: 0.25
+  :measurement_unit: cup
+  :name: almonds
+  :preparation_style: sliced or chopped
+- :recipe_title: Potato Leek Soup
+  :quantity: 2.0
+  :measurement_unit: T
+  :name: sunflower seeds
+  :preparation_style: ''
+- :recipe_title: Greek Stuffed Peppers
+  :quantity: 1.0
+  :measurement_unit: cup
+  :name: uncooked couscous
+  :preparation_style: ''
+- :recipe_title: Greek Stuffed Peppers
+  :quantity: 2.0
+  :measurement_unit: cup
+  :name: vegetable stock
+  :preparation_style: ''
+- :recipe_title: Greek Stuffed Peppers
+  :quantity: 0.25
+  :measurement_unit: cup
+  :name: sundried tomatoes
+  :preparation_style: ''
+- :recipe_title: Greek Stuffed Peppers
+  :quantity: 2.0
+  :measurement_unit: whole
+  :name: red bell pepper
+  :preparation_style: cut in half like boats and deseeded
+- :recipe_title: Greek Stuffed Peppers
+  :quantity: 0.25
+  :measurement_unit: whole
+  :name: green bell pepper
+  :preparation_style: diced
+- :recipe_title: Greek Stuffed Peppers
+  :quantity: 0.25
+  :measurement_unit: tsp
+  :name: granulated garlic
+  :preparation_style: ''
+- :recipe_title: Greek Stuffed Peppers
+  :quantity: 0.25
+  :measurement_unit: tsp
+  :name: onion powder
+  :preparation_style: ''
+- :recipe_title: Greek Stuffed Peppers
+  :quantity: 1.0
+  :measurement_unit: T
+  :name: dried oregano
+  :preparation_style: ''
+- :recipe_title: Greek Stuffed Peppers
+  :quantity: 1
+  :measurement_unit: 15oz can
+  :name: black eyed peas
+  :preparation_style: drained and rinsed
+- :recipe_title: Greek Stuffed Peppers
+  :quantity: 0.25
+  :measurement_unit: cup
+  :name: kalamata olived
+  :preparation_style: pitted and diced
+- :recipe_title: Greek Stuffed Peppers
+  :quantity: 6.0
+  :measurement_unit: handful
+  :name: baby spinach
+  :preparation_style: chopped
+- :recipe_title: Greek Stuffed Peppers
+  :quantity: 4.0
+  :measurement_unit: ounce
+  :name: feta cheese
+  :preparation_style: crumbled
+- :recipe_title: Greek Stuffed Peppers
+  :quantity: 2.0
+  :measurement_unit: T
+  :name: pine nuts
+  :preparation_style: toasted
+- :recipe_title: Jackfruit Melt Sandwich
+  :quantity: 10.0
+  :measurement_unit: ounce
+  :name: plain jackfruit
+  :preparation_style: rinsed, drained, chopped
+- :recipe_title: Jackfruit Melt Sandwich
+  :quantity: 0.25
+  :measurement_unit: tsp
+  :name: onion powder
+  :preparation_style: ''
+- :recipe_title: Jackfruit Melt Sandwich
+  :quantity: 1.0
+  :measurement_unit: stalk
+  :name: celery
+  :preparation_style: minced
+- :recipe_title: Jackfruit Melt Sandwich
+  :quantity: 0.5
+  :measurement_unit: tsp
+  :name: dried tarragon
+  :preparation_style: ''
+- :recipe_title: Jackfruit Melt Sandwich
+  :quantity: 0.125
+  :measurement_unit: tsp
+  :name: granulated garlic
+  :preparation_style: ''
+- :recipe_title: Jackfruit Melt Sandwich
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: tomato
+  :preparation_style: half-mooned and sliced
+- :recipe_title: Jackfruit Melt Sandwich
+  :quantity: 1
+  :measurement_unit: 15oz can
+  :name: great northern beans
+  :preparation_style: rinsed and drained
+- :recipe_title: Jackfruit Melt Sandwich
+  :quantity: 0.25
+  :measurement_unit: cup
+  :name: mayonnaise
+  :preparation_style: ''
+- :recipe_title: Jackfruit Melt Sandwich
+  :quantity: 1.5
+  :measurement_unit: T
+  :name: dijon mustard
+  :preparation_style: ''
+- :recipe_title: Jackfruit Melt Sandwich
+  :quantity: 2.0
+  :measurement_unit: T
+  :name: pickled relish
+  :preparation_style: ''
+- :recipe_title: Jackfruit Melt Sandwich
+  :quantity: 1.0
+  :measurement_unit: loaf
+  :name: marble rye
+  :preparation_style: sliced
+- :recipe_title: Jackfruit Melt Sandwich
+  :quantity: 12.0
+  :measurement_unit: slice
+  :name: sliced swiss cheese
+  :preparation_style: ''
+- :recipe_title: Wild Rice and Mushroom Soup
+  :quantity: 5.0
+  :measurement_unit: whole
+  :name: carrot
+  :preparation_style: finely chopped
+- :recipe_title: Wild Rice and Mushroom Soup
+  :quantity: 5.0
+  :measurement_unit: stalk
+  :name: celery
+  :preparation_style: finely chopped
+- :recipe_title: Wild Rice and Mushroom Soup
+  :quantity: 0.5
+  :measurement_unit: whole
+  :name: onion
+  :preparation_style: diced
+- :recipe_title: Wild Rice and Mushroom Soup
+  :quantity: 1.0
+  :measurement_unit: cup
+  :name: uncooked wild rice
+  :preparation_style: ''
+- :recipe_title: Wild Rice and Mushroom Soup
+  :quantity: 8.0
+  :measurement_unit: ounce
+  :name: fresh mushrooms
+  :preparation_style: sliced
+- :recipe_title: Wild Rice and Mushroom Soup
+  :quantity: 4.0
+  :measurement_unit: cup
+  :name: vegetable stock
+  :preparation_style: to start. Add more as needed.
+- :recipe_title: Wild Rice and Mushroom Soup
+  :quantity: 1.0
+  :measurement_unit: tsp
+  :name: sea salt
+  :preparation_style: ''
+- :recipe_title: Wild Rice and Mushroom Soup
+  :quantity: 0.5
+  :measurement_unit: tsp
+  :name: dried thyme
+  :preparation_style: ''
+- :recipe_title: Wild Rice and Mushroom Soup
+  :quantity: 1.5
+  :measurement_unit: cup
+  :name: milk
+  :preparation_style: ''
+- :recipe_title: Quick Pad Thai
+  :quantity: 0.5
+  :measurement_unit: box
+  :name: extra firm tofu
+  :preparation_style: drained, crumbled
+- :recipe_title: Quick Pad Thai
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: carrot
+  :preparation_style: julienned
+- :recipe_title: Corn Chowder
+  :quantity: 4.0
+  :measurement_unit: cup
+  :name: vegetable stock
+  :preparation_style: ''
+- :recipe_title: Pierogi Pizza
+  :quantity: 2.5
+  :measurement_unit: whole
+  :name: potato
+  :preparation_style: thinly sliced
+- :recipe_title: Corn Chowder
+  :quantity: 2.0
+  :measurement_unit: whole
+  :name: potato
+  :preparation_style: cubed
+- :recipe_title: Pierogi Pizza
+  :quantity: 0.5
+  :measurement_unit: bunch
+  :name: green onion
+  :preparation_style: chopped
+- :recipe_title: Pierogi Pizza
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: pizza crust
+  :preparation_style: premade
+- :recipe_title: Curried Satay Veggie Bowls
+  :quantity: 8.0
+  :measurement_unit: ounce
+  :name: dried spaghetti
+  :preparation_style: cooked
+- :recipe_title: Curried Satay Veggie Bowls
+  :quantity: 1
+  :measurement_unit: 15oz can
+  :name: great northern beans
+  :preparation_style: rinsed and drained
+- :recipe_title: Curried Satay Veggie Bowls
+  :quantity: 1.0
+  :measurement_unit: T
+  :name: peanut butter
+  :preparation_style: ''
+- :recipe_title: Curried Satay Veggie Bowls
+  :quantity: 1.0
+  :measurement_unit: T
+  :name: red curry paste
+  :preparation_style: ''
+- :recipe_title: Curried Satay Veggie Bowls
+  :quantity: 1.0
+  :measurement_unit: tsp
+  :name: mustard
+  :preparation_style: ''
+- :recipe_title: Curried Satay Veggie Bowls
+  :quantity: 0.25
+  :measurement_unit: tsp
+  :name: ground ginger
+  :preparation_style: ''
+- :recipe_title: Curried Satay Veggie Bowls
+  :quantity: 0.25
+  :measurement_unit: tsp
+  :name: granulated garlic
+  :preparation_style: ''
+- :recipe_title: Curried Satay Veggie Bowls
+  :quantity: 1.0
+  :measurement_unit: tsp
+  :name: rice vinegar
+  :preparation_style: ''
+- :recipe_title: Curried Satay Veggie Bowls
+  :quantity: 1.0
+  :measurement_unit: T
+  :name: soy sauce
+  :preparation_style: ''
+- :recipe_title: Curried Satay Veggie Bowls
+  :quantity: 2.0
+  :measurement_unit: whole
+  :name: zucchini (medium)
+  :preparation_style: julienned
+- :recipe_title: Tortilla Soup
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: poblano pepper
+  :preparation_style: diced
+- :recipe_title: Tortilla Soup
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: white onion
+  :preparation_style: diced
+- :recipe_title: Tortilla Soup
+  :quantity: 2.0
+  :measurement_unit: clove
+  :name: garlic
+  :preparation_style: minced
+- :recipe_title: Tortilla Soup
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: jalapeño pepper
+  :preparation_style: minced
+- :recipe_title: Tortilla Soup
+  :quantity: 1.0
+  :measurement_unit: tsp
+  :name: ground cumin
+  :preparation_style: ''
+- :recipe_title: Tortilla Soup
+  :quantity: 1
+  :measurement_unit: 15oz can
+  :name: crushed tomatoes
+  :preparation_style: ''
+- :recipe_title: Tortilla Soup
+  :quantity: 4.0
+  :measurement_unit: cup
+  :name: vegetable stock
+  :preparation_style: ''
+- :recipe_title: Tortilla Soup
+  :quantity: 1
+  :measurement_unit: 15oz can
+  :name: hominy
+  :preparation_style: rinsed and drained
+- :recipe_title: Tortilla Soup
+  :quantity: 4.0
+  :measurement_unit: whole
+  :name: radishes
+  :preparation_style: sliced into thin rounds
+- :recipe_title: Tortilla Soup
+  :quantity: 1
+  :measurement_unit: 15oz can
+  :name: black beans
+  :preparation_style: rinsed and drained
+- :recipe_title: Tortilla Soup
+  :quantity: 1.0
+  :measurement_unit: handful
+  :name: cilantro
+  :preparation_style: chopped
+- :recipe_title: Yellow Lentil Dal
+  :quantity: 4.0
+  :measurement_unit: cup
+  :name: vegetable stock
+  :preparation_style: ''
+- :recipe_title: Yellow Lentil Dal
+  :quantity: 2.0
+  :measurement_unit: T
+  :name: fresh ginger
+  :preparation_style: minced
+- :recipe_title: Yellow Lentil Dal
+  :quantity: 0.5
+  :measurement_unit: tsp
+  :name: ground turmeric
+  :preparation_style: ''
+- :recipe_title: Yellow Lentil Dal
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: zucchini
+  :preparation_style: cut into 1" pieces
+- :recipe_title: Yellow Lentil Dal
+  :quantity: 1.5
+  :measurement_unit: tsp
+  :name: black mustard seeds
+  :preparation_style: ''
+- :recipe_title: Yellow Lentil Dal
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: yellow onion
+  :preparation_style: halved and thinly sliced
+- :recipe_title: Yellow Lentil Dal
+  :quantity: 2.0
+  :measurement_unit: clove
+  :name: garlic
+  :preparation_style: minced
+- :recipe_title: Yellow Lentil Dal
+  :quantity: 2.0
+  :measurement_unit: whole
+  :name: bay leaf
+  :preparation_style: ''
+- :recipe_title: Yellow Lentil Dal
+  :quantity: 2.0
+  :measurement_unit: tsp
+  :name: ground cumin
+  :preparation_style: ''
+- :recipe_title: Yellow Lentil Dal
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: tomato
+  :preparation_style: cubed
+- :recipe_title: Yellow Lentil Dal
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: anaheim
+  :preparation_style: thinly sliced and deseeded
+- :recipe_title: Yellow Lentil Dal
+  :quantity: 1.0
+  :measurement_unit: cup
+  :name: dry yellow lentils
+  :preparation_style: ''
+- :recipe_title: Spicy Black Bean Soup
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: yellow onion
+  :preparation_style: diced
+- :recipe_title: Spicy Black Bean Soup
+  :quantity: 3.0
+  :measurement_unit: stalk
+  :name: celery
+  :preparation_style: chopped
+- :recipe_title: Spicy Black Bean Soup
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: carrot
+  :preparation_style: peeled and chopped
+- :recipe_title: Spicy Black Bean Soup
+  :quantity: 0.125
+  :measurement_unit: tsp
+  :name: granulated garlic
+  :preparation_style: ''
+- :recipe_title: Spicy Black Bean Soup
+  :quantity: 0.5
+  :measurement_unit: tsp
+  :name: powdered jalapeño pepper
+  :preparation_style: ''
+- :recipe_title: Spicy Black Bean Soup
+  :quantity: 3
+  :measurement_unit: 15oz can
+  :name: black beans
+  :preparation_style: rinsed and drained
+- :recipe_title: Spicy Black Bean Soup
+  :quantity: 1.0
+  :measurement_unit: cup
+  :name: vegetable stock
+  :preparation_style: ''
+- :recipe_title: Spicy Black Bean Soup
+  :quantity: 0.25
+  :measurement_unit: cup
+  :name: fresh cilantro
+  :preparation_style: chopped
+- :recipe_title: Spicy Black Bean Soup
+  :quantity: 1.0
+  :measurement_unit: tsp
+  :name: vinegar
+  :preparation_style: ''
+- :recipe_title: Ginger Broccolini Stir Fry
+  :quantity: 1.0
+  :measurement_unit: bunch
+  :name: broccolini
+  :preparation_style: cut into large bite sizes
+- :recipe_title: Ginger Broccolini Stir Fry
+  :quantity: 2.0
+  :measurement_unit: inch
+  :name: fresh ginger root
+  :preparation_style: peeled and minced
+- :recipe_title: Ginger Broccolini Stir Fry
+  :quantity: 2.0
+  :measurement_unit: whole
+  :name: carrot
+  :preparation_style: julienned
+- :recipe_title: Ginger Broccolini Stir Fry
+  :quantity: 2.0
+  :measurement_unit: stalk
+  :name: celery
+  :preparation_style: chopped at an angle
+- :recipe_title: Ginger Broccolini Stir Fry
+  :quantity: 0.25
+  :measurement_unit: whole
+  :name: onion
+  :preparation_style: sliced into thin half moons
+- :recipe_title: Ginger Broccolini Stir Fry
+  :quantity: 0.125
+  :measurement_unit: tsp
+  :name: granulated garlic
+  :preparation_style: ''
+- :recipe_title: Ginger Broccolini Stir Fry
+  :quantity: 3.0
+  :measurement_unit: whole
+  :name: baby bok choi
+  :preparation_style: chopped
+- :recipe_title: Ginger Broccolini Stir Fry
+  :quantity: 2.0
+  :measurement_unit: tsp
+  :name: vinegar
+  :preparation_style: ''
+- :recipe_title: Ginger Broccolini Stir Fry
+  :quantity: 1.0
+  :measurement_unit: T
+  :name: honey
+  :preparation_style: ''
+- :recipe_title: Ginger Broccolini Stir Fry
+  :quantity: 1.0
+  :measurement_unit: T
+  :name: soy sauce
+  :preparation_style: ''
+- :recipe_title: Ginger Broccolini Stir Fry
+  :quantity: 0.25
+  :measurement_unit: tsp
+  :name: crushed red pepper
+  :preparation_style: ''
+- :recipe_title: Chorizo Sweet Potato Skillet
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: sweet potato
+  :preparation_style: cut into small dice
+- :recipe_title: Chorizo Sweet Potato Skillet
+  :quantity: 0.5
+  :measurement_unit: lb
+  :name: mexican chorizo
+  :preparation_style: ''
+- :recipe_title: Chorizo Sweet Potato Skillet
+  :quantity: 1
+  :measurement_unit: 15oz can
+  :name: black beans
+  :preparation_style: rinsed and drained
+- :recipe_title: Chorizo Sweet Potato Skillet
+  :quantity: 1.0
+  :measurement_unit: cup
+  :name: uncooked white rice
+  :preparation_style: ''
+- :recipe_title: Chorizo Sweet Potato Skillet
+  :quantity: 1.0
+  :measurement_unit: cup
+  :name: salsa
+  :preparation_style: ''
+- :recipe_title: Chorizo Sweet Potato Skillet
+  :quantity: 1.75
+  :measurement_unit: cup
+  :name: vegetable stock
+  :preparation_style: ''
+- :recipe_title: Chorizo Sweet Potato Skillet
+  :quantity: 1.0
+  :measurement_unit: cup
+  :name: shredded cheddar cheese
+  :preparation_style: for garnish
+- :recipe_title: Chorizo Sweet Potato Skillet
+  :quantity: 2.0
+  :measurement_unit: stalk
+  :name: green onion
+  :preparation_style: chopped, for garnish
+- :recipe_title: Lentil & Kale Egg Noodle Bowl
+  :quantity: 1.0
+  :measurement_unit: cup
+  :name: white onion
+  :preparation_style: diced
+- :recipe_title: Lentil & Kale Egg Noodle Bowl
+  :quantity: 0.25
+  :measurement_unit: tsp
+  :name: granulated garlic
+  :preparation_style: ''
+- :recipe_title: Lentil & Kale Egg Noodle Bowl
+  :quantity: 0.5
+  :measurement_unit: tsp
+  :name: ground cumin
+  :preparation_style: ''
+- :recipe_title: Lentil & Kale Egg Noodle Bowl
+  :quantity: 0.125
+  :measurement_unit: cup
+  :name: nutritional yeast
+  :preparation_style: ''
+- :recipe_title: Lentil & Kale Egg Noodle Bowl
+  :quantity: 1
+  :measurement_unit: 15oz can
+  :name: lentils
+  :preparation_style: rinsed and drained
+- :recipe_title: Lentil & Kale Egg Noodle Bowl
+  :quantity: 1.0
+  :measurement_unit: cup
+  :name: vegetable stock
+  :preparation_style: ''
+- :recipe_title: Lentil & Kale Egg Noodle Bowl
+  :quantity: 8.0
+  :measurement_unit: ounce
+  :name: wide egg noodles
+  :preparation_style: ''
+- :recipe_title: Lentil & Kale Egg Noodle Bowl
+  :quantity: 4.0
+  :measurement_unit: cup
+  :name: kale
+  :preparation_style: thinly sliced
+- :recipe_title: Lentil & Kale Egg Noodle Bowl
+  :quantity: 0.33
+  :measurement_unit: cup
+  :name: parmesan
+  :preparation_style: grated
+- :recipe_title: Shakshuka
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: yellow onion
+  :preparation_style: thinly sliced
+- :recipe_title: Shakshuka
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: red bell pepper
+  :preparation_style: diced
+- :recipe_title: Shakshuka
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: jalapeño pepper
+  :preparation_style: deseeded and sliced
+- :recipe_title: Shakshuka
+  :quantity: 3.0
+  :measurement_unit: clove
+  :name: garlic
+  :preparation_style: minced
+- :recipe_title: Shakshuka
+  :quantity: 1.5
+  :measurement_unit: T
+  :name: smoked paprika
+  :preparation_style: ''
+- :recipe_title: Shakshuka
+  :quantity: 2.0
+  :measurement_unit: tsp
+  :name: ground cumin
+  :preparation_style: ''
+- :recipe_title: Shakshuka
+  :quantity: 2
+  :measurement_unit: 15oz can
+  :name: canned diced tomatoes
+  :preparation_style: ''
+- :recipe_title: Shakshuka
+  :quantity: 6.0
+  :measurement_unit: whole
+  :name: egg
+  :preparation_style: ''
+- :recipe_title: Shakshuka
+  :quantity: 10.0
+  :measurement_unit: whole
+  :name: kalamata olive
+  :preparation_style: pitted and sliced in half
+- :recipe_title: Shakshuka
+  :quantity: 1.0
+  :measurement_unit: handful
+  :name: cilantro
+  :preparation_style: chopped
+- :recipe_title: Shakshuka
+  :quantity: 4.0
+  :measurement_unit: ounce
+  :name: feta cheese
+  :preparation_style: for serving
+- :recipe_title: Yellow Lentil Dal
+  :quantity: 1.0
+  :measurement_unit: cup
+  :name: uncooked jasmine rice
+  :preparation_style: cooked
+- :recipe_title: Ginger Broccolini Stir Fry
+  :quantity: 1.0
+  :measurement_unit: cup
+  :name: uncooked white rice
+  :preparation_style: cooked
+- :recipe_title: Sweet Potato Pie
+  :quantity: 2.0
+  :measurement_unit: whole
+  :name: sweet potato
+  :preparation_style: ''
+- :recipe_title: Sweet Potato Pie
+  :quantity: 0.5
+  :measurement_unit: cup
+  :name: brown sugar
+  :preparation_style: ''
+- :recipe_title: Sweet Potato Pie
+  :quantity: 0.25
+  :measurement_unit: cup
+  :name: cane juice sugar
+  :preparation_style: ''
+- :recipe_title: Sweet Potato Pie
+  :quantity: 1.0
+  :measurement_unit: T
+  :name: cinnamon
+  :preparation_style: ''
+- :recipe_title: Sweet Potato Pie
+  :quantity: 0.5
+  :measurement_unit: tsp
+  :name: ground nutmeg
+  :preparation_style: ''
+- :recipe_title: Sweet Potato Pie
+  :quantity: 0.25
+  :measurement_unit: tsp
+  :name: ground ginger
+  :preparation_style: ''
+- :recipe_title: Sweet Potato Pie
+  :quantity: 0.25
+  :measurement_unit: tsp
+  :name: sea salt
+  :preparation_style: ''
+- :recipe_title: Sweet Potato Pie
+  :quantity: 2.0
+  :measurement_unit: T
+  :name: melted butter
+  :preparation_style: ''
+- :recipe_title: Sweet Potato Pie
+  :quantity: 3.0
+  :measurement_unit: whole
+  :name: egg
+  :preparation_style: ''
+- :recipe_title: Sweet Potato Pie
+  :quantity: 1.0
+  :measurement_unit: cup
+  :name: vanilla nut milk
+  :preparation_style: ''
+- :recipe_title: Sweet Potato Pie
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: 9" pie crust
+  :preparation_style: ''
+- :recipe_title: test recipe
+  :quantity: 4.0
+  :measurement_unit: cup
+  :name: water
+  :preparation_style: boiled and cooled
+- :recipe_title: Twice-Baked Sweet Potatoes
+  :quantity: 4.0
+  :measurement_unit: whole
+  :name: sweet potato
+  :preparation_style: scrubbed
+- :recipe_title: Twice-Baked Sweet Potatoes
+  :quantity: 1.0
+  :measurement_unit: lb
+  :name: chorizo
+  :preparation_style: casing removed and sliced into 1/2 moons
+- :recipe_title: Twice-Baked Sweet Potatoes
+  :quantity: 0.5
+  :measurement_unit: cup
+  :name: vegetable stock
+  :preparation_style: ''
+- :recipe_title: Twice-Baked Sweet Potatoes
+  :quantity: 1.0
+  :measurement_unit: cup
+  :name: pumpkin puree
+  :preparation_style: ''
+- :recipe_title: Twice-Baked Sweet Potatoes
+  :quantity: 1.0
+  :measurement_unit: clove
+  :name: garlic
+  :preparation_style: minced
+- :recipe_title: Twice-Baked Sweet Potatoes
+  :quantity: 1.0
+  :measurement_unit: whole
+  :name: chipotle in adobo sauce
+  :preparation_style: finely chopped, + 1 T sauce
+- :recipe_title: Twice-Baked Sweet Potatoes
+  :quantity: 1.0
+  :measurement_unit: tsp
+  :name: orange zest
+  :preparation_style: ''
+- :recipe_title: Twice-Baked Sweet Potatoes
+  :quantity: 1.0
+  :measurement_unit: T
+  :name: honey
+  :preparation_style: ''
+- :recipe_title: Twice-Baked Sweet Potatoes
+  :quantity: 0.125
+  :measurement_unit: tsp
+  :name: ground nutmeg
+  :preparation_style: ''
+- :recipe_title: Twice-Baked Sweet Potatoes
+  :quantity: 1.0
+  :measurement_unit: cup
+  :name: shredded smoked cheddar cheese
+  :preparation_style: ''
+- :recipe_title: Twice-Baked Sweet Potatoes
+  :quantity: 4.0
+  :measurement_unit: whole
+  :name: green onion
+  :preparation_style: chopped
+- :recipe_title: Sample Archived Recipe
+  :quantity: 1
+  :measurement_unit: 15oz can
+  :name: beans
+  :preparation_style: ''
+- :recipe_title: Sample Archived Recipe
+  :quantity: 2.0
+  :measurement_unit: stalk
+  :name: celery
+  :preparation_style: ''

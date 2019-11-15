@@ -12,9 +12,9 @@ gem 'jbuilder', '~> 2.5'        # Build JSON APIs with ease. Read more: https://
 gem 'loofah', '>= 2.2.3'        # Upgrade for security update
 gem 'nokogiri', '>= 1.8.5'      # Upgrade for security update
 gem 'pg', '>= 0.18', '< 2.0'
-gem 'puma', '~> 4.2'            # Use Puma as the app server
+gem 'puma', '~> 4.3'            # Use Puma as the app server
 gem 'rack', '>= 2.0.6'          # Upgrade for security update
-gem 'rails', '~> 6.0.0'         # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '~> 6.0.1'         # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'sass-rails', '~> 6.0'      # Use SCSS for stylesheets
 gem 'uglifier', '>= 1.3.0'      # Use Uglifier as compressor for JavaScript assets
 # gem 'redis', '~> 4.0'           # Use Redis adapter to run Action Cable in production

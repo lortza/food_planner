@@ -40,8 +40,8 @@ module ApplicationHelper
     "btn btn-sm btn-outline-#{style}"
   end
 
-  def display_link_to_plan
-    upcoming = MealPlan.upcoming
-    return link_to "Meal Plan: #{upcoming.start_date.to_s(:short)}", meal_plan_path(upcoming), class: 'nav-link' if upcoming # rubocop:disable Metrics/LineLength
+  def display_link_to_plan(user)
+    upcoming = MealPlan.upcoming(user)
+    link_to "Meal Plan: #{upcoming.start_date.to_s(:short)}", meal_plan_path(upcoming), class: 'nav-link' if upcoming
   end
 end

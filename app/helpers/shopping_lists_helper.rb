@@ -15,6 +15,12 @@ module ShoppingListsHelper
     end
   end
 
+  def display_item(item)
+    "#{item.name} #{display_quantity(item)} #{display_upc(item)} #{display_recurrence(item)}".html_safe
+  end
+
+  private
+
   def display_quantity(item)
     quantity = item.quantity
 
@@ -25,6 +31,10 @@ module ShoppingListsHelper
   def display_recurrence(item)
     return if item.recurrence_frequency.blank?
 
-    "<span class='recurrence-tag'><span class='#{Icon.sync}'></span> #{item.recurrence_frequency}</span>".html_safe
+    "<span class='recurrence-tag'><span class='#{Icon.sync}'></span> #{item.recurrence_frequency}</span>"
+  end
+
+  def display_upc(item)
+    "##{item.heb_upc}" if item.heb_upc.present?
   end
 end
