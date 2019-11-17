@@ -10,26 +10,28 @@
   <%= link_to 'Add an Item...', new_shopping_list_shopping_list_item_path(@shopping_list) %>
 </article>
 
-<% @shopping_list.shopping_list_items.order(:aisle_id).includes(:aisle).not_purchased.group_by(&:aisle).each do |aisle, items| %>
-  <% if aisle %>
-    <h4 class='aisle'><%= aisle.name %></h4>
-    <% items.each do |item| %>
-      <article class='index-item'>
-        <p class='shopping-list-item'>
-          <%= link_to display_item(item), completed_shopping_list_items_path(id: item.id), method: :post, remote: true %>
-          <%= link_to "", edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: Icon.edit %>
-        </p>
-      </article>
-    <% end %>
+<section id='active-items'>
+  <% @shopping_list.shopping_list_items.order(:aisle_id).includes(:aisle).not_purchased.group_by(&:aisle).each do |aisle, items| %>
+    <% if aisle %>
+      <h4 class='aisle'><%= aisle.name %></h4>
+      <% items.each do |item| %>
+        <article id='<%= item.id %>' class='index-item'>
+          <p class='shopping-list-item'>
+            <%= link_to display_item(item), completed_shopping_list_items_path(id: item.id), class: 'js-toggle', method: :post, remote: true %>
+            <%= link_to "", edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: Icon.edit %>
+          </p>
+        </article>
+      <% end %><!-- each -->
+    <% end %><!-- if aisle -->
   <% end %>
 </section>
 
 <h4 class='aisle'>Crossed Off</h4>
 <section id='inactive-items'>
   <% @shopping_list.shopping_list_items.purchased.by_recently_edited.each do |item| %>
-    <article class='index-item'>
-      <p class='shopping-list-item item-crossed-off'>
-        <%= link_to display_item(item), completed_shopping_list_item_path(item), method: :delete, remote: true %>
+    <article id='<%= item.id %>' class='index-item item-crossed-off'>
+      <p class='shopping-list-item '>
+        <%= link_to display_item(item), completed_shopping_list_item_path(item), class: 'js-toggle', method: :delete, remote: true %>
         <%= link_to "", edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: Icon.edit %>
       </p>
     </article>
