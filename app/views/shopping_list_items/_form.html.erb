@@ -21,7 +21,7 @@
     <div class='col-8'>
       <div class='field'>
         <%= form.label :aisle_id %>
-        <%= form.collection_select :aisle_id, current_user.aisles.all, :id, :name, {}, class: 'form-control' %>
+        <%= form.collection_select :aisle_id, current_user.aisles.by_name, :id, :name, {}, class: 'form-control' %>
       </div>
     </div>
 
