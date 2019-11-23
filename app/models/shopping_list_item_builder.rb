@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
 class ShoppingListItemBuilder
-  attr_reader :ingredients, :meal_plan
+  attr_reader :ingredients, :meal_plan, :recipe
 
-  def initialize(shopping_list:, single_ingredient: nil, meal_plan:)
+  def initialize(shopping_list:, single_ingredient: nil, meal_plan:, recipe:)
     @shopping_list = shopping_list
+    @single_ingredient = single_ingredient
     @meal_plan = meal_plan
-    @ingredients = single_ingredient.empty? ? meal_plan.ingredients : single_ingredient
+    @recipe = recipe
+    @ingredients = assign_ingredients
   end
 
   def add_ingredient_to_list(ingredient)
@@ -43,5 +45,15 @@ class ShoppingListItemBuilder
 
   def unassigned_aisle
     Aisle.unassigned(@shopping_list)
+  end
+
+  def assign_ingredients
+    if @single_ingredient.present?
+      @single_ingredient
+    elsif @meal_plan.present?
+      @meal_plan.ingredients
+    elsif @recipe.present?
+      @recipe.ingredients
+    end
   end
 end

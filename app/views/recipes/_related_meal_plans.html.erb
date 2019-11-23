@@ -1,9 +1,7 @@
-<div class="col-sm-4">
-  <h5>Related Meal Plans</h5>
-  <ul>
-    <li><%= link_to '+ Add to a Meal Plan', '#' %></li>
-    <% recipe.meal_plans.order(start_date: :desc).limit(5).each do |plan| %>
-      <li><%= link_to "#{l plan.start_date, format: :month_as_text}", plan %></li>
-    <% end %>
-  </ul>
-</div>
+<h5>Related Meal Plans</h5>
+<ul>
+  <li><%= link_to '+ Add to a Meal Plan', '#' %></li>
+  <% recipe.meal_plans.order(start_date: :desc).limit(5).each do |plan| %>
+    <li><%= link_to "#{l plan.start_date, format: :month_as_text}", plan %></li>
+  <% end %>
+</ul>

@@ -12,7 +12,8 @@ RSpec.describe ShoppingListItemBuilder, type: :model do
       builder = ShoppingListItemBuilder.new(
         shopping_list: shopping_list,
         single_ingredient: [],
-        meal_plan: meal_plan
+        meal_plan: meal_plan,
+        recipe: nil
       )
       builder.add_items_to_list
       expected_list_items = meal_plan.ingredients.map { |ingredient| "#{ingredient.measurement_unit} #{ingredient.name}" }
@@ -34,7 +35,8 @@ RSpec.describe ShoppingListItemBuilder, type: :model do
         builder = ShoppingListItemBuilder.new(
           shopping_list: shopping_list,
           single_ingredient: [],
-          meal_plan: meal_plan
+          meal_plan: meal_plan,
+          recipe: nil
         )
         builder.add_items_to_list
         item = shopping_list.items.last
@@ -49,7 +51,8 @@ RSpec.describe ShoppingListItemBuilder, type: :model do
         builder = ShoppingListItemBuilder.new(
           shopping_list: shopping_list,
           single_ingredient: [],
-          meal_plan: meal_plan
+          meal_plan: meal_plan,
+          recipe: nil
         )
         builder.add_items_to_list
         item = shopping_list.items.last
@@ -64,7 +67,8 @@ RSpec.describe ShoppingListItemBuilder, type: :model do
         builder = ShoppingListItemBuilder.new(
           shopping_list: shopping_list,
           single_ingredient: [],
-          meal_plan: meal_plan
+          meal_plan: meal_plan,
+          recipe: nil
         )
         builder.add_items_to_list
         item = shopping_list.items.last
@@ -90,7 +94,8 @@ RSpec.describe ShoppingListItemBuilder, type: :model do
           builder = ShoppingListItemBuilder.new(
             shopping_list: shopping_list,
             single_ingredient: [],
-            meal_plan: meal_plan
+            meal_plan: meal_plan,
+            recipe: nil
           )
           # add item for the first time
           builder.add_items_to_list
@@ -116,7 +121,8 @@ RSpec.describe ShoppingListItemBuilder, type: :model do
           builder = ShoppingListItemBuilder.new(
             shopping_list: shopping_list,
             single_ingredient: [],
-            meal_plan: meal_plan
+            meal_plan: meal_plan,
+            recipe: nil
           )
           # add item for the first time
           builder.add_items_to_list
@@ -140,7 +146,8 @@ RSpec.describe ShoppingListItemBuilder, type: :model do
           builder = ShoppingListItemBuilder.new(
             shopping_list: shopping_list,
             single_ingredient: [],
-            meal_plan: meal_plan
+            meal_plan: meal_plan,
+            recipe: nil
           )
           # add item for the first time
           builder.add_items_to_list
@@ -166,7 +173,8 @@ RSpec.describe ShoppingListItemBuilder, type: :model do
           builder = ShoppingListItemBuilder.new(
             shopping_list: shopping_list,
             single_ingredient: [],
-            meal_plan: meal_plan
+            meal_plan: meal_plan,
+            recipe: nil
           )
           # add item for the first time
           builder.add_items_to_list
