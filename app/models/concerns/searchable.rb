@@ -5,6 +5,10 @@ module Searchable
     order(Arel.sql('lower(name) ASC'))
   end
 
+  def by_id
+    order(:id)
+  end
+
   def search(terms)
     if terms.blank?
       all
