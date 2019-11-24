@@ -7,9 +7,12 @@ RSpec.describe MealPlanRecipe, type: :model do
   end
 
   context 'validations' do
-    it { should validate_presence_of(:meal_plan_id) }
-    it { should validate_presence_of(:recipe_id) }
-    
+    it 'is valid' do
+      expect(meal_plan_recipe).to be_valid
+    end
+
+    # Must create instance of meal_plan_recipe for uniqueness test to work
+    let!(:meal_plan_recipe) { create(:meal_plan_recipe) }
     it { should validate_uniqueness_of(:recipe_id).scoped_to(:meal_plan_id) }
   end
 end
