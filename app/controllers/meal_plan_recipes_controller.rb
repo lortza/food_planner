@@ -1,0 +1,22 @@
+# frozen_string_literal: true
+
+class MealPlanRecipesController < ApplicationController
+  def create
+    meal_plan = MealPlan.find_by(id: params[:meal_plan_id])
+    recipe = Recipe.find_by(id: params[:recipe_id])
+    meal_plan_recipe = MealPlanRecipe.new({ meal_plan: meal_plan, recipe: recipe })
+
+    if meal_plan_recipe.save
+      redirect_to recipes_url, notice: "#{recipe.title} added to #{meal_plan.start_date.to_s(:short)} meal plan"
+    else
+      flash[:error] = "#{recipe.title} was already part of the #{meal_plan.start_date.to_s(:short)} meal plan."
+      redirect_to recipes_url
+    end
+  end
+
+  private
+
+  def meal_plan_params
+    params.require(:meal_plan).permit(:meal_plan_id, :recipe_id)
+  end
+end
