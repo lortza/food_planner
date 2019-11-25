@@ -37,4 +37,14 @@ RSpec.describe Aisle, type: :model do
       expect(retured_aisle.name).to eq('unassigned')
     end
   end
+
+  describe 'self.by_order_number' do
+    it 'orders by order_number, ascending' do
+      second_aisle = create(:aisle, order_number: 2)
+      first_aisle = create(:aisle, order_number: 1)
+
+      expect(Aisle.by_order_number.first).to eq(first_aisle)
+      expect(Aisle.by_order_number.second).to eq(second_aisle)
+    end
+  end
 end

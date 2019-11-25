@@ -4,7 +4,7 @@ class AislesController < ApplicationController
   before_action :set_aisle, only: %i[edit update destroy]
 
   def index
-    @aisles = current_user.aisles.by_name
+    @aisles = current_user.aisles.by_order_number
   end
 
   def new
