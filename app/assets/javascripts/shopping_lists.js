@@ -12,6 +12,10 @@ function shoppingListItemToggler() {
         itemHtml.classList.add('item-crossed-off');
         inactiveSection.insertAdjacentHTML('afterbegin', itemHtml.outerHTML);
       }
+
+      if ( item.classList.contains('aisle') ) {
+        item.remove();
+      }
     })
 
     inactiveSection.addEventListener('click', function(e){
