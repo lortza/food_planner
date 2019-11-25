@@ -20,6 +20,10 @@ class ShoppingListItem < ApplicationRecord
     order(updated_at: 'DESC')
   end
 
+  def self.by_aisle_order_number
+    includes(:aisle).order('aisles.order_number')
+  end
+
   # Set the item's purchased setting to true and save the item
   def complete!
     update!(purchased: true)

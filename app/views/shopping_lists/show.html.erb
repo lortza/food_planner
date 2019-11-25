@@ -11,7 +11,7 @@
 </article>
 
 <section id='active-items'>
-  <% @shopping_list.shopping_list_items.order(:aisle_id).includes(:aisle).not_purchased.group_by(&:aisle).each do |aisle, items| %>
+  <% @shopping_list.shopping_list_items.by_aisle_order_number.not_purchased.group_by(&:aisle).each do |aisle, items| %>
     <% if aisle %>
       <h4 class='aisle'><%= aisle.name %></h4>
       <% items.each do |item| %>
