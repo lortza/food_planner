@@ -27,7 +27,7 @@
     <%= link_to '+ Add All Ingredients to Grocery List',
                 shopping_list_item_builders_path(
                   shopping_list_id: ShoppingList.default(current_user).id,
-                  ingredient_ids: @ingredient_set.values.flatten.pluck(:id)
+                  ingredient_ids: meal_plan_ingredient_ids(@ingredient_set)
                 ),
                 method: 'POST',
                 class: button_classes('info')

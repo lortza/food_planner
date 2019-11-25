@@ -23,4 +23,8 @@ module RecipesHelper
 
     "<i class=\"#{Icon.clock}\", title=\"Heads Up! #{recipe.extra_work_note}\"></i>".html_safe
   end
+
+  def recipe_ingredient_ids(recipe)
+    recipe.ingredients.pluck(:id)
+  end
 end
