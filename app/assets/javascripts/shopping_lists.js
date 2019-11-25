@@ -9,25 +9,20 @@ function shoppingListItemToggler() {
 
       if ( item.classList.contains('js-toggle') ) {
         itemHtml.remove();
-
-        console.log(itemHtml)
-        let crossedOffItem = itemHtml.classList.add('item-crossed-off').outerHTML
-        console.log(crossedOffItem)
-        inactiveSection.insertAdjacentHTML('afterbegin', itemHtml.outerHTML)
+        itemHtml.classList.add('item-crossed-off');
+        inactiveSection.insertAdjacentHTML('afterbegin', itemHtml.outerHTML);
       }
     })
 
-    // inactiveSection.addEventListener('click', function(e){
-    //   let item = e.target;
-    //   let itemHtml = item.parentNode.parentNode;
-    //
-    //   if ( item.classList.contains('js-toggle') ) {
-    //     itemHtml.remove();
-    //
-    //     let reactivatedItem = itemHtml.classList.remove('item-crossed-off').outerHTML
-    //     inactiveSection.insertAdjacentHTML('afterbegin', reactivatedItem)
-    //   }
-    // })
+    inactiveSection.addEventListener('click', function(e){
+      let item = e.target;
+      let itemHtml = item.parentNode.parentNode;
 
-  });
+      if ( item.classList.contains('js-toggle') ) {
+        itemHtml.remove();
+        itemHtml.classList.remove('item-crossed-off');
+        activeSection.insertAdjacentHTML('beforeend', itemHtml.outerHTML)
+      }
+    })
+  })//close DOMContentLoaded
 };
