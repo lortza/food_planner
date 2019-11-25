@@ -7,14 +7,12 @@ class CompletedShoppingListItemsController < ApplicationController
     # crosses an item off of the list
     @shopping_list_item.complete!
     respond_to :js
-    # redirect_to shopping_list_url(@shopping_list_item.shopping_list)
   end
 
   def destroy
     # makes a crossed off item active again
     @shopping_list_item.uncomplete!
     respond_to :js
-    # redirect_to shopping_list_url(@shopping_list_item.shopping_list)
   end
 
   private
