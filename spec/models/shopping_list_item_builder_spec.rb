@@ -4,38 +4,40 @@ RSpec.describe ShoppingListItemBuilder, type: :model do
   describe '#add_items_to_list' do
     let(:shopping_list) { create(:shopping_list) }
     let(:meal_plan) { create(:meal_plan) }
-    let(:recipe1) { create(:recipe, :with_2_ingredients) }
-    let(:recipe2) { create(:recipe, :with_2_ingredients) }
-
-    it 'adds all ingredients as shopping_list_items on the given shopping_list' do
-      meal_plan.recipes << [recipe1, recipe2]
-      builder = ShoppingListItemBuilder.new(
-        shopping_list: shopping_list,
-        single_ingredient: [],
-        meal_plan: meal_plan
+    let(:recipe) { create(:recipe) }
+    let(:ingredient) { create(:ingredient, recipe: recipe, quantity: 1, measurement_unit: 'cup', name: 'rice') }
+    let(:ingredients) { create_list(:ingredient, 3) }
+    let(:ingredient_ids) { ingredient.id }
+    let(:builder) do
+      ShoppingListItemBuilder.new(
+        shopping_list_id: shopping_list.id,
+        ingredient_ids: ingredient_ids
       )
-      builder.add_items_to_list
-      expected_list_items = meal_plan.ingredients.map { |ingredient| "#{ingredient.measurement_unit} #{ingredient.name}" }
-      actual_list_items = shopping_list.shopping_list_items.map(&:name)
+    end
 
-      expect(expected_list_items).to eq(actual_list_items)
+    context 'when passed an array' do
+      let(:ingredient_ids) { ingredients.pluck(:id) }
+      it 'adds all ingredients as shopping_list_items on the given shopping_list' do
+        builder.add_items_to_list
+        expected_list_items = ingredients.map(&:measurement_and_name)
+        actual_list_items = shopping_list.shopping_list_items.map(&:name)
+
+        expect(expected_list_items).to eq(actual_list_items)
+      end
+    end
+
+    context 'when passed a single ingredient' do
+      it 'adds all ingredients as shopping_list_items on the given shopping_list' do
+        builder.add_items_to_list
+        expected_list_items = [ingredient].map(&:measurement_and_name)
+        actual_list_items = shopping_list.shopping_list_items.map(&:name)
+
+        expect(expected_list_items).to eq(actual_list_items)
+      end
     end
 
     context 'when an ingredient is new to the shopping list' do
-      let(:shopping_list) { create(:shopping_list) }
-      let(:meal_plan) { create(:meal_plan) }
-      let(:recipe) { create(:recipe) }
-      let(:ingredient) { create(:ingredient, recipe: recipe, quantity: 1, measurement_unit: 'cup', name: 'rice') }
-
       it 'the list item quantity equals the ingredient quantity' do
-        meal_plan.recipes << recipe
-        recipe.ingredients << ingredient
-
-        builder = ShoppingListItemBuilder.new(
-          shopping_list: shopping_list,
-          single_ingredient: [],
-          meal_plan: meal_plan
-        )
         builder.add_items_to_list
         item = shopping_list.items.last
 
@@ -43,14 +45,6 @@ RSpec.describe ShoppingListItemBuilder, type: :model do
       end
 
       it 'is not crossed off' do
-        meal_plan.recipes << recipe
-        recipe.ingredients << ingredient
-
-        builder = ShoppingListItemBuilder.new(
-          shopping_list: shopping_list,
-          single_ingredient: [],
-          meal_plan: meal_plan
-        )
         builder.add_items_to_list
         item = shopping_list.items.last
 
@@ -58,14 +52,6 @@ RSpec.describe ShoppingListItemBuilder, type: :model do
       end
 
       it 'assigns the list item to the "Unassigned" aisle' do
-        meal_plan.recipes << recipe
-        recipe.ingredients << ingredient
-
-        builder = ShoppingListItemBuilder.new(
-          shopping_list: shopping_list,
-          single_ingredient: [],
-          meal_plan: meal_plan
-        )
         builder.add_items_to_list
         item = shopping_list.items.last
 
@@ -75,23 +61,18 @@ RSpec.describe ShoppingListItemBuilder, type: :model do
 
     context 'when an ingredient is already on the shopping list' do
       let(:user) { create(:user) }
-      let(:meal_plan) { create(:meal_plan, user: user) }
-      let(:recipe) { create(:recipe, user: user) }
-      let(:ingredient) { create(:ingredient, recipe: recipe, quantity: 1, measurement_unit: 'cup', name: 'rice') }
       let(:aisle) { create(:aisle, user: user, name: 'rice aisle') }
       let(:shopping_list) { create(:shopping_list, user: user) }
-      let(:shopping_list_item) { create(:shopping_list_item, shopping_list: shopping_list, name: 'cup rice') }
+      let(:shopping_list_item) do
+        create(
+          :shopping_list_item,
+          shopping_list: shopping_list,
+          name: ingredient.measurement_and_name
+        )
+      end
 
       context 'and has an aisle assigned' do
         it 'does not change that aisle assignment' do
-          meal_plan.recipes << recipe
-          recipe.ingredients << ingredient
-
-          builder = ShoppingListItemBuilder.new(
-            shopping_list: shopping_list,
-            single_ingredient: [],
-            meal_plan: meal_plan
-          )
           # add item for the first time
           builder.add_items_to_list
 
@@ -110,14 +91,6 @@ RSpec.describe ShoppingListItemBuilder, type: :model do
 
       context 'and not marked as crossed-off' do
         it "the incoming ingredient's quantity is added to the list item's quantity" do
-          meal_plan.recipes << recipe
-          recipe.ingredients << ingredient
-
-          builder = ShoppingListItemBuilder.new(
-            shopping_list: shopping_list,
-            single_ingredient: [],
-            meal_plan: meal_plan
-          )
           # add item for the first time
           builder.add_items_to_list
 
@@ -134,14 +107,6 @@ RSpec.describe ShoppingListItemBuilder, type: :model do
 
       context 'and marked as crossed-off' do
         it "the list item's quantity matches the incoming ingredient.quantity" do
-          meal_plan.recipes << recipe
-          recipe.ingredients << ingredient
-
-          builder = ShoppingListItemBuilder.new(
-            shopping_list: shopping_list,
-            single_ingredient: [],
-            meal_plan: meal_plan
-          )
           # add item for the first time
           builder.add_items_to_list
 
@@ -160,14 +125,6 @@ RSpec.describe ShoppingListItemBuilder, type: :model do
         end
 
         it 'is no longer crossed off' do
-          meal_plan.recipes << recipe
-          recipe.ingredients << ingredient
-
-          builder = ShoppingListItemBuilder.new(
-            shopping_list: shopping_list,
-            single_ingredient: [],
-            meal_plan: meal_plan
-          )
           # add item for the first time
           builder.add_items_to_list
 

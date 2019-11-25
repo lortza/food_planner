@@ -10,10 +10,8 @@
         <tr>
           <th colspan='2'>Title</th>
           <th>Servings</th>
-          <th>Ingredients</th>
-          <th>Meal Plans</th>
           <th>Last Prepared</th>
-          <th>Actions</th>
+          <th colspan="2">Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -24,10 +22,13 @@
             </div></td>
             <td><%= link_to recipe.title, recipe %> <%= extra_work_flag(recipe) %> <%= status_flag(recipe) %></td>
             <td><%= recipe.servings %></td>
-            <td><%= recipe.ingredients.count %></td>
-            <td><%= recipe.meal_plans.count %></td>
             <td><%= recipe.last_prepared %></td>
             <td><%= link_to 'Edit', edit_recipe_path(recipe), class: button_classes('outline-info') %></td>
+            <td>
+              <%= link_to 'Add to Upcoming Plan',
+                          meal_plan_recipes_path(recipe_id: recipe.id, meal_plan_id: MealPlan.upcoming(current_user)&.id), method: :post,
+                          class: button_classes('outline-info') if MealPlan.upcoming(current_user).present? %>
+            </td>
           </tr>
         <% end %>
       </tbody>

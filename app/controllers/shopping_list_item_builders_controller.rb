@@ -3,21 +3,19 @@
 class ShoppingListItemBuildersController < ApplicationController
   def create
     builder = ShoppingListItemBuilder.new(
-      shopping_list: ShoppingList.find(permitted_params[:shopping_list_id]),
-      single_ingredient: Ingredient.where(id: permitted_params[:ingredient_id]),
-      meal_plan: MealPlan.find(permitted_params[:meal_plan_id]),
+      shopping_list_id: permitted_params[:shopping_list_id],
+      ingredient_ids: permitted_params[:ingredient_ids]
     )
     builder.add_items_to_list
 
     flash[:success] = "#{ActionController::Base.helpers.pluralize(builder.ingredients.count, 'item')} added."
-    redirect_to builder.meal_plan
+
+    redirect_back(fallback_location: root_path)
   end
 
   private
 
   def permitted_params
-    params.permit(:shopping_list_id,
-                  :meal_plan_id,
-                  :ingredient_id)
+    params.permit(:shopping_list_id, ingredient_ids: [])
   end
 end
