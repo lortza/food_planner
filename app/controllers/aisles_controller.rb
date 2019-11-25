@@ -44,6 +44,8 @@ class AislesController < ApplicationController
   end
 
   def aisle_params
-    params.require(:aisle).permit(:user_id, :name)
+    params.require(:aisle).permit(:user_id,
+                                  :order_number,
+                                  :name)
   end
 end

@@ -7,8 +7,10 @@ class Aisle < ApplicationRecord
   has_many :shopping_list_items, dependent: :destroy
 
   validates :name,
-            presence: true,
-            uniqueness: { scope: :user_id }
+            :order_number,
+            presence: true
+
+  validates :name, uniqueness: { scope: :user_id }
 
   def self.unassigned(list)
     list.user.aisles

@@ -14,6 +14,7 @@ RSpec.describe Aisle, type: :model do
         expect(aisle).to be_valid
       end
 
+      it { should validate_presence_of(:order_number) }
       it { should validate_presence_of(:name) }
       it { should validate_uniqueness_of(:name).scoped_to(:user_id) }
     end
