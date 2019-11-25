@@ -27,7 +27,7 @@
     <%= link_to '+ Add All Ingredients to Grocery List',
                 shopping_list_item_builders_path(
                   shopping_list_id: ShoppingList.default(current_user).id,
-                  meal_plan_id: @meal_plan.id
+                  ingredient_ids: meal_plan_ingredient_ids(@ingredient_set)
                 ),
                 method: 'POST',
                 class: button_classes('info')
@@ -50,8 +50,7 @@
         <%= link_to '',
                     shopping_list_item_builders_path(
                       shopping_list_id: ShoppingList.default(current_user).id,
-                      meal_plan_id: @meal_plan.id,
-                      ingredient_id: detail.id
+                      ingredient_ids: [detail.id]
                     ),
                     method: 'POST',
                     title: 'add to list',
