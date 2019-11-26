@@ -50,7 +50,11 @@ end
 aisle_names = ['Unassigned', 'produce: fruits', 'produce: greens', 'produce: peppers',
                'produce: vegetables', 'produce: potatoes & roots', 'bread & tortillas']
 
-Aisle.create!(aisle_names.map{ |name| {name: name, user: user} })
+order_number = 0
+aisle_names.each do |aisle_name|
+  Aisle.create!(name: aisle_name, user: user, order_number: order_number)
+  order_number += 10
+end
 
 # Shopping Lists
 ShoppingList.create!(name: 'grocery', main: true, user: user)
