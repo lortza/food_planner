@@ -9,7 +9,7 @@
 
   <% @aisles.each do |aisle| %>
     <h3 class='index-item'>
-      <%= aisle.name %> <span style="font-size: 1rem;"></span>
+      <%= aisle.order_number %> | <%= aisle.name %> <span style="font-size: 1rem;"></span>
       <span class='index-item-actions right'>
         <%= link_to "", edit_aisle_path(aisle), class: Icon.edit %>
         <%= link_to "", aisle, method: :delete, data: { confirm: 'Are you sure? This action cannot be undone.' }, class: Icon.delete %>

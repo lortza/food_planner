@@ -14,6 +14,7 @@ RSpec.describe Aisle, type: :model do
         expect(aisle).to be_valid
       end
 
+      it { should validate_presence_of(:order_number) }
       it { should validate_presence_of(:name) }
       it { should validate_uniqueness_of(:name).scoped_to(:user_id) }
     end
@@ -34,6 +35,16 @@ RSpec.describe Aisle, type: :model do
       retured_aisle = Aisle.unassigned(shopping_list)
 
       expect(retured_aisle.name).to eq('unassigned')
+    end
+  end
+
+  describe 'self.by_order_number' do
+    it 'orders by order_number, ascending' do
+      second_aisle = create(:aisle, order_number: 2)
+      first_aisle = create(:aisle, order_number: 1)
+
+      expect(Aisle.by_order_number.first).to eq(first_aisle)
+      expect(Aisle.by_order_number.second).to eq(second_aisle)
     end
   end
 end

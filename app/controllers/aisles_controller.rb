@@ -4,7 +4,7 @@ class AislesController < ApplicationController
   before_action :set_aisle, only: %i[edit update destroy]
 
   def index
-    @aisles = current_user.aisles.by_name
+    @aisles = current_user.aisles.by_order_number
   end
 
   def new
@@ -44,6 +44,8 @@ class AislesController < ApplicationController
   end
 
   def aisle_params
-    params.require(:aisle).permit(:user_id, :name)
+    params.require(:aisle).permit(:user_id,
+                                  :order_number,
+                                  :name)
   end
 end

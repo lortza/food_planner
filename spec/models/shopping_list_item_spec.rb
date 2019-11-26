@@ -37,6 +37,20 @@ RSpec.describe ShoppingListItem, type: :model do
     end
   end
 
+  describe 'self.by_aisle_order_number' do
+    it "orders based on the associated aisle's order_number" do
+      first_aisle = create(:aisle, name: 'first aisle', order_number: 1)
+      second_aisle = create(:aisle, name: 'second aisle', order_number: 2)
+
+      list = create(:shopping_list, name: 'list')
+      second_item = create(:shopping_list_item, shopping_list_id: list.id, aisle_id: second_aisle.id)
+      first_item = create(:shopping_list_item, shopping_list_id: list.id, aisle_id: first_aisle.id)
+
+      expect(list.shopping_list_items.by_aisle_order_number.first).to eq(first_item)
+      expect(list.shopping_list_items.by_aisle_order_number.last).to eq(second_item)
+    end
+  end
+
   describe '#complete!' do
     it 'sets the "purchased" attribute to true and saves the item' do
       item = create(:shopping_list_item, purchased: false)
