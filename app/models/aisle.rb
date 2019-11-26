@@ -15,7 +15,7 @@ class Aisle < ApplicationRecord
   def self.unassigned(list)
     list.user.aisles
         .where('name ILIKE ?', 'unassigned')
-        .first_or_create(name: 'unassigned')
+        .first_or_create(name: 'unassigned', order_number: 0)
   end
 
   def self.by_order_number
