@@ -4,11 +4,14 @@
 
 <h1>Meal Plans</h1>
 
-<ul>
-  <% @meal_plans.each do |plan| %>
-    <li>
-      <h3><%= link_to "#{l plan.start_date, format: :month_as_text}", meal_plan_path(plan) %></h3>
-      <p><%= display_recipes(plan) %></p>
-    </li>
-  <% end %>
-</ul>
+<% @meal_plans.each do |plan| %>
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">
+        <%= link_to "#{l plan.start_date, format: :month_as_text}", meal_plan_path(plan) %>
+        <%= link_to 'Copy', copy_meal_plan_path(plan), title: 'Make a copy of this meal plan', class: button_classes('outline-info btn-sm float-right') %>
+      </h5>
+      <p class="card-text text-muted"><%= display_recipes(plan) %></p>
+    </div>
+  </div>
+<% end %>

@@ -13,6 +13,7 @@ module ApplicationHelper
     case type
     when 'alert' then 'warning'
     when 'error' then 'danger'
+    when 'warning' then 'warning'
     when 'notice' then 'success'
     else
       'info'
