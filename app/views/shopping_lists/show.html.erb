@@ -5,9 +5,13 @@
   <%= link_to "", shopping_lists_path, class: Icon.back %>
   <%= @shopping_list.name %>
 </h1>
-<!-- <div id='new-form-placeholder'></div> -->
+
 <article class='index-item'>
-  <%= link_to 'Add an Item...', new_shopping_list_shopping_list_item_path(@shopping_list) %>
+  <%= form_tag(search_shopping_list_path(@shopping_list), method: 'get', id: 'search-form' ) do %>
+    <div class="col-xs-12">
+      <%= text_field_tag :search, params[:search], placeholder: 'Find an item...', class: 'form-control form-control-sm' %>
+    </div>
+  <% end %>
 </article>
 
 <section id='active-items'>

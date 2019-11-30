@@ -1,0 +1,29 @@
+<%= link_to 'Create New Item', new_shopping_list_shopping_list_item_path(@shopping_list), class: button_class('primary float-right mb-3 ml-3') %>
+
+<h1>
+  <%= link_to "", @shopping_list, class: Icon.back %>
+  Find an Item
+</h1>
+
+<%= form_tag(search_shopping_list_path(@shopping_list), method: 'get', id: 'search-form' ) do %>
+  <div class="col-xs-12">
+    <%= text_field_tag :search, params[:search], placeholder: 'Find an item...', class: 'form-control form-control-sm' %>
+  </div>
+<% end %>
+<p class='clear-search'><%= link_to 'Clear Search', search_shopping_list_path(@shopping_list) %></p>
+
+
+<section id='searched-items'>
+  <% @shopping_list_items.by_recently_edited.each do |item| %>
+    <article id='<%= item.id %>' class='index-item'>
+      <p class='shopping-list-item '>
+        <%= link_to display_item(item), completed_shopping_list_item_path(item), class: 'js-toggle', method: :delete, remote: true %>
+        <%= link_to "", edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: Icon.edit %>
+      </p>
+    </article>
+  <% end %>
+</section>
+
+<script type='text/javascript'>
+  shoppingListItemToggler();
+</script>

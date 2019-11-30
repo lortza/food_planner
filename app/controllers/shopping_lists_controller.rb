@@ -1,15 +1,20 @@
 # frozen_string_literal: true
 
 class ShoppingListsController < ApplicationController
-  before_action :set_shopping_list, only: %i[show edit update destroy]
+  before_action :set_shopping_list, only: %i[show search edit update destroy]
 
   def index
-    @shopping_lists = current_user.shopping_lists.search(params[:search]).by_favorite.by_name
+    @shopping_lists = current_user.shopping_lists.search(field: 'name', terms: params[:search]).by_favorite.by_name
     @shopping_list = current_user.shopping_lists.new
   end
 
   def show
     @shopping_list_item = @shopping_list.shopping_list_items.new(quantity: 1)
+  end
+
+  def search
+    search_term = params[:search]
+    @shopping_list_items = @shopping_list.search_results(search_term)
   end
 
   def create
