@@ -9,11 +9,11 @@ module Searchable
     order(:id)
   end
 
-  def search(terms)
+  def search(field:, terms:)
     if terms.blank?
       all
     else
-      where('name ILIKE ?', "%#{terms}%")
+      where("#{field} ILIKE ?", "%#{terms}%")
     end
   end
 end
