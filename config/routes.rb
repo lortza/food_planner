@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   resources :meal_plan_recipes, only: [:create]
   resources :shopping_lists, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
     resources :shopping_list_items, only: [:new, :create, :edit, :update, :destroy]
+    member do
+      get :search
+    end
   end
 
   resources :completed_shopping_list_items, only: [:create, :destroy]

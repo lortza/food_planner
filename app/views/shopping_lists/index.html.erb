@@ -3,7 +3,6 @@
 <h1>Shopping Lists</h1>
 
 <% if current_user.shopping_lists.any? %>
-  <%#= render partial: 'shared/search_form', locals: { url: shopping_lists_path } %>
   <%= render 'form', shopping_list: @shopping_list %>
 
   <% @shopping_lists.each do |shopping_list| %>

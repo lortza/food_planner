@@ -8,7 +8,7 @@ class RecipesController < ApplicationController
     search_term = params[:search]
 
     @recipes = if search_term
-                 user_recipes.search(search_term).by_title
+                 user_recipes.search(field: 'title', terms: search_term).by_title
                else
                  user_recipes.active.by_title
                end

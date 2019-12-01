@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Recipe < ApplicationRecord
+  extend Searchable
+
   belongs_to :user
   has_many :ingredients, inverse_of: :recipe, dependent: :destroy
   accepts_nested_attributes_for :ingredients,
@@ -32,14 +34,6 @@ class Recipe < ApplicationRecord
   validates :prep_time, numericality: { other_than: 0 }, if: -> { cook_time&.zero? && reheat_time&.zero? }
   validates :cook_time, numericality: { other_than: 0 }, if: -> { reheat_time&.zero? && prep_time&.zero? }
   validates :reheat_time, numericality: { other_than: 0 }, if: -> { prep_time&.zero? && cook_time&.zero? }
-
-  def self.search(terms)
-    if terms.blank?
-      all
-    else
-      where('title ILIKE ?', "%#{terms}%")
-    end
-  end
 
   def self.by_title
     order(:title)

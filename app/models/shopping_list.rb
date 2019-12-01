@@ -31,4 +31,12 @@ class ShoppingList < ApplicationRecord
   def unfavorite!
     update!(favorite: false)
   end
+
+  def search_results(terms)
+    if terms
+      shopping_list_items.search(field: 'name', terms: terms).by_name
+    else
+      shopping_list_items.by_name
+    end
+  end
 end
