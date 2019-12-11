@@ -45,4 +45,11 @@ module ApplicationHelper
     upcoming = MealPlan.upcoming(user)
     link_to "Meal Plan: #{upcoming.start_date.to_s(:short)}", meal_plan_path(upcoming), class: 'nav-link' if upcoming
   end
+
+  def display_list_and_count(user)
+    list = ShoppingList.default(user)
+    item_count = list.shopping_list_items.not_purchased.count
+
+    link_to "#{list.name.titleize}: #{item_count}", shopping_list_path(list), class: 'nav-link'
+  end
 end

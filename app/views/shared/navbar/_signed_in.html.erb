@@ -13,7 +13,7 @@
 </li>
 
 <li class="nav-item">
-  <%= link_to 'Grocery List', shopping_list_path(ShoppingList.default(current_user)), class: 'nav-link' %>
+  <%= link_to display_list_and_count(current_user) %>
 </li>
 
 <% if current_user.admin? %>
