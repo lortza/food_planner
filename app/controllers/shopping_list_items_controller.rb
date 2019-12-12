@@ -5,7 +5,7 @@ class ShoppingListItemsController < ApplicationController
   before_action :set_shopping_list_item, only: %i[edit update destroy]
 
   def new
-    @shopping_list_item = @shopping_list.items.new(quantity: 1)
+    @shopping_list_item = @shopping_list.items.new(quantity: 1, name: params[:search_term])
   end
 
   def create
