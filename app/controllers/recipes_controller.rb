@@ -50,6 +50,21 @@ class RecipesController < ApplicationController
     redirect_to recipes_path
   end
 
+  def convert_from_experimental
+    converted_title = params[:title]
+    converted_url = params[:url]
+    converted_source = URI.parse(converted_url).host.gsub('www.', '')
+
+    @recipe = Recipe.new(
+      title: converted_title,
+      source_name: converted_source,
+      source_url: converted_url
+    )
+    15.times { @recipe.ingredients.build(quantity: nil) }
+
+    render "new"
+  end
+
   private
 
   def set_recipe

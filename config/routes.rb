@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   devise_for :users, skip: [:registrations] # this 'skip' prevents people from freating new acconuts
 
   resources :aisles, only: [:index, :new, :create, :edit, :update, :destroy]
+
   resources :recipes
+  post '/convert_from_experimental', to: 'recipes#convert_from_experimental'
   resources :experimental_recipes, only: [:index, :new, :create, :edit, :update, :destroy]
 
   resources :meal_plans do
