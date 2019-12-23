@@ -31,6 +31,14 @@ a { color: $link-color; }
   a { color: $medium-gray; }
 }
 
+.environment-banner {
+  color: $white;
+  font-family: monospace;
+  font-size: 1.25em;
+  padding: .75em;
+  text-align: center;
+}
+
 
 // BOOTSTRAP OVERRIDES
 .card {
