@@ -9,9 +9,12 @@
     <div class="card-body">
       <h5 class="card-title">
         <%= link_to "#{l plan.start_date, format: :month_as_text}", meal_plan_path(plan) %>
-        <%= link_to 'Copy', copy_meal_plan_path(plan), title: 'Make a copy of this meal plan', class: button_classes('outline-info btn-sm float-right') %>
+        <%= link_to 'Copy', copy_meal_plan_path(plan), title: 'Make a copy of this meal plan', class: button_classes('outline-info btn-sm float-right ml-2') %>
+        <%= link_to 'Edit', edit_meal_plan_path(plan), title: 'Edit this meal plan', class: button_classes('outline-info btn-sm float-right ml-2') %>
       </h5>
       <p class="card-text text-muted"><%= display_recipes(plan) %></p>
     </div>
   </div>
 <% end %>
+
+<%= will_paginate @meal_plans, :page_links => false %>
