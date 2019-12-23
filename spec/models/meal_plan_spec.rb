@@ -57,10 +57,10 @@ RSpec.describe MealPlan, type: :model do
       upcoming_plan = create(:meal_plan, user: user, start_date: Time.zone.today + 2)
       future_plan = create(:meal_plan, user: user, start_date: Time.zone.today + 4)
 
-      upcoming_plan = MealPlan.upcoming(user)
-      expect(upcoming_plan).to_not eq(past_plan)
-      expect(upcoming_plan).to eq(upcoming_plan)
-      expect(upcoming_plan).to_not eq(future_plan)
+      user_upcoming_plan = MealPlan.upcoming(user)
+      expect(user_upcoming_plan).to_not eq(past_plan)
+      expect(user_upcoming_plan).to eq(upcoming_plan)
+      expect(user_upcoming_plan).to_not eq(future_plan)
     end
 
     it 'returns the meal plan that is next closest in the future to today' do
@@ -68,9 +68,9 @@ RSpec.describe MealPlan, type: :model do
       upcoming_plan = create(:meal_plan, user: user, start_date: Time.zone.today + 2)
       future_plan = create(:meal_plan, user: user, start_date: Time.zone.today + 4)
 
-      upcoming_plan = MealPlan.upcoming(user)
-      expect(upcoming_plan).to eq(upcoming_plan)
-      expect(upcoming_plan).to_not eq(future_plan)
+      user_upcoming_plan = MealPlan.upcoming(user)
+      expect(user_upcoming_plan).to eq(upcoming_plan)
+      expect(user_upcoming_plan).to_not eq(future_plan)
     end
   end
 

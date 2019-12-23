@@ -59,7 +59,7 @@ class RecipesController < ApplicationController
     )
     15.times { @recipe.ingredients.build(quantity: nil) }
 
-    render "new"
+    render :new
   end
 
   private
