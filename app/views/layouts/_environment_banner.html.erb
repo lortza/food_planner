@@ -1,0 +1,5 @@
+<% unless Rails.env.production? %>
+  <div class='environment-banner bg-secondary'>
+    👍 <%= Rails.env.upcase %>: <%= "#{current_branch}" %> 👍
+  </div>
+<% end %>
