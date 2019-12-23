@@ -6,12 +6,9 @@ class RecipesController < ApplicationController
   def index
     user_recipes = current_user.recipes
     search_term = params[:search]
+    recipes = search_term.present? ? user_recipes.search(field: 'title', terms: search_term) : user_recipes.active
 
-    @recipes = if search_term
-                 user_recipes.search(field: 'title', terms: search_term).by_title
-               else
-                 user_recipes.active.by_title
-               end
+    @recipes = recipes.by_title.paginate(page: params[:page], per_page: 30)
   end
 
   def show
