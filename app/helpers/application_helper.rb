@@ -41,13 +41,13 @@ module ApplicationHelper
     "btn btn-sm btn-outline-#{style}"
   end
 
-  def display_link_to_plan(user)
-    upcoming = MealPlan.upcoming(user)
+  def display_link_to_plan
+    upcoming = current_user.meal_plans.upcoming
     link_to "Meal Plan: #{upcoming.start_date.to_s(:short)}", meal_plan_path(upcoming), class: 'nav-link' if upcoming
   end
 
-  def display_list_and_count(user)
-    list = ShoppingList.default(user)
+  def display_list_and_count
+    list = current_user.shopping_lists.default
     item_count = list.shopping_list_items.not_purchased.count
 
     link_to "#{list.name.titleize}: #{item_count}", shopping_list_path(list), class: 'nav-link'

@@ -42,7 +42,7 @@ RSpec.describe MealPlan, type: :model do
       upcoming_plan = create(:meal_plan, user: user, start_date: Time.zone.today + 2)
       future_plan = create(:meal_plan, user: user, start_date: Time.zone.today + 4)
 
-      future_plans = MealPlan.future(user)
+      future_plans = user.meal_plans.future
       expect(future_plans).to_not include(past_plan)
       expect(future_plans).to include(todays_plan)
       expect(future_plans).to include(upcoming_plan)
@@ -57,7 +57,7 @@ RSpec.describe MealPlan, type: :model do
       upcoming_plan = create(:meal_plan, user: user, start_date: Time.zone.today + 2)
       future_plan = create(:meal_plan, user: user, start_date: Time.zone.today + 4)
 
-      user_upcoming_plan = MealPlan.upcoming(user)
+      user_upcoming_plan = user.meal_plans.upcoming
       expect(user_upcoming_plan).to_not eq(past_plan)
       expect(user_upcoming_plan).to eq(upcoming_plan)
       expect(user_upcoming_plan).to_not eq(future_plan)
@@ -68,7 +68,7 @@ RSpec.describe MealPlan, type: :model do
       upcoming_plan = create(:meal_plan, user: user, start_date: Time.zone.today + 2)
       future_plan = create(:meal_plan, user: user, start_date: Time.zone.today + 4)
 
-      user_upcoming_plan = MealPlan.upcoming(user)
+      user_upcoming_plan = user.meal_plans.upcoming
       expect(user_upcoming_plan).to eq(upcoming_plan)
       expect(user_upcoming_plan).to_not eq(future_plan)
     end

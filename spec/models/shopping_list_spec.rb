@@ -25,14 +25,14 @@ RSpec.describe ShoppingList, type: :model do
 
     it 'returns the existing shopping list called "grocery" that belongs to the current_user' do
       existing_list = create(:shopping_list, user: user, name: 'grocery', main: true)
-      retured_list = ShoppingList.default(user)
+      returned_list = user.shopping_lists.default
 
-      expect(retured_list).to eq(existing_list)
+      expect(returned_list).to eq(existing_list)
     end
 
     it 'creates a new list called "grocery" for the user if one does not exist' do
-      retured_list = ShoppingList.default(user)
-      expect(retured_list.name).to eq('grocery')
+      returned_list = user.shopping_lists.default
+      expect(returned_list.name).to eq('grocery')
     end
   end
 

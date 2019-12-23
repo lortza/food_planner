@@ -23,12 +23,12 @@ class MealPlan < ApplicationRecord
     closest_sunday + days_to_add
   end
 
-  def self.future(user)
-    user.meal_plans.where('start_date >= ?', Time.zone.today).order(start_date: :asc)
+  def self.future
+    where('start_date >= ?', Time.zone.today).order(start_date: :asc)
   end
 
-  def self.upcoming(user)
-    user.meal_plans.future(user).first
+  def self.upcoming
+    future.first
   end
 
   def total_servings
