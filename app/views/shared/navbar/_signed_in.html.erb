@@ -3,6 +3,8 @@
     Recipes
   </a>
   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <%= link_to '+ New Recipe', new_recipe_path, class: 'dropdown-item' %>
+    <div class='dropdown-divider'></div>
     <%= link_to 'My Recipes', recipes_path, class: 'dropdown-item' %>
     <%= link_to 'Recipes to Try', experimental_recipes_path, class: 'dropdown-item' %>
   </div>
