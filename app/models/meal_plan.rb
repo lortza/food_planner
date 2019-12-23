@@ -12,12 +12,12 @@ class MealPlan < ApplicationRecord
   EFFICIENCY_RATE = 0.66
 
   def self.most_recent_first
-    # TODO scope to current_user
+    # TODO: scope to current_user
     order(start_date: :DESC)
   end
 
   def self.date_for_upcoming_sunday
-    # TODO scope to current_user
+    # TODO: scope to current_user
     closest_sunday = Date.parse('Sunday')
     days_to_add = closest_sunday > Time.zone.today ? 0 : 7
     closest_sunday + days_to_add

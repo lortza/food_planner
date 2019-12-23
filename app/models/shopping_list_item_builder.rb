@@ -9,7 +9,7 @@ class ShoppingListItemBuilder
   end
 
   def add_items_to_list
-    self.ingredients.each do |ingredient|
+    ingredients.each do |ingredient|
       add_ingredient_to_list(ingredient)
     end
   end
@@ -17,7 +17,7 @@ class ShoppingListItemBuilder
   private
 
   def add_ingredient_to_list(ingredient)
-    item_on_list = self.shopping_list.shopping_list_items.find_by(name: ingredient.measurement_and_name)
+    item_on_list = shopping_list.shopping_list_items.find_by(name: ingredient.measurement_and_name)
     incoming_quantity = ingredient.quantity
 
     if item_on_list.nil?

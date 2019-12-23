@@ -4,9 +4,10 @@ class MealPlansController < ApplicationController
   before_action :set_meal_plan, only: %i[show edit update copy destroy]
 
   def index
-    @meal_plans = current_user.meal_plans.includes(:recipes)
-                                         .most_recent_first
-                                         .paginate(page: params[:page], per_page: 30)
+    @meal_plans = current_user.meal_plans
+                              .includes(:recipes)
+                              .most_recent_first
+                              .paginate(page: params[:page], per_page: 30)
   end
 
   def show
@@ -22,13 +23,13 @@ class MealPlansController < ApplicationController
   end
 
   def copy
-    flash[:warning] = "This Meal Plan will not be created until you save."
+    flash[:warning] = 'This Meal Plan will not be created until you save.'
     existing_recipes = @meal_plan.recipes
     @meal_plan = @meal_plan.dup
     @meal_plan.recipes << existing_recipes
     @meal_plan.start_date = nil
-\
-    render "new"
+
+    render :new
   end
 
   def create
