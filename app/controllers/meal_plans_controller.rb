@@ -4,7 +4,9 @@ class MealPlansController < ApplicationController
   before_action :set_meal_plan, only: %i[show edit update copy destroy]
 
   def index
-    @meal_plans = current_user.meal_plans.includes(:recipes).most_recent_first
+    @meal_plans = current_user.meal_plans.includes(:recipes)
+                                         .most_recent_first
+                                         .paginate(page: params[:page], per_page: 30)
   end
 
   def show
