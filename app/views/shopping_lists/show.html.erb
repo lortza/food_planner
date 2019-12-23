@@ -32,7 +32,7 @@
 
 <h4 class='aisle'>Crossed Off</h4>
 <section id='inactive-items'>
-  <% @shopping_list.shopping_list_items.purchased.by_recently_edited.each do |item| %>
+  <% @shopping_list.shopping_list_items.purchased.by_recently_edited.limit(30).each do |item| %>
     <article id='<%= item.id %>' class='index-item item-crossed-off'>
       <p class='shopping-list-item '>
         <%= link_to display_item(item), completed_shopping_list_item_path(item), class: 'js-toggle', method: :delete, remote: true %>
