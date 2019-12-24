@@ -27,4 +27,8 @@ module RecipesHelper
   def recipe_ingredient_ids(recipe)
     recipe.ingredients.pluck(:id)
   end
+
+  def available_meal_plans_dropdown(user, recipe)
+    user.meal_plans.future - recipe.meal_plans
+  end
 end

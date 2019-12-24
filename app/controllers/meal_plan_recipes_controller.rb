@@ -2,8 +2,9 @@
 
 class MealPlanRecipesController < ApplicationController
   def create
-    meal_plan = MealPlan.find_by(id: params[:meal_plan_id])
-    recipe = Recipe.find_by(id: params[:recipe_id])
+    meal_plan_id = params[:meal_plan_id] || params[:meal_plan_recipe][:meal_plan_id]
+    meal_plan = current_user.meal_plans.find_by(id: meal_plan_id)
+    recipe = current_user.recipes.find_by(id: params[:recipe_id])
     meal_plan_recipe = MealPlanRecipe.new(meal_plan: meal_plan, recipe: recipe)
 
     if meal_plan_recipe.save
