@@ -10,9 +10,9 @@ module RecipesHelper
     if !recipe.active?
       'archived'
     elsif recipe.last_prepared.nil?
-      'new'
+      image_tag('icon_new.png', class: 'icon-small', title: 'New! You have not made this yet!')
     elsif recipe.last_prepared < Time.zone.today.prev_month(4)
-      'been a while'
+      image_tag('icon_been_a_while.png', class: 'icon-small', title: 'Been a while...')
     else
       ''
     end
