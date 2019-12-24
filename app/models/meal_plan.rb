@@ -11,10 +11,8 @@ class MealPlan < ApplicationRecord
   PREP_END_TIME = Time.zone.parse('5:00 PM')
   EFFICIENCY_RATE = 0.66
 
-  def self.most_recent_first
-    # TODO: scope to current_user
-    order(start_date: :DESC)
-  end
+  scope :by_date, -> { order(start_date: :asc) }
+  scope :most_recent_first, -> { order(start_date: :DESC) }
 
   def self.date_for_upcoming_sunday
     # TODO: scope to current_user
@@ -23,12 +21,12 @@ class MealPlan < ApplicationRecord
     closest_sunday + days_to_add
   end
 
-  def self.future(user)
-    user.meal_plans.where('start_date >= ?', Time.zone.today).order(start_date: :asc)
+  def self.future
+    where('start_date >= ?', Time.zone.today).by_date
   end
 
-  def self.upcoming(user)
-    user.meal_plans.future(user).first
+  def self.upcoming
+    future.first
   end
 
   def total_servings

@@ -10,10 +10,9 @@ class ShoppingList < ApplicationRecord
   validates :name,
             presence: true
 
-  def self.default(user)
+  def self.default
     default_name = 'grocery'
-    user.shopping_lists.where(main: true)
-        .first_or_create(name: default_name)
+    where(main: true).first_or_create(name: default_name)
   end
 
   def self.by_favorite

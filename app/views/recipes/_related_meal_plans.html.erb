@@ -1,7 +1,7 @@
 <h5>Related Meal Plans</h5>
 <%= link_to '+ Add to Upcoming Plan',
-            meal_plan_recipes_path(recipe_id: recipe.id, meal_plan_id: MealPlan.upcoming(current_user)&.id),
-            method: :post if MealPlan.upcoming(current_user).present? %>
+            meal_plan_recipes_path(recipe_id: recipe.id, meal_plan_id: current_user.meal_plans.upcoming&.id),
+            method: :post if current_user.meal_plans.upcoming.present? %>
 <ul>
   <% recipe.meal_plans.order(start_date: :desc).limit(5).each do |plan| %>
     <li><%= link_to "#{l plan.start_date, format: :month_as_text}", plan %></li>

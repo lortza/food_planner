@@ -64,7 +64,7 @@ shopping_list_item_names = ['apple', 'blueberries', 'salad greens', 'bulb of fen
 
 ShoppingListItem.create!(
   shopping_list_item_names.map do |name|
-    { shopping_list: ShoppingList.default(user),
+    { shopping_list: user.shopping_lists.default,
       aisle: user.aisles.sample,
       quantity: [1, 2].sample,
       name: name
