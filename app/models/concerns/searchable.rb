@@ -5,6 +5,10 @@ module Searchable
     order(Arel.sql('lower(name) ASC'))
   end
 
+  def by_title
+    order(Arel.sql('lower(title) ASC'))
+  end
+
   def by_id
     order(:id)
   end
