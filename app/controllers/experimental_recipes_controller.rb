@@ -4,7 +4,7 @@ class ExperimentalRecipesController < ApplicationController
   before_action :set_experimental_recipe, only: %i[edit update destroy]
 
   def index
-    @experimental_recipes = current_user.experimental_recipes
+    @experimental_recipes = current_user.experimental_recipes.by_title
   end
 
   def new

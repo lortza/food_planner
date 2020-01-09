@@ -35,10 +35,6 @@ class Recipe < ApplicationRecord
   validates :cook_time, numericality: { other_than: 0 }, if: -> { reheat_time&.zero? && prep_time&.zero? }
   validates :reheat_time, numericality: { other_than: 0 }, if: -> { prep_time&.zero? && cook_time&.zero? }
 
-  def self.by_title
-    order(:title)
-    # all.includes(:meal_plans).order('meal_plans.start_date, DESC')
-  end
 
   def self.for_prep_date(date)
     # WIP
