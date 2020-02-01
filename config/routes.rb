@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   end
 
   resources :completed_shopping_list_items, only: [:create, :destroy]
+  post 'shopping_lists/:id/deactivate_all', to: 'completed_shopping_list_items#deactivate_all', as: 'deactivate_all_items'
+
   resources :shopping_list_favorites, only: [:create, :destroy]
   resources :shopping_list_item_builders, only: [:create]
 end
