@@ -2,7 +2,9 @@
 
 module MealPlansHelper
   def display_recipes(meal_plan)
-    meal_plan.recipes.map(&:title).join(', ')
+    raw(meal_plan.recipes.map do |recipe|
+      link_to recipe.title, recipe
+    end.join(', '))
   end
 
   def meal_plan_ingredient_ids(ingredient_set)
