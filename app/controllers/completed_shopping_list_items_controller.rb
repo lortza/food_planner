@@ -15,6 +15,13 @@ class CompletedShoppingListItemsController < ApplicationController
     respond_to :js
   end
 
+  def deactivate_all
+    # crosses all items on the list
+    list = current_user.shopping_lists.find(params[:id])
+    list.items.map(&:complete!)
+    redirect_to shopping_list_url(list)
+  end
+
   private
 
   def set_shopping_list_item

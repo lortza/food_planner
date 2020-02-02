@@ -2,6 +2,7 @@
 
 <h1>
   <%= link_to "", @shopping_list, title: 'sync', class: "#{Icon.sync} right"%>
+  <%= link_to "Clear List", deactivate_all_items_path(@shopping_list), method: :post, data: { confirm: 'Are you sure you want to cross off all items? This action cannot be undone.' }, title: 'clear list', class: button_classes('outline-info float-right mr-5 mt-2') %>
   <%= link_to "", shopping_lists_path, class: Icon.back %>
   <%= @shopping_list.name %>
 </h1>
