@@ -1,18 +1,16 @@
 <%= form_for(meal_plan_recipe) do |form| %>
-  <% if available_meal_plans_dropdown(current_user, recipe).any? %>
-    <%= hidden_field_tag(:recipe_id, recipe.id) %>
-    <div class='row'>
-      <div class='col'>
-        <%= form.collection_select :meal_plan_id,
-                                   available_meal_plans_dropdown(current_user, recipe),
-                                   :id, :start_date, {},
-                                   class: 'form-control form-control-sm'
-        %>
-      </div>
+  <%= hidden_field_tag(:recipe_id, recipe.id) %>
+  <div class='row'>
+    <div class='col'>
+      <%= form.collection_select :meal_plan_id,
+                                 available_meal_plans_dropdown(current_user, recipe),
+                                 :id, :start_date, {},
+                                 class: 'form-control form-control-sm'
+      %>
+    </div>
 
-      <div class='col'>
-        <%= form.submit 'Add to Plan', class: button_classes('outline-info') %>
-      </div>
-    </div> <!-- row -->
-  <% end %>
+    <div class='col'>
+      <%= form.submit 'Add to Plan', class: button_classes('outline-info') %>
+    </div>
+  </div> <!-- row -->
 <% end %>
