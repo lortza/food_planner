@@ -23,7 +23,10 @@
             <td><%= link_to recipe.title, recipe %> <%= extra_work_flag(recipe) %> <%= status_flag(recipe) %></td>
             <td><%= recipe.servings %></td>
             <td><%= recipe.last_prepared %></td>
-            <td><%= render 'add_to_meal_plan_dropdown', meal_plan_recipe: MealPlanRecipe.new, recipe: recipe %></td>
+            <td>
+              <% if available_meal_plans_dropdown(current_user, recipe).any? %>
+                <%= render 'add_to_meal_plan_dropdown', meal_plan_recipe: MealPlanRecipe.new, recipe: recipe %></td>
+              <% end %>
             <td><%= link_to 'Edit', edit_recipe_path(recipe), class: button_classes('outline-info') %></td>
           </tr>
         <% end %>
