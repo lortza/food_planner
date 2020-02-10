@@ -8,7 +8,7 @@ ruby '2.5.3'
 gem 'bootsnap', '>= 1.1.0', require: false # Reduces boot times through caching; required in config/boot.rb
 gem 'coffee-rails'              # Use CoffeeScript for .coffee assets and views
 gem 'devise'                    # User authentication
-gem 'jbuilder', '~> 2.5'        # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~> 2.10'       # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'loofah', '>= 2.2.3'        # Upgrade for security update
 gem 'nokogiri', '>= 1.8.5'      # Upgrade for security update
 gem 'pg', '>= 0.18', '< 2.0'
