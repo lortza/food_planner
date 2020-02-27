@@ -113,6 +113,14 @@ RSpec.describe Recipe, type: :model do
       expect(original_recipe_holder.recipes.first.title).to eq(original_recipe.title)
     end
 
+    it 'leaves the original recipe ingredients on the original recipe' do
+      ingredient_before = original_recipe_holder.recipes.first.ingredients.first
+      original_recipe.dupe_for_user(recipe_recipient)
+      ingredient_after = original_recipe_holder.recipes.first.ingredients.first
+
+      expect(ingredient_before.name).to eq(ingredient_after.name)
+    end
+
     it "doesn't dupe anything other than recipe ingredients" do
       meal_plan = create(:meal_plan, user_id: original_recipe_holder.id)
       meal_plan.recipes << original_recipe
