@@ -87,4 +87,38 @@ RSpec.describe Recipe, type: :model do
       expect(recipe.extra_work_required?).to be(false)
     end
   end
+
+  describe 'dupe_for_user' do
+    let!(:original_recipe_holder) { create(:user) }
+    let!(:original_recipe) { create(:recipe, :with_2_ingredients, user_id: original_recipe_holder.id) }
+    let!(:recipe_recipient) { create(:user) }
+
+    it 'copies a recipe from one user to another' do
+      original_recipe.dupe_for_user(recipe_recipient)
+      duped_recipe = recipe_recipient.recipes.first
+
+      expect(duped_recipe.title).to eq(original_recipe.title)
+      expect(recipe_recipient.recipes.first.title).to eq(original_recipe.title)
+    end
+
+    it 'brings the recipe ingredients along with the dupe' do
+      original_recipe.dupe_for_user(recipe_recipient)
+      duped_recipe = recipe_recipient.recipes.first
+
+      expect(duped_recipe.ingredients.first.name).to eq(original_recipe.ingredients.first.name)
+    end
+
+    it 'leaves the original recipe in the original users account' do
+      original_recipe.dupe_for_user(recipe_recipient)
+      expect(original_recipe_holder.recipes.first.title).to eq(original_recipe.title)
+    end
+
+    it "doesn't dupe anything other than recipe ingredients" do
+      meal_plan = create(:meal_plan, user_id: original_recipe_holder.id)
+      meal_plan.recipes << original_recipe
+
+      expect(original_recipe_holder.meal_plans.first.recipes.first.title).to eq(original_recipe.title)
+      expect(recipe_recipient.meal_plans).to eq([])
+    end
+  end
 end
