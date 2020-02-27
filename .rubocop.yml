@@ -25,7 +25,7 @@ Metrics/BlockLength:
     - 'spec/factories/**/*'
     - 'lib/tasks/*'
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 120
   Exclude:
   - !ruby/regexp /.*_spec\.rb$/

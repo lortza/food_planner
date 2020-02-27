@@ -35,7 +35,6 @@ class Recipe < ApplicationRecord
   validates :cook_time, numericality: { other_than: 0 }, if: -> { reheat_time&.zero? && prep_time&.zero? }
   validates :reheat_time, numericality: { other_than: 0 }, if: -> { prep_time&.zero? && cook_time&.zero? }
 
-
   def self.for_prep_date(date)
     # WIP
     # Recipe.joins(:preparations).where(preparations: {date: date})
@@ -77,5 +76,13 @@ class Recipe < ApplicationRecord
 
   def extra_work_required?
     extra_work_note.present?
+  end
+
+  def dupe_for_user(user)
+    original_ingredients = ingredients
+    copied_recipe = dup
+    copied_recipe.update(user_id: user.id)
+    copied_recipe.ingredients << original_ingredients
+    copied_recipe.save
   end
 end
