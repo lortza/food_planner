@@ -82,7 +82,9 @@ class Recipe < ApplicationRecord
     original_ingredients = ingredients
     copied_recipe = dup
     copied_recipe.update(user_id: user.id)
-    copied_recipe.ingredients << original_ingredients
-    copied_recipe.save
+    original_ingredients.each do |ingredient|
+      copied_ingredient = ingredient.dup
+      copied_recipe.ingredients << copied_ingredient
+    end
   end
 end
