@@ -1,13 +1,4 @@
-<%#= link_to '+ Add All Ingredients to Grocery List',
-            shopping_list_item_builders_path(
-              shopping_list_id: current_user.shopping_lists.default&.id,
-              ingredient_ids: ingredient_ids
-            ),
-            method: 'POST',
-            class: button_classes('info')
-%>
-
-<small>Add All Ingredients to Shopping List:</small>
+<h5>Add All Ingredients to Shopping List:</h5>
 <%= form_tag(shopping_list_item_builders_path, method: 'post', id: 'add-to-list-form' ) do %>
   <div class='row'>
     <div class='col-10'>

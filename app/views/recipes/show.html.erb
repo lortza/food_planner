@@ -32,13 +32,13 @@
 
   <div class="col-sm-4">
     <%= render partial: 'related_meal_plans', locals: {recipe: @recipe} %>
-    <%= render partial: 'shared/add_to_shopping_list_dropdown', locals: { ingredient_ids: recipe_ingredient_ids(@recipe) } %>
   </div>
 
   <div class="col-sm-4">
-    <div class="image-container">
+    <div class="image-container mb-3">
       <%= image_tag @recipe.image_url, {class: 'image'} %>
     </div>
+    <%= render partial: 'shared/add_to_shopping_list_dropdown', locals: { ingredient_ids: recipe_ingredient_ids(@recipe) } %>
   </div>
 </div><!-- row -->
 
