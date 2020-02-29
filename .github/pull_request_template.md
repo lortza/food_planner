@@ -1,5 +1,5 @@
 ## Related Issues & PRs
-> Closes #X
+Closes #X
 
 ## Problems Solved
 >
