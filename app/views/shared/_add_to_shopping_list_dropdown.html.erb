@@ -11,7 +11,7 @@
 <%= form_tag(shopping_list_item_builders_path, method: 'post', id: 'add-to-list-form' ) do %>
   <div class='row'>
     <div class='col-10'>
-      <%= hidden_field_tag :ingredientids, ingredient_ids %>
+      <%= hidden_field_tag :ingredient_ids, ingredient_ids %>
       <%= select_tag :shopping_list_id,
                      options_from_collection_for_select(current_user.shopping_lists.by_favorite, :id, :name),
                      class: 'form-control'
