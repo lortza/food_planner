@@ -24,17 +24,12 @@
       <li><%= link_to recipe.title, recipe_path(recipe) %>  <%= extra_work_flag(recipe) %> (<%= recipe.servings %> servings)</li>
       <% end %>
     </ol>
-    <%= link_to '+ Add All Ingredients to Grocery List',
-                shopping_list_item_builders_path(
-                  shopping_list_id: current_user.shopping_lists.default&.id,
-                  ingredient_ids: meal_plan_ingredient_ids(@ingredient_set)
-                ),
-                method: 'POST',
-                class: button_classes('info')
-    %>
+
+    <%= render partial: 'shared/add_to_shopping_list_dropdown', locals: { ingredient_ids: meal_plan_ingredient_ids(@ingredient_set) } %>
   </section>
 </div><!-- row -->
 
+<hr>
 <button id='button__ingredients-toggle' class='btn btn-sm btn-outline-secondary right opened'>Collapse All</button>
 <h2>Ingredient Breakdown</h2>
 <section id='section__ingredient-breakdown' class='row ingredient-breakdown'>

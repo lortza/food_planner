@@ -32,20 +32,13 @@
 
   <div class="col-sm-4">
     <%= render partial: 'related_meal_plans', locals: {recipe: @recipe} %>
-    <%= link_to '+ Add All Ingredients to Grocery List',
-                shopping_list_item_builders_path(
-                  shopping_list_id: current_user.shopping_lists.default.id,
-                  ingredient_ids: recipe_ingredient_ids(@recipe)
-                ),
-                method: 'POST',
-                class: button_classes('info')
-    %>
   </div>
 
   <div class="col-sm-4">
-    <div class="image-container">
+    <div class="image-container mb-3">
       <%= image_tag @recipe.image_url, {class: 'image'} %>
     </div>
+    <%= render partial: 'shared/add_to_shopping_list_dropdown', locals: { ingredient_ids: recipe_ingredient_ids(@recipe) } %>
   </div>
 </div><!-- row -->
 
