@@ -1,0 +1,8 @@
+<%= link_to '+ Add All Ingredients to Grocery List',
+            shopping_list_item_builders_path(
+              shopping_list_id: current_user.shopping_lists.default&.id,
+              ingredient_ids: ingredient_ids
+            ),
+            method: 'POST',
+            class: button_classes('info')
+%>
