@@ -45,6 +45,12 @@ GIT
   specs:
     rspec-support (3.9.0.pre)
 
+GIT
+  remote: https://github.com/vmg/redcarpet.git
+  revision: 6270d6b4ab6b46ee6bb57a6c0e4b2377c01780ae
+  specs:
+    redcarpet (3.5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -433,6 +439,7 @@ DEPENDENCIES
   rack (>= 2.0.6)
   rails (~> 6.0.2)
   rails-erd
+  redcarpet!
   reek
   rspec-core!
   rspec-expectations!

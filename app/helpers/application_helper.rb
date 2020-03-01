@@ -52,4 +52,26 @@ module ApplicationHelper
 
     link_to "#{list.name.titleize}: #{item_count}", shopping_list_path(list), class: 'nav-link'
   end
+
+  class Renderer < Redcarpet::Render::HTML
+  end
+
+  def markdown(text)
+    redcarpet_options = {
+      autolink: true,
+      disable_indented_code_blocks: false,
+      fenced_code_blocks: true,
+      highlight: true,
+      lax_html_blocks: true,
+      lax_spacing: true,
+      no_intra_emphasis: true,
+      strikethrough: true,
+      superscript: true,
+      tables: true,
+    }
+
+    renderer = Renderer.new
+    markdown_to_html = Redcarpet::Markdown.new(renderer, redcarpet_options)
+    markdown_to_html.render(text).html_safe
+  end
 end

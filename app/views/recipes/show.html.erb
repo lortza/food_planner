@@ -84,19 +84,22 @@
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="regular" role="tabpanel" aria-labelledby="regular-tab">
         <ol>
-          <%= simple_format(@recipe.instructions, {}, wrapper_tag: 'li') %>
+          <%#= simple_format(@recipe.instructions, {}, wrapper_tag: 'li') %>
+          <%= markdown(@recipe.instructions) %>
         </ol>
       </div>
 
       <div class="tab-pane fade" id="prep-day" role="tabpanel" aria-labelledby="prep-day-tab">
         <ol>
-          <%= simple_format(@recipe.prep_day_instructions, {}, wrapper_tag: 'li') %>
+          <%#= simple_format(@recipe.prep_day_instructions, {}, wrapper_tag: 'li') %>
+          <%= markdown(@recipe.prep_day_instructions) %>
         </ol>
       </div>
 
       <div class="tab-pane fade" id="reheat" role="tabpanel" aria-labelledby="reheat-tab">
         <ol>
-          <%= simple_format(@recipe.reheat_instructions, {}, wrapper_tag: 'li') %>
+          <%#= simple_format(@recipe.reheat_instructions, {}, wrapper_tag: 'li') %>
+          <%= markdown(@recipe.reheat_instructions) %>
         </ol>
       </div>
     </div><!-- tab-content -->

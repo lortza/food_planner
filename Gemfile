@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
-
 gem 'bootsnap', '>= 1.1.0', require: false # Reduces boot times through caching; required in config/boot.rb
 gem 'coffee-rails'              # Use CoffeeScript for .coffee assets and views
 gem 'devise'                    # User authentication
@@ -15,6 +14,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.3'            # Use Puma as the app server
 gem 'rack', '>= 2.0.6'          # Upgrade for security update
 gem 'rails', '~> 6.0.2'         # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'redcarpet', github: 'vmg/redcarpet' # markdown
 gem 'sass-rails', '~> 6.0'      # Use SCSS for stylesheets
 gem 'uglifier', '>= 1.3.0'      # Use Uglifier as compressor for JavaScript assets
 gem 'will_paginate', '~> 3.3.0' # pagination. Styles: http://mislav.github.io/will_paginate/
