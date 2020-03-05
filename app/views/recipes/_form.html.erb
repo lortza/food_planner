@@ -2,6 +2,8 @@
   <%= form_for(recipe) do |form| %>
   <%= render 'shared/errors', object: recipe %>
 
+  <%= hidden_field(:recipe, :experimental_recipe_id )  %>
+
   <div class="row">
     <div class="col">
       <div class="field">

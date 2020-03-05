@@ -18,7 +18,7 @@
         <td><%= link_to recipe.title, recipe.source_url, target: '_blank' %></td>
         <td><%= link_to 'edit', edit_experimental_recipe_path(recipe) %></td>
         <td><%= link_to 'delete', recipe, method: :delete, data: { confirm: 'Are you sure? This action cannot be undone.' } %></td>
-        <td><%= link_to 'convert to recipe', convert_from_experimental_path(title: recipe.title, url: recipe.source_url), method: :post %></td>
+        <td><%= link_to 'convert to recipe', convert_from_experimental_path(experimental_recipe_id: recipe.id), method: :post %></td>
       </tr>
     <% end %>
   </tbody>

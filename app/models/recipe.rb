@@ -44,6 +44,14 @@ class Recipe < ApplicationRecord
     where(archived: false)
   end
 
+  def experimental_recipe_id=(id)
+    @experimental_recipe_id = id
+  end
+
+  def experimental_recipe_id
+    @experimental_recipe_id
+  end
+
   def active?
     archived == false
   end
