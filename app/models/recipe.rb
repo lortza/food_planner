@@ -3,6 +3,8 @@
 class Recipe < ApplicationRecord
   extend Searchable
 
+  attr_accessor :experimental_recipe_id
+
   belongs_to :user
   has_many :ingredients, inverse_of: :recipe, dependent: :destroy
   accepts_nested_attributes_for :ingredients,
@@ -42,14 +44,6 @@ class Recipe < ApplicationRecord
 
   def self.active
     where(archived: false)
-  end
-
-  def experimental_recipe_id=(id)
-    @experimental_recipe_id = id
-  end
-
-  def experimental_recipe_id
-    @experimental_recipe_id
   end
 
   def active?
