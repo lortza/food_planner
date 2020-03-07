@@ -22,14 +22,19 @@ class RecipesController < ApplicationController
   def create
     @recipe = current_user.recipes.new(recipe_params)
     if @recipe.save
-      redirect_to recipe_url(@recipe)
+      experimental_recipe_id = recipe_params[:experimental_recipe_id]
+
+      if experimental_recipe_id.present?
+        current_user.experimental_recipes.find(experimental_recipe_id).delete
+      end
+
+      redirect_to recipe_url(@recipe), alert: ('Recipe converted successfully.' if experimental_recipe_id.present?)
     else
       render :new
     end
   end
 
   def edit
-    # @recipe.ingredients.build(quantity: nil)
     3.times { @recipe.ingredients.build(quantity: nil) }
   end
 
@@ -48,14 +53,12 @@ class RecipesController < ApplicationController
   end
 
   def convert_from_experimental
-    converted_title = params[:title]
-    converted_url = params[:url]
-    converted_source = URI.parse(converted_url).host.gsub('www.', '')
-
+    experimental_recipe = current_user.experimental_recipes.find(params[:experimental_recipe_id])
     @recipe = Recipe.new(
-      title: converted_title,
-      source_name: converted_source,
-      source_url: converted_url
+      title: experimental_recipe.title,
+      source_name: URI.parse(experimental_recipe.source_url).host.gsub('www.', ''),
+      source_url: experimental_recipe.source_url,
+      experimental_recipe_id: experimental_recipe.id
     )
     15.times { @recipe.ingredients.build(quantity: nil) }
 
@@ -71,6 +74,7 @@ class RecipesController < ApplicationController
   def recipe_params # rubocop:disable Metrics/MethodLength
     params.require(:recipe).permit(:archived,
                                    :cook_time,
+                                   :experimental_recipe_id,
                                    :extra_work_note,
                                    :image_url,
                                    :instructions,

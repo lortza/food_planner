@@ -30,9 +30,11 @@ group :development, :test do
   gem 'binding_of_caller'       # goes with better_errors
   gem 'bullet'                  # detects n+1 queries
   gem 'byebug', platforms: %i[mri mingw x64_mingw] # Call 'byebug' anywhere in the code to get a debugger console
+  gem 'capybara'                # for navigating feature specs
   gem 'factory_bot_rails'       # factory support for rspec
   gem 'pry-rails'               # helps with pry
   gem 'reek'                    # https://github.com/troessner/reek/blob/master/docs/Code-Smells.md
+  gem 'webdrivers'              # to help with testing
 end
 
 group :development do
@@ -54,7 +56,6 @@ end
 group :test do
   gem 'launchy'                 # open browser with save_and_open_page
   gem 'shoulda-matchers'        # library for easier testing syntax
-  gem 'webdrivers'              # to help with testing
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

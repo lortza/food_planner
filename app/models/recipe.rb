@@ -3,6 +3,8 @@
 class Recipe < ApplicationRecord
   extend Searchable
 
+  attr_accessor :experimental_recipe_id
+
   belongs_to :user
   has_many :ingredients, inverse_of: :recipe, dependent: :destroy
   accepts_nested_attributes_for :ingredients,

@@ -129,6 +129,14 @@ GEM
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.11)
     byebug (11.1.1)
+    capybara (3.31.0)
+      addressable
+      mini_mime (>= 0.1.3)
+      nokogiri (~> 1.8)
+      rack (>= 1.6.0)
+      rack-test (>= 0.6.3)
+      regexp_parser (~> 1.5)
+      xpath (~> 3.2)
     childprocess (3.0.0)
     choice (0.2.0)
     codeclimate-engine-rb (0.4.1)
@@ -295,6 +303,7 @@ GEM
       parser (>= 2.5.0.0, < 2.8, != 2.5.1.1)
       psych (~> 3.1.0)
       rainbow (>= 2.0, < 4.0)
+    regexp_parser (1.7.0)
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -402,6 +411,8 @@ GEM
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)
     will_paginate (3.3.0)
+    xpath (3.2.0)
+      nokogiri (~> 1.8)
     zeitwerk (2.2.2)
 
 PLATFORMS
@@ -418,6 +429,7 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   bullet
   byebug
+  capybara
   coffee-rails
   devise
   factory_bot_rails
