@@ -32,7 +32,7 @@ class Ingredient < ApplicationRecord
     sprig
     stalk
     stick
-    T
+    TBS
     tsp
     whole
   ].freeze
