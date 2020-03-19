@@ -61,7 +61,7 @@
   :preparation_style: chopped
 - :recipe_title: Caraotas Negras
   :quantity: 1.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: adobo seasoning
   :preparation_style: ''
 - :recipe_title: Caraotas Negras
@@ -76,12 +76,12 @@
   :preparation_style: finely chopped
 - :recipe_title: Caraotas Negras
   :quantity: 1.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: brown cane sugar
   :preparation_style: grated
 - :recipe_title: Caraotas Negras
   :quantity: 1.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: garlic
   :preparation_style: minced
 - :recipe_title: Caraotas Negras
@@ -111,7 +111,7 @@
   :preparation_style: finely chopped
 - :recipe_title: Quick Pad Thai
   :quantity: 1.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: soy sauce
   :preparation_style: ''
 - :recipe_title: Quick Pad Thai
@@ -121,7 +121,7 @@
   :preparation_style: ''
 - :recipe_title: Quick Pad Thai
   :quantity: 0.5
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: rice vinegar
   :preparation_style: ''
 - :recipe_title: Quick Pad Thai
@@ -186,7 +186,7 @@
   :preparation_style: finely chopped
 - :recipe_title: Blended Red Lentil Soup
   :quantity: 1.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: olive oil
   :preparation_style: ''
 - :recipe_title: Blended Red Lentil Soup
@@ -281,7 +281,7 @@
   :preparation_style: ''
 - :recipe_title: Red Lentil Curry
   :quantity: 1.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: fresh ginger root
   :preparation_style: minced
 - :recipe_title: Red Lentil Curry
@@ -301,7 +301,7 @@
   :preparation_style: ground
 - :recipe_title: Red Lentil Curry
   :quantity: 1.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: red curry paste
   :preparation_style: ''
 - :recipe_title: Red Lentil Curry
@@ -346,12 +346,12 @@
   :preparation_style: sliced
 - :recipe_title: Creamy Cherry Tomato & Summer Squash Gnocchi
   :quantity: 2.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: olive oil
   :preparation_style: ''
 - :recipe_title: Creamy Cherry Tomato & Summer Squash Gnocchi
   :quantity: 2.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: lemon juice
   :preparation_style: ''
 - :recipe_title: Creamy Cherry Tomato & Summer Squash Gnocchi
@@ -456,7 +456,7 @@
   :preparation_style: ''
 - :recipe_title: Cashew Vegan Queso
   :quantity: 1.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: honey
   :preparation_style: ''
 - :recipe_title: Enfrijoladas
@@ -506,7 +506,7 @@
   :preparation_style: thawed to about room temp
 - :recipe_title: Spicy Roasted Cauliflower with Queso
   :quantity: 0.5
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: smoked paprika
   :preparation_style: ''
 - :recipe_title: Spicy Roasted Cauliflower with Queso
@@ -521,7 +521,7 @@
   :preparation_style: ''
 - :recipe_title: Spicy Roasted Cauliflower with Queso
   :quantity: 1.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: olive oil
   :preparation_style: ''
 - :recipe_title: Apricot Lentil Soup
@@ -611,7 +611,7 @@
   :preparation_style: ''
 - :recipe_title: Bread Pudding with Roasted Vegetables
   :quantity: 2.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: fresh parsley
   :preparation_style: chopped
 - :recipe_title: Arroz Con Gandules Pigeon Peas
@@ -651,7 +651,7 @@
   :preparation_style: chopped
 - :recipe_title: Asian Raw Kale Salad
   :quantity: 1.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: red onion
   :preparation_style: minced
 - :recipe_title: Asian Raw Kale Salad
@@ -671,7 +671,7 @@
   :preparation_style: chopped
 - :recipe_title: Asian Raw Kale Salad
   :quantity: 2.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: apple cider vinegar
   :preparation_style: ''
 - :recipe_title: Asian Raw Kale Salad
@@ -681,12 +681,12 @@
   :preparation_style: juiced
 - :recipe_title: Asian Raw Kale Salad
   :quantity: 2.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: honey
   :preparation_style: ''
 - :recipe_title: Asian Raw Kale Salad
   :quantity: 3.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: olive oil
   :preparation_style: ''
 - :recipe_title: Asian Raw Kale Salad
@@ -701,7 +701,7 @@
   :preparation_style: cut into big cubes and dried
 - :recipe_title: Bread Pudding with Roasted Vegetables
   :quantity: 1.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: olive oil
   :preparation_style: ''
 - :recipe_title: Bread Pudding with Roasted Vegetables
@@ -751,7 +751,7 @@
   :preparation_style: ''
 - :recipe_title: Bread Pudding with Roasted Vegetables
   :quantity: 0.5
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: sea salt
   :preparation_style: ''
 - :recipe_title: Bread Pudding with Roasted Vegetables
@@ -851,7 +851,7 @@
   :preparation_style: chopped into bit-size pieces
 - :recipe_title: Sweet Potato Gnocchis
   :quantity: 4.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: butter
   :preparation_style: ''
 - :recipe_title: Sweet Potato Gnocchis
@@ -881,7 +881,7 @@
   :preparation_style: chopped
 - :recipe_title: Corn Chowder
   :quantity: 0.5
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: granulated garlic
   :preparation_style: ''
 - :recipe_title: Corn Chowder
@@ -911,7 +911,7 @@
   :preparation_style: well shaken
 - :recipe_title: Corn Chowder
   :quantity: 2.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: flour
   :preparation_style: ''
 - :recipe_title: Corn Chowder
@@ -991,7 +991,7 @@
   :preparation_style: sliced or chopped
 - :recipe_title: Potato Leek Soup
   :quantity: 2.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: sunflower seeds
   :preparation_style: ''
 - :recipe_title: Greek Stuffed Peppers
@@ -1031,7 +1031,7 @@
   :preparation_style: ''
 - :recipe_title: Greek Stuffed Peppers
   :quantity: 1.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: dried oregano
   :preparation_style: ''
 - :recipe_title: Greek Stuffed Peppers
@@ -1056,7 +1056,7 @@
   :preparation_style: crumbled
 - :recipe_title: Greek Stuffed Peppers
   :quantity: 2.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: pine nuts
   :preparation_style: toasted
 - :recipe_title: Jackfruit Melt Sandwich
@@ -1101,12 +1101,12 @@
   :preparation_style: ''
 - :recipe_title: Jackfruit Melt Sandwich
   :quantity: 1.5
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: dijon mustard
   :preparation_style: ''
 - :recipe_title: Jackfruit Melt Sandwich
   :quantity: 2.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: pickled relish
   :preparation_style: ''
 - :recipe_title: Jackfruit Melt Sandwich
@@ -1211,12 +1211,12 @@
   :preparation_style: rinsed and drained
 - :recipe_title: Curried Satay Veggie Bowls
   :quantity: 1.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: peanut butter
   :preparation_style: ''
 - :recipe_title: Curried Satay Veggie Bowls
   :quantity: 1.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: red curry paste
   :preparation_style: ''
 - :recipe_title: Curried Satay Veggie Bowls
@@ -1241,7 +1241,7 @@
   :preparation_style: ''
 - :recipe_title: Curried Satay Veggie Bowls
   :quantity: 1.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: soy sauce
   :preparation_style: ''
 - :recipe_title: Curried Satay Veggie Bowls
@@ -1311,7 +1311,7 @@
   :preparation_style: ''
 - :recipe_title: Yellow Lentil Dal
   :quantity: 2.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: fresh ginger
   :preparation_style: minced
 - :recipe_title: Yellow Lentil Dal
@@ -1451,12 +1451,12 @@
   :preparation_style: ''
 - :recipe_title: Ginger Broccolini Stir Fry
   :quantity: 1.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: honey
   :preparation_style: ''
 - :recipe_title: Ginger Broccolini Stir Fry
   :quantity: 1.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: soy sauce
   :preparation_style: ''
 - :recipe_title: Ginger Broccolini Stir Fry
@@ -1571,7 +1571,7 @@
   :preparation_style: minced
 - :recipe_title: Shakshuka
   :quantity: 1.5
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: smoked paprika
   :preparation_style: ''
 - :recipe_title: Shakshuka
@@ -1631,7 +1631,7 @@
   :preparation_style: ''
 - :recipe_title: Sweet Potato Pie
   :quantity: 1.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: cinnamon
   :preparation_style: ''
 - :recipe_title: Sweet Potato Pie
@@ -1651,7 +1651,7 @@
   :preparation_style: ''
 - :recipe_title: Sweet Potato Pie
   :quantity: 2.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: melted butter
   :preparation_style: ''
 - :recipe_title: Sweet Potato Pie
@@ -1711,7 +1711,7 @@
   :preparation_style: ''
 - :recipe_title: Twice-Baked Sweet Potatoes
   :quantity: 1.0
-  :measurement_unit: T
+  :measurement_unit: TBS
   :name: honey
   :preparation_style: ''
 - :recipe_title: Twice-Baked Sweet Potatoes
