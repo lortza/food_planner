@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :recipes
   post '/convert_from_experimental', to: 'recipes#convert_from_experimental'
-  post '/recipe_share', to: 'recipes#share'
+  post '/recipe_copy_for_user', to: 'recipes#copy_for_user'
   resources :experimental_recipes, only: [:index, :new, :create, :edit, :update, :destroy]
 
   resources :meal_plans do
