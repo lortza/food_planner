@@ -1,4 +1,5 @@
 <% content_for(:title, @recipe.title) %>
+
 <div class="row">
   <div class="col-11">
     <h1><%= @recipe.title %> <small><%= extra_work_flag(@recipe) %></small></h1>
@@ -14,57 +15,61 @@
   </div>
 </div><!-- row -->
 
-<div class="row">
-  <div class="col-sm-4">
-    <h5>Stats</h5>
-    <ul>
-      <li>Servings: <%= @recipe.servings %></li>
-      <li>Prep Time: <%= display_time(@recipe.prep_time) %></li>
-      <li>Cook Time: <%= display_time(@recipe.cook_time) %></li>
-      <li>Total Time: <%= display_time(@recipe.total_time) %></li>
-      <li>Reheat Time: <%= display_time(@recipe.reheat_time) %></li>
-      <li>Prepared: <%= pluralize(@recipe.frequency, 'time') %></li>
-      <% if @recipe.extra_work_required? %>
-        <li>Extra Work Warning: <%= @recipe.extra_work_note %></li>
-      <% end %>
-    </ul>
-  </div>
+<div class='row'>
+  <div class='col-8'>
+    <div class='row'>
+      <div class='col-6'>
+        <h5>Stats</h5>
+        <ul>
+          <li>Servings: <%= @recipe.servings %></li>
+          <li>Prep Time: <%= display_time(@recipe.prep_time) %></li>
+          <li>Cook Time: <%= display_time(@recipe.cook_time) %></li>
+          <li>Total Time: <%= display_time(@recipe.total_time) %></li>
+          <li>Reheat Time: <%= display_time(@recipe.reheat_time) %></li>
+          <li>Prepared: <%= pluralize(@recipe.frequency, 'time') %></li>
+          <% if @recipe.extra_work_required? %>
+            <li>Extra Work Warning: <%= @recipe.extra_work_note %></li>
+          <% end %>
+        </ul>
+      </div> <!-- col-6 -->
 
-  <div class="col-sm-4">
-    <%= render partial: 'related_meal_plans', locals: {recipe: @recipe} %>
-  </div>
+      <div class='col-6'>
+        <%= render partial: 'related_meal_plans', locals: {recipe: @recipe} %>
+      </div> <!-- col-6 -->
+    </div> <!-- row -->
 
-  <div class="col-sm-4">
-    <div class="image-container mb-3">
+    <p><%= @recipe.notes %></p>
+
+    <div class='row'>
+      <div class='col-12'>
+        <h3>Ingredients</h3>
+        <ul>
+          <% @recipe.ingredients.by_id.each do |ingredient| %>
+          <li>
+            <div class="row">
+              <div class="col-sm">
+                <%= ingredient_display(ingredient) %>
+              </div>
+              <div class="col-sm">
+                <%= ingredient.preparation_style %>
+              </div>
+            </div> <!-- row -->
+          </li>
+          <% end %>
+        </ul>
+      </div> <!-- col-12 -->
+    </div> <!-- row -->
+  </div> <!-- col-8 -->
+
+  <div class='col-4'>
+    <div class='image-container mb-3'>
       <%= image_tag @recipe.image_url, {class: 'image'} %>
     </div>
     <%= render partial: 'shared/add_to_shopping_list_dropdown', locals: { ingredient_ids: recipe_ingredient_ids(@recipe) } %>
     <%= render partial: 'share_with_user_form', locals: { recipe: @recipe } %>
+    <%= render partial: 'related_recipes', locals: {recipe: @recipe} %>
   </div>
-</div><!-- row -->
-
-<p><%= @recipe.notes %></p>
-
-<div class="row">
-  <div class="col-sm-8">
-    <h3>Ingredients</h3>
-    <ul>
-      <% @recipe.ingredients.by_id.each do |ingredient| %>
-      <li>
-        <div class="row">
-          <div class="col-sm">
-            <%= ingredient_display(ingredient) %>
-          </div>
-          <div class="col-sm">
-            <%= ingredient.preparation_style %>
-          </div>
-        </div> <!-- row -->
-      </li>
-      <% end %>
-    </ul>
-  </div>
-  <%= render partial: 'related_recipes', locals: {recipe: @recipe} %>
-</div><!-- row -->
+</div> <!-- row -->
 
 <h3>Instructions</h3>
 <div class="card mb-5">
