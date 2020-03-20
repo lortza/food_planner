@@ -39,6 +39,7 @@
       <%= image_tag @recipe.image_url, {class: 'image'} %>
     </div>
     <%= render partial: 'shared/add_to_shopping_list_dropdown', locals: { ingredient_ids: recipe_ingredient_ids(@recipe) } %>
+    <%= render partial: 'share_with_user_form', locals: { recipe: @recipe } %>
   </div>
 </div><!-- row -->
 
