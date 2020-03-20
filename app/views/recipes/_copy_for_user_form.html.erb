@@ -1,0 +1,7 @@
+<% if current_user.admin? %>
+  <h5 class='mt-3'>Copy Recipe for User</h5>
+  <%= form_tag(recipe_copy_for_user_path, :method => 'post', id: 'recipe-copy-form', class: 'form-inline' ) do %>
+    <%= hidden_field_tag :id, recipe.id %>
+    <%= text_field_tag :email, params[:email], placeholder: "Enter User Email", class: 'form-control w-100' %>
+  <% end %>
+<% end %>

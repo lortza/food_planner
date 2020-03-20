@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: %i[show edit update destroy]
+  before_action :set_recipe, only: %i[show edit update destroy copy_for_user]
 
   def index
     user_recipes = current_user.recipes
@@ -65,6 +65,21 @@ class RecipesController < ApplicationController
     15.times { @recipe.ingredients.build(quantity: nil) }
 
     render :new
+  end
+
+  def copy_for_user
+    user = User.find_by(email: params[:email])
+
+    if user.present? && user == current_user
+      flash[:error] = "Whoops! You can't duplicate your own recipe."
+      redirect_to recipe_url(@recipe)
+    elsif user.present?
+      @recipe.dupe_for_user(user)
+      redirect_to recipe_url(@recipe), notice: "#{@recipe.title} copied for #{user.email}"
+    else
+      flash[:error] = "Sorry! We couldn't find a user with the email address '#{params[:email]}'."
+      redirect_to recipe_url(@recipe)
+    end
   end
 
   private
