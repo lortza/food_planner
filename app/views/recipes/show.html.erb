@@ -34,7 +34,9 @@
       </div> <!-- col-6 -->
 
       <div class='col-6'>
-        <%= render partial: 'related_meal_plans', locals: {recipe: @recipe} %>
+        <% if current_user.present? %>
+          <%= render partial: 'related_meal_plans', locals: {recipe: @recipe} %>
+        <% end %>
       </div> <!-- col-6 -->
     </div> <!-- row -->
 
@@ -65,9 +67,11 @@
     <div class='image-container mb-3'>
       <%= image_tag @recipe.image_url, {class: 'image'} %>
     </div>
-    <%= render partial: 'shared/add_to_shopping_list_dropdown', locals: { ingredient_ids: recipe_ingredient_ids(@recipe) } %>
-    <%= render partial: 'copy_for_user_form', locals: { recipe: @recipe } %>
-    <%= render partial: 'related_recipes', locals: {recipe: @recipe} %>
+    <% if current_user.present? %>
+      <%= render partial: 'shared/add_to_shopping_list_dropdown', locals: { ingredient_ids: recipe_ingredient_ids(@recipe) } %>
+      <%= render partial: 'copy_for_user_form', locals: { recipe: @recipe } %>
+      <%= render partial: 'related_recipes', locals: {recipe: @recipe} %>
+    <% end %>
   </div>
 </div> <!-- row -->
 
