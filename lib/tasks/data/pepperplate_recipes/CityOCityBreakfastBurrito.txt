@@ -1,0 +1,38 @@
+Title: City O City Breakfast Burrito
+Description: We used to love the breakfast burritos we could get to go. This recreates them.
+Source: 
+Original URL: 
+Yield: 6
+Active: 30
+Total: 30
+Categories: tofu, burrito
+Image: https://cdn2.pepperplate.com/recipes/49fb0f90f37f4c5190840f7565b6d821.jpg
+Ingredients:
+	1 16-ounce package firm tofu, crumbled
+	1 large tortillas each
+	1 large potato, cubed and steamed
+	1/2 cup diced white onion (from 1/2 small onion)
+	3/4 cup finely chopped red bell pepper (from 1 small pepper)
+	1/2 cup finely chopped Anaheim pepper (from 1 medium pepper)
+
+[Spices]
+	1/4 teaspoon coriander
+	1/2 teaspoon cumin
+	1/4 teaspoon garlic powder
+	1/2 teaspoon kosher salt, plus more to taste at the end
+	1 1/4 teaspoon ground turmeric
+
+[Fixins]
+	salsa
+	shredded cheese OR yogurt
+	green onions
+
+Instructions:
+	Cube and bake the potato
+	Chop and sautee: onion, bell pepper, anaheim
+	Once softened, mix in crumbled tofu and add spices
+	When potatoes are done, mix them into the tofu
+	Use the Toaster oven to soften the large tortillas
+	Put each one on a plate, fill with mixture and fixins.
+	Roll & top with salsa.
+
