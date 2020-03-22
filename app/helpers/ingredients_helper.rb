@@ -2,11 +2,17 @@
 
 module IngredientsHelper
   def ingredient_display(ingredient)
-    [
+    display_name = [
       qty_display(ingredient),
       ingredient.measurement_unit,
       ingredient.name,
     ].join(' ')
+
+    if ingredient.preparation_style.present?
+      "#{display_name}: #{ingredient.preparation_style}"
+    else
+      display_name
+    end
   end
 
   def detail_display(detail)
