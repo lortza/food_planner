@@ -1,0 +1,23 @@
+Title: Big Salad
+Description: An awesome pile of raw vegetables and herbs with a little fruit just for fun
+Source: Anne's Imagination
+Original URL: 
+Yield: 1
+Active: 
+Total: 
+Categories: salad, raw
+Image: https://cdn2.pepperplate.com/recipes/cf4628c1586248c2af6e32ff69522121.jpg
+Ingredients:
+	1 Cup Lettuce, Chopped
+	1/4 Bell Pepper, Chopped
+	1/2 Medium Tomato, Diced
+	1/4 Carrot, Chopped
+	1/8 Orange, Chopped
+	1/8 Cucumber, Sliced
+	1/8 Chayote, Sliced
+	1 Sprig Cilantro, Torn
+	2 Leaf Basil, Torn
+
+Instructions:
+	Pile it all on a plate and enjoy
+

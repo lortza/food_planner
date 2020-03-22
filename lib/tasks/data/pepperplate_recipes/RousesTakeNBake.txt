@@ -1,0 +1,19 @@
+Title: Rouses Take N Bake
+Description: We figured out the magic preparation, here it is...
+Source: 
+Original URL: 
+Yield: 8 large pieces
+Active: 
+Total: 1 hr
+Image: https://cdn2.pepperplate.com/recipes/b9073307bd814da790a48a3b3106df3d.jpg
+Ingredients:
+	tomato
+	olives
+	bell pepper
+	onion
+
+Instructions:
+	oven rack
+	temp
+	thin slices
+

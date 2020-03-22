@@ -1,0 +1,26 @@
+Title: Pico De Gallo
+Description: 
+Source: Anne's Imagination
+Original URL: 
+Yield: 1
+Active: 10 min
+Total: 10 min
+Categories: snack, mexican
+Image: https://cdn2.pepperplate.com/recipes/8a37d3f64ce340d6809fe1260706289b.jpg
+Ingredients:
+	1 large tomato
+	1/2 small onion
+	1 clove garlic
+	1/2 tsp salt
+	1 jalapeño
+	2 sprigs fresh cilantro
+
+Instructions:
+	Try a small piece of the jalapeño. Depending on its heat, include as much as you'd like, finely diced.
+	Finely chop the onion and tomato.
+	Finely mince the garlic.
+	Chop the cilantro leaves into tiny pieces.
+	Mix all ingredients together in a bowl.
+	Let it sit for 20 minutes.
+	Enjoy with tortilla chips.
+
