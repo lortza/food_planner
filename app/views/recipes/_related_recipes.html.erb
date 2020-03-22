@@ -1,8 +1,10 @@
-<h5 class='mt-3'>Related Recipes</h5>
-<%= form_tag(recipes_path, :method => "get", id: 'search-form', class: 'form-inline' ) do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Add a Related Recipe", class: 'form-control form-control-sm mr-3 w-75' %>
-  <i class="fas fa-search" aria-hidden="true"></i>
-<% end %>
-<ul>
-  <li><%= link_to 'TBD Recipe', '#' %></li>
-</ul>
+<template class='.d-sm-none .d-md-block'>
+  <h5 class='mt-3'>Related Recipes</h5>
+  <%= form_tag(recipes_path, :method => "get", id: 'search-form', class: 'form-inline' ) do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Add a Related Recipe", class: 'form-control form-control-sm mr-3 w-75' %>
+    <i class="fas fa-search" aria-hidden="true"></i>
+  <% end %>
+  <ul>
+    <li><%= link_to 'TBD Recipe', '#' %></li>
+  </ul>
+</template>
