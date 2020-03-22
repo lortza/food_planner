@@ -18,9 +18,9 @@
 </div><!-- row -->
 
 <div class='row'>
-  <div class='col-8'>
+  <div class='col-md-8 col-sm-12'>
     <div class='row'>
-      <div class='col-6'>
+      <div class='col-md-6 col-sm-12'>
         <h5>Stats</h5>
         <ul>
           <li>Servings: <%= @recipe.servings %></li>
@@ -35,7 +35,7 @@
         </ul>
       </div> <!-- col-6 -->
 
-      <div class='col-6'>
+      <div class='col-md-6 col-sm-12'>
         <% if current_user.present? %>
           <%= render partial: 'related_meal_plans', locals: {recipe: @recipe} %>
         <% end %>
@@ -49,25 +49,18 @@
         <h3>Ingredients</h3>
         <ul>
           <% @recipe.ingredients.by_id.each do |ingredient| %>
-          <li>
-            <div class="row">
-              <div class="col-sm">
-                <%= ingredient_display(ingredient) %>
-              </div>
-              <div class="col-sm">
-                <%= ingredient.preparation_style %>
-              </div>
-            </div> <!-- row -->
-          </li>
+            <li><%= ingredient_display(ingredient) %></li>
           <% end %>
         </ul>
       </div> <!-- col-12 -->
     </div> <!-- row -->
   </div> <!-- col-8 -->
 
-  <div class='col-4'>
+  <div class='col-md-4 col-sm-12'>
     <div class='image-container mb-3'>
-      <%= image_tag @recipe.image_url, {class: 'image'} %>
+      <%#= image_tag @recipe.image_url, { class: 'image' } %>
+      <%= image_tag guaranteed_image(@recipe), { class: 'image' } %>
+
     </div>
     <% if current_user.present? %>
       <%= render partial: 'shared/add_to_shopping_list_dropdown', locals: { ingredient_ids: recipe_ingredient_ids(@recipe) } %>

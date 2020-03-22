@@ -5,8 +5,14 @@ require 'rails_helper'
 RSpec.describe IngredientsHelper, type: :helper do
   describe 'ingredient_display' do
     it "displays an ingredient's qty unit and name" do
-      ingredient = build(:ingredient)
+      ingredient = build(:ingredient, preparation_style: nil)
       display_output = "#{ingredient.quantity} #{ingredient.measurement_unit} #{ingredient.name}"
+      expect(helper.ingredient_display(ingredient)).to eq(display_output)
+    end
+
+    it "if present, displays the preparation_style" do
+      ingredient = build(:ingredient, preparation_style: 'styled')
+      display_output = "#{ingredient.quantity} #{ingredient.measurement_unit} #{ingredient.name}: #{ingredient.preparation_style}"
       expect(helper.ingredient_display(ingredient)).to eq(display_output)
     end
   end
