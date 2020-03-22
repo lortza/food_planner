@@ -1,0 +1,25 @@
+Title: Mushroom Tacos
+Description: As inspired by the blue corn street tacos in Baja
+Source: Anne's Imagination
+Original URL: 
+Yield: 
+Active: 
+Total: 30 min
+Categories: mexican, mushroom
+Image: https://cdn2.pepperplate.com/recipes/28934d6410fb48afa2dcd93863fea27c.jpg
+Ingredients:
+	mushrooms
+	onion
+	garlic
+	corn tortilla
+	cheese
+	salsa
+	lettuce
+
+Instructions:
+	sautee mushrooms, onions, garlic
+	heat corn tortillas
+	melt cheese on tortillas
+	stuff tortillas with veg + lettuce
+	thib up as necessary
+

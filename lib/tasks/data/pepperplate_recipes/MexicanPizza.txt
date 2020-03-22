@@ -1,0 +1,25 @@
+Title: Mexican Pizza
+Description: We had a pizza like this when we lived in Todos Santos. Damn it's good!
+Source: 
+Original URL: 
+Yield: 
+Active: 
+Total: 
+Categories: pizza
+Image: https://cdn2.pepperplate.com/recipes/d5722863159d415989243ddb2e8b35cf.jpg
+Ingredients:
+	1 large boboli crust
+	1 can amy's refried beans
+	1 bag shredded mexican cheese
+	1 tomato
+	1 jalapeno
+
+Instructions:
+	Follow instructions on Boboli
+	OR
+	preheat oven to 425F
+	coat boboli with nearly all of the beans
+	cover with cheese
+	top with tomato slices and jalapeno slices
+	bake for 10 min or so
+

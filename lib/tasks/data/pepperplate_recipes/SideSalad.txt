@@ -1,0 +1,19 @@
+Title: Side Salad
+Description: A smaller version of Big Salad, to accompany another dish
+Source: Anne's Imagination
+Original URL: 
+Yield: 1
+Active: 
+Total: 
+Categories: salad, raw
+Image: https://cdn2.pepperplate.com/recipes/b54298cb534446d2b99e4bf6f8cc155c.jpg
+Ingredients:
+	1/2 Cup Lettuce Chopped
+	1/8 Red Bell Pepper
+	1/4 Small Tomato Cubed
+	1 Leaf Fresh Basil Torn
+	1 Sprig Fresh Cilantro Torn
+
+Instructions:
+	Pile is all on the side of a plate and serve with another meal.
+

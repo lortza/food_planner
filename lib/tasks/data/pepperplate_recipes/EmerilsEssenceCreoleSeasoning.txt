@@ -1,0 +1,21 @@
+Title: Emeril's Essence Creole Seasoning
+Description: makes 2/3 cup
+Source: Food Network
+Original URL: http://www.foodnetwork.com/recipes/emeril-lagasse/sausage-chili-recipe/index.html
+Yield: 
+Active: 5
+Total: 5
+Categories: spice
+Ingredients:
+	2 1/2 tablespoons paprika
+	2 tablespoons salt
+	2 tablespoons garlic powder
+	1 tablespoon black pepper
+	1 tablespoon onion powder
+	1 tablespoon cayenne pepper
+	1 tablespoon dried leaf oregano
+	1 tablespoon dried thyme
+
+Instructions:
+	mix together.
+
