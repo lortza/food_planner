@@ -2,18 +2,16 @@
 
 <div class="row">
   <div class="col-11">
-    <h1><%= @recipe.title %> <small><%= extra_work_flag(@recipe) %></small></h1>
+    <h1><%= @recipe.title %> <small><%= extra_work_flag(@recipe) if current_user.present? %></small></h1>
     <p>
       Source: <%= link_to @recipe.source_name, @recipe.source_url, title: @recipe.source_name, target: '_blank' %>
-      <% unless @recipe.pepperplate_url.blank? %>
+      <% unless @recipe.pepperplate_url.blank? || !current_user&.admin? %>
        | <%= link_to 'Pepperplate', @recipe.pepperplate_url, title: 'pepperplate', target: '_blank' %>
       <% end %>
     </p>
   </div>
   <div class="col-1">
-    <% if current_user.present? %>
-      <div class="right"><%= link_to 'Edit', edit_recipe_path(@recipe), class: button_classes %></div>
-    <% end %>
+    <div class="right"><%= link_to 'Edit', edit_recipe_path(@recipe), class: button_classes if policy(@recipe).update? %></div>
   </div>
 </div><!-- row -->
 
@@ -36,9 +34,7 @@
       </div> <!-- col-6 -->
 
       <div class='col-md-6 col-sm-12'>
-        <% if current_user.present? %>
-          <%= render partial: 'related_meal_plans', locals: {recipe: @recipe} %>
-        <% end %>
+        <%= render partial: 'related_meal_plans', locals: {recipe: @recipe} if policy(@recipe).update? %>
       </div> <!-- col-6 -->
     </div> <!-- row -->
 
@@ -62,7 +58,7 @@
       <%= image_tag guaranteed_image(@recipe), { class: 'image' } %>
 
     </div>
-    <% if current_user.present? %>
+    <% if policy(@recipe).update? %>
       <%= render partial: 'shared/add_to_shopping_list_dropdown', locals: { ingredient_ids: recipe_ingredient_ids(@recipe) } %>
       <%= render partial: 'copy_for_user_form', locals: { recipe: @recipe } %>
       <%= render partial: 'related_recipes', locals: {recipe: @recipe} %>

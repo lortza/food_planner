@@ -1,18 +1,33 @@
 # frozen_string_literal: true
 
 class RecipePolicy < ApplicationPolicy
-  def show?
-    # allow only if the current_user on their own timeline
-    record.user_id == user.id
+
+  class Scope < Scope
+    def resolve
+      scope.where(user_id: user.id)
+    end
   end
 
   def create?
-    # allow only if the current_user on their own timeline
-    record.user_id == user.id
+    user_is_owner_of_record_or_admin?
+  end
+
+  def edit?
+    user_is_owner_of_record_or_admin?
+  end
+
+  def update?
+    user_is_owner_of_record_or_admin?
   end
 
   def destroy?
-    # allow only if the current_user on their own timeline
-    record.user_id == user.id
+    user_is_owner_of_record_or_admin?
+  end
+
+  private
+
+  def user_is_owner_of_record_or_admin?
+    # only allow action to run if the current_user on their own recipe
+    (record.user_id == user&.id) || user&.admin?
   end
 end

@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 class RecipesController < ApplicationController
-  before_action :authenticate_user!, except: :show
+  before_action :authenticate_user!, except: [:show]
   before_action :set_recipe, only: %i[show edit update destroy copy_for_user]
 
   def index
-    user_recipes = current_user.recipes
+    recipes = policy_scope(Recipe)
     search_term = params[:search]
-    recipes = search_term.present? ? user_recipes.search(field: 'title', terms: search_term) : user_recipes.active
+    recipes = search_term.present? ? recipes.search(field: 'title', terms: search_term) : recipes.active
 
     @recipes = recipes.includes(:meal_plans, :meal_plan_recipes)
                       .by_last_prepared
@@ -20,10 +20,14 @@ class RecipesController < ApplicationController
   def new
     @recipe = current_user.recipes.new
     15.times { @recipe.ingredients.build(quantity: nil) }
+
+    authorize(@recipe)
   end
 
   def create
     @recipe = current_user.recipes.new(recipe_params)
+    authorize(@recipe)
+
     if @recipe.save
       experimental_recipe_id = recipe_params[:experimental_recipe_id]
 
@@ -38,10 +42,14 @@ class RecipesController < ApplicationController
   end
 
   def edit
+    authorize(@recipe)
+
     3.times { @recipe.ingredients.build(quantity: nil) }
   end
 
   def update
+    authorize(@recipe)
+
     if @recipe.update(recipe_params)
       redirect_to recipe_url(@recipe), notice: 'Recipe Updated'
     else
@@ -50,14 +58,16 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    Recipe.find(params[:id]).destroy
+    authorize(@recipe)
+
+    @recipe.destroy
     flash[:success] = 'Recipe deleted'
     redirect_to recipes_path
   end
 
   def convert_from_experimental
     experimental_recipe = current_user.experimental_recipes.find(params[:experimental_recipe_id])
-    @recipe = Recipe.new(
+    @recipe = current_user.recipes.new(
       title: experimental_recipe.title,
       source_name: URI.parse(experimental_recipe.source_url).host.gsub('www.', ''),
       source_url: experimental_recipe.source_url,
