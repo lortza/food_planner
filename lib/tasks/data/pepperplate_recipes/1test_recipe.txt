@@ -1,5 +1,7 @@
-Title: 7 Vegetable and "Cheese" Soup
-Description: Silky smooth and bursting with 7 healthy vegetables, this soup will keep you feeling great all fall and winter long! The nutritional yeast gives this soup a "cheese-like" flavour and simple spices allow the flavours of the vegetables to shine. The beauty of making a puréed soup is that you don't have to fuss over chopping the vegetables with great precision since they’ll be blended anyways; this results in a faster prep. To give the soup some texture, try topping it with my easy Pan-Fried Garlic Croutons and toasted pepita seeds.
+Title: Vegetable and Cheese Soup
+Description: Description line 1.
+Description line 2.
+Description line 3.
 Source: Oh She Glows
 Original URL: http://ohsheglows.com/2013/09/25/luxurious-7-vegetable-and-cheese-soup/
 Yield: 10 cups
