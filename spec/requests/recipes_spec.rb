@@ -57,6 +57,13 @@ RSpec.describe 'Recipes', type: :request do
       sign_in user
     end
 
+    it 'renders recipes#show' do
+      get recipe_path(recipe.id)
+
+      expect(response).to be_successful
+      expect(response).to have_http_status(200)
+    end
+
     it 'renders recipes#new' do
       get new_recipe_path
 
@@ -112,14 +119,14 @@ RSpec.describe 'Recipes', type: :request do
       expect(response).to have_http_status(200)
     end
 
-    it 'renders recipes#edit' do
+    it 'denies access to recipes#edit' do
       get edit_recipe_path(others_recipe.id)
 
       expect(response).to_not be_successful
       expect(response).to redirect_to root_url
     end
 
-    it 'renders recipes#update' do
+    it 'denies access to recipes#update' do
       new_title = 'completely different title'
       patch recipe_path(others_recipe, recipe: { title: new_title })
 
@@ -127,7 +134,7 @@ RSpec.describe 'Recipes', type: :request do
       expect(response).to redirect_to root_url
     end
 
-    it 'renders recipes#destroy' do
+    it 'denies access to recipes#destroy' do
       delete recipe_path(others_recipe)
 
       expect(response).to_not be_successful
