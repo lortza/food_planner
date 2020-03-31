@@ -13,6 +13,8 @@ class AislesController < ApplicationController
 
   def create
     @aisle = current_user.aisles.new(aisle_params)
+    authorize(@aisle)
+
     if @aisle.save
       redirect_to aisles_url
     else
@@ -21,9 +23,12 @@ class AislesController < ApplicationController
   end
 
   def edit
+    authorize(@aisle)
   end
 
   def update
+    authorize(@aisle)
+
     if @aisle.update(aisle_params)
       redirect_to aisles_url
     else
@@ -32,7 +37,10 @@ class AislesController < ApplicationController
   end
 
   def destroy
-    Aisle.find(params[:id]).destroy
+    aisle = Aisle.find(params[:id])
+    authorize(aisle)
+
+    aisle.destroy
     flash[:success] = 'Aisle deleted'
     redirect_to aisles_path
   end
