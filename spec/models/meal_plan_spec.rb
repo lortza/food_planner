@@ -19,6 +19,11 @@ RSpec.describe MealPlan, type: :model do
 
     it { should validate_presence_of(:start_date) }
     it { should validate_presence_of(:people_served) }
+
+    it 'has a unique start_date scoped to user' do
+      create(:meal_plan)
+      should validate_uniqueness_of(:start_date).scoped_to(:user_id)
+    end
   end
 
   describe 'self.most_recent_first' do
