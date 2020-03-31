@@ -84,6 +84,11 @@ RSpec.describe MealPlan, type: :model do
         meal_plan.save
       end
       expect(meal_plan.total_servings).to eq(standard_servings * qty_recipes)
+      expect(meal_plan.total_servings).to eq(standard_servings * qty_recipes)
+    end
+
+    it 'returns zero if there are no recipes' do
+      expect(meal_plan.total_servings).to eq(0)
     end
   end
 
@@ -98,6 +103,10 @@ RSpec.describe MealPlan, type: :model do
       end
       expect(meal_plan.total_prep_time).to eq(standard_prep_time * qty_recipes)
     end
+
+    it 'returns zero if there are no recipes' do
+      expect(meal_plan.total_prep_time).to eq(0)
+    end
   end
 
   describe '#total_cook_time' do
@@ -111,6 +120,10 @@ RSpec.describe MealPlan, type: :model do
       end
 
       expect(meal_plan.total_cook_time).to eq(standard_cook_time * qty_recipes)
+    end
+
+    it 'returns zero if there are no recipes' do
+      expect(meal_plan.total_cook_time).to eq(0)
     end
   end
 
@@ -174,6 +187,10 @@ RSpec.describe MealPlan, type: :model do
         meal_plan.save
       end
       expect(meal_plan.meals).to eq(expected_qty)
+    end
+
+    it 'returns zero if there are no recipes' do
+      expect(meal_plan.meals).to eq(0)
     end
   end
 
