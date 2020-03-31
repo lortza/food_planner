@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Recipes Show page viewable by user role' do
+RSpec.feature 'Recipes Show page viewable by user role', type: :feature do
   let!(:author) { create(:user) }
   let!(:other_user) { create(:user) }
   let!(:author_recipe) { create(:recipe, user: author) }
@@ -11,10 +11,6 @@ feature 'Recipes Show page viewable by user role' do
   let!(:other_user_meal_plan_recipe) { create(:meal_plan_recipe, meal_plan: other_user_meal_plan) }
 
   describe 'recipes viewable without authentication and by non-authors' do
-    let!(:author) { create(:user) }
-    let!(:other_user) { create(:user) }
-    let!(:author_recipe) { create(:recipe, user: author) }
-
     before do
       visit '/users/sign_in'
       within('#new_user') do
