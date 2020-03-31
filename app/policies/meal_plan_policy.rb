@@ -1,11 +1,15 @@
 # frozen_string_literal: true
 
-class RecipePolicy < ApplicationPolicy
+class MealPlanPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
       scope.where(user_id: user.id)
     end
+  end
+
+  def show?
+    user_is_owner_of_record_or_admin?
   end
 
   def create?

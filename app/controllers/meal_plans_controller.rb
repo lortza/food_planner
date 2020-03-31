@@ -11,6 +11,8 @@ class MealPlansController < ApplicationController
   end
 
   def show
+    authorize(@meal_plan)
+
     @ingredient_set = IngredientSet.build_set(@meal_plan)
   end
 
@@ -20,6 +22,7 @@ class MealPlansController < ApplicationController
       start_date: MealPlan.date_for_upcoming_sunday
     }
     @meal_plan = current_user.meal_plans.new(default_params)
+    authorize(@meal_plan)
   end
 
   def copy
@@ -34,6 +37,8 @@ class MealPlansController < ApplicationController
 
   def create
     @meal_plan = current_user.meal_plans.new(meal_plan_params)
+    authorize(@meal_plan)
+
     if @meal_plan.save
       redirect_to meal_plan_url(@meal_plan)
     else
@@ -42,9 +47,12 @@ class MealPlansController < ApplicationController
   end
 
   def edit
+    authorize(@meal_plan)
   end
 
   def update
+    authorize(@meal_plan)
+
     if @meal_plan.update(meal_plan_params)
       redirect_to meal_plan_url(@meal_plan), notice: "#{@meal_plan.start_date} Meal Plan Updated"
     else
@@ -53,8 +61,11 @@ class MealPlansController < ApplicationController
   end
 
   def destroy
-    MealPlan.find(params[:id]).destroy
-    flash[:success] = "#{@meal_plan.start_date} Meal Plan deleted"
+    meal_plan = MealPlan.find(params[:id])
+    authorize(meal_plan)
+
+    meal_plan.destroy
+    flash[:success] = "#{meal_plan.start_date} Meal Plan deleted"
     redirect_to meal_plans_path
   end
 

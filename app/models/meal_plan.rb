@@ -6,7 +6,10 @@ class MealPlan < ApplicationRecord
   has_many :recipes, through: :meal_plan_recipes
   has_many :ingredients, through: :recipes
 
-  validates :start_date, :people_served, presence: true
+  validates :people_served, presence: true
+  validates :start_date,
+            presence: true,
+            uniqueness: { scope: :user_id }
 
   PREP_END_TIME = Time.zone.parse('5:00 PM')
   EFFICIENCY_RATE = 0.66
@@ -30,15 +33,15 @@ class MealPlan < ApplicationRecord
   end
 
   def total_servings
-    recipes.pluck(:servings).reduce(:+)
+    recipes.pluck(:servings).reduce(:+) || 0
   end
 
   def total_prep_time
-    recipes.pluck(:prep_time).reduce(:+)
+    recipes.pluck(:prep_time).reduce(:+) || 0
   end
 
   def total_cook_time
-    recipes.pluck(:cook_time).reduce(:+)
+    recipes.pluck(:cook_time).reduce(:+) || 0
   end
 
   def total_time

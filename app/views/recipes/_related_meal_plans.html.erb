@@ -1,3 +1,4 @@
+<% if current_user.meal_plans.any? %>
 <h5>Related Meal Plans</h5>
 <% if available_meal_plans_dropdown(current_user, recipe).any? %>
   <small>Add to Upcoming Plans:</small>
@@ -9,3 +10,4 @@
     <li><%= link_to "#{l plan.start_date, format: :month_as_text}", plan %></li>
   <% end %>
 </ul>
+<% end %>

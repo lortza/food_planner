@@ -9,6 +9,8 @@ class ShoppingListsController < ApplicationController
   end
 
   def show
+    authorize(@shopping_list)
+
     @shopping_list_item = @shopping_list.shopping_list_items.new(quantity: 1)
   end
 
@@ -19,6 +21,8 @@ class ShoppingListsController < ApplicationController
 
   def create
     @shopping_list = current_user.shopping_lists.new(shopping_list_params)
+    authorize(@shopping_list)
+
     if @shopping_list.save
       redirect_to shopping_list_url(@shopping_list)
     else
@@ -27,9 +31,12 @@ class ShoppingListsController < ApplicationController
   end
 
   def edit
+    authorize(@shopping_list)
   end
 
   def update
+    authorize(@shopping_list)
+
     if @shopping_list.update(shopping_list_params)
       redirect_to shopping_list_url(@shopping_list), notice: 'ShoppingList Updated'
     else
@@ -39,6 +46,8 @@ class ShoppingListsController < ApplicationController
 
   def destroy
     list = ShoppingList.find(params[:id])
+    authorize(list)
+
     if list.deletable?
       list.destroy
       redirect_to shopping_lists_url, success: 'ShoppingList Deleted'

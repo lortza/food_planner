@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class RecipePolicy < ApplicationPolicy
+class AislePolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
