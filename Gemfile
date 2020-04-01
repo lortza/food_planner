@@ -31,6 +31,7 @@ group :development do
   gem 'rubycritic', require: false  # provides stats on code build
   gem 'rubocop-performance'
   gem 'rubocop-rails'
+  gem 'seed_dump' # invoke with `rake db:seed:dump`
   gem 'scss_lint', require: false # css linter
   # Spring speeds up development by keeping your application running
   # in the background. Read more: https://github.com/rails/spring
