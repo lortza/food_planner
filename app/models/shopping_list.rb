@@ -2,6 +2,7 @@
 
 class ShoppingList < ApplicationRecord
   extend Searchable
+  DEFAULT_NAME = 'grocery'
 
   belongs_to :user
   has_many :shopping_list_items, dependent: :destroy
@@ -11,8 +12,7 @@ class ShoppingList < ApplicationRecord
             presence: true
 
   def self.default
-    default_name = 'grocery'
-    where(main: true).first_or_create(name: default_name)
+    where(main: true).first
   end
 
   def self.by_favorite
