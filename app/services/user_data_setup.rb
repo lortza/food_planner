@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# Great explanation on non-model callback options:
+# http://blog.mohamad.im/2015/09/20/four-alternatives-to-using-activerecord-callbacks-and-observers.html
+
 class UserDataSetup
   class << self
     def setup(user)
