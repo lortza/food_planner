@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
+RSpec.describe UserDataSetup, type: :service do
   let(:user) { create(:user) }
 
   describe 'self.setup' do
@@ -21,7 +21,7 @@ RSpec.describe User, type: :model do
     it 'populates default aisles' do
       aisle_count_before = user.aisles.count
       expect(aisle_count_before).to eq(0)
-      
+
       UserDataSetup.setup(user)
       user.reload
       aisle_count_after = user.aisles.count

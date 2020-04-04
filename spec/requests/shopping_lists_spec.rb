@@ -67,9 +67,11 @@ RSpec.describe 'ShoppingLists', type: :request do
 
   describe 'Authenticated access to own shopping_lists' do
     let(:user) { create(:user) }
+    let(:user_shopping_list_default) { create(:shopping_list, main: true, user: user) }
     let(:user_shopping_list) { create(:shopping_list, user: user) }
 
     before :each do
+      user_shopping_list_default
       user_shopping_list
       sign_in(user)
     end
