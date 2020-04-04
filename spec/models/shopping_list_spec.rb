@@ -29,11 +29,6 @@ RSpec.describe ShoppingList, type: :model do
 
       expect(returned_list).to eq(existing_list)
     end
-
-    it 'creates a new list called "grocery" for the user if one does not exist' do
-      returned_list = user.shopping_lists.default
-      expect(returned_list.name).to eq('grocery')
-    end
   end
 
   describe '.by_favorite' do

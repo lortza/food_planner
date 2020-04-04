@@ -47,6 +47,8 @@ module ApplicationHelper
   end
 
   def display_list_and_count
+    return '' unless current_user.shopping_lists.any?
+
     list = current_user.shopping_lists.default
     item_count = list.shopping_list_items.not_purchased.count
 

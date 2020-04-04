@@ -12,16 +12,7 @@ class User < ApplicationRecord
   has_many :shopping_lists, dependent: :destroy
   has_many :aisles, dependent: :destroy
 
-  after_create :populate_defaults
-
   def favorite_list
     shopping_lists.find_by(favorite: true)
-  end
-
-  private
-
-  def populate_defaults
-    UserSetup.populate_shopping_lists(self)
-    UserSetup.populate_aisles(self)
   end
 end
