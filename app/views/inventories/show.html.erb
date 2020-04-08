@@ -1,0 +1,9 @@
+<% content_for(:title, 'Inventory') %>
+
+
+<%= link_to 'Edit Items', edit_inventory_path(@inventory), class: button_classes('outline-primary float-right') %>
+<h1>Inventory</h1>
+<p>Make a list of the foods you currently have in the house. Enter each item on its own line.</p>
+<%= simple_format(@inventory.items, {}, wrapper_tag: 'p') %>
+
+<%= link_to 'Suggest Recipes', inventory_recipe_suggestions_path(@inventory), class: button_classes('outline-info mt-5') %>

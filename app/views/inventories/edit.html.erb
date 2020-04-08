@@ -1,0 +1,21 @@
+<%= link_to 'Cancel', @inventory, class: button_classes('outline-secondary float-right') %>
+
+<h1>Editing Inventory</h1>
+<div class="recipe-form">
+  <%= form_for(@inventory) do |form| %>
+  <%= render 'shared/errors', object: @inventory %>
+
+
+  <div class="col-lg-6 col-md-12">
+    <div class="field">
+      <%= form.label 'List Inventory Items' %>
+      <%= form.text_area :items, class: 'form-control instructions' %>
+    </div>
+  </div>
+
+
+</div><!-- row -->
+
+<%= form.submit class: button_classes('outline-success mt-3') %>
+
+<% end %>
