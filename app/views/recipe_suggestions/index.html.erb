@@ -1,18 +1,22 @@
 <% content_for(:title, 'Recipe Suggestions') %>
 
-<%= link_to 'Edit Inventory', edit_inventory_path(@inventory), class: button_classes('primary float-right') %>
+<%= link_to 'Edit Inventory', edit_inventory_path(@inventory), class: button_classes('outline-primary float-right') %>
 <h1>Recipe Suggestions</h1>
 <p>Here are your recipes with some of the ingredients you have in your inventory.</p>
 
-<% @suggestions.each do |ingredient_name, recipes| %>
-  <h5><%= ingredient_name %></h5>
-  <ul>
-    <% if recipes.any? %>
-      <% recipes.each do |recipe| %>
-        <li><%= link_to recipe.title, recipe_path(recipe) %></li>
-      <% end %>
-  <% else %>
-    <li>no recipe matches</li>
+<% if @suggestions.any? %>
+  <% @suggestions.each do |ingredient_name, recipes| %>
+    <h5><%= ingredient_name %></h5>
+    <ul>
+      <% if recipes.any? %>
+        <% recipes.each do |recipe| %>
+          <li><%= link_to recipe.title, recipe_path(recipe) %></li>
+        <% end %>
+    <% else %>
+      <li>no recipe matches</li>
+    <% end %>
+  </ul>
   <% end %>
-</ul>
+<% else %>
+  <%= link_to 'Add some items to your inventory to generate suggestions', edit_inventory_path(@inventory) %>
 <% end %>

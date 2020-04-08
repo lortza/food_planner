@@ -1,10 +1,12 @@
-class RecipeSuggestion
+class InventoryItemSet
+  attr_reader :user
+
   def initialize(inventory)
     @inventory_items = inventory.items
     @user = inventory.user
   end
 
-  def suggest
+  def suggest_recipes
     items = strip_items_list(@inventory_items)
     suggestions = {}
 
