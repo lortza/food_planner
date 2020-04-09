@@ -7,6 +7,7 @@
     <div class='dropdown-divider'></div>
     <%= link_to 'My Recipes', recipes_path, class: 'dropdown-item' %>
     <%= link_to 'Recipes to Try', experimental_recipes_path, class: 'dropdown-item' %>
+    <%= link_to 'Recipe Suggestions', inventory_recipe_suggestions_path(current_user.inventory), class: 'dropdown-item' if current_user.inventory.present? %>
   </div>
 </li>
 
@@ -30,5 +31,6 @@
     <%= link_to 'Shopping lists', shopping_lists_path, class: 'dropdown-item' %>
     <%= render partial: 'shared/navbar/favorite_shopping_list' %>
     <%= link_to 'Aisles', aisles_path, class: 'dropdown-item' %>
+    <%= link_to 'Inventory', edit_inventory_path(current_user.inventory.id), class: 'dropdown-item' if current_user.inventory.present? %>
   </div>
 </li>

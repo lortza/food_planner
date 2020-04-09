@@ -1,0 +1,14 @@
+<h1>Your Inventory</h1>
+<div class="recipe-form">
+  <%= form_for(@inventory) do |form| %>
+    <%= render 'shared/errors', object: @inventory %>
+    <div class="col-lg-6 col-md-12">
+      <div class="field">
+        <h5>Make a list of the foods you currently have in the house.</h5>
+        <p>List each item on its own line and in the singular form. Ex: "apple" not "apples"</p>
+        <%= form.text_area :items, class: 'form-control instructions' %>
+      </div>
+    </div>
+  </div>
+  <%= form.submit 'Generate Recipe Suggestions', class: button_classes('outline-info mt-3') %>
+<% end %>

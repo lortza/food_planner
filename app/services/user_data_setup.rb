@@ -6,17 +6,22 @@
 class UserDataSetup
   class << self
     def setup(user)
-      populate_shopping_lists(user)
+      create_default_shopping_list(user)
       populate_aisles(user)
+      create_default_inventory(user)
     end
 
     private
 
-    def populate_shopping_lists(user)
+    def create_default_shopping_list(user)
       user.shopping_lists.find_or_create_by!(name: ShoppingList::DEFAULT_NAME) do |list|
         list.main = true
         list.save
       end
+    end
+
+    def create_default_inventory(user)
+      user.inventories.first_or_create!
     end
 
     def populate_aisles(user)
