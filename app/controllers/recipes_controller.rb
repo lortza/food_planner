@@ -107,7 +107,6 @@ class RecipesController < ApplicationController
                                    :image_url,
                                    :instructions,
                                    :notes,
-                                   :pepperplate_url,
                                    :prep_day_instructions,
                                    :prep_time,
                                    :reheat_instructions,

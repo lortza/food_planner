@@ -21,7 +21,7 @@ class UserDataSetup
     end
 
     def create_default_inventory(user)
-      user.inventories.first_or_create!
+      user.inventories.first_or_create!(items: '')
     end
 
     def populate_aisles(user)

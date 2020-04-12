@@ -5,9 +5,6 @@
     <h1><%= @recipe.title %> <small><%= extra_work_flag(@recipe) if current_user.present? %></small></h1>
     <p>
       Source: <%= link_to @recipe.source_name, @recipe.source_url, title: @recipe.source_name, target: '_blank' %>
-      <% unless @recipe.pepperplate_url.blank? || !current_user&.admin? %>
-       | <%= link_to 'Pepperplate', @recipe.pepperplate_url, title: 'pepperplate', target: '_blank' %>
-      <% end %>
     </p>
   </div>
   <div class="col-1">
