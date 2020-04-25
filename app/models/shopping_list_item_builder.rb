@@ -26,14 +26,16 @@ class ShoppingListItemBuilder
         aisle_id: unassigned_aisle.id,
         quantity: incoming_quantity,
         name: ingredient.measurement_and_name,
-        purchased: false
+        purchased: false,
+        status: 'active'
       )
-    elsif item_on_list.purchased?
+    elsif item_on_list.purchased? # item on list is inactive
       item_on_list.update!(
         quantity: incoming_quantity,
-        purchased: false
+        purchased: false,
+        status: 'active'
       )
-    else
+    else # if item on list is active
       item_on_list.quantity += incoming_quantity
       item_on_list.save
     end

@@ -68,6 +68,7 @@ ShoppingListItem.create!(
       aisle: user.aisles.sample,
       quantity: [1, 2].sample,
       name: name
+      status: ['active', 'inactive'].sample
     }
   end
 )
