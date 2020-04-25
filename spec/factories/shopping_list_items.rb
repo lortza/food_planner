@@ -6,7 +6,8 @@ FactoryBot.define do
     aisle_id { create(:aisle).id }
     sequence(:name) { |n| "List Item Name #{n}" }
     quantity { 1 }
-    purchased { false }
     heb_upc { '1234' }
+    status { 'active' }
+    purchased { false }
   end
 end
