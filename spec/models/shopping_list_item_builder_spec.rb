@@ -49,6 +49,7 @@ RSpec.describe ShoppingListItemBuilder, type: :model do
         item = shopping_list.items.last
 
         expect(item.purchased).to eq(false)
+        expect(item.active?).to eq(true)
       end
 
       it 'assigns the list item to the "Unassigned" aisle' do
@@ -114,7 +115,7 @@ RSpec.describe ShoppingListItemBuilder, type: :model do
           expect(item.quantity).to eq(1)
 
           # cross off the item
-          item.update!(purchased: true)
+          item.update!(purchased: true, status: 'inactive')
           item.reload
 
           # add the item for the second time
@@ -132,14 +133,14 @@ RSpec.describe ShoppingListItemBuilder, type: :model do
           expect(item.quantity).to eq(1)
 
           # cross off the item
-          item.update!(purchased: true)
+          item.update!(purchased: true, status: 'inactive')
           item.reload
 
           # add the item for the second time
           builder.add_items_to_list
           item.reload
 
-          expect(item.purchased).to eq(false)
+          expect(item.active?).to eq(true)
         end
       end
     end

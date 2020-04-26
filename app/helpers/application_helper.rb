@@ -50,7 +50,7 @@ module ApplicationHelper
     return '' unless current_user.shopping_lists.any?
 
     list = current_user.shopping_lists.default
-    item_count = list.shopping_list_items.not_purchased.count
+    item_count = list.shopping_list_items.active.count
 
     link_to "#{list.name.titleize}: #{item_count}", shopping_list_path(list), class: 'nav-link'
   end

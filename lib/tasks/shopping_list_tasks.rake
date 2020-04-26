@@ -104,16 +104,18 @@ namespace :shopping_list do
   #     if grocery_list.items.map(&:name).include?(incoming_item.name)
   #       existing_item = grocery_list.items.find_by(name: incoming_item.name)
   #       updated_quantity = existing_item.quantity + incoming_item.quantity
-  #       updated_quantity = incoming_item.quantity if existing_item.purchased?
+  #       updated_quantity = incoming_item.quantity if existing_item.inactive?
   #
   #       existing_item.quantity = updated_quantity
   #       existing_item.purchased = false
+  #       existing_item.status = 'active'
   #       existing_item.recurrence_frequency = 'weekly'
   #       existing_item.recurrence_quantity = existing_item.quantity
   #       existing_item.save
   #
   #     else
   #       incoming_item.purchased = false
+  #       incoming_item.status = 'active'
   #       incoming_item.recurrence_frequency = 'weekly'
   #       incoming_item.recurrence_quantity = incoming_item.quantity
   #       incoming_item.save
@@ -129,16 +131,18 @@ namespace :shopping_list do
   #     if grocery_list.items.map(&:name).include?(incoming_item.name)
   #       existing_item = grocery_list.items.find_by(name: incoming_item.name)
   #       updated_quantity = existing_item.quantity + incoming_item.quantity
-  #       updated_quantity = incoming_item.quantity if existing_item.purchased?
+  #       updated_quantity = incoming_item.quantity if existing_item.inactive?
   #
   #       existing_item.quantity = updated_quantity
   #       existing_item.purchased = false
+  #       existing_item.status = 'active'
   #       existing_item.recurrence_frequency = 'monthly'
   #       existing_item.recurrence_quantity = existing_item.quantity
   #       existing_item.save
   #
   #     else
   #       incoming_item.purchased = false
+  #       incoming_item.status = 'active'
   #       incoming_item.recurrence_frequency = 'monthly'
   #       incoming_item.recurrence_quantity = incoming_item.quantity
   #       incoming_item.save

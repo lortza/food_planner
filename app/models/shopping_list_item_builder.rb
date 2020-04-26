@@ -29,7 +29,7 @@ class ShoppingListItemBuilder
         purchased: false,
         status: 'active'
       )
-    elsif item_on_list.purchased? # item on list is inactive
+    elsif item_on_list.inactive?
       item_on_list.update!(
         quantity: incoming_quantity,
         purchased: false,

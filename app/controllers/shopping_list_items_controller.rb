@@ -14,10 +14,11 @@ class ShoppingListItemsController < ApplicationController
 
     if existing_item
       updated_quantity = existing_item.quantity + incoming_item.quantity
-      updated_quantity = incoming_item.quantity if existing_item.purchased?
-      existing_item.update(quantity: updated_quantity, purchased: false)
+      updated_quantity = incoming_item.quantity if existing_item.inactive?
+      existing_item.update(quantity: updated_quantity, purchased: false, status: 'active')
     else
       incoming_item.purchased = false
+      incoming_item.status = 'active'
       @shopping_list.items << incoming_item
     end
 
@@ -55,11 +56,12 @@ class ShoppingListItemsController < ApplicationController
     params.require(:shopping_list_item)
           .permit(:shopping_list_id,
                   :aisle_id,
-                  :quantity,
                   :heb_upc,
                   :name,
                   :purchased,
+                  :quantity,
                   :recurrence_frequency,
-                  :recurrence_quantity)
+                  :recurrence_quantity,
+                  :status)
   end
 end

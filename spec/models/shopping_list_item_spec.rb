@@ -19,6 +19,8 @@ RSpec.describe ShoppingListItem, type: :model do
       it { should validate_presence_of(:quantity) }
       it { should validate_presence_of(:aisle_id) }
       it { should validate_presence_of(:shopping_list_id) }
+      it { should validate_presence_of(:status) }
+      it { should validate_inclusion_of(:status).in_array(ShoppingListItem::STATUSES) }
     end
   end
 
@@ -28,7 +30,7 @@ RSpec.describe ShoppingListItem, type: :model do
       item2 = create(:shopping_list_item)
       create(:shopping_list_item)
 
-      item2.purchased = true
+      item2.status = 'inactive'
       item2.save
 
       ordered_items = ShoppingListItem.by_recently_edited
@@ -51,21 +53,66 @@ RSpec.describe ShoppingListItem, type: :model do
     end
   end
 
-  describe '#complete!' do
-    it 'sets the "purchased" attribute to true and saves the item' do
-      item = create(:shopping_list_item, purchased: false)
-      item.complete!
+  describe '#active?' do
+    it 'returns true if the status is "active"' do
+      item = build(:shopping_list_item, status: 'active')
+      expect(item.active?).to eq(true)
+    end
 
-      expect(item.purchased).to eq(true)
+    it 'returns false if the status is not "active"' do
+      item = build(:shopping_list_item, status: 'anything')
+      expect(item.active?).to eq(false)
     end
   end
 
-  describe '#uncomplete!' do
-    it 'sets the "purchased" attribute to false and saves the item' do
-      item = create(:shopping_list_item, purchased: true)
-      item.uncomplete!
+  describe '#inactive?' do
+    it 'returns true if the status is "inactive"' do
+      item = build(:shopping_list_item, status: 'inactive')
+      expect(item.inactive?).to eq(true)
+    end
 
-      expect(item.purchased).to eq(false)
+    it 'returns false if the status is not "inactive"' do
+      item = build(:shopping_list_item, status: 'anything')
+      expect(item.inactive?).to eq(false)
+    end
+  end
+
+  describe '#in_cart?' do
+    it 'returns true if the status is "in_cart"' do
+      item = build(:shopping_list_item, status: 'in_cart')
+      expect(item.in_cart?).to eq(true)
+    end
+
+    it 'returns false if the status is not "in_cart"' do
+      item = build(:shopping_list_item, status: 'anything')
+      expect(item.in_cart?).to eq(false)
+    end
+  end
+
+  describe '#deactivate!' do
+    it 'sets the status attribute to "inactive" and saves the item' do
+      item = create(:shopping_list_item, status: 'active')
+      item.deactivate!
+
+      expect(item.active?).to eq(false)
+    end
+  end
+
+  describe '#activate!' do
+    it 'sets the "status" attribute to "active" and saves the item' do
+      item = create(:shopping_list_item, status: 'inactive')
+      item.activate!
+
+      expect(item.active?).to eq(true)
+    end
+  end
+
+  describe '#add_to_cart!' do
+    it 'sets the "status" attribute to "in_cart" and saves the item' do
+      item = create(:shopping_list_item, status: 'in_cart')
+      item.add_to_cart!
+
+      expect(item.in_cart?).to eq(true)
     end
   end
 end

@@ -19,8 +19,9 @@ class ShoppingListItemRecurrence
 
       items.each do |item|
         Rails.logger.info(item.name)
-        if item.purchased == true
+        if item.inactive?
           item.purchased = false
+          item.status = 'active'
           item.quantity = item.recurrence_quantity
         else
           item.quantity += item.recurrence_quantity

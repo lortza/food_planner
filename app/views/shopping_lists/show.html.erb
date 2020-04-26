@@ -16,13 +16,13 @@
 </article>
 
 <section id='active-items'>
-  <% @shopping_list.shopping_list_items.by_aisle_order_number.not_purchased.group_by(&:aisle).each do |aisle, items| %>
+  <% @shopping_list.shopping_list_items.not_purchased.by_aisle_order_number.group_by(&:aisle).each do |aisle, items| %>
     <% if aisle %>
       <h4 class='aisle'><%= aisle.name %></h4>
       <% items.each do |item| %>
         <article id='<%= item.id %>' class='index-item'>
           <p class='shopping-list-item'>
-            <%= link_to display_item(item), completed_shopping_list_items_path(id: item.id), class: 'js-toggle', method: :post, remote: true %>
+            <%= link_to display_item(item), shopping_list_item_statuses_path(id: item.id), class: 'js-toggle', method: :post, remote: true %>
             <%= link_to "", edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: Icon.edit %>
           </p>
         </article>
@@ -33,10 +33,10 @@
 
 <h4 class='aisle'>Crossed Off</h4>
 <section id='inactive-items'>
-  <% @shopping_list.shopping_list_items.purchased.by_recently_edited.limit(30).each do |item| %>
+  <% @shopping_list.shopping_list_items.inactive.by_recently_edited.limit(30).each do |item| %>
     <article id='<%= item.id %>' class='index-item item-crossed-off'>
       <p class='shopping-list-item '>
-        <%= link_to display_item(item), completed_shopping_list_item_path(item), class: 'js-toggle', method: :delete, remote: true %>
+        <%= link_to display_item(item), shopping_list_item_status_path(item), class: 'js-toggle', method: :delete, remote: true %>
         <%= link_to "", edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: Icon.edit %>
       </p>
     </article>
