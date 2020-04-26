@@ -23,7 +23,6 @@ class ShoppingListItem < ApplicationRecord
 
   scope :active, -> { where(status: 'active') }
   scope :not_purchased, -> { where(status: 'active').or(ShoppingListItem.where(status: 'in_cart')) }
-  # Post.where(id: 1).or(Post.where(title: 'Learn Rails'))
   scope :inactive, -> { where(status: 'inactive') }
 
   def self.by_recently_edited

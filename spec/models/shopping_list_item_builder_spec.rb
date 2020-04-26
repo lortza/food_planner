@@ -1,13 +1,48 @@
 # frozen_string_literal: true
 
 RSpec.describe ShoppingListItemBuilder, type: :model do
+  let(:shopping_list) { create(:shopping_list) }
+  let(:meal_plan) { create(:meal_plan) }
+  let(:recipe) { create(:recipe) }
+  let(:ingredient) { create(:ingredient, recipe: recipe, quantity: 1, measurement_unit: 'cup', name: 'rice') }
+  let(:ingredients) { create_list(:ingredient, 3) }
+  let(:ingredient_ids) { ingredient.id }
+
+  describe 'self.create_shopping_list_item' do
+    context 'when the item is already active on the list' do
+      xit 'adds the incoming quantity to the existing quantity' do
+      end
+    end
+
+    context 'when the item is already inactive on the list' do
+      xit 'sets the item quantity to the incoming quantity' do
+      end
+
+      xit 'sets the item to active' do
+      end
+    end
+
+    context 'when the item is already in_cart on the list' do
+      xit 'does not modity the quantity' do
+      end
+
+      xit 'does not modify the status' do
+      end
+    end
+
+    context 'when the item is not on the list' do
+      xit 'creates a new the item' do
+      end
+
+      xit 'sets the item to active' do
+      end
+
+      xit 'sets the quantity to the incoming quantity' do
+      end
+    end
+  end
+
   describe '#add_items_to_list' do
-    let(:shopping_list) { create(:shopping_list) }
-    let(:meal_plan) { create(:meal_plan) }
-    let(:recipe) { create(:recipe) }
-    let(:ingredient) { create(:ingredient, recipe: recipe, quantity: 1, measurement_unit: 'cup', name: 'rice') }
-    let(:ingredients) { create_list(:ingredient, 3) }
-    let(:ingredient_ids) { ingredient.id }
     let(:builder) do
       ShoppingListItemBuilder.new(
         shopping_list_id: shopping_list.id,

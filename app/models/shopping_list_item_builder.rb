@@ -8,6 +8,21 @@ class ShoppingListItemBuilder
     @ingredients = Ingredient.where(id: ingredient_ids)
   end
 
+  def self.create_shopping_list_item(shopping_list:, incoming_item:)
+    existing_item = shopping_list.items.find_by(name: incoming_item.name)
+
+    if existing_item.present?
+      updated_quantity = existing_item.quantity + incoming_item.quantity
+      updated_quantity = incoming_item.quantity if existing_item.inactive?
+
+      existing_item.update(quantity: updated_quantity, purchased: false, status: 'active')
+    else
+      incoming_item.purchased = false
+      incoming_item.status = 'active'
+      shopping_list.items << incoming_item
+    end
+  end
+
   def add_items_to_list
     ingredients.each do |ingredient|
       add_ingredient_to_list(ingredient)
