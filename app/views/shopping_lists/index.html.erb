@@ -9,7 +9,7 @@
       <h3 class='index-item'>
         <%= toggle_favorite(shopping_list) %>
         <%= link_to shopping_list.name, shopping_list_path(shopping_list) %>
-        (<%= shopping_list.items.active.length %>)
+        (<%= shopping_list.items.not_purchased.length %>)
         <%  if shopping_list.deletable? %>
           <span class='index-item-actions right'>
             <%= link_to "", edit_shopping_list_path(shopping_list), class: Icon.edit %>

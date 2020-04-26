@@ -51,7 +51,6 @@ class ShoppingListItemsController < ApplicationController
           .permit(:shopping_list_id,
                   :aisle_id,
                   :heb_upc,
-                  :quantity,
                   :name,
                   :purchased,
                   :quantity,

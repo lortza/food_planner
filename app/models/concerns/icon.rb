@@ -40,7 +40,4 @@ module Icon
   def self.sync
     'icon nav-link-icon fas fa-sync'
   end
-
-
-
 end

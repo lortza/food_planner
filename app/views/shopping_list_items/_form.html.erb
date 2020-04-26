@@ -37,7 +37,7 @@
         <%= form.label :status %><br>
         <%= form.select :status,
                         options_for_select(ShoppingListItem::STATUSES, selected: form.object.status),
-                        {include_blank: false},
+                        { include_blank: false },
                         class: 'form-control' %>
       </div>
     </div>

@@ -24,6 +24,35 @@ RSpec.describe ShoppingListItem, type: :model do
     end
   end
 
+  context 'scopes' do
+    describe 'active' do
+      xit 'returns only active items' do
+      end
+
+      xit 'does not return items without the status of active' do
+      end
+    end
+
+    describe 'inactive' do
+      xit 'returns only inactive items' do
+      end
+
+      xit 'does not return items without the status of inactive' do
+      end
+    end
+
+    describe 'not_purchased' do
+      xit 'returns active items items' do
+      end
+
+      xit 'returns in_cart items items' do
+      end
+
+      xit 'does not return inactive items' do
+      end
+    end
+  end
+
   describe 'self.by_recently_edited' do
     it 'returns the most recently editied item first' do
       create(:shopping_list_item)
@@ -91,21 +120,21 @@ RSpec.describe ShoppingListItem, type: :model do
 
   describe '#deactivate!' do
     it 'sets the status attribute to "inactive" and saves the item' do
-      item = create(:shopping_list_item, status: 'active')
+      item = build(:shopping_list_item, status: 'active')
       expect{ item.deactivate! }.to change{ item.status }.from('active').to('inactive')
     end
   end
 
   describe '#activate!' do
     it 'sets the "status" attribute to "active" and saves the item' do
-      item = create(:shopping_list_item, status: 'inactive')
+      item = build(:shopping_list_item, status: 'inactive')
       expect{ item.activate! }.to change{ item.status }.from('inactive').to('active')
     end
   end
 
   describe '#add_to_cart!' do
     it 'sets the "status" attribute to "in_cart" and saves the item' do
-      item = create(:shopping_list_item, status: 'active')
+      item = build(:shopping_list_item, status: 'active')
       expect{ item.add_to_cart! }.to change{ item.status }.from('active').to('in_cart')
     end
   end

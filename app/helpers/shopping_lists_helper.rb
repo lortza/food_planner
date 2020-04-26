@@ -41,6 +41,6 @@ module ShoppingListsHelper
 
   def display_status(item)
     return unless item.in_cart?
-    "<span class='status-tag'><span class='#{Icon.in_cart}'></span> In Cart</span>".html_safe
+    "<span class='status-tag'><span class='#{Icon.in_cart}'></span> In Cart</span>"
   end
 end
