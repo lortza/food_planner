@@ -1,5 +1,5 @@
 <h1>
-  <%= link_to "", new_shopping_list_shopping_list_item_path(@shopping_list, search_term: params[:search]), class: Icon.new %>  
+  <%= link_to "", new_shopping_list_shopping_list_item_path(@shopping_list, search_term: params[:search]), class: Icon.new %>
   <%= link_to "", @shopping_list, class: Icon.back %>
   Find an Item
 </h1>
@@ -16,7 +16,7 @@
     <% @shopping_list_items.by_recently_edited.each do |item| %>
       <article id='<%= item.id %>' class='index-item'>
         <p class='shopping-list-item '>
-          <%= link_to display_item(item), completed_shopping_list_item_path(item), class: 'js-toggle', method: :delete, remote: true %>
+          <%= link_to display_item(item), shopping_list_item_status_path(item), class: 'js-toggle', method: :delete, remote: true %>
           <%= link_to "", edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: Icon.edit %>
         </p>
       </article>

@@ -1,24 +1,24 @@
 # frozen_string_literal: true
 
-class CompletedShoppingListItemsController < ApplicationController
+class ShoppingListItemStatusesController < ApplicationController
   before_action :set_shopping_list_item, only: %i[create destroy]
 
   def create
     # crosses an item off of the list
-    @shopping_list_item.complete!
+    @shopping_list_item.deactivate!
     respond_to :js
   end
 
   def destroy
     # makes a crossed off item active again
-    @shopping_list_item.uncomplete!
+    @shopping_list_item.activate!
     respond_to :js
   end
 
   def deactivate_all
     # crosses all items on the list
     list = current_user.shopping_lists.find(params[:id])
-    list.items.map(&:complete!)
+    list.items.map(&:deactivate!)
     redirect_to shopping_list_url(list)
   end
 
@@ -32,9 +32,10 @@ class CompletedShoppingListItemsController < ApplicationController
     params.require(:shopping_list_item)
           .permit(:shopping_list_id,
                   :aisle_id,
-                  :quantity,
                   :heb_upc,
                   :name,
-                  :purchased)
+                  :quantity,
+                  :purchased,
+                  :status)
   end
 end

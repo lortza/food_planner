@@ -34,6 +34,16 @@
   border-radius: 5px;
   color: $brand-light-blue;
   font-size: .8em;
+  margin-left: .25rem;
+  padding: 1px 5px;
+}
+
+.status-tag {
+  border: 1px solid $brand-yellow;
+  border-radius: 5px;
+  color: $brand-yellow;
+  font-size: .8em;
+  margin-left: .25rem;
   padding: 1px 5px;
 }
 
