@@ -3,6 +3,8 @@
 class ShoppingListItem < ApplicationRecord
   extend Searchable
 
+  self.ignored_columns = %w(purchased)
+
   STATUSES = %w[active inactive in_cart]
 
   belongs_to :aisle
@@ -46,14 +48,14 @@ class ShoppingListItem < ApplicationRecord
   end
 
   def deactivate!
-    update!(purchased: true, status: 'inactive')
+    update!(status: 'inactive')
   end
 
   def activate!
-    update!(purchased: false, status: 'active')
+    update!(status: 'active')
   end
 
   def add_to_cart!
-    update!(purchased: false, status: 'in_cart')
+    update!(status: 'in_cart')
   end
 end
