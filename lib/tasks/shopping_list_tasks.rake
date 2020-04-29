@@ -8,7 +8,7 @@ namespace :shopping_list do
   desc 'Add Recurring Items'
   task add_recurring_items: :environment do
     # rake shopping_list:add_recurring_items
-    
+
     # Heroku runs this daily at 6am UTC / 1am CST: https://dashboard.heroku.com/apps/myfoodplanner/scheduler
     # UTC is 5 hours ahead of Central Time: https://savvytime.com/converter/utc-to-cst
     ShoppingListItemRecurrence.check_schedule
@@ -107,14 +107,12 @@ namespace :shopping_list do
   #       updated_quantity = incoming_item.quantity if existing_item.inactive?
   #
   #       existing_item.quantity = updated_quantity
-  #       existing_item.purchased = false
   #       existing_item.status = 'active'
   #       existing_item.recurrence_frequency = 'weekly'
   #       existing_item.recurrence_quantity = existing_item.quantity
   #       existing_item.save
   #
   #     else
-  #       incoming_item.purchased = false
   #       incoming_item.status = 'active'
   #       incoming_item.recurrence_frequency = 'weekly'
   #       incoming_item.recurrence_quantity = incoming_item.quantity
@@ -134,14 +132,12 @@ namespace :shopping_list do
   #       updated_quantity = incoming_item.quantity if existing_item.inactive?
   #
   #       existing_item.quantity = updated_quantity
-  #       existing_item.purchased = false
   #       existing_item.status = 'active'
   #       existing_item.recurrence_frequency = 'monthly'
   #       existing_item.recurrence_quantity = existing_item.quantity
   #       existing_item.save
   #
   #     else
-  #       incoming_item.purchased = false
   #       incoming_item.status = 'active'
   #       incoming_item.recurrence_frequency = 'monthly'
   #       incoming_item.recurrence_quantity = incoming_item.quantity

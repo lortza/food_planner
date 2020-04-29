@@ -8,6 +8,5 @@ FactoryBot.define do
     quantity { 1 }
     heb_upc { '1234' }
     status { 'active' }
-    purchased { false }
   end
 end

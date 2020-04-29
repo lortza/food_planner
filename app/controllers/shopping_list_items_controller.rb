@@ -11,7 +11,7 @@ class ShoppingListItemsController < ApplicationController
   def create
     incoming_item = @shopping_list.items.new(shopping_list_item_params)
 
-    ShoppingListItemBuilder.create_shopping_list_item(
+    ShoppingListItemBuilder.add_item_to_list(
       shopping_list: @shopping_list,
       incoming_item: incoming_item
     )

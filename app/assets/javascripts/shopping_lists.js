@@ -10,6 +10,11 @@ function shoppingListItemToggler() {
         let itemHtml = item.parentNode.parentNode;
 
         if ( item.classList.contains('js-toggle') ) {
+          let statusTag = item.querySelector('.status-tag')
+          if (statusTag){
+            statusTag.remove();
+          }
+
           itemHtml.remove();
           itemHtml.classList.add('item-crossed-off');
           inactiveSection.insertAdjacentHTML('afterbegin', itemHtml.outerHTML);
