@@ -11,7 +11,11 @@ class ShoppingListItemStatusesController < ApplicationController
 
   def destroy
     # makes a crossed off item active again
-    @shopping_list_item.activate!
+    if @shopping_list_item.in_cart?
+      @shopping_list_item.add_to_cart!
+    else
+      @shopping_list_item.activate!
+    end
     respond_to :js
   end
 
