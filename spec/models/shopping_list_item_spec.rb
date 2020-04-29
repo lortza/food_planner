@@ -25,30 +25,49 @@ RSpec.describe ShoppingListItem, type: :model do
   end
 
   context 'scopes' do
+    let(:active_item) { create(:shopping_list_item, status: 'active') }
+    let(:inactive_item) { create(:shopping_list_item, status: 'inactive') }
+    let(:in_cart_item) { create(:shopping_list_item, status: 'in_cart') }
+
+    before do
+      active_item
+      inactive_item
+      in_cart_item
+    end
+
     describe 'active' do
-      xit 'returns only active items' do
+      it 'returns only active items' do
+        expect(described_class.active).to include(active_item)
       end
 
-      xit 'does not return items without the status of active' do
+      it 'does not return items without the status of active' do
+        expect(described_class.active).to_not include(inactive_item)
+        expect(described_class.active).to_not include(in_cart_item)
       end
     end
 
     describe 'inactive' do
-      xit 'returns only inactive items' do
+      it 'returns only inactive items' do
+        expect(described_class.inactive).to include(inactive_item)
       end
 
-      xit 'does not return items without the status of inactive' do
+      it 'does not return items without the status of inactive' do
+        expect(described_class.inactive).to_not include(active_item)
+        expect(described_class.inactive).to_not include(in_cart_item)
       end
     end
 
     describe 'not_purchased' do
-      xit 'returns active items items' do
+      it 'returns active items items' do
+        expect(described_class.not_purchased).to include(active_item)
       end
 
-      xit 'returns in_cart items items' do
+      it 'returns in_cart items items' do
+        expect(described_class.not_purchased).to include(in_cart_item)
       end
 
-      xit 'does not return inactive items' do
+      it 'does not return inactive items' do
+        expect(described_class.not_purchased).to_not include(inactive_item)
       end
     end
   end
