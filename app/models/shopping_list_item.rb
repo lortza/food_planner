@@ -3,8 +3,6 @@
 class ShoppingListItem < ApplicationRecord
   extend Searchable
 
-  self.ignored_columns = %w(purchased)
-
   STATUSES = %w[active inactive in_cart]
 
   belongs_to :aisle
