@@ -52,7 +52,6 @@ class ShoppingListItemsController < ApplicationController
                   :aisle_id,
                   :heb_upc,
                   :name,
-                  :purchased,
                   :quantity,
                   :recurrence_frequency,
                   :recurrence_quantity,

@@ -39,7 +39,6 @@ class ShoppingListItemStatusesController < ApplicationController
                   :heb_upc,
                   :name,
                   :quantity,
-                  :purchased,
                   :status)
   end
 end

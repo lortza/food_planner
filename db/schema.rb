@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_25_182449) do
+ActiveRecord::Schema.define(version: 2020_04_30_000447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -119,7 +119,6 @@ ActiveRecord::Schema.define(version: 2020_04_25_182449) do
     t.bigint "aisle_id"
     t.float "quantity"
     t.string "name"
-    t.boolean "purchased", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "recurrence_frequency"
