@@ -22,9 +22,16 @@
       <% items.each do |item| %>
         <article id='<%= item.id %>' class='index-item'>
           <p class='shopping-list-item'>
-            <%= link_to display_item(item), shopping_list_item_statuses_path(id: item.id), class: 'js-toggle', method: :post, remote: true %>
-            <span class='shopping-list-item-controls'>
-              <%= link_to "", edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: Icon.edit %>
+            <%= link_to display_item(item), deactivate_item_path(id: item.id), class: 'js-toggle', method: :post, remote: true %>
+            <%= display_status(item) if item.in_cart? %>
+            <%=  %>
+            <span class='float-right'>
+              <%= link_to 'add_shopping_cart',
+                          add_item_to_cart_path(id: item.id),
+                          class: 'js-add-to-cart material-icons mr-2',
+                          method: :post,
+                          remote: true if item.active? %>
+              <%= link_to '', edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: Icon.edit %>
             </span>
           </p>
         </article>
@@ -38,8 +45,15 @@
   <% @shopping_list.shopping_list_items.inactive.by_recently_edited.limit(30).each do |item| %>
     <article id='<%= item.id %>' class='index-item item-crossed-off'>
       <p class='shopping-list-item '>
-        <%= link_to display_item(item), shopping_list_item_status_path(item), class: 'js-toggle', method: :delete, remote: true %>
-        <%= link_to "", edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: Icon.edit %>
+        <%= link_to display_item(item), activate_item_path(id: item.id), class: 'js-toggle', method: :post, remote: true %>
+        <span class='float-right'>
+          <%= link_to 'add_shopping_cart',
+                      add_item_to_cart_path(id: item.id),
+                      class: 'js-add-to-cart material-icons mr-2',
+                      method: :post,
+                      remote: true %>
+          <%= link_to '', edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: Icon.edit %>
+        </span>
       </p>
     </article>
   <% end %>

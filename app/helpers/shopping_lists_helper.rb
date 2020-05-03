@@ -16,7 +16,12 @@ module ShoppingListsHelper
   end
 
   def display_item(item)
-    "#{item.name} #{display_quantity(item)} #{display_upc(item)} #{display_recurrence(item)} #{display_status(item)}".html_safe
+    "#{item.name} #{display_quantity(item)} #{display_upc(item)} #{display_recurrence(item)}".html_safe
+  end
+
+  def display_status(item)
+    # "<span class='material-icons in-cart'>shopping_cart</span>"
+    "<span class='status-tag js-remove-from-cart'><span class='material-icons-outlined in-cart'>shopping_cart</span> In Cart</span>".html_safe
   end
 
 
@@ -37,10 +42,5 @@ module ShoppingListsHelper
 
   def display_upc(item)
     "##{item.heb_upc}" if item.heb_upc.present?
-  end
-
-  def display_status(item)
-    return unless item.in_cart?
-    "<span class='status-tag'><span class='#{Icon.in_cart}'></span> In Cart</span>"
   end
 end

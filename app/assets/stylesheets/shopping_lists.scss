@@ -52,6 +52,11 @@
   font-weight: normal;
   margin-bottom: 0;
   a { color: $default-text; }
+  .material-icons, .material-icons-outlined { font-size: 1.25em; }
+  .in-cart {
+    color: $brand-yellow;
+    vertical-align: text-bottom;
+  }
 }
 
 .item-crossed-off {
