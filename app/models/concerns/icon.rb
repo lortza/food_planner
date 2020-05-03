@@ -22,11 +22,11 @@ module Icon
   end
 
   def self.edit
-    'icon fas fa-info-circle right'
+    'icon fas fa-info-circle float-right'
   end
 
   def self.new
-    'icon nav-link-icon fas fa-plus-circle right'
+    'icon nav-link-icon fas fa-plus-circle float-right'
   end
 
   def self.star_filled
