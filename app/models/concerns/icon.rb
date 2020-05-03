@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 module Icon
-  def self.in_cart
-    'icon fas fa-shopping-cart'
-  end
-
   def self.back
     'icon nav-link-icon fas fa-arrow-left left'
   end

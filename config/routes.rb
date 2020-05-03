@@ -33,7 +33,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :shopping_list_item_statuses, only: [:create, :destroy]
+  post 'shopping_lists/:id/activate', to: 'shopping_list_item_statuses#activate', as: 'activate_item'
+  post 'shopping_lists/:id/deactivate', to: 'shopping_list_item_statuses#deactivate', as: 'deactivate_item'
+  post 'shopping_lists/:id/add_item_to_cart', to: 'shopping_list_item_statuses#add_item_to_cart', as: 'add_item_to_cart'
   post 'shopping_lists/:id/deactivate_all', to: 'shopping_list_item_statuses#deactivate_all', as: 'deactivate_all_items'
 
   resources :shopping_list_favorites, only: [:create, :destroy]
