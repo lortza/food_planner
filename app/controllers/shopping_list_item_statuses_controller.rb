@@ -1,21 +1,26 @@
 # frozen_string_literal: true
 
 class ShoppingListItemStatusesController < ApplicationController
-  before_action :set_shopping_list_item, only: %i[create destroy]
+  before_action :set_shopping_list_item, except: %i[deactivate_all]
 
-  def create
-    # crosses an item off of the list
-    @shopping_list_item.deactivate!
-    respond_to :js
-  end
-
-  def destroy
+  def activate
     # makes a crossed off item active again
     if @shopping_list_item.in_cart?
       @shopping_list_item.add_to_cart!
     else
       @shopping_list_item.activate!
     end
+    respond_to :js
+  end
+
+  def deactivate
+    # crosses an item off of the list
+    @shopping_list_item.deactivate!
+    respond_to :js
+  end
+
+  def add_item_to_cart
+    @shopping_list_item.add_to_cart!
     respond_to :js
   end
 
