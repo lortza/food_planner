@@ -16,7 +16,12 @@
     <% @shopping_list_items.by_recently_edited.each do |item| %>
       <article id='<%= item.id %>' class='index-item'>
         <p class='shopping-list-item '>
-          <%= link_to display_item(item), shopping_list_item_status_path(item), class: 'js-toggle', method: :delete, remote: true %>
+          <%= link_to display_item(item),
+                      activate_item_path(id: item.id),
+                      class: 'js-toggle',
+                      method: :post,
+                      remote: true %>
+          <%= display_status(item) %>
           <%= link_to "", edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: Icon.edit %>
         </p>
       </article>
