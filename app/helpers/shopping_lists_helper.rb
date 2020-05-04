@@ -21,7 +21,14 @@ module ShoppingListsHelper
 
   def display_status(item)
     # "<span class='material-icons in-cart'>shopping_cart</span>"
-    "<span class='status-tag js-remove-from-cart'><span class='material-icons-outlined in-cart'>shopping_cart</span> In Cart</span>".html_safe
+    tag = <<~TAG
+      <span class='status-tag js-remove-from-cart'>
+        <span class='material-icons-outlined in-cart'>
+          shopping_cart
+        </span> In Cart
+      </span>
+    TAG
+    tag.html_safe if item.in_cart?
   end
 
 
