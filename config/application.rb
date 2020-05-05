@@ -31,5 +31,9 @@ module FoodPlanner
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    Raven.configure do |config|
+      config.dsn = Rails.application.credentials.sentry_raven_dsn
+    end
   end
 end
