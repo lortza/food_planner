@@ -34,6 +34,7 @@ module FoodPlanner
 
     Raven.configure do |config|
       config.dsn = Rails.application.credentials.sentry_raven_dsn
+      config.environments = %w[ production ]
     end
   end
 end
