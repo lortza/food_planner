@@ -61,11 +61,17 @@ Heroku runs a cron job to add the weekly shopping_list items to the grocery list
 
 This feature is dependent on my account having both a list named "grocery" and another list named "weekly items." Without either of those specifically-named lists, this job will error.
 
-## WIP Notes:
+## Editing the credentials file
+Never open the `master.key` or `credentials.yml.enc` in atom. This will add newline characters that you can't remove and it will not be able to be unencrypted.
+
+To edit this file, run:
+```
+EDITOR="atom --wait" bin/rails credentials:edit
+```
+If this file gets borked, [this post](https://stackoverflow.com/a/54279636/5009528) and [this post](https://medium.com/@kirill_shevch/encrypted-secrets-credentials-in-rails-6-rails-5-1-5-2-f470accd62fc) will help.
 
 
-
-## USDA Food Composition Databases
+## WIP USDA Food Composition Databases
 
 - API docs: https://ndb.nal.usda.gov/ndb/doc/index
 - Ex Food show page: https://ndb.nal.usda.gov/ndb/foods/show/01009?fgcd=&manu=&format=&count=&max=25&offset=&sort=default&order=asc&qlookup=01009&ds=&qt=&qp=&qa=&qn=&q=&ing=
