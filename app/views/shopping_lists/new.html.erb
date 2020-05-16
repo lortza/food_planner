@@ -1,5 +1,6 @@
-<%= link_to 'Cancel', shopping_lists_path, class: 'btn btn-outline-primary float-right' %>
-
-<h1>Create a Shopping List</h1>
+<h1>
+  <%= link_to "", shopping_lists_path, class: Icon.back %>
+  Create a Shopping List
+</h1>
 
 <%= render 'form', shopping_list: @shopping_list %>

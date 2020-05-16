@@ -19,6 +19,10 @@ class ShoppingListsController < ApplicationController
     @shopping_list_items = @shopping_list.search_results(search_term)
   end
 
+  def new
+    @shopping_list = current_user.shopping_lists.new
+  end
+
   def create
     @shopping_list = current_user.shopping_lists.new(shopping_list_params)
     authorize(@shopping_list)

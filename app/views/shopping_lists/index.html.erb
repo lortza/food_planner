@@ -1,10 +1,11 @@
 <% content_for(:title, 'Shopping Lists') %>
 
-<h1>Shopping Lists</h1>
+<h1>
+  <%= link_to "", new_shopping_list_path, class: Icon.new %>
+  Shopping Lists
+</h1>
 
 <% if current_user.shopping_lists.any? %>
-  <%= render 'form', shopping_list: @shopping_list %>
-
   <% @shopping_lists.each do |shopping_list| %>
       <h3 class='index-item controls-on-right-parent'>
         <span>
