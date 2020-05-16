@@ -23,9 +23,9 @@ module ShoppingListsHelper
     # "<span class='material-icons in-cart'>shopping_cart</span>"
     tag = <<~TAG
       <span class='status-tag js-remove-from-cart'>
-        <span class='material-icons-outlined in-cart'>
+        <span class='material-icons-outlined in-cart' title='Item is purchased and scheduled for home delivery'>
           shopping_cart
-        </span> In Cart
+        </span>
       </span>
     TAG
     tag.html_safe if item.in_cart?

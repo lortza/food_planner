@@ -14,8 +14,10 @@ a { color: $link-color; }
 // Controls
 .controls-on-right-parent {
   display: flex;
+  flex-wrap: nowrap;
   justify-content: space-between;
 }
+
 .controls {
   align-items: center;
   display: flex;

@@ -3,12 +3,12 @@ function shoppingListItemToggler() {
     let activeSection = document.getElementById('active-items')
     let inactiveSection = document.getElementById('inactive-items')
     let searchResults = document.getElementById('searched-items')
-    let statusTagHTML = '<span class="status-tag js-remove-from-cart"><span class="material-icons-outlined in-cart">shopping_cart</span> In Cart</span>'
+    let statusTagHTML = '<span class="status-tag js-remove-from-cart"><span class="material-icons-outlined in-cart" title="Item is purchased and scheduled for home delivery">shopping_cart</span></span>'
 
     if (activeSection || inactiveSection) {
       activeSection.addEventListener('click', function(e){
         let item = e.target;
-        let itemArticle = item.parentNode.parentNode;
+        let itemArticle = item.parentNode.parentNode.parentNode;
 
         if ( item.classList.contains('js-toggle') ) {
           let statusTag = itemArticle.querySelector('.status-tag')
