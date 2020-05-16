@@ -15,20 +15,6 @@
   padding: .5rem;
 }
 
-.index-item-actions {
-  font-size: 1.5rem;
-
-  a {
-    clear: both;
-    padding-left: 15px;
-
-    &:hover {
-      color: $default-text;
-      text-decoration: none;
-    }
-  }
-}
-
 .recurrence-tag {
   border: 1px solid $brand-light-blue;
   border-radius: 5px;

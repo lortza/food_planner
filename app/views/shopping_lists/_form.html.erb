@@ -1,15 +1,10 @@
 <%= form_for(shopping_list) do |form| %>
   <%= render 'shared/errors', object: shopping_list %>
 
-  <div class='row'>
-    <div class='col-sm-9'>
-      <div class='field'>
-        <%= form.text_field :name, autofocus: true, placeholder: 'Enter list name', class: 'form-control' %>
-      </div>
-    </div>
-    <div class='col-sm-3'>
-      <%= form.submit class: button_classes('primary float-right') %>
-    </div>
-  </div> <!-- row -->
+  <div class='field'>
+    <%= form.label :name %>
+    <%= form.text_field :name, autofocus: true, placeholder: 'Enter shopping_list name', class: 'form-control' %>
+  </div>
 
+  <%= form.submit class: "#{button_classes} mt-3" %>
 <% end %>

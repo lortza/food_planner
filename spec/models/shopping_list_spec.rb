@@ -16,6 +16,11 @@ RSpec.describe ShoppingList, type: :model do
       end
 
       it { should validate_presence_of(:name) }
+
+      it 'validates that names are unique' do
+        create(:shopping_list, name: 'grocery')
+        should validate_uniqueness_of(:name).case_insensitive
+      end
     end
   end
 

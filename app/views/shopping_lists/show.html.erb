@@ -21,13 +21,16 @@
       <h4 class='aisle'><%= aisle.name %></h4>
       <% items.each do |item| %>
         <article id='<%= item.id %>' class='index-item'>
-          <p class='shopping-list-item'>
-            <%= link_to display_item(item), deactivate_item_path(id: item.id), class: 'js-toggle', method: :post, remote: true %>
-            <%= display_status(item) %>
-            <span class='float-right'>
+          <p class='shopping-list-item controls-on-right-parent'>
+            <span>
+              <%= link_to display_item(item), deactivate_item_path(id: item.id), class: 'js-toggle', method: :post, remote: true %>
+              <%= display_status(item) %>
+            </span>
+            <span class='controls'>
               <%= link_to 'add_shopping_cart',
                           add_item_to_cart_path(id: item.id),
-                          class: 'js-add-to-cart material-icons mr-2',
+                          class: 'js-add-to-cart material-icons',
+                          title: 'Mark item as scheduled for home delivery',
                           method: :post,
                           remote: true if item.active? %>
               <%= link_to '', edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: Icon.edit %>
@@ -49,6 +52,7 @@
           <%= link_to 'add_shopping_cart',
                       add_item_to_cart_path(id: item.id),
                       class: 'js-add-to-cart material-icons mr-2',
+                      title: 'Mark item as scheduled for home delivery',
                       method: :post,
                       remote: true %>
           <%= link_to '', edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: Icon.edit %>
