@@ -7,10 +7,12 @@
 <% @meal_plans.each do |plan| %>
   <div class="card mb-3">
     <div class="card-body">
-      <h5 class="card-title">
+      <h5 class="card-title controls-on-right-parent">
         <%= link_to "#{l plan.start_date, format: :month_as_text}", meal_plan_path(plan) %>
-        <%= link_to 'Copy', copy_meal_plan_path(plan), title: 'Make a copy of this meal plan', class: button_classes('outline-info btn-sm float-right ml-2') %>
-        <%= link_to 'Edit', edit_meal_plan_path(plan), title: 'Edit this meal plan', class: button_classes('outline-info btn-sm float-right ml-2') %>
+        <span class='controls'>
+          <%= link_to 'Copy', copy_meal_plan_path(plan), title: 'Make a copy of this meal plan', class: button_classes('outline-info btn-sm') %>
+          <%= link_to 'Edit', edit_meal_plan_path(plan), title: 'Edit this meal plan', class: button_classes('outline-info btn-sm') %>
+        </span>
       </h5>
       <p class="card-text text-muted"><%= display_recipes(plan) %></p>
     </div>

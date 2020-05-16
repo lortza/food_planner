@@ -11,6 +11,27 @@
 a { color: $link-color; }
 
 
+// Controls
+.controls-on-right-parent {
+  display: flex;
+  justify-content: space-between;
+}
+.controls {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+
+  a {
+    clear: both;
+    margin-left: 10px;
+
+    &:hover {
+      color: $default-text;
+      text-decoration: none;
+    }
+  }
+}
+
 // SEARCH BAR
 .search-icon {
   color: $medium-gray;
