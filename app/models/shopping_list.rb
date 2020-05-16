@@ -9,7 +9,8 @@ class ShoppingList < ApplicationRecord
   has_many :items, class_name: 'ShoppingListItem', dependent: :destroy
 
   validates :name,
-            presence: true
+            presence: true,
+            uniqueness: { case_sensitive: false }
 
   def self.default
     where(main: true).first
