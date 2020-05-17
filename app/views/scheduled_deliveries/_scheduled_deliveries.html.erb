@@ -1,6 +1,6 @@
-<% if shopping_list.scheduled_deliveries.any? %>
+<% if shopping_list.scheduled_deliveries.future.any? %>
   <section>
-    <p><strong>Upcoming Deliveries:</strong>
+    <p><strong>Deliveries:</strong>
       <%= display_scheduled_deliveries(shopping_list.scheduled_deliveries.future) %>
     </p>
   </section>
