@@ -23,12 +23,24 @@ Metrics/BlockLength:
   Exclude:
     - !ruby/regexp /.*_spec\.rb$/
     - 'spec/factories/**/*'
+    - 'spec/**/*'
     - 'lib/tasks/*'
 
 Layout/LineLength:
   Max: 120
   Exclude:
   - !ruby/regexp /.*_spec\.rb$/
+
+Lint/RaiseException:
+  Enabled: false
+Lint/StructNewOverride:
+  Enabled: false
+Style/HashEachMethods:
+  Enabled: false
+Style/HashTransformKeys:
+  Enabled: false
+Style/HashTransformValues:
+  Enabled: false
 
 Style/BlockDelimiters:
   Exclude:

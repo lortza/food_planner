@@ -29,11 +29,11 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.3'
   gem 'magic_frozen_string_literal'
   gem 'rails-erd', require: false   # generates table diagram run `bundle exec erd`
-  gem 'rubycritic', require: false  # provides stats on code build
   gem 'rubocop-performance'
   gem 'rubocop-rails'
-  gem 'seed_dump' # invoke with `rake db:seed:dump`
+  gem 'rubycritic', require: false  # provides stats on code build
   gem 'scss_lint', require: false # css linter
+  gem 'seed_dump' # invoke with `rake db:seed:dump`
   # Spring speeds up development by keeping your application running
   # in the background. Read more: https://github.com/rails/spring
   gem 'spring'
@@ -49,7 +49,7 @@ group :development, :test do
   gem 'binding_of_caller'       # goes with better_errors
   gem 'bullet'                  # detects n+1 queries
   gem 'byebug', platforms: %i[mri mingw x64_mingw] # Call 'byebug' anywhere in the code to get a debugger console
-  gem 'factory_bot_rails'       # factory support for rspec
+  gem 'factory_bot_rails' # factory support for rspec
   gem 'guard-rspec', require: false # runs rspec automatically
   gem 'pry-rails'               # helps with pry
   gem 'reek'                    # https://github.com/troessner/reek/blob/master/docs/Code-Smells.md
@@ -60,9 +60,9 @@ end
 group :test do
   gem 'capybara'                # for navigating feature specs
   # gem 'database_cleaner-active_record'
-  gem 'launchy'                 # open browser with save_and_open_page
-  gem 'rails-controller-testing'# allows for controller testing
-  gem 'shoulda-matchers'        # library for easier testing syntax
+  gem 'launchy' # open browser with save_and_open_page
+  gem 'rails-controller-testing' # allows for controller testing
+  gem 'shoulda-matchers' # library for easier testing syntax
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

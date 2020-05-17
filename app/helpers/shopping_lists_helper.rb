@@ -31,7 +31,6 @@ module ShoppingListsHelper
     tag.html_safe if item.in_cart?
   end
 
-
   private
 
   def display_quantity(item)

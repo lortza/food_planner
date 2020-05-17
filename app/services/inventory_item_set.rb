@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class InventoryItemSet
   attr_reader :user
 
@@ -25,7 +27,7 @@ class InventoryItemSet
 
   def matching_user_ingredients(item)
     Ingredient.includes([:recipe])
-              .where(recipes: {user_id: @user.id})
+              .where(recipes: { user_id: @user.id })
               .where('name ilike ?', "%#{item}%")
   end
 

@@ -140,21 +140,21 @@ RSpec.describe ShoppingListItem, type: :model do
   describe '#deactivate!' do
     it 'sets the status attribute to "inactive" and saves the item' do
       item = build(:shopping_list_item, status: 'active')
-      expect{ item.deactivate! }.to change{ item.status }.from('active').to('inactive')
+      expect { item.deactivate! }.to change { item.status }.from('active').to('inactive')
     end
   end
 
   describe '#activate!' do
     it 'sets the "status" attribute to "active" and saves the item' do
       item = build(:shopping_list_item, status: 'inactive')
-      expect{ item.activate! }.to change{ item.status }.from('inactive').to('active')
+      expect { item.activate! }.to change { item.status }.from('inactive').to('active')
     end
   end
 
   describe '#add_to_cart!' do
     it 'sets the "status" attribute to "in_cart" and saves the item' do
       item = build(:shopping_list_item, status: 'active')
-      expect{ item.add_to_cart! }.to change{ item.status }.from('active').to('in_cart')
+      expect { item.add_to_cart! }.to change { item.status }.from('active').to('in_cart')
     end
   end
 end

@@ -2,7 +2,7 @@
 
 class ExperimentalRecipe < ApplicationRecord
   extend Searchable
-  
+
   belongs_to :user
 
   validates :title,

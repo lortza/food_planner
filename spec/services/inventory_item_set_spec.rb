@@ -25,7 +25,7 @@ RSpec.describe InventoryItemSet, type: :service do
     end
 
     xit 'can handle inventory items ending in s' do
-      items = "waters"
+      items = 'waters'
       inventory = create(:inventory, user: user, items: items)
       suggestions = InventoryItemSet.new(inventory).suggest_recipes
 

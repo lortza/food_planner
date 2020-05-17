@@ -87,10 +87,6 @@ RSpec.describe ShoppingListItemBuilder, type: :model do
     end
   end
 
-
-
-
-
   describe '#add_ingredients_to_list' do
     let(:shopping_list) { create(:shopping_list, main: true) }
     # let(:meal_plan) { create(:meal_plan) }

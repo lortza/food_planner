@@ -7,14 +7,14 @@ RSpec.describe 'Recipes', type: :request do
   let!(:recipe) { create(:recipe, user_id: user.id) }
 
   describe 'Public access to recipes' do
-    describe "GET /recipes/id" do
+    describe 'GET /recipes/id' do
       it 'permits access to recipes#show' do
         get recipe_path(recipe)
         expect(response).to have_http_status(200)
       end
     end
 
-    describe "GET /recipes" do
+    describe 'GET /recipes' do
       it 'denies access to recipes#index' do
         get recipes_path
         expect(response).to have_http_status(302)
