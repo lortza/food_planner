@@ -7,6 +7,7 @@ RSpec.describe ShoppingList, type: :model do
     it { should belong_to(:user) }
     it { should have_many(:shopping_list_items) }
     it { should have_many(:items) }
+    it { should have_many(:scheduled_deliveries) }
   end
 
   describe 'a valid shopping_list' do
