@@ -1,0 +1,7 @@
+<% if shopping_list.scheduled_deliveries.future.any? %>
+  <section>
+    <p><strong>Deliveries:</strong>
+      <%= display_scheduled_deliveries(shopping_list.scheduled_deliveries.future) %>
+    </p>
+  </section>
+<% end %>

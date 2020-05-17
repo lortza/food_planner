@@ -7,6 +7,7 @@ class ShoppingList < ApplicationRecord
   belongs_to :user
   has_many :shopping_list_items, dependent: :destroy
   has_many :items, class_name: 'ShoppingListItem', dependent: :destroy
+  has_many :scheduled_deliveries, dependent: :destroy
 
   validates :name,
             presence: true,

@@ -2,8 +2,9 @@
 
 <h1>
   <%= link_to "", @shopping_list, title: 'sync', class: "#{Icon.sync} float-right"%>
-  <%= link_to "Clear List", deactivate_all_items_path(@shopping_list), method: :post, data: { confirm: 'Are you sure you want to cross off all items? This action cannot be undone.' }, title: 'clear list', class: button_classes('outline-info float-right mr-5 mt-2') %>
-  <%= link_to "", shopping_lists_path, class: Icon.back %>
+  <%= link_to 'Clear List', deactivate_all_items_path(@shopping_list), method: :post, data: { confirm: 'Are you sure you want to cross off all items? This action cannot be undone.' }, title: 'clear list', class: button_classes('outline-info float-right mr-3 mt-2') %>
+  <%= link_to 'Add Delivery', new_shopping_list_scheduled_delivery_path(@shopping_list), title: 'Schedule an upcoming delivery', class: button_classes('outline-info float-right mr-2 mt-2') %>
+  <%= link_to '', shopping_lists_path, class: Icon.back %>
   <%= @shopping_list.name %>
 </h1>
 
@@ -14,6 +15,8 @@
     </div>
   <% end %>
 </article>
+
+<%= render 'scheduled_deliveries/scheduled_deliveries', shopping_list: @shopping_list %>
 
 <section id='active-items'>
   <% @shopping_list.shopping_list_items.not_purchased.by_aisle_order_number.group_by(&:aisle).each do |aisle, items| %>
