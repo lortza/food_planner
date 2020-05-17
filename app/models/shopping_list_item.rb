@@ -3,7 +3,7 @@
 class ShoppingListItem < ApplicationRecord
   extend Searchable
 
-  STATUSES = %w[active inactive in_cart]
+  STATUSES = %w[active inactive in_cart].freeze
 
   belongs_to :aisle
   belongs_to :shopping_list

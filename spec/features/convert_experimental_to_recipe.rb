@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'User converts an experimental recipe to a recipe', type: :feature do

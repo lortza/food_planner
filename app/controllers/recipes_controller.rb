@@ -31,9 +31,7 @@ class RecipesController < ApplicationController
     if @recipe.save
       experimental_recipe_id = recipe_params[:experimental_recipe_id]
 
-      if experimental_recipe_id.present?
-        current_user.experimental_recipes.find(experimental_recipe_id).delete
-      end
+      current_user.experimental_recipes.find(experimental_recipe_id).delete if experimental_recipe_id.present?
 
       redirect_to recipe_url(@recipe), alert: ('Recipe converted successfully.' if experimental_recipe_id.present?)
     else

@@ -53,10 +53,9 @@ RSpec.describe Recipe, type: :model do
   describe 'self.by_last_prepared' do
     it 'puts recipes that have not been made in a while on top' do
       recent_recipe = create(:recipe)
-      recent_meal_plan = create(:meal_plan, recipes: [recent_recipe], start_date: '2020-06-15')
+      create(:meal_plan, recipes: [recent_recipe], start_date: '2020-06-15')
       old_recipe = create(:recipe)
-      old_meal_plan = create(:meal_plan, recipes: [old_recipe], start_date: '2018-06-15')
-
+      create(:meal_plan, recipes: [old_recipe], start_date: '2018-06-15')
       ordered_recipes = Recipe.includes(:meal_plans, :meal_plan_recipes).by_last_prepared
 
       expect(ordered_recipes.first).to eq(old_recipe)

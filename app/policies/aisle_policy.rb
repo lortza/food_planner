@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class AislePolicy < ApplicationPolicy
-
   class Scope < Scope
     def resolve
       scope.where(user_id: user.id)

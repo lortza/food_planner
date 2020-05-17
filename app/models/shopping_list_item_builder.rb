@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ShoppingListItemBuilder
-
   class << self
     def add_item_to_list(shopping_list:, incoming_item:)
       existing_item = shopping_list.items.find_by(name: incoming_item.name)

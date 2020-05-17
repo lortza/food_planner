@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class InventoriesController < ApplicationController
-  before_action :set_inventory, only: %i[show edit update]
+  before_action :set_inventory, only: %i[edit update]
 
   def edit
     authorize(@inventory)

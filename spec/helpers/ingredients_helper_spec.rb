@@ -10,7 +10,7 @@ RSpec.describe IngredientsHelper, type: :helper do
       expect(helper.ingredient_display(ingredient)).to eq(display_output)
     end
 
-    it "if present, displays the preparation_style" do
+    it 'if present, displays the preparation_style' do
       ingredient = build(:ingredient, preparation_style: 'styled')
       display_output = "#{ingredient.quantity} #{ingredient.measurement_unit} #{ingredient.name}: #{ingredient.preparation_style}"
       expect(helper.ingredient_display(ingredient)).to eq(display_output)
