@@ -2,8 +2,6 @@ require:
   - rubocop-rails
   - rubocop-performance
 
-Documentation:
-  Enabled: false
 Rails:
   Enabled: true
 AllCops:
@@ -25,6 +23,12 @@ Metrics/BlockLength:
     - 'spec/factories/**/*'
     - 'spec/**/*'
     - 'lib/tasks/*'
+  CountComments: false
+
+Metrics/MethodLength:
+  ExcludedMethods: []
+  CountComments: false
+  Max: 15
 
 Layout/LineLength:
   Max: 120
@@ -35,12 +39,6 @@ Lint/RaiseException:
   Enabled: false
 Lint/StructNewOverride:
   Enabled: false
-Style/HashEachMethods:
-  Enabled: false
-Style/HashTransformKeys:
-  Enabled: false
-Style/HashTransformValues:
-  Enabled: false
 
 Style/BlockDelimiters:
   Exclude:
@@ -48,7 +46,15 @@ Style/BlockDelimiters:
 
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact
+Style/Documentation:
+  Enabled: false
 Style/EmptyMethod:
   EnforcedStyle: expanded
+Style/HashEachMethods:
+  Enabled: false
+Style/HashTransformKeys:
+  Enabled: false
+Style/HashTransformValues:
+  Enabled: false
 Style/TrailingCommaInArrayLiteral:
   EnforcedStyleForMultiline: consistent_comma

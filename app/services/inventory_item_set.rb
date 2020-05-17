@@ -14,14 +14,12 @@ class InventoryItemSet
 
     items.each do |item|
       suggestions[item] = [] if suggestions[item].nil?
-
       matching_user_ingredients(item).each do |ingredient|
         suggestions[item] << ingredient.recipe
       end
-    end # items each
-
+    end
     suggestions
-  end # suggest
+  end
 
   private
 

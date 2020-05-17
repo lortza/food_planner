@@ -13,7 +13,7 @@ class ShoppingList < ApplicationRecord
             uniqueness: { case_sensitive: false }
 
   def self.default
-    where(main: true).first
+    find_by(main: true)
   end
 
   def self.by_favorite

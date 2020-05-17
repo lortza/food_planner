@@ -24,6 +24,7 @@ class UserDataSetup
       user.inventories.first_or_create!(items: '')
     end
 
+    # rubocop:disable Metrics/MethodLength
     def populate_aisles(user)
       default_aisles = [
         { name: 'Customer Service', order_number: 10 },
@@ -80,5 +81,6 @@ class UserDataSetup
 
       puts "#{user.aisles.count} aisles for #{user.email}"
     end
+    # rubocop:enable Metrics/MethodLength
   end
 end
