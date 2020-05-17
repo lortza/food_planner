@@ -6,13 +6,7 @@ class MealPlanRecipesController < ApplicationController
 
   # rubocop:disable Metrics/AbcSize
   def create
-    # meal_plan_id = params[:meal_plan_id] || params[:meal_plan_recipe][:meal_plan_id]
-    # meal_plan = current_user.meal_plans.find_by(id: meal_plan_id)
-    # recipe = current_user.recipes.find_by(id: params[:recipe_id])
-    # meal_plan_recipe = MealPlanRecipe.new(meal_plan: meal_plan, recipe: recipe)
-
     meal_plan_recipe = MealPlanRecipe.new(meal_plan: @meal_plan, recipe: @recipe)
-
 
     if meal_plan_recipe.save
       redirect_back(
