@@ -7,4 +7,8 @@ class ScheduledDelivery < ApplicationRecord
             :service_provider,
             presence: true
 
+  def self.future
+    where('scheduled_for >= ?', Time.zone.today)
+      .order(scheduled_for: :asc)
+  end
 end
