@@ -8,7 +8,8 @@ class ScheduledDelivery < ApplicationRecord
             presence: true
 
   def self.future
-    where('scheduled_for >= ?', Time.zone.today)
+    hour_window = Time.zone.now - 3600
+    where('scheduled_for >= ?', hour_window)
       .order(scheduled_for: :asc)
   end
 end
