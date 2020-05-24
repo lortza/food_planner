@@ -72,5 +72,7 @@ Rails.application.configure do
     Bullet.console = true
     # Bullet.growl = true
     # Bullet.rails_logger = true
-    end
+  end
+
+  config.time_zone = 'Central Time (US & Canada)'
 end
