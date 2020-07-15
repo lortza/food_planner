@@ -11,7 +11,8 @@ class RecipesController < ApplicationController
 
     @recipes = recipes.includes(:meal_plans, :meal_plan_recipes)
                       .by_last_prepared
-                      .paginate(page: params[:page], per_page: 30)
+                      # .paginate(page: params[:page], per_page: 30)
+
   end
 
   def show
