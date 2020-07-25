@@ -10,9 +10,8 @@ class RecipesController < ApplicationController
     recipes = search_term.present? ? recipes.search(field: 'title', terms: search_term) : recipes.active
 
     @recipes = recipes.includes(:meal_plans, :meal_plan_recipes)
-                      .by_last_prepared
-                      # .paginate(page: params[:page], per_page: 30)
-
+                      .order(updated_at: 'DESC')
+                      .paginate(page: params[:page], per_page: 30)
   end
 
   def show
