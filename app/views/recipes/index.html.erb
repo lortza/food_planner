@@ -36,4 +36,4 @@
   <p>There are no recipes containing the term(s) <%= params[:search] %>.</p>
 <% end %>
 
-<%#= will_paginate @recipes, :page_links => false %>
+<%= will_paginate @recipes, page_links: false %>

@@ -5,9 +5,9 @@ class MealPlansController < ApplicationController
 
   def index
     @meal_plans = current_user.meal_plans
-                              .includes(:recipes)
+                              .includes(:meal_plan_recipes, :recipes)
                               .most_recent_first
-                              # .paginate(page: params[:page], per_page: 30)
+                              .paginate(page: params[:page], per_page: 30)
   end
 
   def show
