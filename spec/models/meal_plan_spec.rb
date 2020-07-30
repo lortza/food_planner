@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 RSpec.describe MealPlan, type: :model do
-  let(:meal_plan) { build(:meal_plan) }
-
   context 'associations' do
     it { should belong_to(:user) }
     it { should have_many(:meal_plan_recipes) }
@@ -11,6 +9,8 @@ RSpec.describe MealPlan, type: :model do
   end
 
   describe 'a valid meal_plan' do
+    let(:meal_plan) { build(:meal_plan) }
+
     context 'when has valid params' do
       it 'is valid' do
         expect(meal_plan).to be_valid
@@ -36,7 +36,61 @@ RSpec.describe MealPlan, type: :model do
     end
   end
 
-  xdescribe 'self.date_for_upcoming_sunday' do
+  describe 'self.date_after_last_meal_plan' do
+    let(:user) { create(:user) }
+    let(:random_wednesday) { '2020-08-05'.to_date }
+
+    it 'chooses a date later than the latest meal plan' do
+      plan1 = create(:meal_plan, user: user, start_date: random_wednesday)
+      new_date = MealPlan.date_after_last_meal_plan(user)
+
+      expect(new_date).to be > plan1.start_date
+    end
+
+    it 'chooses a sunday' do
+      create(:meal_plan, user: user, start_date: random_wednesday)
+      new_date = MealPlan.date_after_last_meal_plan(user)
+      sunday_number = 0
+
+      expect(new_date.wday).to eq(sunday_number)
+    end
+
+    it 'picks upcoming sunday if there are no meal plans for the user' do
+      expect(MealPlan).to receive(:date_for_upcoming_sunday)
+      MealPlan.date_after_last_meal_plan(user)
+    end
+  end
+
+  describe 'self.date_for_upcoming_sunday' do
+    it 'if today is Sunday, it returns today' do
+      today_sunday = '2020-08-02'.to_date
+
+      # Travel to Sunday
+      travel_to Time.zone.local(2020, 8, 02, 01, 04, 44) do
+        new_date = MealPlan.date_for_upcoming_sunday
+        expect(new_date).to eq(today_sunday)
+      end
+    end
+
+    it 'if today is Monday, it returns the upcoming Sunday' do
+      upcoming_sunday = '2020-08-02'.to_date
+
+      # Travel to Monday
+      travel_to Time.zone.local(2020, 07, 27, 01, 04, 44) do
+        new_date = MealPlan.date_for_upcoming_sunday
+        expect(new_date).to eq(upcoming_sunday)
+      end
+    end
+
+    it 'if today is Saturday, it returns tomorrow' do
+      tomorrow = '2020-08-02'.to_date
+
+      # Travel to Saturday
+      travel_to Time.zone.local(2020, 8, 01, 01, 04, 44) do
+        new_date = MealPlan.date_for_upcoming_sunday
+        expect(new_date).to eq(tomorrow)
+      end
+    end
   end
 
   describe 'self.future' do
@@ -80,6 +134,7 @@ RSpec.describe MealPlan, type: :model do
   end
 
   describe '#total_servings' do
+    let(:meal_plan) { build(:meal_plan) }
     let(:standard_servings) { 2 }
     let(:qty_recipes) { 2 }
 
@@ -98,6 +153,7 @@ RSpec.describe MealPlan, type: :model do
   end
 
   describe '#total_prep_time' do
+    let(:meal_plan) { build(:meal_plan) }
     let(:standard_prep_time) { 2 }
     let(:qty_recipes) { 2 }
 
@@ -115,6 +171,7 @@ RSpec.describe MealPlan, type: :model do
   end
 
   describe '#total_cook_time' do
+    let(:meal_plan) { build(:meal_plan) }
     let(:standard_cook_time) { 2 }
     let(:qty_recipes) { 2 }
 
@@ -133,6 +190,7 @@ RSpec.describe MealPlan, type: :model do
   end
 
   describe '#total_time' do
+    let(:meal_plan) { build(:meal_plan) }
     let(:standard_cook_time) { 2 }
     let(:standard_prep_time) { 2 }
     let(:qty_recipes) { 2 }
@@ -181,6 +239,7 @@ RSpec.describe MealPlan, type: :model do
   end
 
   describe '#meals' do
+    let(:meal_plan) { build(:meal_plan) }
     let(:standard_servings) { 2 }
     let(:qty_recipes) { 2 }
     let(:total_servings) { standard_servings * qty_recipes }
@@ -200,6 +259,7 @@ RSpec.describe MealPlan, type: :model do
   end
 
   describe '#total_unique_ingredients' do
+    let(:meal_plan) { build(:meal_plan) }
     let(:qty_recipes) { 2 }
     let(:recipe1) { create(:recipe) }
     let(:recipe2) { create(:recipe) }
