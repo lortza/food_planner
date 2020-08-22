@@ -42,7 +42,10 @@ class ShoppingListItemRecurrence
     end
 
     def today_is_weekly_item_day?
-      Time.zone.today.tuesday?
+      # Abstracting this so it can eventually be set via the front end
+      str = 'Monday'
+      day_method = "#{str.downcase}?"
+      Time.zone.today.send(day_method)
     end
 
     def today_is_biweekly_week?
