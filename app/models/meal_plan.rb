@@ -24,14 +24,8 @@ class MealPlan < ApplicationRecord
       days_to_add = (7 - latest_plan_day_of_week)
       latest_plan_date + days_to_add
     else
-      date_for_upcoming_sunday
+      Date.today.next_occurring(:sunday)
     end
-  end
-
-  def self.date_for_upcoming_sunday
-    closest_sunday = Date.parse('Sunday')
-    days_to_add = closest_sunday > Time.zone.today ? 0 : 7
-    closest_sunday + days_to_add
   end
 
   def self.future

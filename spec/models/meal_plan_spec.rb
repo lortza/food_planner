@@ -56,40 +56,12 @@ RSpec.describe MealPlan, type: :model do
     end
 
     it 'picks upcoming sunday if there are no meal plans for the user' do
-      expect(MealPlan).to receive(:date_for_upcoming_sunday)
-      MealPlan.date_after_last_meal_plan(user)
-    end
-  end
-
-  describe 'self.date_for_upcoming_sunday' do
-    it 'if today is Sunday, it returns today' do
-      today_sunday = '2020-08-02'.to_date
-
-      # Travel to Sunday
-      travel_to Time.zone.local(2020, 8, 02, 01, 04, 44) do
-        new_date = MealPlan.date_for_upcoming_sunday
-        expect(new_date).to eq(today_sunday)
-      end
-    end
-
-    it 'if today is Monday, it returns the upcoming Sunday' do
+      today_saturday = '2020-08-01'.to_date
       upcoming_sunday = '2020-08-02'.to_date
+      allow(Date).to receive(:today).and_return(today_saturday)
 
-      # Travel to Monday
-      travel_to Time.zone.local(2020, 07, 27, 01, 04, 44) do
-        new_date = MealPlan.date_for_upcoming_sunday
-        expect(new_date).to eq(upcoming_sunday)
-      end
-    end
-
-    it 'if today is Saturday, it returns tomorrow' do
-      tomorrow = '2020-08-02'.to_date
-
-      # Travel to Saturday
-      travel_to Time.zone.local(2020, 8, 01, 01, 04, 44) do
-        new_date = MealPlan.date_for_upcoming_sunday
-        expect(new_date).to eq(tomorrow)
-      end
+      date = MealPlan.date_after_last_meal_plan(user)
+      expect(date).to eq(upcoming_sunday)
     end
   end
 
