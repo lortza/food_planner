@@ -19,7 +19,7 @@ class MealPlansController < ApplicationController
   def new
     default_params = {
       people_served: 2,
-      start_date: MealPlan.date_after_last_meal_plan(current_user)
+      start_date: MealPlan.suggested_date(current_user)
     }
     @meal_plan = current_user.meal_plans.new(default_params)
     authorize(@meal_plan)
