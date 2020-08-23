@@ -17,29 +17,32 @@ class MealPlan < ApplicationRecord
   scope :by_date, -> { order(start_date: :asc) }
   scope :most_recent_first, -> { order(start_date: :DESC) }
 
-  def self.date_after_last_meal_plan(user)
-    if any?
-      latest_plan_date = user.meal_plans.maximum(:start_date)
-      latest_plan_day_of_week = latest_plan_date.wday
-      days_to_add = (7 - latest_plan_day_of_week)
-      latest_plan_date + days_to_add
-    else
-      date_for_upcoming_sunday
-    end
-  end
-
-  def self.date_for_upcoming_sunday
-    closest_sunday = Date.parse('Sunday')
-    days_to_add = closest_sunday > Time.zone.today ? 0 : 7
-    closest_sunday + days_to_add
-  end
-
   def self.future
     where('start_date >= ?', Time.zone.today).by_date
   end
 
   def self.upcoming
     future.first
+  end
+
+  def self.suggested_date(user)
+    upcoming_sunday = Date.today.next_occurring(:sunday)
+    return upcoming_sunday if user.meal_plans.blank?
+
+    latest_plan_date = user.meal_plans.maximum(:start_date)
+    oldest_allowable_date = 7.days.ago
+
+    if latest_plan_date < oldest_allowable_date
+      upcoming_sunday
+    else
+      date_after_last_meal_plan(latest_plan_date)
+    end
+  end
+
+  def self.date_after_last_meal_plan(latest_plan_date)
+    latest_plan_day_of_week = latest_plan_date.wday
+    days_to_add = (7 - latest_plan_day_of_week)
+    latest_plan_date + days_to_add
   end
 
   def total_servings

@@ -36,60 +36,65 @@ RSpec.describe MealPlan, type: :model do
     end
   end
 
+  describe 'self.suggested_date' do
+    let(:user) { create(:user) }
+    let(:random_wednesday) { '2020-08-05'.to_date }
+
+    it 'returns upcoming sunday if there are no meal plans for the user' do
+      today_saturday = '2020-08-01'.to_date
+      upcoming_sunday = '2020-08-02'.to_date
+      allow(Date).to receive(:today).and_return(today_saturday)
+
+      date = MealPlan.suggested_date(user)
+      expect(date).to eq(upcoming_sunday)
+    end
+
+    it 'returns upcoming sunday if the latest meal plan is more than a week old' do
+      today_saturday = '2020-08-01'.to_date
+      seven_days_ago = '2020-07-26'.to_date
+      upcoming_sunday = '2020-08-02'.to_date
+      latest_plan_date = '2020-07-25'.to_date
+      create(:meal_plan, user: user, start_date: latest_plan_date)
+
+      # Travel to today_saturday
+      travel_to Time.zone.local(2020, 8, 01, 01, 04, 44) do        
+        date = MealPlan.suggested_date(user)
+        expect(date).to eq(upcoming_sunday)
+      end
+    end
+
+    it 'returns date_after_last_meal_plan if the latest meal_plan is only a week old' do
+      today_saturday = '2020-08-01'.to_date
+      seven_days_ago = '2020-07-26'.to_date
+      upcoming_sunday = '2020-08-02'.to_date
+      latest_plan_date = '2020-07-28'.to_date
+      create(:meal_plan, user: user, start_date: latest_plan_date)
+
+      # Travel to today_saturday
+      travel_to Time.zone.local(2020, 8, 01, 01, 04, 44) do
+        expect(MealPlan).to receive(:date_after_last_meal_plan)
+        date = MealPlan.suggested_date(user)
+      end
+    end
+  end
+
   describe 'self.date_after_last_meal_plan' do
     let(:user) { create(:user) }
     let(:random_wednesday) { '2020-08-05'.to_date }
 
     it 'chooses a date later than the latest meal plan' do
       plan1 = create(:meal_plan, user: user, start_date: random_wednesday)
-      new_date = MealPlan.date_after_last_meal_plan(user)
+      new_date = MealPlan.date_after_last_meal_plan(random_wednesday)
 
       expect(new_date).to be > plan1.start_date
     end
 
     it 'chooses a sunday' do
       create(:meal_plan, user: user, start_date: random_wednesday)
-      new_date = MealPlan.date_after_last_meal_plan(user)
+      new_date = MealPlan.date_after_last_meal_plan(random_wednesday)
       sunday_number = 0
 
       expect(new_date.wday).to eq(sunday_number)
-    end
-
-    it 'picks upcoming sunday if there are no meal plans for the user' do
-      expect(MealPlan).to receive(:date_for_upcoming_sunday)
-      MealPlan.date_after_last_meal_plan(user)
-    end
-  end
-
-  describe 'self.date_for_upcoming_sunday' do
-    it 'if today is Sunday, it returns today' do
-      today_sunday = '2020-08-02'.to_date
-
-      # Travel to Sunday
-      travel_to Time.zone.local(2020, 8, 02, 01, 04, 44) do
-        new_date = MealPlan.date_for_upcoming_sunday
-        expect(new_date).to eq(today_sunday)
-      end
-    end
-
-    it 'if today is Monday, it returns the upcoming Sunday' do
-      upcoming_sunday = '2020-08-02'.to_date
-
-      # Travel to Monday
-      travel_to Time.zone.local(2020, 07, 27, 01, 04, 44) do
-        new_date = MealPlan.date_for_upcoming_sunday
-        expect(new_date).to eq(upcoming_sunday)
-      end
-    end
-
-    it 'if today is Saturday, it returns tomorrow' do
-      tomorrow = '2020-08-02'.to_date
-
-      # Travel to Saturday
-      travel_to Time.zone.local(2020, 8, 01, 01, 04, 44) do
-        new_date = MealPlan.date_for_upcoming_sunday
-        expect(new_date).to eq(tomorrow)
-      end
     end
   end
 
