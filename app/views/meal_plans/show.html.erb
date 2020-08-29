@@ -14,6 +14,7 @@
       <li>Estimated Prep Duration: <%= display_time(@meal_plan.estimated_time) %></li>
       <li>Recommended Start Time: <%= @meal_plan.recommended_start_time %></li>
       <li>Total Ingredients: <%= @meal_plan.total_unique_ingredients %></li>
+      <% if @meal_plan.notes.present? %><li>Notes: <%= @meal_plan.notes %></li><% end %>
     </ul>
   </section>
 
