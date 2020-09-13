@@ -16,7 +16,9 @@ module ShoppingListsHelper
   end
 
   def display_item(item)
+    # rubocop disable: Rails/OutputSafety
     "#{item.name} #{display_quantity(item)} #{display_upc(item)} #{display_recurrence(item)}".html_safe
+    # rubocop enable: Rails/OutputSafety
   end
 
   def display_status(item)
