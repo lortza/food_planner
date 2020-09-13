@@ -3,8 +3,6 @@
 class MealPlanRecipesController < ApplicationController
   before_action :set_recipe, only: :create
   before_action :set_meal_plan, only: :create
-
-  # rubocop:disable Metrics/AbcSize
   def create
     meal_plan_recipe = MealPlanRecipe.new(meal_plan: @meal_plan, recipe: @recipe)
 
@@ -17,7 +15,6 @@ class MealPlanRecipesController < ApplicationController
       flash[:error] = "#{@recipe.title} was already part of the #{@meal_plan.start_date.to_s(:short)} meal plan."
       redirect_back(fallback_location: recipes_url)
     end
-    # rubocop:enable Metrics/AbcSize
   end
 
   private

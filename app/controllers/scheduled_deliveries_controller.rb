@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class ScheduledDeliveriesController < ApplicationController
   before_action :set_scheduled_delivery, only: %i[edit update destroy]
   before_action :set_shopping_list, only: %i[new create edit update destroy]
@@ -56,5 +57,4 @@ class ScheduledDeliveriesController < ApplicationController
                                                :service_provider,
                                                :scheduled_for)
   end
-
 end
