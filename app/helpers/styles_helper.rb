@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module StylesHelper
-  def button_classes(style = 'primary')
-    "btn btn-sm btn-#{style}"
+  def button_classes(style = 'info')
+    "btn btn-sm btn-outline-#{style}"
   end
 
   def bootstrap_flash_class(type)

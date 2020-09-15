@@ -1,6 +1,6 @@
 <% content_for(:title, 'Add a Recipe') %>
 
-<%= link_to 'Cancel', experimental_recipes_path, class: 'btn btn-outline-primary float-right' %>
+<%= link_to 'Cancel', experimental_recipes_path, class: "#{button_classes} float-right" %>
 <h1>New Experimental Recipe</h1>
 
 <%= render 'form', experimental_recipe: @experimental_recipe %>
