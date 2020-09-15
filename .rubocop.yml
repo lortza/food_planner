@@ -5,6 +5,7 @@ require:
 Rails:
   Enabled: true
 AllCops:
+  NewCops: enable
   DefaultFormatter: progress
   Exclude:
     - 'bin/**'
