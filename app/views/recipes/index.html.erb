@@ -27,7 +27,7 @@
             <% if available_meal_plans_dropdown(current_user, recipe).any? %>
               <%= render 'add_to_meal_plan_dropdown', meal_plan_recipe: MealPlanRecipe.new, recipe: recipe %></td>
             <% end %>
-          <td><%= link_to 'Edit', edit_recipe_path(recipe), class: button_classes('outline-info') %></td>
+          <td><%= link_to 'Edit', edit_recipe_path(recipe), class: button_classes %></td>
         </tr>
       <% end %>
     </tbody>

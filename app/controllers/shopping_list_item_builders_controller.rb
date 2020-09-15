@@ -8,8 +8,9 @@ class ShoppingListItemBuildersController < ApplicationController
 
     list_name = shopping_list.name
     pluralized_ingredients = ActionController::Base.helpers.pluralize(ingredient_ids.length, 'item')
-    flash[:success] = "#{pluralized_ingredients} added to #{list_name.titleize} List."
+    link = ActionController::Base.helpers.link_to list_name.titleize, shopping_list_path(shopping_list)
 
+    flash[:notice] = "#{pluralized_ingredients} added to your #{link} list."
     redirect_back(fallback_location: root_path)
   end
 

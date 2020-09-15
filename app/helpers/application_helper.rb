@@ -9,17 +9,6 @@ module ApplicationHelper
     end
   end
 
-  def bootstrap_flash_class(type)
-    case type
-    when 'alert' then 'warning'
-    when 'error' then 'danger'
-    when 'warning' then 'warning'
-    when 'notice' then 'success'
-    else
-      'info'
-    end
-  end
-
   def session_links
     if current_user
       link_to 'Sign Out',
@@ -35,10 +24,6 @@ module ApplicationHelper
 
   def display_time(minutes)
     TimeHelper.display_time(minutes)
-  end
-
-  def button_class(style = 'primary')
-    "btn btn-sm btn-outline-#{style}"
   end
 
   def display_link_to_plan

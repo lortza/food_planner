@@ -6,4 +6,4 @@
 </h1>
 
 <%= render 'form', scheduled_delivery: @scheduled_delivery, shopping_list: @shopping_list %>
-<%= link_to 'Delete', shopping_list_scheduled_delivery_path(@shopping_list, @scheduled_delivery), method: :delete, data: { confirm: 'Are you sure? This action cannot be undone.' }, class: 'btn btn-sm btn-outline-danger mt-5' %>
+<%= link_to 'Delete', shopping_list_scheduled_delivery_path(@shopping_list, @scheduled_delivery), method: :delete, data: { confirm: 'Are you sure? This action cannot be undone.' }, class: "#{button_classes('danger')} mt-5" %>
