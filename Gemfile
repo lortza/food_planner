@@ -27,7 +27,7 @@ gem 'will_paginate', '~> 3.3.0' # pagination. Styles: http://mislav.github.io/wi
 group :development do
   gem 'awesome_print'
   gem 'listen', '>= 3.0.5', '< 3.3'
-  gem 'magic_frozen_string_literal'
+  # gem 'magic_frozen_string_literal'
   gem 'rails-erd', require: false   # generates table diagram run `bundle exec erd`
   gem 'rubocop-performance'
   gem 'rubocop-rails'
