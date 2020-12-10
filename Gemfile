@@ -47,7 +47,7 @@ group :development, :test do
   end
   gem 'better_errors'           # creates console in browser for errors
   gem 'binding_of_caller'       # goes with better_errors
-  gem 'bullet'                  # detects n+1 queries
+  # gem 'bullet'                  # detects n+1 queries
   gem 'byebug', platforms: %i[mri mingw x64_mingw] # Call 'byebug' anywhere in the code to get a debugger console
   gem 'factory_bot_rails' # factory support for rspec
   gem 'guard-rspec', require: false # runs rspec automatically
