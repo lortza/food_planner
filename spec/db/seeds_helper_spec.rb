@@ -92,7 +92,7 @@ RSpec.describe 'SeedsHelper' do
 
     context 'with missing recipe' do
       it 'outputs notification if any ingredient is missing a matching recipe' do
-        expect(STDOUT).to receive(:puts).with(SeedsHelper::MISSING_RECIPE_WARNING)
+        expect($stdout).to receive(:puts).with(SeedsHelper::MISSING_RECIPE_WARNING)
         notifiy
       end
     end
@@ -102,7 +102,7 @@ RSpec.describe 'SeedsHelper' do
         recipe_data.each { |recipe| create(:recipe, title: recipe[:title]) }
       end
       it 'does not output a message' do
-        expect(STDOUT).not_to receive(:puts)
+        expect($stdout).not_to receive(:puts)
         notifiy
       end
     end
