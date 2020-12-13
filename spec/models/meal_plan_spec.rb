@@ -57,7 +57,7 @@ RSpec.describe MealPlan, type: :model do
       create(:meal_plan, user: user, start_date: latest_plan_date)
 
       # Travel to today_saturday
-      travel_to Time.zone.local(2020, 8, 01, 01, 04, 44) do        
+      travel_to Time.zone.local(2020, 8, 0o1, 0o1, 0o4, 44) do
         date = MealPlan.suggested_date(user)
         expect(date).to eq(upcoming_sunday)
       end
@@ -71,9 +71,9 @@ RSpec.describe MealPlan, type: :model do
       create(:meal_plan, user: user, start_date: latest_plan_date)
 
       # Travel to today_saturday
-      travel_to Time.zone.local(2020, 8, 01, 01, 04, 44) do
+      travel_to Time.zone.local(2020, 8, 0o1, 0o1, 0o4, 44) do
         expect(MealPlan).to receive(:date_after_last_meal_plan)
-        date = MealPlan.suggested_date(user)
+        MealPlan.suggested_date(user)
       end
     end
   end

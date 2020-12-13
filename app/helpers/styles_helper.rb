@@ -7,14 +7,14 @@ module StylesHelper
 
   def bootstrap_flash_class(type)
     modifier = case type
-    when 'alert' then 'warning'
-    when 'error' then 'danger'
-    when 'warning' then 'warning'
-    when 'notice' then 'info'
-    when 'success' then 'success'
-    else
-      'info'
-    end
+               when 'alert' then 'warning'
+               when 'error' then 'danger'
+               when 'warning' then 'warning'
+               when 'notice' then 'info'
+               when 'success' then 'success'
+               else
+                 'info'
+               end
 
     "alert alert-#{modifier} fadein mt-3"
   end
