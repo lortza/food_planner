@@ -8,7 +8,7 @@ module SeedsHelper
   def check_for_existing_data!
     return unless User.any? || Recipe.any?
     message = %(
-      FALED!
+      FAILED!
       Seeds were not run because there is already data in the database.
       To delete all data then replant seeds, run 'rake db:seed:replant'
       To reset the db and run seeds, run 'rake db:migrate:reset && rake db:seed'
