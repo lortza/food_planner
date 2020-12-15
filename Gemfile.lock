@@ -1,49 +1,49 @@
 GIT
   remote: https://github.com/rspec/rspec-core.git
-  revision: 77dbc84657c5dc45e07a7fe0f5b02b4caeb6c9ad
+  revision: e7c5d030966a7e8dad3e0a67c61920c4f2437c15
   branch: master
   specs:
-    rspec-core (3.9.0.pre)
-      rspec-support (= 3.9.0.pre)
+    rspec-core (3.10.0.pre)
+      rspec-support (= 3.10.0.pre)
 
 GIT
   remote: https://github.com/rspec/rspec-expectations.git
-  revision: 75f5cc9cab09fd0728bcf95e26d2c4b46f73c466
+  revision: e63ff4765e1cd2798b02ddddad259f1104ef87a5
   branch: master
   specs:
-    rspec-expectations (3.9.0.pre)
+    rspec-expectations (3.10.0.pre)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (= 3.9.0.pre)
+      rspec-support (= 3.10.0.pre)
 
 GIT
   remote: https://github.com/rspec/rspec-mocks.git
-  revision: 2aab10d3e7a9c1c500acd1e88a7a408670f8cc48
+  revision: 0a52e0a86b126b4bab94d277b2ad99a7492dc37d
   branch: master
   specs:
-    rspec-mocks (3.9.0.pre)
+    rspec-mocks (3.10.0.pre)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (= 3.9.0.pre)
+      rspec-support (= 3.10.0.pre)
 
 GIT
   remote: https://github.com/rspec/rspec-rails.git
-  revision: 2d183ced23d2d41ec1ad28f0f5f0582712b01642
+  revision: 01704c50c146f720db914724c25681781ecefb23
   branch: master
   specs:
-    rspec-rails (3.9.0.pre)
-      actionpack (>= 3.0)
-      activesupport (>= 3.0)
-      railties (>= 3.0)
-      rspec-core (= 3.9.0.pre)
-      rspec-expectations (= 3.9.0.pre)
-      rspec-mocks (= 3.9.0.pre)
-      rspec-support (= 3.9.0.pre)
+    rspec-rails (4.1.0.pre)
+      actionpack (>= 4.2)
+      activesupport (>= 4.2)
+      railties (>= 4.2)
+      rspec-core (= 3.10.0.pre)
+      rspec-expectations (= 3.10.0.pre)
+      rspec-mocks (= 3.10.0.pre)
+      rspec-support (= 3.10.0.pre)
 
 GIT
   remote: https://github.com/rspec/rspec-support.git
-  revision: c69a231d7369dd165ad7ce4742e1a2e21e3462b5
+  revision: 6447b0c2c9d1cd3e1504784fb85675ca9ae7b7c3
   branch: master
   specs:
-    rspec-support (3.9.0.pre)
+    rspec-support (3.10.0.pre)
 
 GEM
   remote: https://rubygems.org/
@@ -164,7 +164,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    diff-lcs (1.3)
+    diff-lcs (1.4.4)
     docile (1.3.2)
     equalizer (0.0.11)
     erubi (1.10.0)
