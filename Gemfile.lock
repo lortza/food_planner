@@ -178,10 +178,10 @@ GEM
     faraday (1.1.0)
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
-    ffi (1.13.1)
-    ffi (1.13.1-java)
-    ffi (1.13.1-x64-mingw32)
-    ffi (1.13.1-x86-mingw32)
+    ffi (1.14.2)
+    ffi (1.14.2-java)
+    ffi (1.14.2-x64-mingw32)
+    ffi (1.14.2-x86-mingw32)
     flay (2.12.1)
       erubis (~> 2.7.0)
       path_expander (~> 1.0)
@@ -214,7 +214,7 @@ GEM
     kwalify (0.7.2)
     launchy (2.5.0)
       addressable (~> 2.7)
-    listen (3.2.1)
+    listen (3.3.4)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     loofah (2.8.0)
@@ -469,7 +469,7 @@ DEPENDENCIES
   guard-rspec
   jbuilder (~> 2.10)
   launchy
-  listen (>= 3.0.5, < 3.3)
+  listen (>= 3.0.5, < 3.4)
   loofah (>= 2.2.3)
   nokogiri (>= 1.8.5)
   pg (>= 0.18, < 2.0)
