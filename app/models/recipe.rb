@@ -37,13 +37,11 @@ class Recipe < ApplicationRecord
   validates :cook_time, numericality: { other_than: 0 }, if: -> { reheat_time&.zero? && prep_time&.zero? }
   validates :reheat_time, numericality: { other_than: 0 }, if: -> { prep_time&.zero? && cook_time&.zero? }
 
+  scope :by_last_prepared, -> { order(last_prepared_on: :asc) }
+
   def self.for_prep_date(date)
     # WIP
     # Recipe.joins(:preparations).where(preparations: {date: date})
-  end
-
-  def self.by_last_prepared
-    order('meal_plans.start_date asc')
   end
 
   def self.active
@@ -63,9 +61,8 @@ class Recipe < ApplicationRecord
     self.source_url = DEFAULT_SOURCE[:source_url] if source_url.blank?
   end
 
-  def checkbox_label
-    output = "#{title} (#{servings} servings)"
-    last_prepared ? output + ": #{last_prepared}" : output
+  def meal_plan_checkbox_label
+    "#{title} (#{servings} servings)"
   end
 
   def last_prepared

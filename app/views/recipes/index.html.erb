@@ -22,7 +22,7 @@
           </div></td>
           <td><%= link_to recipe.title, recipe %> <%= extra_work_flag(recipe) %> <%= status_flag(recipe) %></td>
           <td><%= recipe.servings %></td>
-          <td><%= recipe.last_prepared %></td>
+          <td><%= recipe.last_prepared_on %></td>
           <td>
             <% if available_meal_plans_dropdown(current_user, recipe).any? %>
               <%= render 'add_to_meal_plan_dropdown', meal_plan_recipe: MealPlanRecipe.new, recipe: recipe %></td>
