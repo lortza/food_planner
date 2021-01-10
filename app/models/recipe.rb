@@ -65,8 +65,8 @@ class Recipe < ApplicationRecord
     "#{title} (#{servings} servings)"
   end
 
-  def last_prepared
-    meal_plans.pluck(:start_date).max
+  def calculate_last_prepared_on
+    meal_plans.maximum(:prepared_on)
   end
 
   def total_time

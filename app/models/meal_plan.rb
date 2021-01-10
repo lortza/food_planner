@@ -11,6 +11,8 @@ class MealPlan < ApplicationRecord
             presence: true,
             uniqueness: { scope: :user_id }
 
+  after_update :update_recipes_last_prepared_dates
+
   PREP_END_TIME = Time.zone.parse('5:00 PM')
   EFFICIENCY_RATE = 0.66
 
@@ -93,6 +95,13 @@ class MealPlan < ApplicationRecord
 
   def prep_end_time
     PREP_END_TIME
+  end
+
+  def update_recipes_last_prepared_dates
+    recipes.each do |recipe|
+      date = recipe.calculate_last_prepared_on
+      recipe.update_columns(last_prepared_on: date)
+    end
   end
 
   # def add_to_calendar_url(date)
