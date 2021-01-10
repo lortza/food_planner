@@ -1,6 +1,6 @@
 <%= link_to 'Cancel', meal_plans_path, class: "#{button_classes} float-right" %>
 
-<h1>Edit the Plan for <%= @meal_plan.start_date.to_s(:long) %> </h1>
+<h1>Edit the Plan for <%= @meal_plan.prepared_on.to_s(:long) %> </h1>
 
 <%= render 'form', meal_plan: @meal_plan %>
 

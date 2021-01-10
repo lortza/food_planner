@@ -19,7 +19,7 @@ class MealPlansController < ApplicationController
   def new
     default_params = {
       people_served: 2,
-      start_date: MealPlan.suggested_date(current_user)
+      prepared_on: MealPlan.suggested_date(current_user)
     }
     @meal_plan = current_user.meal_plans.new(default_params)
     authorize(@meal_plan)
@@ -30,7 +30,7 @@ class MealPlansController < ApplicationController
     existing_recipes = @meal_plan.recipes
     @meal_plan = @meal_plan.dup
     @meal_plan.recipes << existing_recipes
-    @meal_plan.start_date = nil
+    @meal_plan.prepared_on = nil
 
     render :new
   end
@@ -54,7 +54,7 @@ class MealPlansController < ApplicationController
     authorize(@meal_plan)
 
     if @meal_plan.update(meal_plan_params)
-      redirect_to meal_plan_url(@meal_plan), notice: "#{@meal_plan.start_date} Meal Plan Updated"
+      redirect_to meal_plan_url(@meal_plan), notice: "#{@meal_plan.prepared_on} Meal Plan Updated"
     else
       render :edit
     end
@@ -65,7 +65,7 @@ class MealPlansController < ApplicationController
     authorize(meal_plan)
 
     meal_plan.destroy
-    flash[:success] = "#{meal_plan.start_date} Meal Plan deleted"
+    flash[:success] = "#{meal_plan.prepared_on} Meal Plan deleted"
     redirect_to meal_plans_path
   end
 
@@ -76,6 +76,6 @@ class MealPlansController < ApplicationController
   end
 
   def meal_plan_params
-    params.require(:meal_plan).permit(:start_date, :people_served, :notes, recipe_ids: [])
+    params.require(:meal_plan).permit(:prepared_on, :people_served, :notes, recipe_ids: [])
   end
 end
