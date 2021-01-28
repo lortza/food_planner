@@ -17,19 +17,19 @@ RSpec.describe MealPlan, type: :model do
       end
     end
 
-    it { should validate_presence_of(:start_date) }
+    it { should validate_presence_of(:prepared_on) }
     it { should validate_presence_of(:people_served) }
 
-    it 'has a unique start_date scoped to user' do
+    it 'has a unique prepared_on scoped to user' do
       create(:meal_plan)
-      should validate_uniqueness_of(:start_date).scoped_to(:user_id)
+      should validate_uniqueness_of(:prepared_on).scoped_to(:user_id)
     end
   end
 
   describe 'self.most_recent_first' do
-    it 'displays all meal plans in descending start_date order' do
-      meal_plan1 = create(:meal_plan, start_date: Time.zone.yesterday)
-      meal_plan2 = create(:meal_plan, start_date: Time.zone.today)
+    it 'displays all meal plans in descending prepared_on order' do
+      meal_plan1 = create(:meal_plan, prepared_on: Time.zone.yesterday)
+      meal_plan2 = create(:meal_plan, prepared_on: Time.zone.today)
 
       expect(MealPlan.most_recent_first.first).to eq(meal_plan2)
       expect(MealPlan.most_recent_first.last).to eq(meal_plan1)
@@ -54,7 +54,7 @@ RSpec.describe MealPlan, type: :model do
       seven_days_ago = '2020-07-26'.to_date
       upcoming_sunday = '2020-08-02'.to_date
       latest_plan_date = '2020-07-25'.to_date
-      create(:meal_plan, user: user, start_date: latest_plan_date)
+      create(:meal_plan, user: user, prepared_on: latest_plan_date)
 
       # Travel to today_saturday
       travel_to Time.zone.local(2020, 8, 0o1, 0o1, 0o4, 44) do
@@ -68,7 +68,7 @@ RSpec.describe MealPlan, type: :model do
       seven_days_ago = '2020-07-26'.to_date
       upcoming_sunday = '2020-08-02'.to_date
       latest_plan_date = '2020-07-28'.to_date
-      create(:meal_plan, user: user, start_date: latest_plan_date)
+      create(:meal_plan, user: user, prepared_on: latest_plan_date)
 
       # Travel to today_saturday
       travel_to Time.zone.local(2020, 8, 0o1, 0o1, 0o4, 44) do
@@ -83,14 +83,14 @@ RSpec.describe MealPlan, type: :model do
     let(:random_wednesday) { '2020-08-05'.to_date }
 
     it 'chooses a date later than the latest meal plan' do
-      plan1 = create(:meal_plan, user: user, start_date: random_wednesday)
+      plan1 = create(:meal_plan, user: user, prepared_on: random_wednesday)
       new_date = MealPlan.date_after_last_meal_plan(random_wednesday)
 
-      expect(new_date).to be > plan1.start_date
+      expect(new_date).to be > plan1.prepared_on
     end
 
     it 'chooses a sunday' do
-      create(:meal_plan, user: user, start_date: random_wednesday)
+      create(:meal_plan, user: user, prepared_on: random_wednesday)
       new_date = MealPlan.date_after_last_meal_plan(random_wednesday)
       sunday_number = 0
 
@@ -101,10 +101,10 @@ RSpec.describe MealPlan, type: :model do
   describe 'self.future' do
     it 'returns a list of meal plans starting today or in the future' do
       user = build(:user)
-      past_plan = create(:meal_plan, user: user, start_date: Time.zone.today - 2)
-      todays_plan = create(:meal_plan, user: user, start_date: Time.zone.today)
-      upcoming_plan = create(:meal_plan, user: user, start_date: Time.zone.today + 2)
-      future_plan = create(:meal_plan, user: user, start_date: Time.zone.today + 4)
+      past_plan = create(:meal_plan, user: user, prepared_on: Time.zone.today - 2)
+      todays_plan = create(:meal_plan, user: user, prepared_on: Time.zone.today)
+      upcoming_plan = create(:meal_plan, user: user, prepared_on: Time.zone.today + 2)
+      future_plan = create(:meal_plan, user: user, prepared_on: Time.zone.today + 4)
 
       future_plans = user.meal_plans.future
       expect(future_plans).to_not include(past_plan)
@@ -117,9 +117,9 @@ RSpec.describe MealPlan, type: :model do
   describe 'upcoming' do
     it 'returns a single meal plan' do
       user = build(:user)
-      past_plan = create(:meal_plan, user: user, start_date: Time.zone.today - 2)
-      upcoming_plan = create(:meal_plan, user: user, start_date: Time.zone.today + 2)
-      future_plan = create(:meal_plan, user: user, start_date: Time.zone.today + 4)
+      past_plan = create(:meal_plan, user: user, prepared_on: Time.zone.today - 2)
+      upcoming_plan = create(:meal_plan, user: user, prepared_on: Time.zone.today + 2)
+      future_plan = create(:meal_plan, user: user, prepared_on: Time.zone.today + 4)
 
       user_upcoming_plan = user.meal_plans.upcoming
       expect(user_upcoming_plan).to_not eq(past_plan)
@@ -129,8 +129,8 @@ RSpec.describe MealPlan, type: :model do
 
     it 'returns the meal plan that is next closest in the future to today' do
       user = build(:user)
-      upcoming_plan = create(:meal_plan, user: user, start_date: Time.zone.today + 2)
-      future_plan = create(:meal_plan, user: user, start_date: Time.zone.today + 4)
+      upcoming_plan = create(:meal_plan, user: user, prepared_on: Time.zone.today + 2)
+      future_plan = create(:meal_plan, user: user, prepared_on: Time.zone.today + 4)
 
       user_upcoming_plan = user.meal_plans.upcoming
       expect(user_upcoming_plan).to eq(upcoming_plan)

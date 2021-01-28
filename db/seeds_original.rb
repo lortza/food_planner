@@ -707,7 +707,7 @@ gnocchi.ingredients.create!([
 
 5.times do
   MealPlan.create!(
-    start_date: rand((Time.zone.today - 100)...Time.zone.today),
+    prepared_on: rand((Time.zone.today - 100)...Time.zone.today),
     people_served: 2,
     recipes: Recipe.all.sample(rand(2..5))
   )

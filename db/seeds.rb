@@ -33,7 +33,7 @@ ExperimentalRecipe.create!(experimental_recipe_seed_data)
 7.times do |i|
   MealPlan.create!(
     user: user,
-    start_date: i.weeks.ago.beginning_of_week(:sunday),
+    prepared_on: i.weeks.ago.beginning_of_week(:sunday),
     people_served: [2, 4].sample,
     notes: ['plan to one of them in the freezer', '', '', ''].sample
   )

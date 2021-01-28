@@ -7,18 +7,18 @@ class MealPlan < ApplicationRecord
   has_many :ingredients, through: :recipes
 
   validates :people_served, presence: true
-  validates :start_date,
+  validates :prepared_on,
             presence: true,
             uniqueness: { scope: :user_id }
 
   PREP_END_TIME = Time.zone.parse('5:00 PM')
   EFFICIENCY_RATE = 0.66
 
-  scope :by_date, -> { order(start_date: :asc) }
-  scope :most_recent_first, -> { order(start_date: :DESC) }
+  scope :by_date, -> { order(prepared_on: :asc) }
+  scope :most_recent_first, -> { order(prepared_on: :DESC) }
 
   def self.future
-    where('start_date >= ?', Time.zone.today).by_date
+    where('prepared_on >= ?', Time.zone.today).by_date
   end
 
   def self.upcoming
@@ -29,7 +29,7 @@ class MealPlan < ApplicationRecord
     upcoming_sunday = Date.today.next_occurring(:sunday)
     return upcoming_sunday if user.meal_plans.blank?
 
-    latest_plan_date = user.meal_plans.maximum(:start_date)
+    latest_plan_date = user.meal_plans.maximum(:prepared_on)
     oldest_allowable_date = 7.days.ago
 
     if latest_plan_date < oldest_allowable_date
@@ -109,7 +109,7 @@ class MealPlan < ApplicationRecord
   #
   # def enqueue_recipes
   #   qty_meals.times do
-  #     @recipe_queue << add_to_calendar_url(@start_date)
+  #     @recipe_queue << add_to_calendar_url(@prepared_on)
   #   end
   #   @recipe_queue.count
   # end

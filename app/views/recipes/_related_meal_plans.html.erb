@@ -6,8 +6,8 @@
 <% end %>
 
 <ul>
-  <% recipe.meal_plans.order(start_date: :desc).limit(5).each do |plan| %>
-    <li><%= link_to "#{l plan.start_date, format: :month_as_text}", plan %></li>
+  <% recipe.meal_plans.order(prepared_on: :desc).limit(5).each do |plan| %>
+    <li><%= link_to "#{l plan.prepared_on, format: :month_as_text}", plan %></li>
   <% end %>
 </ul>
 <% end %>

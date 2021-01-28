@@ -4,7 +4,7 @@
     <div class='col'>
       <%= form.collection_select :meal_plan_id,
                                  available_meal_plans_dropdown(current_user, recipe),
-                                 :id, :start_date, {},
+                                 :id, :prepared_on, {},
                                  class: 'form-control form-control-sm'
       %>
     </div>

@@ -53,9 +53,9 @@ RSpec.describe Recipe, type: :model do
   describe 'self.by_last_prepared' do
     it 'puts recipes that have not been made in a while on top' do
       recent_recipe = create(:recipe)
-      create(:meal_plan, recipes: [recent_recipe], start_date: '2020-06-15')
+      create(:meal_plan, recipes: [recent_recipe], prepared_on: '2020-06-15')
       old_recipe = create(:recipe)
-      create(:meal_plan, recipes: [old_recipe], start_date: '2018-06-15')
+      create(:meal_plan, recipes: [old_recipe], prepared_on: '2018-06-15')
       ordered_recipes = Recipe.includes(:meal_plans, :meal_plan_recipes).by_last_prepared
 
       expect(ordered_recipes.first).to eq(old_recipe)
@@ -64,15 +64,15 @@ RSpec.describe Recipe, type: :model do
   end
 
   describe '#last_prepared' do
-    let(:meal_plan_today) { create(:meal_plan, start_date: Time.zone.today) }
-    let(:meal_plan_yesterday) { create(:meal_plan, start_date: Time.zone.yesterday) }
+    let(:meal_plan_today) { create(:meal_plan, prepared_on: Time.zone.today) }
+    let(:meal_plan_yesterday) { create(:meal_plan, prepared_on: Time.zone.yesterday) }
     let(:recipe) { create(:recipe) }
 
-    it 'returns the start_date of the most recent meal plan this recipe was included in' do
+    it 'returns the prepared_on of the most recent meal plan this recipe was included in' do
       meal_plan_today.recipes << recipe
       meal_plan_yesterday.recipes << recipe
 
-      expect(recipe.last_prepared).to eq(meal_plan_today.start_date)
+      expect(recipe.last_prepared).to eq(meal_plan_today.prepared_on)
     end
   end
 
