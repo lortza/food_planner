@@ -43,7 +43,7 @@ class Recipe < ApplicationRecord
   end
 
   def self.by_last_prepared
-    order('meal_plans.start_date asc')
+    order('meal_plans.prepared_on asc')
   end
 
   def self.active
@@ -69,7 +69,7 @@ class Recipe < ApplicationRecord
   end
 
   def last_prepared
-    meal_plans.pluck(:start_date).max
+    meal_plans.pluck(:prepared_on).max
   end
 
   def total_time

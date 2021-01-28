@@ -7,9 +7,9 @@ RSpec.feature 'Recipes Show page viewable by user role', type: :feature do
   let!(:other_user) { create(:user) }
   let!(:author_recipe) { create(:recipe, user: author) }
   let!(:shopping_list) { create(:shopping_list, user: author) }
-  let!(:author_meal_plan) { create(:meal_plan, user: author, start_date: Time.zone.now + 10) }
+  let!(:author_meal_plan) { create(:meal_plan, user: author, prepared_on: Time.zone.now + 10) }
   let!(:author_meal_plan_recipe) { create(:meal_plan_recipe, meal_plan: author_meal_plan) }
-  let!(:other_user_meal_plan) { create(:meal_plan, user: other_user, start_date: Time.zone.now + 10) }
+  let!(:other_user_meal_plan) { create(:meal_plan, user: other_user, prepared_on: Time.zone.now + 10) }
   let!(:other_user_meal_plan_recipe) { create(:meal_plan_recipe, meal_plan: other_user_meal_plan) }
 
   describe 'recipes viewable without authentication and by non-authors' do

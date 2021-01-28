@@ -96,8 +96,8 @@ RSpec.describe 'MealPlans', type: :request do
     end
 
     it 'renders meal_plans#update' do
-      new_start_date = Time.zone.now + 15
-      patch meal_plan_path(user_meal_plan, meal_plan: { start_date: new_start_date })
+      new_prepared_on = Time.zone.now + 15
+      patch meal_plan_path(user_meal_plan, meal_plan: { prepared_on: new_prepared_on })
 
       expect(response).to redirect_to meal_plan_url(user_meal_plan)
     end
@@ -136,8 +136,8 @@ RSpec.describe 'MealPlans', type: :request do
     end
 
     it 'denies access to meal_plans#update' do
-      new_start_date = 'completely different start_date'
-      patch meal_plan_path(user2_meal_plan, meal_plan: { start_date: new_start_date })
+      new_prepared_on = 'completely different prepared_on'
+      patch meal_plan_path(user2_meal_plan, meal_plan: { prepared_on: new_prepared_on })
 
       expect(response).to_not be_successful
       expect(response).to redirect_to root_url
