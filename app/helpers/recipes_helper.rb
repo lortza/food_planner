@@ -9,9 +9,9 @@ module RecipesHelper
   def status_flag(recipe)
     if !recipe.active?
       'archived'
-    elsif recipe.last_prepared.nil?
+    elsif recipe.last_prepared_on.nil?
       image_tag('icon_new.png', class: 'icon-small', title: 'New! You have not made this yet!')
-    elsif recipe.last_prepared < Time.zone.today.prev_month(4)
+    elsif recipe.last_prepared_on < Time.zone.today.prev_month(4)
       image_tag('icon_been_a_while.png', class: 'icon-small', title: 'Been a while...')
     else
       ''

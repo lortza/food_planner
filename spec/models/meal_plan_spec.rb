@@ -26,6 +26,30 @@ RSpec.describe MealPlan, type: :model do
     end
   end
 
+  context 'callbacks: after_update' do
+    describe 'update_recipes_last_prepared_dates' do
+      it "updates all recipes' last_prepared_on when a meal_plan is updated" do
+        tacos = create(:recipe, title: 'tacos')
+        pizza = create(:recipe, title: 'pizza')
+        original_date = '2020-12-20'.to_date
+        updated_date = '2021-01-20'.to_date
+        meal_plan = create(:meal_plan, prepared_on: original_date)
+
+        meal_plan.recipes << [tacos, pizza]
+        tacos.reload
+        pizza.reload
+        expect(tacos.last_prepared_on).to eq(original_date)
+        expect(pizza.last_prepared_on).to eq(original_date)
+
+        meal_plan.update(prepared_on: updated_date)
+        tacos.reload
+        pizza.reload
+        expect(tacos.last_prepared_on).to eq(updated_date)
+        expect(pizza.last_prepared_on).to eq(updated_date)
+      end
+    end
+  end
+
   describe 'self.most_recent_first' do
     it 'displays all meal plans in descending prepared_on order' do
       meal_plan1 = create(:meal_plan, prepared_on: Time.zone.yesterday)

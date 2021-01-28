@@ -63,7 +63,7 @@ RSpec.describe Recipe, type: :model do
     end
   end
 
-  describe '#last_prepared' do
+  describe '#calculate_last_prepared_on' do
     let(:meal_plan_today) { create(:meal_plan, prepared_on: Time.zone.today) }
     let(:meal_plan_yesterday) { create(:meal_plan, prepared_on: Time.zone.yesterday) }
     let(:recipe) { create(:recipe) }
@@ -72,7 +72,7 @@ RSpec.describe Recipe, type: :model do
       meal_plan_today.recipes << recipe
       meal_plan_yesterday.recipes << recipe
 
-      expect(recipe.last_prepared).to eq(meal_plan_today.prepared_on)
+      expect(recipe.calculate_last_prepared_on).to eq(meal_plan_today.prepared_on)
     end
   end
 

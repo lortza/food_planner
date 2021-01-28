@@ -24,16 +24,15 @@ RSpec.describe RecipesHelper, type: :helper do
     end
 
     it 'returns "been a while" when recipe has not been made in the past 4 months' do
-      recipe = create(:recipe)
       four_months_ago = Time.zone.today - 5.months
-      recipe.meal_plans << create(:meal_plan, prepared_on: four_months_ago)
+      recipe = create(:recipe, last_prepared_on: four_months_ago)
 
       expect(helper.status_flag(recipe)).to include('assets/icon_')
     end
 
     it 'does not return a flag when recipe has no conditions' do
+      recipe = create(:recipe, last_prepared_on: Time.zone.today)
       recipe = create(:recipe)
-      recipe.meal_plans << create(:meal_plan, prepared_on: Time.zone.today)
 
       expect(helper.status_flag(recipe)).to eq('')
     end
