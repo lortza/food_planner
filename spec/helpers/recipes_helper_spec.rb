@@ -32,6 +32,7 @@ RSpec.describe RecipesHelper, type: :helper do
 
     it 'does not return a flag when recipe has no conditions' do
       recipe = create(:recipe, last_prepared_on: Time.zone.today)
+      recipe = create(:recipe)
 
       expect(helper.status_flag(recipe)).to eq('')
     end

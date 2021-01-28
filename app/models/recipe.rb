@@ -44,6 +44,10 @@ class Recipe < ApplicationRecord
     # Recipe.joins(:preparations).where(preparations: {date: date})
   end
 
+  def self.by_last_prepared
+    order('meal_plans.prepared_on asc')
+  end
+
   def self.active
     where(archived: false)
   end
