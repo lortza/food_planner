@@ -6,6 +6,7 @@ Rails:
   Enabled: true
 AllCops:
   NewCops: enable
+  SuggestExtensions: false
   DefaultFormatter: progress
   Exclude:
     - 'bin/**'
@@ -27,7 +28,7 @@ Metrics/BlockLength:
   CountComments: false
 
 Metrics/MethodLength:
-  ExcludedMethods: []
+  IgnoredMethods: []
   CountComments: false
   Max: 15
 
