@@ -30,6 +30,22 @@
     <%= form.text_field :image_url, class: 'form-control' %>
   </div>
 
+  <%= form.label :image %>
+
+  <% if recipe.image.attached? %>
+    <p>
+      <%= image_tag(recipe.image.variant(resize_to_limit: [75, 75])) %><br>
+      <%= recipe.image.filename %>
+    </p>
+
+    <div class='form-check'>
+      <%= form.check_box :remove_attached_image, class: 'form-check-input' %>
+      <%= form.label 'Check to remove attached image', class: 'form-check-label' %>
+    </div>
+  <% end %>
+
+  <%= form.file_field :image, class: 'file-field' %>
+
   <div class="row">
     <div class="field col-sm">
       <%= form.label :servings %>

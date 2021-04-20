@@ -3,7 +3,7 @@
 module RecipesHelper
   def guaranteed_image(recipe)
     # TIL .presence returns the receiver if it's present otherwise returns nil
-    recipe.image_url.presence || 'recipe_placeholder.jpg'
+    recipe.image.presence || 'recipe_placeholder.jpg'
   end
 
   def status_flag(recipe)

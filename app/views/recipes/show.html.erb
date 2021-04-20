@@ -51,8 +51,7 @@
 
   <div class='col-md-4 col-sm-12'>
     <div class='image-container mb-3'>
-      <%#= image_tag @recipe.image_url, { class: 'image' } %>
-      <%= image_tag guaranteed_image(@recipe), { class: 'image' } %>
+      <%= image_tag(guaranteed_image(@recipe), { title: @recipe.image.filename, class: 'image' }) %>
 
     </div>
     <% if policy(@recipe).update? %>
