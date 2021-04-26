@@ -43,7 +43,7 @@
         <form class='ml-3'>
           <% @recipe.ingredients.by_id.each do |ingredient| %>
             <input type="checkbox">
-            <label> <%= ingredient_display(ingredient) %></label><br>
+            <label><%= ingredient_display(ingredient) %></label><br>
           <% end %>
         </form>
       </div> <!-- col-12 -->
