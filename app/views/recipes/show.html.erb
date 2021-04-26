@@ -40,11 +40,12 @@
     <div class='row'>
       <div class='col-12'>
         <h3>Ingredients</h3>
-        <ul>
+        <form class='ml-3'>
           <% @recipe.ingredients.by_id.each do |ingredient| %>
-            <li><%= ingredient_display(ingredient) %></li>
+            <input type="checkbox">
+            <label> <%= ingredient_display(ingredient) %></label><br>
           <% end %>
-        </ul>
+        </form>
       </div> <!-- col-12 -->
     </div> <!-- row -->
   </div> <!-- col-8 -->
