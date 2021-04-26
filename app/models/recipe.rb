@@ -4,6 +4,7 @@ class Recipe < ApplicationRecord
   extend Searchable
 
   attr_accessor :experimental_recipe_id
+  attr_accessor :remove_attached_image
 
   belongs_to :user
   has_many :ingredients, inverse_of: :recipe, dependent: :destroy
@@ -12,6 +13,7 @@ class Recipe < ApplicationRecord
                                 allow_destroy: true # allows user to delete ingredient via checkbox
   has_many :meal_plan_recipes, dependent: :destroy
   has_many :meal_plans, through: :meal_plan_recipes
+  has_one_attached :image
 
   DEFAULT_SOURCE = { source_name: 'Original Creation', source_url: '/' }.freeze
   DEFAULT_PARAMS = {
@@ -23,6 +25,7 @@ class Recipe < ApplicationRecord
   before_validation :provide_default_source, on: :create
   # before_save :instructions_to_lines
 
+  validate :acceptable_image
   validates :title,
             :servings,
             :instructions,
@@ -36,6 +39,8 @@ class Recipe < ApplicationRecord
   validates :prep_time, numericality: { other_than: 0 }, if: -> { cook_time&.zero? && reheat_time&.zero? }
   validates :cook_time, numericality: { other_than: 0 }, if: -> { reheat_time&.zero? && prep_time&.zero? }
   validates :reheat_time, numericality: { other_than: 0 }, if: -> { prep_time&.zero? && cook_time&.zero? }
+
+  after_save :purge_attached_image, if: :remove_attached_image?
 
   def self.for_prep_date(date)
     # WIP
@@ -92,5 +97,27 @@ class Recipe < ApplicationRecord
       copied_ingredient = ingredient.dup
       copied_recipe.ingredients << copied_ingredient
     end
+  end
+
+  private
+
+  def acceptable_image
+    return unless image.attached?
+
+    if image.byte_size > 1.megabyte
+      image_size = (image.byte_size / 1_000_000.0).round(2)
+      errors.add(:image, "size #{image_size} MB exceeds 1 MB limit")
+    end
+
+    acceptable_types = ['image/jpeg', 'image/jpg', 'image/png']
+    errors.add(:image, 'must be a JPEG or PNG') unless acceptable_types.include?(image.content_type)
+  end
+
+  def remove_attached_image?
+    remove_attached_image == '1'
+  end
+
+  def purge_attached_image
+    image.purge_later
   end
 end

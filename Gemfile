@@ -20,6 +20,10 @@ gem 'sass-rails', '~> 6.0'      # Use SCSS for stylesheets
 gem 'sentry-raven'              # Error reporting in sentry
 gem 'uglifier', '>= 1.3.0'      # Use Uglifier as compressor for JavaScript assets
 gem 'will_paginate', '~> 3.3.0' # pagination. Styles: http://mislav.github.io/will_paginate/
+gem 'image_processing', '~> 1.2'
+gem 'activestorage-dropbox'    # adapter for dropbox
+gem 'dropbox_api'              # required for `activestorage-dropbox` gem
+
 # gem 'redis', '~> 4.0'           # Use Redis adapter to run Action Cable in production
 # gem 'mini_magick', '~> 4.8'  # Use ActiveStorage variant
 # gem 'capistrano-rails', group: :development # Use Capistrano for deployment
