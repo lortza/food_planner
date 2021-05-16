@@ -4,7 +4,7 @@ class ShoppingListItemBuildersController < ApplicationController
   before_action :set_shopping_list, only: %i[create]
 
   def create
-    ingredient_ids = permitted_params[:ingredient_ids].split(' ').map(&:to_i)
+    ingredient_ids = permitted_params[:ingredient_ids].split.map(&:to_i)
     ShoppingListItemBuilder.add_ingredients_to_list(shopping_list: @shopping_list, ingredient_ids: ingredient_ids)
 
     flash[:notice] = flash_message(ingredient_ids)

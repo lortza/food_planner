@@ -26,7 +26,7 @@ class MealPlan < ApplicationRecord
   end
 
   def self.suggested_date(user)
-    upcoming_sunday = Date.today.next_occurring(:sunday)
+    upcoming_sunday = Time.zone.today.next_occurring(:sunday)
     return upcoming_sunday if user.meal_plans.blank?
 
     latest_plan_date = user.meal_plans.maximum(:prepared_on)

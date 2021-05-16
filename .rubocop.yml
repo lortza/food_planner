@@ -9,6 +9,7 @@ AllCops:
   SuggestExtensions: false
   DefaultFormatter: progress
   Exclude:
+    - config.ru
     - 'bin/**'
     - 'config/**/*'
     - 'db/**/*'
@@ -41,7 +42,8 @@ Lint/RaiseException:
   Enabled: false
 Lint/StructNewOverride:
   Enabled: false
-
+Lint/UselessAssignment:
+  Enabled: false
 Style/BlockDelimiters:
   Exclude:
     - !ruby/regexp /.*_spec\.rb$/
