@@ -26,6 +26,7 @@ class MealPlan < ApplicationRecord
   end
 
   def self.suggested_date(user)
+    # using Time.zone.today here gives the wrong date
     upcoming_sunday = Date.today.next_occurring(:sunday)
     return upcoming_sunday if user.meal_plans.blank?
 
