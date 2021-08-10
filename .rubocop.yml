@@ -5,7 +5,7 @@ require:
 Rails:
   Enabled: true
 AllCops:
-  NewCops: enable
+  NewCops: disable
   SuggestExtensions: false
   DefaultFormatter: progress
   Exclude:
