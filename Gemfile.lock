@@ -1,49 +1,49 @@
 GIT
   remote: https://github.com/rspec/rspec-core.git
-  revision: e7c5d030966a7e8dad3e0a67c61920c4f2437c15
-  branch: master
+  revision: d57c371ee92b16211b80ac7b0b025968438f5297
+  branch: main
   specs:
-    rspec-core (3.10.0.pre)
-      rspec-support (= 3.10.0.pre)
+    rspec-core (3.11.0.pre)
+      rspec-support (= 3.11.0.pre)
 
 GIT
   remote: https://github.com/rspec/rspec-expectations.git
-  revision: e63ff4765e1cd2798b02ddddad259f1104ef87a5
-  branch: master
+  revision: dba67987c63f551d1bf0f7877f069fa8b72d0461
+  branch: main
   specs:
-    rspec-expectations (3.10.0.pre)
+    rspec-expectations (3.11.0.pre)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (= 3.10.0.pre)
+      rspec-support (= 3.11.0.pre)
 
 GIT
   remote: https://github.com/rspec/rspec-mocks.git
-  revision: 0a52e0a86b126b4bab94d277b2ad99a7492dc37d
-  branch: master
+  revision: 17cf86ab61544b93232c4e9ca9784ab212dccbf6
+  branch: main
   specs:
-    rspec-mocks (3.10.0.pre)
+    rspec-mocks (3.11.0.pre)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (= 3.10.0.pre)
+      rspec-support (= 3.11.0.pre)
 
 GIT
   remote: https://github.com/rspec/rspec-rails.git
-  revision: 01704c50c146f720db914724c25681781ecefb23
-  branch: master
+  revision: cfe4db707cc5a0c9437aa90e3059256f30368da4
+  branch: main
   specs:
-    rspec-rails (4.1.0.pre)
-      actionpack (>= 4.2)
-      activesupport (>= 4.2)
-      railties (>= 4.2)
-      rspec-core (= 3.10.0.pre)
-      rspec-expectations (= 3.10.0.pre)
-      rspec-mocks (= 3.10.0.pre)
-      rspec-support (= 3.10.0.pre)
+    rspec-rails (5.1.0.pre)
+      actionpack (>= 5.2)
+      activesupport (>= 5.2)
+      railties (>= 5.2)
+      rspec-core (= 3.11.0.pre)
+      rspec-expectations (= 3.11.0.pre)
+      rspec-mocks (= 3.11.0.pre)
+      rspec-support (= 3.11.0.pre)
 
 GIT
   remote: https://github.com/rspec/rspec-support.git
-  revision: 6447b0c2c9d1cd3e1504784fb85675ca9ae7b7c3
-  branch: master
+  revision: 2a17194b9fc868a4b4a41d7168103dca825c3004
+  branch: main
   specs:
-    rspec-support (3.10.0.pre)
+    rspec-support (3.11.0.pre)
 
 GEM
   remote: https://rubygems.org/
