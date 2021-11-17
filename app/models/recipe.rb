@@ -37,9 +37,27 @@ class Recipe < ApplicationRecord
   validates :cook_time, numericality: { other_than: 0 }, if: -> { reheat_time&.zero? && prep_time&.zero? }
   validates :reheat_time, numericality: { other_than: 0 }, if: -> { prep_time&.zero? && cook_time&.zero? }
 
-  def self.for_prep_date(date)
-    # WIP
-    # Recipe.joins(:preparations).where(preparations: {date: date})
+
+  def self.cool_search(search_terms = '')
+    # In PostgreSQL Speak...
+    # SELECT DISTINCT r.title, r.source_url, r.source_name
+    # FROM recipes r
+    # LEFT JOIN ingredients i on i.recipe_id = r.id
+    # WHERE concat_ws(' ', r.title, r.source_name, r.extra_work_note) ILIKE '%rice%'
+    # OR i.name ILIKE '%rice%'
+    # ;
+
+    # In ActiveRecord Speak...
+    stripped_terms = search_terms&.gsub(',', '')&.squish
+    concat_statement = "concat_ws(' ', recipes.title, recipes.source_url, recipes.source_name) ILIKE ?"
+
+    left_outer_joins(:ingredients)
+      .where(concat_statement, "%#{stripped_terms}%")
+      .or(
+        Ingredient.where('ingredients.name ILIKE ?', "%#{stripped_terms}%")
+      )
+      .distinct
+  end
   end
 
   def self.by_last_prepared
