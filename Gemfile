@@ -3,8 +3,8 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.5.3'
-gem 'rails', '~> 6.1.4.4' # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+ruby '2.7.5'
+gem 'rails', '~> 6.1.4.6' # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 
 gem 'bootsnap', '>= 1.1.0', require: false # Reduces boot times through caching; required in config/boot.rb
 gem 'coffee-rails'              # Use CoffeeScript for .coffee assets and views
@@ -42,14 +42,12 @@ group :development do
 end
 
 group :development, :test do
-  %w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
-    gem lib, git: "https://github.com/rspec/#{lib}.git", branch: 'main'
-  end
+  gem 'rspec-rails', '~> 5.0.0'
   gem 'better_errors'           # creates console in browser for errors
   gem 'binding_of_caller'       # goes with better_errors
   gem 'bullet'                  # detects n+1 queries
   gem 'byebug', platforms: %i[mri mingw x64_mingw] # Call 'byebug' anywhere in the code to get a debugger console
-  gem 'factory_bot_rails' # factory support for rspec
+  gem 'factory_bot_rails'       # factory support for rspec
   gem 'guard-rspec', require: false # runs rspec automatically
   gem 'pry-rails'               # helps with pry
   gem 'reek'                    # https://github.com/troessner/reek/blob/master/docs/Code-Smells.md
