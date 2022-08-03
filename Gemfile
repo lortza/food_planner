@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.5'
+ruby '3.1.0'
 gem 'rails', '~> 6.1.5.1' # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 
 gem 'bootsnap', '>= 1.1.0', require: false # Reduces boot times through caching; required in config/boot.rb
@@ -23,6 +23,7 @@ gem 'will_paginate', '~> 3.3.0' # pagination. Styles: http://mislav.github.io/wi
 # gem 'redis', '~> 4.0'           # Use Redis adapter to run Action Cable in production
 # gem 'mini_magick', '~> 4.8'  # Use ActiveStorage variant
 # gem 'capistrano-rails', group: :development # Use Capistrano for deployment
+gem 'net-smtp', require: false  # Send internet mail via SMTP
 
 group :development do
   gem 'awesome_print'
