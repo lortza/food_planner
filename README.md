@@ -1,15 +1,13 @@
 # Food Planner
 
-[![CircleCI](https://circleci.com/gh/lortza/food_planner.svg?style=svg)](https://circleci.com/gh/lortza/food_planner)
-
 [![Maintainability](https://api.codeclimate.com/v1/badges/bce541f2a6d63bc5fa1e/maintainability)](https://codeclimate.com/github/lortza/food_planner/maintainability)
 
 WIP food planning app.
 
 Live on heroku as [myfoodplanner](http://myfoodplanner.herokuapp.com)
 
-* Ruby 2.5.3
-* Rails 5.2
+* Ruby
+* Rails
 * Postgres
 * RuboCop
 * RSpec
@@ -28,6 +26,7 @@ Live on heroku as [myfoodplanner](http://myfoodplanner.herokuapp.com)
 * `bundle`
 * Set up DB: `rake db:setup` (Runs `db:create`, `db:schema:load` and `db:seed`)
 * User: In development, see the seeds file for the user credentials so you can log in
+* Run `rails s` to start the server
 
 ## Rubocop
 Rubocop is used for enforcing style guide
@@ -70,9 +69,11 @@ EDITOR="atom --wait" bin/rails credentials:edit
 ```
 If this file gets borked, [this post](https://stackoverflow.com/a/54279636/5009528) and [this post](https://medium.com/@kirill_shevch/encrypted-secrets-credentials-in-rails-6-rails-5-1-5-2-f470accd62fc) will help.
 
+## Deploying
+* log into Heroku CLI with `heroku login`
+* assuming your local copy of the `main` branch is up to date, run `git push heroku main`
 
 ## WIP USDA Food Composition Databases
-
 - API docs: https://ndb.nal.usda.gov/ndb/doc/index
 - Ex Food show page: https://ndb.nal.usda.gov/ndb/foods/show/01009?fgcd=&manu=&format=&count=&max=25&offset=&sort=default&order=asc&qlookup=01009&ds=&qt=&qp=&qa=&qn=&q=&ing=
 - Ex Nutrient show page: https://ndb.nal.usda.gov/ndb/nutrients/report/nutrientsfrm?max=25&offset=0&totCount=0&nutrient1=324&nutrient2=&subset=0&sort=c&measureby=g
