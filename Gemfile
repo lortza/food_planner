@@ -24,6 +24,8 @@ gem 'will_paginate', '~> 3.3.0' # pagination. Styles: http://mislav.github.io/wi
 # gem 'mini_magick', '~> 4.8'  # Use ActiveStorage variant
 # gem 'capistrano-rails', group: :development # Use Capistrano for deployment
 gem 'net-smtp', require: false  # Send internet mail via SMTP
+gem 'net-pop', require: false
+gem 'net-imap', require: false
 
 group :development do
   gem 'awesome_print'
