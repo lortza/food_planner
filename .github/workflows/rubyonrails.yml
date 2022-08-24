@@ -51,6 +51,8 @@ jobs:
           bundler-cache: true
       - name: Lint CSS
         run: bundle exec scss-lint app/assets/stylesheets/**.scss
+      - name: Check Seeds
+        run: bundle exec rake db:seed
       # Add or replace any other lints here
       # - name: Rubocop
       #   run: bundle exec rubocop --parallel
