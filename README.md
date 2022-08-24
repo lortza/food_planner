@@ -1,7 +1,5 @@
 # Food Planner
 
-[![CircleCI](https://circleci.com/gh/lortza/food_planner.svg?style=svg)](https://circleci.com/gh/lortza/food_planner)
-
 [![Maintainability](https://api.codeclimate.com/v1/badges/bce541f2a6d63bc5fa1e/maintainability)](https://codeclimate.com/github/lortza/food_planner/maintainability)
 
 WIP food planning app.
