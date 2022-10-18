@@ -29,7 +29,7 @@ Metrics/BlockLength:
   CountComments: false
 
 Metrics/MethodLength:
-  IgnoredMethods: []
+  AllowedMethods: []
   CountComments: false
   Max: 15
 
@@ -55,6 +55,8 @@ Style/Documentation:
 Style/EmptyMethod:
   EnforcedStyle: expanded
 Style/HashEachMethods:
+  Enabled: false
+Style/HashSyntax:
   Enabled: false
 Style/HashTransformKeys:
   Enabled: false
