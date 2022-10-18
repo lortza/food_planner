@@ -6,15 +6,25 @@ class CronometerParser
     @raw_iframe_code = raw_iframe_code
   end
 
+  def valid_iframe_data?
+    food_number.present? && measure_number.present?
+  end
+
   def sanitized_iframe_src
+    return unless valid_iframe_data?
+
     "https://cronometer.com/facts.html?food=#{food_number}&measure=#{measure_number}&labelType=AMERICAN"
   end
 
+  private
+
   def food_number
-    raw_iframe_code.split('food=').last.split('&').first
+    match = raw_iframe_code.match(/.*food=(\d*)&/)
+    match.present? && match[1].present? ? match[1] : nil
   end
 
   def measure_number
-    raw_iframe_code.split('measure=').last.split('&').first
+    match = raw_iframe_code.match(/.*measure=(\d*)&/)
+    match.present? && match[1].present? ? match[1] : nil
   end
 end

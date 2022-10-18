@@ -1,5 +1,10 @@
-<% if recipe.food_number && recipe.measure_number %>
-  <iframe title="CRONOMETER.com" width="320" height="540" src='https://cronometer.com/facts.html?food=<%= recipe.food_number %>&measure=<%= recipe.measure_number %>&labelType=AMERICAN' frameborder="0"></iframe>
+<% if iframe_parser.valid_iframe_data? %>
+  <iframe title="CRONOMETER.com"
+          width="320"
+          height="540"
+          src='<%= iframe_parser.sanitized_iframe_src %>'
+          frameborder="0"
+  ></iframe>
 <% else %>
-  <p>For nutrition information, enter ingredient details on <%= link_to 'Cronometer.com', 'https://cronometer.com/#foods', target: '_blank' %> then add the iframe code to this recipe.</p>
+  <p>For nutrition information, enter ingredient details on <%= link_to 'Cronometer.com', 'https://cronometer.com/#foods', target: '_blank' %> then copy the iframe code from the Nutrition Data panel and <%= link_to 'add it to this recipe', edit_recipe_path(recipe) %>.</p>
 <% end %>

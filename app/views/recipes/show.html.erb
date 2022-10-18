@@ -107,6 +107,6 @@
 
   <div class='col-md-4 col-sm-12'>
     <h3>Nutrition Facts</h3>
-    <%= render partial: 'nutritional_information', locals: { recipe: @recipe } %>
+    <%= render partial: 'nutritional_information', locals: { recipe: @recipe, iframe_parser: CronometerParser.new(@recipe.nutrition_data_iframe) } %>
   </div> <!-- right column -->
 </div> <!-- row -->
