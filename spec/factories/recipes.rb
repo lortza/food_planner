@@ -7,6 +7,7 @@ FactoryBot.define do
     sequence(:source_name) { |n| "Recipe Source #{n}" }
     sequence(:source_url) { |n| "http://recipesource#{n}.com" }
     prep_time { rand(0..20) }
+    nutrition_data_iframe { '' }
     cook_time { rand(0..60) }
     reheat_time { rand(0..60) }
     servings { rand(1..10) }

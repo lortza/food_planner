@@ -18,6 +18,7 @@
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=15454393
   :notes: ''
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: Quick Pad Thai
   :source_name: Women's Health Magazine
   :source_url: https://subscribe.hearstmags.com/circulation/shared/index.html
@@ -35,6 +36,7 @@
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=15772038
   :notes: ''
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: Quiche
   :source_name: Original Creation
   :source_url: "/"
@@ -53,6 +55,7 @@
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=19998600
   :notes: ''
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: Creamy Lentil Soup
   :source_name: Bob's Red Mill
   :source_url: https://www.bobsredmill.com/recipes/how-to-make/creamed-vegi-soup/
@@ -70,6 +73,7 @@
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=18529284
   :notes: ''
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: Red Lentil Curry
   :source_name: Jessica in the Kitchen
   :source_url: https://jessicainthekitchen.com/red-lentil-curry-vegan/
@@ -86,6 +90,7 @@
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=22761475
   :notes: ''
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: Blended Red Lentil Soup
   :source_name: Loving it Vegan
   :source_url: https://lovingitvegan.com/vegan-lentil-soup/
@@ -106,6 +111,7 @@
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=22709198
   :notes: ''
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: Caraotas Negras
   :source_name: GOYA
   :source_url: https://www.goya.com/en/recipes/dishes-desserts/caraotas-negras
@@ -123,6 +129,7 @@
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=20213928
   :notes: ''
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: Arroz Con Gandules Pigeon Peas
   :source_name: GOYA
   :source_url: https://www.goya.com/en/recipes/arroz-con-gandules
@@ -138,6 +145,7 @@
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=20213636
   :notes: ''
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: Asian Raw Kale Salad
   :source_name: Cookie + Kate
   :source_url: https://cookieandkate.com/2011/raw-kale-asian-salad/
@@ -158,6 +166,7 @@
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=20582867
   :notes: ''
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: Potato Leek Soup
   :source_name: Bon Appétit
   :source_url: https://www.bonappetit.com/recipe/potato-leek-soup-toasted-nuts-seeds
@@ -189,6 +198,7 @@
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=22778959
   :notes: ''
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: Lentil & Kale Egg Noodle Bowl
   :source_name: Clean and Delicious
   :source_url: https://cleananddelicious.com/2017/10/06/lentil-kale-whole-grain-noodle-bowl/
@@ -208,6 +218,7 @@
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=22997172
   :notes: ''
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: Pierogi Pizza
   :source_name: All Recipes
   :source_url: https://www.allrecipes.com/recipe/245593/pierogi-pizza/
@@ -229,6 +240,7 @@
   :pepperplate_url:
   :notes:
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: Sweet Potato Gnocchis
   :source_name: Original Creation
   :source_url: "/"
@@ -247,6 +259,7 @@
   :pepperplate_url:
   :notes:
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: Corn Chowder
   :source_name: I Eat Green
   :source_url: http://www.ieatgreen.com/vegan-corn-chowder/
@@ -263,6 +276,7 @@
   :pepperplate_url:
   :notes:
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: City O City Breakfast Burrito
   :source_name: Original Creation
   :source_url: "/"
@@ -279,6 +293,7 @@
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=19268430
   :notes: ''
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: Curried Satay Veggie Bowls
   :source_name: Jessica In the Kitchen
   :source_url: https://jessicainthekitchen.com/curried-satay-veggie-bowls/
@@ -298,6 +313,7 @@
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=22657139
   :notes: ''
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: Wild Rice and Mushroom Soup
   :source_name: Pinch of Yum
   :source_url: https://pinchofyum.com/instant-pot-wild-rice-soup
@@ -313,6 +329,7 @@
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=23158236
   :notes: ''
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: Jackfruit Melt Sandwich
   :source_name: Keepin It Kind
   :source_url: http://keepinitkind.com/jackfruit-tuna-melt-sandwich/
@@ -332,6 +349,7 @@
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=19099296
   :notes: ''
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: Tortilla Soup
   :source_name: Cookie + Kate
   :source_url: https://cookieandkate.com/2013/vegetarian-tortilla-soup/
@@ -365,6 +383,7 @@
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=22025023
   :notes: ''
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: Ginger Broccolini Stir Fry
   :source_name: All Recipes
   :source_url: http://allrecipes.com/recipe/24712/ginger-veggie-stir-fry/
@@ -385,6 +404,7 @@
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=18986094
   :notes: ''
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: Spicy Black Bean Soup
   :source_name: Cookie + Kate
   :source_url: https://cookieandkate.com/2016/spicy-vegan-black-bean-soup/
@@ -401,6 +421,7 @@
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=22230216
   :notes: ''
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: Chorizo Sweet Potato Skillet
   :source_name: Budget Bytes
   :source_url: http://www.budgetbytes.com/2014/06/chorizo-sweet-potato-skillet/
@@ -430,6 +451,7 @@
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=15454413
   :notes: ''
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: Sweet Potato Pie
   :source_name: ThroughmyiMedia
   :source_url: https://youtu.be/BOYWrXVGV5E?t=148
@@ -450,6 +472,7 @@
   :pepperplate_url: ''
   :notes: ''
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: test recipe
   :source_name: Original Creation
   :source_url: "/"
@@ -462,6 +485,7 @@
   :pepperplate_url: ''
   :notes: ''
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: Twice-Baked Sweet Potatoes
   :source_name: Rachael Ray
   :source_url: https://www.rachaelrayshow.com/recipe/15311_Twice_Baked_Sweet_Potatoes
@@ -492,6 +516,7 @@
   :pepperplate_url: ''
   :notes: ''
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: Enfrijoladas
   :source_name: Budget Bytes
   :source_url: https://www.budgetbytes.com/enfrijoladas-tortillas-in-black-bean-sauce/
@@ -528,6 +553,7 @@
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=22709115
   :notes: ''
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: Apricot Lentil Soup
   :source_name: The Stingy Vegan
   :source_url: https://thestingyvegan.com/vegan-lentil-soup/
@@ -551,6 +577,7 @@
   :pepperplate_url:
   :notes:
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: Spicy Roasted Cauliflower with Queso
   :source_name: Budget Bytes
   :source_url: https://www.budgetbytes.com/spicy-roasted-cauliflower-cheese-sauce/
@@ -581,6 +608,7 @@
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=22615064
   :notes: ''
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: Bread Pudding with Roasted Vegetables
   :source_name: Taste Love and Nourish
   :source_url: http://www.tasteloveandnourish.com/2013/09/16/savory-vegetable-bread-pudding/
@@ -611,6 +639,7 @@
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=15772212
   :notes: ''
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: Sample Archived Recipe
   :source_name: Original Creation
   :source_url: "/"
@@ -623,6 +652,7 @@
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=22709198
   :notes: This recipe was poooo! so it's archived now.
   :archived: true
+  :nutrition_data_iframe: ''
 - :title: Cashew Vegan Queso
   :source_name: Minimalist Baker
   :source_url: https://minimalistbaker.com/roasted-jalapeno-vegan-queso-7-ingredients/
@@ -649,6 +679,7 @@
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=22615079
   :notes: ''
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: Greek Stuffed Peppers
   :source_name: Edible Perspecitve
   :source_url: http://www.edibleperspective.com/home/2013/10/8/greek-stuffed-peppers.html
@@ -684,6 +715,7 @@
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=17619375
   :notes: ''
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: Shakshuka
   :source_name: Serious Eats
   :source_url: http://www.seriouseats.com/recipes/2016/09/shakshuka-north-african-shirred-eggs-tomato-pepper-recipe.html
@@ -712,6 +744,7 @@
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=18051887
   :notes: "vasu says he makes this and he doesn't like lame ass southern indian food\r\n"
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: Yellow Lentil Dal
   :source_name: Food & Wine
   :source_url: https://www.foodandwine.com/recipes/yellow-lentil-dal-with-fragrant-basmati-rice
@@ -738,6 +771,7 @@
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=22515951
   :notes: ''
   :archived: false
+  :nutrition_data_iframe: ''
 - :title: Creamy Cherry Tomato & Summer Squash Gnocchi
   :source_name: Cookie + Kate
   :source_url: http://cookieandkate.com/2015/creamy-cherry-tomato-summer-squash-pasta/
@@ -771,3 +805,4 @@
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=16885372
   :notes: ''
   :archived: false
+  :nutrition_data_iframe: ''
