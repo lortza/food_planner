@@ -105,6 +105,7 @@ class RecipesController < ApplicationController
                                    :image_url,
                                    :instructions,
                                    :notes,
+                                   :nutrition_data_iframe,
                                    :prep_day_instructions,
                                    :prep_time,
                                    :reheat_instructions,

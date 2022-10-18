@@ -1,0 +1,10 @@
+<% if iframe_parser.valid_iframe_data? %>
+  <iframe title="CRONOMETER.com"
+          width="320"
+          height="540"
+          src='<%= iframe_parser.sanitized_iframe_src %>'
+          frameborder="0"
+  ></iframe>
+<% else %>
+  <p>For nutrition information, enter ingredient details on <%= link_to 'Cronometer.com', 'https://cronometer.com/#foods', target: '_blank' %> then copy the iframe code from the Nutrition Data panel and <%= link_to 'add it to this recipe', edit_recipe_path(recipe) %>.</p>
+<% end %>
