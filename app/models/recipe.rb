@@ -80,20 +80,6 @@ class Recipe < ApplicationRecord
     self.instructions = instructions.tr("\r", "\n")
   end
 
-  def cronometer_iframe
-    '<iframe title="CRONOMETER.com" width="320" height="540" src="https://cronometer.com/facts.html?food=20827757&measure=57479125&labelType=AMERICAN" frameborder="0"></iframe>'
-  end
-
-  def food_number
-    # '20318194'
-    cronometer_iframe.split("food=").last.split("&").first
-  end
-
-  def measure_number
-    # '56144522'
-    cronometer_iframe.split("measure=").last.split("&").first
-  end
-
   def extra_work_required?
     extra_work_note.present?
   end
