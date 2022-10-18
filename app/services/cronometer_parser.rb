@@ -7,11 +7,13 @@ class CronometerParser
   end
 
   def valid_iframe_data?
+    return false unless raw_iframe_code.present?
+
     food_number.present? && measure_number.present?
   end
 
   def sanitized_iframe_src
-    return unless valid_iframe_data?
+    return nil unless valid_iframe_data?
 
     "https://cronometer.com/facts.html?food=#{food_number}&measure=#{measure_number}&labelType=AMERICAN"
   end
@@ -19,12 +21,12 @@ class CronometerParser
   private
 
   def food_number
-    match = raw_iframe_code.match(/.*food=(\d*)&/)
-    match.present? && match[1].present? ? match[1] : nil
+    match_data = raw_iframe_code.match(/.*food=(\d*)&/)
+    match_data.present? && match_data[1].present? ? match_data[1] : nil
   end
 
   def measure_number
-    match = raw_iframe_code.match(/.*measure=(\d*)&/)
-    match.present? && match[1].present? ? match[1] : nil
+    match_data = raw_iframe_code.match(/.*measure=(\d*)&/)
+    match_data.present? && match_data[1].present? ? match_data[1] : nil
   end
 end

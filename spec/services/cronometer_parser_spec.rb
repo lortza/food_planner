@@ -3,7 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe CronometerParser, type: :service do
-  let(:parser) { CronometerParser.new(valid_iframe_code) }
+  let(:parser) { CronometerParser.new(iframe_code) }
+  let(:iframe_code) { valid_iframe_code }
   let(:valid_iframe_code) { "<iframe title=\'CRONOMETER.com\' width=\'320\' height=\'540\' src=\'https://cronometer.com/facts.html?#{food_arg}&#{measure_arg}&labelType=AMERICAN\' frameborder=\'0\'></iframe>" }
   let(:valid_food_arg) { 'food=12345678' }
   let(:valid_measure_arg) { 'measure=87654321' }
@@ -11,6 +12,20 @@ RSpec.describe CronometerParser, type: :service do
   let(:measure_arg) { valid_measure_arg }
 
   describe 'valid_iframe_data?' do
+    describe 'when the raw_iframe_code is nil' do
+      let(:iframe_code) { nil }
+      it 'returns false' do
+        expect(parser.valid_iframe_data?).to be(false)
+      end
+    end
+
+    describe 'when the raw_iframe_code is an empty string' do
+      let(:iframe_code) { '' }
+      it 'returns false' do
+        expect(parser.valid_iframe_data?).to be(false)
+      end
+    end
+
     describe 'when the food_number is present and the measure_number is present' do
       it 'returns true' do
         allow(parser).to receive(:food_number).and_return('12345678')
