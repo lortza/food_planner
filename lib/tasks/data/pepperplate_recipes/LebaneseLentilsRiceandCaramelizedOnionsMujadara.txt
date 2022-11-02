@@ -1,5 +1,5 @@
 Title: Lebanese Lentils, Rice and Caramelized Onions (Mujadara)
-Description: 
+Description:
 Source: Food Network
 Original URL: http://www.foodnetwork.com/recipes/aarti-sequeira/lebanese-lentils-rice-and-caramelized-onions-mujadara-recipe.html
 Yield: 4
@@ -12,14 +12,14 @@ Ingredients:
 	1 teaspoon cumin seeds
 	1/2 teaspoon cracked black peppercorns
 	2 medium red onions, thinly sliced
-	1/2 tsp sea salt
+	1/2 teaspoon sea salt
 	3/4 cup basmati rice
 	2 cups broth
 	1/2 teaspoon ground cumin
 	1/2 teaspoon cayenne pepper
-	1/2 tsp cinnamon
-	1/2 tsp turmeric
-	1/2 tsp mustard seed
+	1/2 teaspoon cinnamon
+	1/2 teaspoon turmeric
+	1/2 teaspoon mustard seed
 	2 tablespoons pine nuts, optional
 
 Instructions:

@@ -2,9 +2,9 @@ Title: Curried-Cashew Cauliflower
 Description: This recipe has been modified to resolve the too-much-curry cluck
 Source: Once Again Nut Butters
 Original URL: https://www.onceagainnutbutter.com/cashew-butter
-Yield: 
-Active: 
-Total: 
+Yield:
+Active:
+Total:
 Categories: curry, peanut, cauliflower
 Image: https://cdn2.pepperplate.com/recipes/cd45427a68a64ab7875fe417042039df.jpg
 Ingredients:
@@ -13,8 +13,8 @@ Ingredients:
 	1/2 cup Once Again Organic Cashew Butter
 	2 tbsp olive oil
 	3/4 tbsp curry powder
-	1/4 tsp kosher salt
-	1/2 tsp crushed pepper
+	1/4 teaspoon kosher salt
+	1/2 teaspoon crushed pepper
 	1/2 cup salted cashews or mixed nuts, roughly chopped
 
 Instructions:

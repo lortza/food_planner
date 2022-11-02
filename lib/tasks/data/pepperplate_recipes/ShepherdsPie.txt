@@ -2,9 +2,9 @@ Title: Shepherds Pie
 Description: This is actually my own take, but there is a link to another recipe for reference
 Source: Budget Bites
 Original URL: http://www.budgetbytes.com/2016/01/vegetarian-shepherds-pie/
-Yield: 
-Active: 
-Total: 
+Yield:
+Active:
+Total:
 Ingredients:
 	2 cans lentils
 	2 carrot
@@ -13,9 +13,9 @@ Ingredients:
 	1 pinch saffron
 	2 big potatoes
 	milk for mashing
-	1/4 tsp rosemary
-	1/4 tsp thyme
-	1/2 tsp paprika
+	1/4 teaspoon rosemary
+	1/4 teaspoon thyme
+	1/2 teaspoon paprika
 	2 oz tomato paste
 	a little water
 	salt & pepper

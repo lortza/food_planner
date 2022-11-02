@@ -1,7 +1,7 @@
 Title: Mike's Beans & Greens
-Description: 
-Source: 
-Original URL: 
+Description:
+Source:
+Original URL:
 Yield: 6
 Active: 20
 Total: 40
@@ -16,8 +16,8 @@ Ingredients:
 	1/2 red bell pepper
 	1/2 green bell pepper
 	2 cloves garlic
-	2 tsp dried basil
-	2 tsp dried oregano
+	2 teaspoon dried basil
+	2 teaspoon dried oregano
 	1 bunch of kale or equivalent of mixed greens. We love bok choy, chard, and kohlrabi and collard greens too.
 	salt
 	pasta

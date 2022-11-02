@@ -1,9 +1,9 @@
 Title: Curried Vegetable Soup
-Description: 
+Description:
 Source: Anne's Imagination
 Original URL: http://warmkitchen.wordpress.com/2013/10/01/curried-kale-vegetable-soup/
 Yield: 6
-Active: 
+Active:
 Total: 1.5 hours
 Categories: soup, curry, kale
 Image: https://cdn2.pepperplate.com/recipes/b926524144144757abef86ab7db63db4.jpg
@@ -17,7 +17,7 @@ Ingredients:
 	1 red bell pepper
 	1 anaheim pepper
 	1 cup chopped fresh kale (not packed)
-	1 tsp garlic salt (or sea salt)
+	1 teaspoon garlic salt (or sea salt)
 	2 cubes Edwards & Sons Red Curry (chopped up)
 
 Instructions:

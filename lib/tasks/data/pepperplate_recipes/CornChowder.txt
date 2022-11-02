@@ -1,5 +1,5 @@
 Title: Corn Chowder
-Description: 
+Description:
 Source: I Eat Green
 Original URL: http://www.ieatgreen.com/vegan-corn-chowder/
 Yield: 6
@@ -20,9 +20,9 @@ Ingredients:
 	2 Tbs flour
 	2 Tbs coconut oil
 	3 t. Salt
-	1/2 tsp white pepper
+	1/2 teaspoon white pepper
 	1/2 nutmeg
-	1/2 tsp red pepper flakes
+	1/2 teaspoon red pepper flakes
 	croutons for garnish
 	Chopped parsley for garnish
 

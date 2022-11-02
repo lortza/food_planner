@@ -1,7 +1,7 @@
 Title: Quiche
-Description: 
-Source: 
-Original URL: 
+Description:
+Source:
+Original URL:
 Yield: 4
 Active: 15min
 Total: 60min
@@ -15,9 +15,9 @@ Ingredients:
 	1/4 cup feta
 	pinch of garlic powder
 	pinch of onion powder
-	1/2 tsp basil
-	1/2 tsp oregano
-	1/8 tsp salt
+	1/2 teaspoon basil
+	1/2 teaspoon oregano
+	1/8 teaspoon salt
 
 Instructions:
 	Preheat oven 350F (or just use a toaster oven so you don't have to preheat)

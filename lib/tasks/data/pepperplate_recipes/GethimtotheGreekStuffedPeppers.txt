@@ -1,10 +1,10 @@
 Title: Get him to the Greek Stuffed Peppers
-Description: 
+Description:
 Source: edibleperspective.com
 Original URL: http://www.edibleperspective.com/home/2013/10/8/greek-stuffed-peppers.html
 Yield: 4 bell peppers
-Active: 
-Total: 
+Active:
+Total:
 Categories: millet, new
 Image: https://cdn2.pepperplate.com/recipes/e7c04e9e839f4b8a9d8a2f6854e30e24.jpg
 Ingredients:
@@ -12,10 +12,10 @@ Ingredients:
 	1 cup low/no sodium veggie stock
 	2 red bell peppers, halved, de-seeded, pre-roasted
 	1/4 finely chopped green bell pepper (optional)
-	1/4 tsp granulated garlic
-	1/4 tsp onion powder
+	1/4 teaspoon granulated garlic
+	1/4 teaspoon onion powder
 	1 Tbsp dried oregano
-	1/4 tsp black pepper
+	1/4 teaspoon black pepper
 	1 can black eyed peas, rinsed + drained
 	1/4 cup halved kalamata olives, pitted
 	1/4 cup chopped sun-dried tomatoes

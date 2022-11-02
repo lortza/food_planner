@@ -1,5 +1,5 @@
 Title: Chopped Kale Salad with Edamame, Carrot and Avocado
-Description: 
+Description:
 Source: cookieandkate
 Original URL: http://cookieandkate.com/2013/chopped-kale-salad-with-edamame-carrot-and-avocado/
 Yield: Serves 4
@@ -10,7 +10,7 @@ Image: https://cdn2.pepperplate.com/recipes/edc272b844944d63bb9789ab84f8ad61.jpg
 Ingredients:
 [Salad]
 	1 bunch kale (preferably lacinato/Tuscan/dinosaur kale but regular curly kale works, too)
-	1/2 tsp fine-grain sea salt
+	1/2 teaspoon fine-grain sea salt
 	1 cup chopped snow peas (slice off tough ends first)
 	1 large carrot, peeled and ribboned with a vegetable peeler
 	1 small red bell pepper, deseeded and chopped
@@ -41,4 +41,4 @@ Instructions:
 	Drain and add the edamame
 	Using the thongs, toss the remaining salad dressing ingredients with the kale.
 
-Notes: be careful with shallots! some of them have been crappy lately and have overpowered and ruined the salad. 
+Notes: be careful with shallots! some of them have been crappy lately and have overpowered and ruined the salad.

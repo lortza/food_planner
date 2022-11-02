@@ -1,5 +1,5 @@
 Title: SNAP Challenge: Vegetable Stir Fry with Noodles
-Description: 
+Description:
 Source: BudgetBytes
 Original URL: http://www.budgetbytes.com/2014/09/snap-challenge-vegetable-stir-fry-noodles/
 Yield: Serves 6 (about 1.25 cups each)
@@ -15,9 +15,9 @@ Ingredients:
 	1 yellow onion
 	1 package of glass noodles (equal to 2 ramen noodle pkgs)
 	1/4 cup liquid aminos
-	3 tsp brown sugar
+	3 teaspoon brown sugar
 	3 tbsp vinegar
-	1/4 tsp cayenne
+	1/4 teaspoon cayenne
 	3 green onions
 	handful cilantro
 	handful peanuts

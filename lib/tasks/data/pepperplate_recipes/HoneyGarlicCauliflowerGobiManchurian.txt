@@ -1,10 +1,10 @@
 Title: Honey-Garlic Cauliflower (Gobi Manchurian)
-Description: 
+Description:
 Source: delish.com
 Original URL: http://www.delish.com/cooking/recipe-ideas/recipes/a47636/honey-garlic-cauliflower/
-Yield: 
-Active: 
-Total: 
+Yield:
+Active:
+Total:
 Categories: indian, cauliflower
 Image: https://cdn2.pepperplate.com/recipes/fe500949448947289a5209a71a0f14b7.jpg
 Ingredients:
@@ -18,7 +18,7 @@ Ingredients:
 	Juice of 1 lime
 	1 tbsp. sriracha
 	1/4 c. water
-	2 tsp. corn starch
+	2 teaspoon. corn starch
 	1/4 c. Sliced scallions
 
 Instructions:

@@ -1,5 +1,5 @@
 Title: Hungarian Vegetable Soup
-Description: 
+Description:
 Source: WarmKitchen
 Original URL: https://warmkitchen.wordpress.com/2015/02/18/hungarian-vegetable-soup/
 Yield: lots
@@ -20,7 +20,7 @@ Ingredients:
 	2 large tomatoes, chopped
 	2 Tbsp tamari soy sauce
 	2 Tbsp paprika
-	1/4 tsp dried marjoram
+	1/4 teaspoon dried marjoram
 	1 Tbsp dried dill
 	6 cups vegetable stock or water
 	6 oz tomato paste

@@ -1,10 +1,10 @@
 Title: CREAMY VEGETARIAN ENCHILADA PASTA
-Description: 
+Description:
 Source: budgetbytes
 Original URL: https://www.budgetbytes.com/2014/08/creamy-vegetarian-enchilada-pasta/
-Yield: 
-Active: 
-Total: 
+Yield:
+Active:
+Total:
 Categories: one pot
 Image: https://cdn2.pepperplate.com/recipes/93de67fb8cec4669a7bb1ba76bd8be89.jpg
 Ingredients:
@@ -13,8 +13,8 @@ Ingredients:
 	1 (4 oz.) can green chiles $0.87
 	1 cup frozen corn kernels $0.60
 	1 (15 oz.) can pinto (or black) beans $1.19
-	1 tsp cumin $0.10
-	1/4 tsp red pepper flakes $0.02
+	1 teaspoon cumin $0.10
+	1/4 teaspoon red pepper flakes $0.02
 	8 oz. wide egg noodles $1.46
 	2 cups vegetable broth $0.27
 	1/2 cup sour cream $0.71

@@ -1,7 +1,7 @@
 Title: Guacamole
 Description: Best served with yellow corn tortilla chips
 Source: Anne's Imagination
-Original URL: 
+Original URL:
 Yield: 1
 Active: 10 min
 Total: 10 min
@@ -10,7 +10,7 @@ Image: https://cdn2.pepperplate.com/recipes/e4c8165cf2c9455381635c588b70e14d.jpg
 Ingredients:
 	1 avocado
 	1/2 small onion, finely diced
-	1/2 tsp garlic salt
+	1/2 teaspoon garlic salt
 	1 tbs fresh chilantro, finely chopped
 	1 wedge lime juice
 

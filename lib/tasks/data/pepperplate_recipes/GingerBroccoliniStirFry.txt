@@ -1,10 +1,10 @@
 Title: Ginger Broccolini Stir Fry
-Description: 
+Description:
 Source: allrecipes
 Original URL: http://allrecipes.com/recipe/24712/ginger-veggie-stir-fry/
-Yield: 
-Active: 
-Total: 
+Yield:
+Active:
+Total:
 Ingredients:
 [veg]
 	1 bunch of broccolini, bite sized
@@ -17,11 +17,11 @@ Ingredients:
 	1 cup dry rice
 
 [sauce]
-	2 tsp vinegar
+	2 teaspoon vinegar
 	1 long squeeze of honey
-	1 tsp brown sugar
+	1 teaspoon brown sugar
 	1 Tbs soy sauce
-	1/4 tsp crushed red pepper
+	1/4 teaspoon crushed red pepper
 
 Instructions:
 [make rice]

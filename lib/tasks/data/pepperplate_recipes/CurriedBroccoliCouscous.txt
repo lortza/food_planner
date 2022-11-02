@@ -1,5 +1,5 @@
 Title: Curried Broccoli Couscous
-Description: 
+Description:
 Source: Real Simple
 Original URL: http://www.realsimple.com/food-recipes/browse-all-recipes/curried-broccoli-couscous
 Yield: 4 servings
@@ -18,7 +18,7 @@ Ingredients:
 
 [Spices]
 	1 teaspoon curry powder
-	1/2 tsp kosher salt
+	1/2 teaspoon kosher salt
 
 Instructions:
 [Make Couscous]

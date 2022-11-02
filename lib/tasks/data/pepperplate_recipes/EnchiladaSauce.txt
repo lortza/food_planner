@@ -1,19 +1,19 @@
 Title: Enchilada Sauce
-Description: 
-Source: 
-Original URL: 
-Yield: 
-Active: 
-Total: 
+Description:
+Source:
+Original URL:
+Yield:
+Active:
+Total:
 Ingredients:
 	2 Tbsp oil
 	2 Tbsp chili powder
 	2 Tbsp flour
 	2.5 cups water
 	6 oz. tomato paste (1 can)
-	1/2 tsp cumin
-	1/2 tsp cayenne pepper
-	3/4 tsp salt
+	1/2 teaspoon cumin
+	1/2 teaspoon cayenne pepper
+	3/4 teaspoon salt
 
 Instructions:
 	To make the enchilada sauce, combine the oil, chili powder, and flour in a small sauce pot.

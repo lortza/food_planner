@@ -1,10 +1,10 @@
 Title: SMOKY WHITE BEAN SHAKSHUKA
-Description: 
+Description:
 Source: budgetbytes
 Original URL: https://www.budgetbytes.com/2016/04/smoky-white-bean-shakshuka/
-Yield: 
-Active: 
-Total: 
+Yield:
+Active:
+Total:
 Categories: middle eastern
 Image: https://cdn2.pepperplate.com/recipes/6fa35c8fe4384cab89b5e11ae8d84abb.jpg
 Ingredients:
@@ -13,11 +13,11 @@ Ingredients:
 	1 yellow onion
 	28 oz. can whole peeled tomatoes
 	1/2 Tbsp smoked paprika
-	1 tsp ground cumin
-	1/2 tsp dried oregano
-	1/8 tsp red pepper flakes
+	1 teaspoon ground cumin
+	1/2 teaspoon dried oregano
+	1/8 teaspoon red pepper flakes
 	Freshly cracked pepper
-	1/4 tsp salt, or to taste
+	1/4 teaspoon salt, or to taste
 	15 oz. can cannellini beans or lentils
 	4 large eggs
 	Handful fresh parsley, chopped
@@ -26,7 +26,7 @@ Ingredients:
 Instructions:
 	Mince the garlic and finely dice the onion. Cook both in a large deep skillet with olive oil over medium heat until the onions are soft and transparent (about 5 minutes).
 	Add the canned tomatoes and their juices, crushing the tomatoes with your hands as you add them to the skillet. Add the smoked paprika, cumin, oregano, red pepper flakes, and some freshly cracked pepper as well. Stir to combine.
-	Allow the sauce to come to a simmer. Let the sauce simmer, stirring occasionally, for 5-7 minutes, or until it has thickened slightly. Add 1/4 tsp salt, then taste the sauce and adjust the salt or other spices to your liking.
+	Allow the sauce to come to a simmer. Let the sauce simmer, stirring occasionally, for 5-7 minutes, or until it has thickened slightly. Add 1/4 teaspoon salt, then taste the sauce and adjust the salt or other spices to your liking.
 	Drain the white beans, add them to the skillet, then stir to combine. Allow the skillet to return to a simmer. Simmer for 2-3 minutes more.
 	Crack four eggs into the skillet, then place a lid on top and let them simmer for 5 minutes, or until the whites are set but the yolks are still soft. Top the skillet with the crumbled feta and chopped parsley.
 

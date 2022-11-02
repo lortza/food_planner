@@ -3,13 +3,13 @@ Description: A middle finger to La Fuente restaurant in Todos Santos, Baja, Mexi
 Source: Anne's Imagination
 Original URL: http://warmkitchen.wordpress.com/2013/01/30/spiteful-gringa-potato-tacos/
 Yield: 6
-Active: 
+Active:
 Total: 1 hr
 Categories: taco, mexican, avocado, potato, beans
 Image: https://cdn2.pepperplate.com/recipes/cedd3dfb6aee4b35adc1bd47a1ae5a40.jpg
 Ingredients:
 	10 small potatoes (New Potato sized), quartered
-	1 tsp cumin
+	1 teaspoon cumin
 	1 avocado, mashed
 	1 can black beans, rinsed (or about that much of your own soaked/cooked beans, which is what I used)
 	3 cloves of garlic, finely diced

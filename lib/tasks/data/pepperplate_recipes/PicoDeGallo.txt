@@ -1,7 +1,7 @@
 Title: Pico De Gallo
-Description: 
+Description:
 Source: Anne's Imagination
-Original URL: 
+Original URL:
 Yield: 1
 Active: 10 min
 Total: 10 min
@@ -11,7 +11,7 @@ Ingredients:
 	1 large tomato
 	1/2 small onion
 	1 clove garlic
-	1/2 tsp salt
+	1/2 teaspoon salt
 	1 jalapeño
 	2 sprigs fresh cilantro
 

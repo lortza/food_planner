@@ -1,5 +1,5 @@
 Title: Thai Pumpkin Soup
-Description: 
+Description:
 Source: Foodie Crush
 Original URL: http://www.foodiecrush.com/2013/10/5-ingredient-thai-pumpkin-soup/
 Yield: Serves serves 4
@@ -8,9 +8,9 @@ Total: 20 min
 Categories: soup, curry, thai, pumpkin
 Image: https://cdn2.pepperplate.com/recipes/0e1b5ea5a24145eca240e6b33e30fbe2.jpg
 Ingredients:
-	1 tsp curry powder
-	1/4 tsp garam masala
-	1/8 tsp corriander
+	1 teaspoon curry powder
+	1/4 teaspoon garam masala
+	1/8 teaspoon corriander
 	salt
 	4 cups broth
 	2 cans pumpkin puree

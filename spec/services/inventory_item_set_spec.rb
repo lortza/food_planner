@@ -11,7 +11,7 @@ RSpec.describe InventoryItemSet, type: :service do
     create(:ingredient, recipe: recipe1, name: '1 cup rice')
 
     recipe2 = create(:recipe, user: user)
-    create(:ingredient, recipe: recipe2, name: '2 TBS water')
+    create(:ingredient, recipe: recipe2, name: '2 tablespoon water')
     create(:ingredient, recipe: recipe2, name: '.5 cup beans')
   end
 

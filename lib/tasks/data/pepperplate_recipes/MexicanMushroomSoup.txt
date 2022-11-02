@@ -1,9 +1,9 @@
 Title: Mexican Mushroom Soup
-Description: I had a version of this on Christmas 2013 while staying at the yoga school in Mazunte, Mexico. One of the teacher's father came in an made us a huge meal. This soup was the starter. 
+Description: I had a version of this on Christmas 2013 while staying at the yoga school in Mazunte, Mexico. One of the teacher's father came in an made us a huge meal. This soup was the starter.
 Source: Yummly
 Original URL: http://www.yummly.com/recipe/Mexican-Chile-And-Mushroom-Soup-Epicurious?columns=4&position=1%2F71
 Yield: 4
-Active: 
+Active:
 Total: 35
 Categories: soup, mushrooms, mexican, spicy
 Image: https://cdn2.pepperplate.com/recipes/d590ae80abd5478ca434929a72f38d77.jpg
@@ -12,8 +12,8 @@ Ingredients:
 	1/2 in white onion (thick slice large)
 	3 inches dried ancho chile (long small, *, 1/4 ounce)
 	1/2 cup water
-	3/4 tsp salt
-	1/2 tsp dried oregano (preferably Mexican, crumbled)
+	3/4 teaspoon salt
+	1/2 teaspoon dried oregano (preferably Mexican, crumbled)
 	2 tbsps vegetable oil
 	10 ozs mushrooms (trimmed and thinly sliced)
 	1 tbsp tomato paste

@@ -1,10 +1,10 @@
 Title: Bell Pepper Tofu Stirfry
 Description: Serve over rice. https://www.ourgroceries.com/your-lists/list/Fjrd1OIApg3CXubcmhvvpJ
 Source: Anne's Imagination
-Original URL: 
+Original URL:
 Yield: 4 servings
-Active: 
-Total: 
+Active:
+Total:
 Categories: tofu, stirfry, ginger, chopsticks
 Image: https://cdn2.pepperplate.com/recipes/f943013dfbec4389a7583a49d1dea843.jpg
 Ingredients:
@@ -17,9 +17,9 @@ Ingredients:
 	3 celery sticks
 	1/4 cucumber, in chunks
 	1 thumb of fresh ginger root
-	1 TBSP soy sauce
-	1 TSP honey
-	1 TBSP vinegar
+	1 tablespoon soy sauce
+	1 teaspoon honey
+	1 tablespoon vinegar
 	peanuts
 	sesame seeds
 
