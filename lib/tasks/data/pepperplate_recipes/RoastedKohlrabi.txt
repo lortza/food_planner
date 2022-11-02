@@ -1,5 +1,5 @@
 Title: Roasted Kohlrabi
-Description: 
+Description:
 Source: Anne's Imagination
 Original URL: http://warmkitchen.wordpress.com/2012/10/03/roasted-kohlrabi/
 Yield: 2
@@ -11,7 +11,7 @@ Ingredients:
 	1 sprig fresh thyme
 	1 sprig fresh rosemary
 	3 cloves garlic
-	1/2 tsp salt
+	1/2 teaspoon salt
 	1 tbsp EVOO
 
 Instructions:

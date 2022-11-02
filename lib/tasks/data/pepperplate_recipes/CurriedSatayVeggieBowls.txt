@@ -1,10 +1,10 @@
 Title: Curried Satay Veggie Bowls
-Description: 
+Description:
 Source: Jessica in the Kitchen
 Original URL: https://jessicainthekitchen.com/curried-satay-veggie-bowls/
 Yield: 4
-Active: 
-Total: 
+Active:
+Total:
 Categories: pasta, curry
 Image: https://cdn2.pepperplate.com/recipes/b734213a02984cbb83a471eca370fd45.jpg
 Ingredients:
@@ -15,9 +15,9 @@ Ingredients:
 	1 teaspoon mustard
 	1/4 teaspoon ground ginger
 	1/4 teaspoon garlic powder
-	1/2 tsp lime juice
-	1 tsp Rice Vinegar
-	1 tsp soy sauce
+	1/2 teaspoon lime juice
+	1 teaspoon Rice Vinegar
+	1 teaspoon soy sauce
 	1 large zucchini, peeled into ribbons or spiraled
 
 [NOODLE BOWL INGREDIENTS]

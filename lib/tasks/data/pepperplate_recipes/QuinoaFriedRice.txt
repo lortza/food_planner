@@ -1,10 +1,10 @@
 Title: Quinoa "Fried Rice"
-Description: 
+Description:
 Source: The Minimalist Baker
 Original URL: https://minimalistbaker.com/30-minute-quinoa-fried-rice/
 Yield: 4
-Active: 
-Total: 
+Active:
+Total:
 Categories: quinoa, vegan
 Image: https://cdn2.pepperplate.com/recipes/eeec03f5d358480eaebbf84914b3649c.jpg
 Ingredients:
@@ -17,7 +17,7 @@ Ingredients:
 	1 Tbsp maple syrup
 	1 Tbsp almond butter (or sub peanut butter)
 	2 Tbsp lime juice
-	2 tsp chili garlic sauce* (plus more to taste)
+	2 teaspoon chili garlic sauce* (plus more to taste)
 	1/4 cup diced green onion
 
 [THE REST]

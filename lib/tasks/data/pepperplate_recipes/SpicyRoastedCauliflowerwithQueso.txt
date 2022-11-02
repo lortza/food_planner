@@ -1,18 +1,18 @@
 Title: Spicy Roasted Cauliflower with Queso
-Description: 
+Description:
 Source: Budget Bytes
 Original URL: https://www.budgetbytes.com/spicy-roasted-cauliflower-cheese-sauce/
 Yield: 4 servings
-Active: 
-Total: 
+Active:
+Total:
 Categories: cauliflower, curry, vegan
 Image: https://cdn2.pepperplate.com/recipes/4a948fe22cb84ea5b7f55bc7a5c3dff0.jpg
 Ingredients:
 [Cauliflower]
 	1/2 Tbsp smoked paprika
-	1/4 tsp garlic powder
-	1/8 tsp cayenne pepper
-	1/4 tsp salt
+	1/4 teaspoon garlic powder
+	1/8 teaspoon cayenne pepper
+	1/4 teaspoon salt
 	Freshly cracked pepper
 	1.5 lb. frozen cauliflower florets (1.5 bags)
 	1 Tbsp olive oil

@@ -32,8 +32,8 @@ class Ingredient < ApplicationRecord
     sprig
     stalk
     stick
-    TBS
-    tsp
+    tablespoon
+    teaspoon
     whole
   ].freeze
 

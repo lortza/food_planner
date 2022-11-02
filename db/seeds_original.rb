@@ -43,7 +43,7 @@ Ingredient.create!([
   {
     recipe_id: recipe.id,
     quantity: 0.125,
-    measurement_unit: 'tsp',
+    measurement_unit: 'teaspoon',
     name: 'Sea Salt',
     preparation_style: ''
   },
@@ -129,7 +129,7 @@ poboy.ingredients.create!([
   },
   {
     quantity: 2,
-    measurement_unit: 'tsp',
+    measurement_unit: 'teaspoon',
     name: 'Dried Oregano',
   },
   {
@@ -264,7 +264,7 @@ pad_thai.ingredients.create!([
   },
   {
     quantity: 1,
-    measurement_unit: 'tsp',
+    measurement_unit: 'teaspoon',
     name: 'brown sugar'
   },
   {
@@ -280,7 +280,7 @@ pad_thai.ingredients.create!([
   },
   {
     quantity: 1,
-    measurement_unit: 'tsp',
+    measurement_unit: 'teaspoon',
     name: 'crushed red pepper',
   },
   {
@@ -356,7 +356,7 @@ lentil_soup.ingredients.create!([
   },
   {
     quantity: 0.5,
-    measurement_unit: 'tsp',
+    measurement_unit: 'teaspoon',
     name: 'sea salt',
   },
   {
@@ -407,7 +407,7 @@ blended_lentils.ingredients.create!([
   },
   {
     quantity: 1,
-    measurement_unit: 'tsp',
+    measurement_unit: 'teaspoon',
     name: 'cumin',
     preparation_style: 'ground'
   },
@@ -487,29 +487,29 @@ quiche.ingredients.create!([
   },
   {
     quantity: 0.125,
-    measurement_unit: 'tsp',
+    measurement_unit: 'teaspoon',
     name: 'garlic powder'
   },
   {
     quantity: 0.125,
-    measurement_unit: 'tsp',
+    measurement_unit: 'teaspoon',
     name: 'onion powder'
   },
   {
     quantity: 0.5,
-    measurement_unit: 'tsp',
+    measurement_unit: 'teaspoon',
     name: 'basil',
     preparation_style: 'dried'
   },
   {
     quantity: 0.5,
-    measurement_unit: 'tsp',
+    measurement_unit: 'teaspoon',
     name: 'oregano',
     preparation_style: 'dried'
   },
   {
     quantity: 0.125,
-    measurement_unit: 'tsp',
+    measurement_unit: 'teaspoon',
     name: 'sea salt'
   }
 ])
@@ -550,7 +550,7 @@ red_lentil_curry.ingredients.create!([
   },
   {
     quantity: 0.25,
-    measurement_unit: 'tsp',
+    measurement_unit: 'teaspoon',
     name: 'garlic powder'
   },
   {
@@ -561,17 +561,17 @@ red_lentil_curry.ingredients.create!([
   },
   {
     quantity: 0.5,
-    measurement_unit: 'tsp',
+    measurement_unit: 'teaspoon',
     name: 'garam masala'
   },
   {
     quantity: 0.75,
-    measurement_unit: 'tsp',
+    measurement_unit: 'teaspoon',
     name: 'curry powder'
   },
   {
     quantity: 0.25,
-    measurement_unit: 'tsp',
+    measurement_unit: 'teaspoon',
     name: 'cumin',
     preparation_style: 'ground'
   },
@@ -629,7 +629,7 @@ gnocchi = Recipe.create!(
     "It's done when the cherry tomatoes have burst and the squash is tender.",
     "Cook the pasta (Use the large soup pot because we're going to put the pasta back in it) NOTE: Don't drain the pasta without consulting the next step.",
     "Set aside about a cup of pasta water when you strain the pasta.",
-    "Add 2 TBSP oil to the bottom of the soup pot then put the pasta back in and stir.",
+    "Add 2 tablespoon oil to the bottom of the soup pot then put the pasta back in and stir.",
     "Immediately add the goat cheese, garlic, and red pepper flakes",
     "Put the small mesh strainer over the pot and juice the lemon into the mix. (you may have to put one end of the strainer on the pot and the other on a wooden spoon across the pot)",
     "Add about 1/4 cup of the reserved pasta cooking water and gently toss the pasta until the ingredients are evenly mixed together and the pasta is coated in a light sauce (add more reserved cooking water if the pasta seems dry).",
@@ -682,12 +682,12 @@ gnocchi.ingredients.create!([
   },
   {
     quantity: 0.125,
-    measurement_unit: 'tsp',
+    measurement_unit: 'teaspoon',
     name: 'garlic powder'
   },
   {
     quantity: 0.5,
-    measurement_unit: 'tsp',
+    measurement_unit: 'teaspoon',
     name: 'crushed red pepper flakes'
   },
   {
@@ -698,7 +698,7 @@ gnocchi.ingredients.create!([
   },
   {
     quantity: 1,
-    measurement_unit: 'tsp',
+    measurement_unit: 'teaspoon',
     name: 'oregano',
     preparation_style: 'dried'
   }

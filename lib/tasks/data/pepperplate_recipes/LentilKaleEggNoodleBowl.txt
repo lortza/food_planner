@@ -1,5 +1,5 @@
 Title: Lentil & Kale Egg Noodle Bowl
-Description: 
+Description:
 Source: Clean and Delicious
 Original URL: https://cleananddelicious.com/2017/10/06/lentil-kale-whole-grain-noodle-bowl/
 Yield: 4
@@ -10,7 +10,7 @@ Image: https://cdn2.pepperplate.com/recipes/35d6e74b67b74514954b65988119b7c9.jpg
 Ingredients:
 	1 tablespoon olive oil
 	1 cup diced onion
-	1/4 tsp garlic powder
+	1/4 teaspoon garlic powder
 	1/2 teaspoon ground cumin
 	1/8 cup nutritional yeast
 	2 cups cooked lentils

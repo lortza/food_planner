@@ -1,10 +1,10 @@
 Title: Home Made Veggie Burgers
-Description: 
+Description:
 Source: budgetbytes
 Original URL: https://www.budgetbytes.com/2013/05/chipotle-sweet-potato-burgers/
-Yield: 
-Active: 
-Total: 
+Yield:
+Active:
+Total:
 Image: https://cdn2.pepperplate.com/recipes/c3a926b3f3a943988fce58ae5822be71.jpg
 Ingredients:
 	1 medium (1 lb.) sweet potato ..... $1.00
@@ -12,9 +12,9 @@ Ingredients:
 	1 (15 oz.) can black beans ..... $1.19
 	1 whole chipotle pepper in adobo sauce ..... $0.33
 	1/2 cup (divided) cornmeal ..... $0.12
-	1/4 tsp garlic powder ..... $0.02
-	1/2 tsp cumin ..... $0.03
-	1/2 tsp salt ...... $0.03
+	1/4 teaspoon garlic powder ..... $0.02
+	1/2 teaspoon cumin ..... $0.03
+	1/2 teaspoon salt ...... $0.03
 	1/4 bunch cilantro (optional) ..... $0.19
 	1 Tbsp vegetable oil (for frying, optional) ..... $0.02
 	4 medium wheat rolls ..... $1.42

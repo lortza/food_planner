@@ -1,7 +1,7 @@
 Title: Caprese Salad
 Description: pick up a crusty bread to have with this
 Source: Anne's Imagination
-Original URL: 
+Original URL:
 Yield: 4 servings
 Active: 10 min
 Total: 15 min
@@ -11,8 +11,8 @@ Ingredients:
 	1 package of mozzarella pearls
 	3 ripe creole tomatoes, diced
 	10 fresh basil leaves, chopped
-	1/2 tsp salt
-	1 TBSP balsamic vinegar
+	1/2 teaspoon salt
+	1 tablespoon balsamic vinegar
 	1 serving (each) of salad greens
 	1 baguette boulangerie bread
 

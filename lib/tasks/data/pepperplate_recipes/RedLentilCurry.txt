@@ -10,13 +10,13 @@ Image: https://cdn2.pepperplate.com/recipes/5b8972b2e1344a83965f7a248ec4f978.jpg
 Ingredients:
 	2 medium yellow onions OR 1 red onion (7g)
 	2 cups fresh tomatoes, diced (if using canned, do not drain)
-	1/4 tsp sea salt
-	1/4 tsp ground black pepper
-	1/4 tsp garlic powder
+	1/4 teaspoon sea salt
+	1/4 teaspoon ground black pepper
+	1/4 teaspoon garlic powder
 	1 tablespoon freshly minced ginger
-	1/2 tsp garam masala
-	3/4 tsp curry powder
-	1/4 tsp cumin
+	1/2 teaspoon garam masala
+	3/4 teaspoon curry powder
+	1/4 teaspoon cumin
 	1 tablespoon red curry paste
 	1 cup dry red lentils, rinsed
 	2 cups filtered water
@@ -36,4 +36,4 @@ Instructions:
 	Bring the temp down and a simmer for 30 min.
 	When the lentils are soft, turn off the heat and add in the coconut milk.
 
-Notes: This is spicy and sweet. It's really nice. 
+Notes: This is spicy and sweet. It's really nice.

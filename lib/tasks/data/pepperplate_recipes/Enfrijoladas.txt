@@ -1,5 +1,5 @@
 Title: Enfrijoladas
-Description: 
+Description:
 Source: Budget Bytes
 Original URL: https://www.budgetbytes.com/enfrijoladas-tortillas-in-black-bean-sauce/
 Yield: 6
@@ -11,8 +11,8 @@ Ingredients:
 	2 15 oz cans black beans, drained $1.98
 	3 chipotle peppers in adobo sauce (1 Tbsp sauce) $0.95
 	1 small sweet onion, divided $0.50
-	1/2 tsp cumin $0.05
-	1/4 tsp garlic powder $0.02
+	1/2 teaspoon cumin $0.05
+	1/4 teaspoon garlic powder $0.02
 	2 cups chicken or vegetable broth* $0.26
 	12 corn tortillas $0.60
 	1/4 bunch cilantro $0.25

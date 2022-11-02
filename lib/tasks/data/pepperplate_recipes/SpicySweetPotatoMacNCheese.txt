@@ -1,9 +1,9 @@
 Title: Spicy Sweet Potato Mac N’ Cheese
-Description: 
+Description:
 Source: Farmers Market Foods
 Original URL: http://www.farmersmarketfoods.com/recipes/spicy-sweet-potato-mac-n-cheese/
 Yield: 6
-Active: 
+Active:
 Total: 1 hour
 Categories: chorizo
 Image: https://cdn2.pepperplate.com/recipes/f6d6729eb44f4a34a370597e05da7658.jpg
@@ -12,7 +12,7 @@ Ingredients:
 	8 ounces uncooked elbow shape macaroni pasta
 	1 cup milk
 	2 tablespoons chopped jalapeño
-	0.5 to 1 tsp crushed red pepper
+	0.5 to 1 teaspoon crushed red pepper
 	1/2 teaspoon salt
 	1/4 teaspoon ground black pepper
 	1 tablespoon olive oil

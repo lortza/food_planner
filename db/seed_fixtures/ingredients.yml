@@ -41,7 +41,7 @@
   :preparation_style: ''
 - :recipe_title: Veggie Po'boy
   :quantity: 2.0
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: dried oregano
   :preparation_style: ''
 - :recipe_title: Veggie Po'boy
@@ -61,7 +61,7 @@
   :preparation_style: chopped
 - :recipe_title: Caraotas Negras
   :quantity: 1.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: adobo seasoning
   :preparation_style: ''
 - :recipe_title: Caraotas Negras
@@ -76,12 +76,12 @@
   :preparation_style: finely chopped
 - :recipe_title: Caraotas Negras
   :quantity: 1.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: brown cane sugar
   :preparation_style: grated
 - :recipe_title: Caraotas Negras
   :quantity: 1.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: garlic
   :preparation_style: minced
 - :recipe_title: Caraotas Negras
@@ -111,17 +111,17 @@
   :preparation_style: finely chopped
 - :recipe_title: Quick Pad Thai
   :quantity: 1.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: soy sauce
   :preparation_style: ''
 - :recipe_title: Quick Pad Thai
   :quantity: 1.0
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: brown sugar
   :preparation_style: ''
 - :recipe_title: Quick Pad Thai
   :quantity: 0.5
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: rice vinegar
   :preparation_style: ''
 - :recipe_title: Quick Pad Thai
@@ -131,7 +131,7 @@
   :preparation_style: cooked
 - :recipe_title: Quick Pad Thai
   :quantity: 1.0
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: crushed red pepper
   :preparation_style: ''
 - :recipe_title: Quick Pad Thai
@@ -171,7 +171,7 @@
   :preparation_style: ''
 - :recipe_title: Creamy Lentil Soup
   :quantity: 0.5
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: sea salt
   :preparation_style: ''
 - :recipe_title: Creamy Lentil Soup
@@ -186,12 +186,12 @@
   :preparation_style: finely chopped
 - :recipe_title: Blended Red Lentil Soup
   :quantity: 1.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: olive oil
   :preparation_style: ''
 - :recipe_title: Blended Red Lentil Soup
   :quantity: 1.0
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: cumin
   :preparation_style: ground
 - :recipe_title: Blended Red Lentil Soup
@@ -241,27 +241,27 @@
   :preparation_style: crumbled
 - :recipe_title: Quiche
   :quantity: 0.125
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: granulated garlic
   :preparation_style: ''
 - :recipe_title: Quiche
   :quantity: 0.125
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: onion powder
   :preparation_style: ''
 - :recipe_title: Quiche
   :quantity: 0.5
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: basil
   :preparation_style: dried
 - :recipe_title: Quiche
   :quantity: 0.5
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: oregano
   :preparation_style: dried
 - :recipe_title: Quiche
   :quantity: 0.125
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: sea salt
   :preparation_style: ''
 - :recipe_title: Red Lentil Curry
@@ -276,32 +276,32 @@
   :preparation_style: diced
 - :recipe_title: Red Lentil Curry
   :quantity: 0.25
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: granulated garlic
   :preparation_style: ''
 - :recipe_title: Red Lentil Curry
   :quantity: 1.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: fresh ginger root
   :preparation_style: minced
 - :recipe_title: Red Lentil Curry
   :quantity: 0.5
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: garam masala
   :preparation_style: ''
 - :recipe_title: Red Lentil Curry
   :quantity: 0.75
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: curry powder
   :preparation_style: ''
 - :recipe_title: Red Lentil Curry
   :quantity: 0.25
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: cumin
   :preparation_style: ground
 - :recipe_title: Red Lentil Curry
   :quantity: 1.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: red curry paste
   :preparation_style: ''
 - :recipe_title: Red Lentil Curry
@@ -346,12 +346,12 @@
   :preparation_style: sliced
 - :recipe_title: Creamy Cherry Tomato & Summer Squash Gnocchi
   :quantity: 2.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: olive oil
   :preparation_style: ''
 - :recipe_title: Creamy Cherry Tomato & Summer Squash Gnocchi
   :quantity: 2.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: lemon juice
   :preparation_style: ''
 - :recipe_title: Creamy Cherry Tomato & Summer Squash Gnocchi
@@ -361,12 +361,12 @@
   :preparation_style: crumbled
 - :recipe_title: Creamy Cherry Tomato & Summer Squash Gnocchi
   :quantity: 0.125
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: granulated garlic
   :preparation_style: ''
 - :recipe_title: Creamy Cherry Tomato & Summer Squash Gnocchi
   :quantity: 0.5
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: crushed red pepper flakes
   :preparation_style: ''
 - :recipe_title: Creamy Cherry Tomato & Summer Squash Gnocchi
@@ -376,7 +376,7 @@
   :preparation_style: chopped
 - :recipe_title: Creamy Cherry Tomato & Summer Squash Gnocchi
   :quantity: 1.0
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: oregano
   :preparation_style: dried
 - :recipe_title: City O City Breakfast Burrito
@@ -401,7 +401,7 @@
   :preparation_style: ''
 - :recipe_title: Pierogi Pizza
   :quantity: 0.125
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: granulated garlic
   :preparation_style: ''
 - :recipe_title: Creamy Lentil Soup
@@ -436,27 +436,27 @@
   :preparation_style: deseeded and chopped
 - :recipe_title: Cashew Vegan Queso
   :quantity: 0.5
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: chili powder
   :preparation_style: ''
 - :recipe_title: Cashew Vegan Queso
   :quantity: 0.5
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: cumin
   :preparation_style: ''
 - :recipe_title: Cashew Vegan Queso
   :quantity: 0.5
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: granulated garlic
   :preparation_style: ''
 - :recipe_title: Cashew Vegan Queso
   :quantity: 0.5
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: sea salt
   :preparation_style: ''
 - :recipe_title: Cashew Vegan Queso
   :quantity: 1.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: honey
   :preparation_style: ''
 - :recipe_title: Enfrijoladas
@@ -471,12 +471,12 @@
   :preparation_style: ''
 - :recipe_title: Enfrijoladas
   :quantity: 0.5
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: onion powder
   :preparation_style: ''
 - :recipe_title: Enfrijoladas
   :quantity: 0.5
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: cumin
   :preparation_style: ''
 - :recipe_title: Enfrijoladas
@@ -506,22 +506,22 @@
   :preparation_style: thawed to about room temp
 - :recipe_title: Spicy Roasted Cauliflower with Queso
   :quantity: 0.5
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: smoked paprika
   :preparation_style: ''
 - :recipe_title: Spicy Roasted Cauliflower with Queso
   :quantity: 0.25
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: granulated garlic
   :preparation_style: ''
 - :recipe_title: Spicy Roasted Cauliflower with Queso
   :quantity: 0.25
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: sea salt
   :preparation_style: ''
 - :recipe_title: Spicy Roasted Cauliflower with Queso
   :quantity: 1.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: olive oil
   :preparation_style: ''
 - :recipe_title: Apricot Lentil Soup
@@ -546,7 +546,7 @@
   :preparation_style: finely diced
 - :recipe_title: Apricot Lentil Soup
   :quantity: 1.0
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: cumin
   :preparation_style: ''
 - :recipe_title: Apricot Lentil Soup
@@ -596,22 +596,22 @@
   :preparation_style: ''
 - :recipe_title: Arroz Con Gandules Pigeon Peas
   :quantity: 1.0
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: cumin
   :preparation_style: ''
 - :recipe_title: Arroz Con Gandules Pigeon Peas
   :quantity: 1.0
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: coriander
   :preparation_style: ''
 - :recipe_title: Arroz Con Gandules Pigeon Peas
   :quantity: 1.0
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: paprika
   :preparation_style: ''
 - :recipe_title: Bread Pudding with Roasted Vegetables
   :quantity: 2.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: fresh parsley
   :preparation_style: chopped
 - :recipe_title: Arroz Con Gandules Pigeon Peas
@@ -621,7 +621,7 @@
   :preparation_style: toasted
 - :recipe_title: Spicy Roasted Cauliflower with Queso
   :quantity: 0.125
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: cayenne pepper
   :preparation_style: ''
 - :recipe_title: Asian Raw Kale Salad
@@ -651,12 +651,12 @@
   :preparation_style: chopped
 - :recipe_title: Asian Raw Kale Salad
   :quantity: 1.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: red onion
   :preparation_style: minced
 - :recipe_title: Asian Raw Kale Salad
   :quantity: 1.0
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: sesame seeds
   :preparation_style: ''
 - :recipe_title: Asian Raw Kale Salad
@@ -671,7 +671,7 @@
   :preparation_style: chopped
 - :recipe_title: Asian Raw Kale Salad
   :quantity: 2.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: apple cider vinegar
   :preparation_style: ''
 - :recipe_title: Asian Raw Kale Salad
@@ -681,12 +681,12 @@
   :preparation_style: juiced
 - :recipe_title: Asian Raw Kale Salad
   :quantity: 2.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: honey
   :preparation_style: ''
 - :recipe_title: Asian Raw Kale Salad
   :quantity: 3.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: olive oil
   :preparation_style: ''
 - :recipe_title: Asian Raw Kale Salad
@@ -701,7 +701,7 @@
   :preparation_style: cut into big cubes and dried
 - :recipe_title: Bread Pudding with Roasted Vegetables
   :quantity: 1.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: olive oil
   :preparation_style: ''
 - :recipe_title: Bread Pudding with Roasted Vegetables
@@ -741,7 +741,7 @@
   :preparation_style: sliced
 - :recipe_title: Bread Pudding with Roasted Vegetables
   :quantity: 0.5
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: dried thyme
   :preparation_style: crumbled
 - :recipe_title: Bread Pudding with Roasted Vegetables
@@ -751,12 +751,12 @@
   :preparation_style: ''
 - :recipe_title: Bread Pudding with Roasted Vegetables
   :quantity: 0.5
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: sea salt
   :preparation_style: ''
 - :recipe_title: Bread Pudding with Roasted Vegetables
   :quantity: 0.25
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: ground nutmeg
   :preparation_style: ''
 - :recipe_title: Bread Pudding with Roasted Vegetables
@@ -796,27 +796,27 @@
   :preparation_style: finely chopped
 - :recipe_title: City O City Breakfast Burrito
   :quantity: 0.25
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: ground coriander
   :preparation_style: ''
 - :recipe_title: City O City Breakfast Burrito
   :quantity: 0.5
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: cumin
   :preparation_style: ''
 - :recipe_title: City O City Breakfast Burrito
   :quantity: 0.25
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: granulated garlic
   :preparation_style: ''
 - :recipe_title: City O City Breakfast Burrito
   :quantity: 0.5
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: sea salt
   :preparation_style: ''
 - :recipe_title: City O City Breakfast Burrito
   :quantity: 1.25
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: turmeric
   :preparation_style: ''
 - :recipe_title: City O City Breakfast Burrito
@@ -836,7 +836,7 @@
   :preparation_style: ''
 - :recipe_title: Pierogi Pizza
   :quantity: 1.0
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: vegetable bouillon
   :preparation_style: ''
 - :recipe_title: Sweet Potato Gnocchis
@@ -851,17 +851,17 @@
   :preparation_style: chopped into bit-size pieces
 - :recipe_title: Sweet Potato Gnocchis
   :quantity: 4.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: butter
   :preparation_style: ''
 - :recipe_title: Sweet Potato Gnocchis
   :quantity: 0.125
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: ground nutmeg
   :preparation_style: ''
 - :recipe_title: Sweet Potato Gnocchis
   :quantity: 0.125
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: cinnamon
   :preparation_style: ''
 - :recipe_title: Sweet Potato Gnocchis
@@ -881,7 +881,7 @@
   :preparation_style: chopped
 - :recipe_title: Corn Chowder
   :quantity: 0.5
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: granulated garlic
   :preparation_style: ''
 - :recipe_title: Corn Chowder
@@ -911,27 +911,27 @@
   :preparation_style: well shaken
 - :recipe_title: Corn Chowder
   :quantity: 2.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: flour
   :preparation_style: ''
 - :recipe_title: Corn Chowder
   :quantity: 0.5
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: cayenne pepper
   :preparation_style: ''
 - :recipe_title: Corn Chowder
   :quantity: 0.75
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: sea salt
   :preparation_style: ''
 - :recipe_title: Corn Chowder
   :quantity: 0.5
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: ground nutmeg
   :preparation_style: ''
 - :recipe_title: Apricot Lentil Soup
   :quantity: 0.25
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: sea salt
   :preparation_style: ''
 - :recipe_title: Potato Leek Soup
@@ -961,12 +961,12 @@
   :preparation_style: shaken
 - :recipe_title: Potato Leek Soup
   :quantity: 0.5
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: dried thyme
   :preparation_style: ''
 - :recipe_title: Potato Leek Soup
   :quantity: 0.25
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: dried rosemary
   :preparation_style: ''
 - :recipe_title: Potato Leek Soup
@@ -981,7 +981,7 @@
   :preparation_style: ''
 - :recipe_title: Potato Leek Soup
   :quantity: 0.25
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: sea salt
   :preparation_style: ''
 - :recipe_title: Potato Leek Soup
@@ -991,7 +991,7 @@
   :preparation_style: sliced or chopped
 - :recipe_title: Potato Leek Soup
   :quantity: 2.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: sunflower seeds
   :preparation_style: ''
 - :recipe_title: Greek Stuffed Peppers
@@ -1021,17 +1021,17 @@
   :preparation_style: diced
 - :recipe_title: Greek Stuffed Peppers
   :quantity: 0.25
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: granulated garlic
   :preparation_style: ''
 - :recipe_title: Greek Stuffed Peppers
   :quantity: 0.25
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: onion powder
   :preparation_style: ''
 - :recipe_title: Greek Stuffed Peppers
   :quantity: 1.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: dried oregano
   :preparation_style: ''
 - :recipe_title: Greek Stuffed Peppers
@@ -1056,7 +1056,7 @@
   :preparation_style: crumbled
 - :recipe_title: Greek Stuffed Peppers
   :quantity: 2.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: pine nuts
   :preparation_style: toasted
 - :recipe_title: Jackfruit Melt Sandwich
@@ -1066,7 +1066,7 @@
   :preparation_style: rinsed, drained, chopped
 - :recipe_title: Jackfruit Melt Sandwich
   :quantity: 0.25
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: onion powder
   :preparation_style: ''
 - :recipe_title: Jackfruit Melt Sandwich
@@ -1076,12 +1076,12 @@
   :preparation_style: minced
 - :recipe_title: Jackfruit Melt Sandwich
   :quantity: 0.5
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: dried tarragon
   :preparation_style: ''
 - :recipe_title: Jackfruit Melt Sandwich
   :quantity: 0.125
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: granulated garlic
   :preparation_style: ''
 - :recipe_title: Jackfruit Melt Sandwich
@@ -1101,12 +1101,12 @@
   :preparation_style: ''
 - :recipe_title: Jackfruit Melt Sandwich
   :quantity: 1.5
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: dijon mustard
   :preparation_style: ''
 - :recipe_title: Jackfruit Melt Sandwich
   :quantity: 2.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: pickled relish
   :preparation_style: ''
 - :recipe_title: Jackfruit Melt Sandwich
@@ -1151,12 +1151,12 @@
   :preparation_style: to start. Add more as needed.
 - :recipe_title: Wild Rice and Mushroom Soup
   :quantity: 1.0
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: sea salt
   :preparation_style: ''
 - :recipe_title: Wild Rice and Mushroom Soup
   :quantity: 0.5
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: dried thyme
   :preparation_style: ''
 - :recipe_title: Wild Rice and Mushroom Soup
@@ -1211,37 +1211,37 @@
   :preparation_style: rinsed and drained
 - :recipe_title: Curried Satay Veggie Bowls
   :quantity: 1.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: peanut butter
   :preparation_style: ''
 - :recipe_title: Curried Satay Veggie Bowls
   :quantity: 1.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: red curry paste
   :preparation_style: ''
 - :recipe_title: Curried Satay Veggie Bowls
   :quantity: 1.0
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: mustard
   :preparation_style: ''
 - :recipe_title: Curried Satay Veggie Bowls
   :quantity: 0.25
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: ground ginger
   :preparation_style: ''
 - :recipe_title: Curried Satay Veggie Bowls
   :quantity: 0.25
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: granulated garlic
   :preparation_style: ''
 - :recipe_title: Curried Satay Veggie Bowls
   :quantity: 1.0
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: rice vinegar
   :preparation_style: ''
 - :recipe_title: Curried Satay Veggie Bowls
   :quantity: 1.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: soy sauce
   :preparation_style: ''
 - :recipe_title: Curried Satay Veggie Bowls
@@ -1271,7 +1271,7 @@
   :preparation_style: minced
 - :recipe_title: Tortilla Soup
   :quantity: 1.0
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: ground cumin
   :preparation_style: ''
 - :recipe_title: Tortilla Soup
@@ -1311,12 +1311,12 @@
   :preparation_style: ''
 - :recipe_title: Yellow Lentil Dal
   :quantity: 2.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: fresh ginger
   :preparation_style: minced
 - :recipe_title: Yellow Lentil Dal
   :quantity: 0.5
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: ground turmeric
   :preparation_style: ''
 - :recipe_title: Yellow Lentil Dal
@@ -1326,7 +1326,7 @@
   :preparation_style: cut into 1" pieces
 - :recipe_title: Yellow Lentil Dal
   :quantity: 1.5
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: black mustard seeds
   :preparation_style: ''
 - :recipe_title: Yellow Lentil Dal
@@ -1346,7 +1346,7 @@
   :preparation_style: ''
 - :recipe_title: Yellow Lentil Dal
   :quantity: 2.0
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: ground cumin
   :preparation_style: ''
 - :recipe_title: Yellow Lentil Dal
@@ -1381,12 +1381,12 @@
   :preparation_style: peeled and chopped
 - :recipe_title: Spicy Black Bean Soup
   :quantity: 0.125
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: granulated garlic
   :preparation_style: ''
 - :recipe_title: Spicy Black Bean Soup
   :quantity: 0.5
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: powdered jalapeño pepper
   :preparation_style: ''
 - :recipe_title: Spicy Black Bean Soup
@@ -1406,7 +1406,7 @@
   :preparation_style: chopped
 - :recipe_title: Spicy Black Bean Soup
   :quantity: 1.0
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: vinegar
   :preparation_style: ''
 - :recipe_title: Ginger Broccolini Stir Fry
@@ -1436,7 +1436,7 @@
   :preparation_style: sliced into thin half moons
 - :recipe_title: Ginger Broccolini Stir Fry
   :quantity: 0.125
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: granulated garlic
   :preparation_style: ''
 - :recipe_title: Ginger Broccolini Stir Fry
@@ -1446,22 +1446,22 @@
   :preparation_style: chopped
 - :recipe_title: Ginger Broccolini Stir Fry
   :quantity: 2.0
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: vinegar
   :preparation_style: ''
 - :recipe_title: Ginger Broccolini Stir Fry
   :quantity: 1.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: honey
   :preparation_style: ''
 - :recipe_title: Ginger Broccolini Stir Fry
   :quantity: 1.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: soy sauce
   :preparation_style: ''
 - :recipe_title: Ginger Broccolini Stir Fry
   :quantity: 0.25
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: crushed red pepper
   :preparation_style: ''
 - :recipe_title: Chorizo Sweet Potato Skillet
@@ -1511,12 +1511,12 @@
   :preparation_style: diced
 - :recipe_title: Lentil & Kale Egg Noodle Bowl
   :quantity: 0.25
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: granulated garlic
   :preparation_style: ''
 - :recipe_title: Lentil & Kale Egg Noodle Bowl
   :quantity: 0.5
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: ground cumin
   :preparation_style: ''
 - :recipe_title: Lentil & Kale Egg Noodle Bowl
@@ -1571,12 +1571,12 @@
   :preparation_style: minced
 - :recipe_title: Shakshuka
   :quantity: 1.5
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: smoked paprika
   :preparation_style: ''
 - :recipe_title: Shakshuka
   :quantity: 2.0
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: ground cumin
   :preparation_style: ''
 - :recipe_title: Shakshuka
@@ -1631,27 +1631,27 @@
   :preparation_style: ''
 - :recipe_title: Sweet Potato Pie
   :quantity: 1.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: cinnamon
   :preparation_style: ''
 - :recipe_title: Sweet Potato Pie
   :quantity: 0.5
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: ground nutmeg
   :preparation_style: ''
 - :recipe_title: Sweet Potato Pie
   :quantity: 0.25
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: ground ginger
   :preparation_style: ''
 - :recipe_title: Sweet Potato Pie
   :quantity: 0.25
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: sea salt
   :preparation_style: ''
 - :recipe_title: Sweet Potato Pie
   :quantity: 2.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: melted butter
   :preparation_style: ''
 - :recipe_title: Sweet Potato Pie
@@ -1706,17 +1706,17 @@
   :preparation_style: finely chopped, + 1 T sauce
 - :recipe_title: Twice-Baked Sweet Potatoes
   :quantity: 1.0
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: orange zest
   :preparation_style: ''
 - :recipe_title: Twice-Baked Sweet Potatoes
   :quantity: 1.0
-  :measurement_unit: TBS
+  :measurement_unit: tablespoon
   :name: honey
   :preparation_style: ''
 - :recipe_title: Twice-Baked Sweet Potatoes
   :quantity: 0.125
-  :measurement_unit: tsp
+  :measurement_unit: teaspoon
   :name: ground nutmeg
   :preparation_style: ''
 - :recipe_title: Twice-Baked Sweet Potatoes

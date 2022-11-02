@@ -4,12 +4,12 @@ Description: This recipe has been modified
 Source: Once Again Creamy Peanut Butter
 Original URL: https://www.onceagainnutbutter.com/peanut-butter
 Yield: 8 Servings
-Active: 
-Total: 
+Active:
+Total:
 Categories: soup, peanut butter
 Image: https://cdn2.pepperplate.com/recipes/6c22f97a5d244d0c8817729a614f9ecf.jpg
 Ingredients:
-	1 tsp vegetable oil
+	1 teaspoon vegetable oil
 	1 onion, peeled / diced
 	2 garlic cloves, peeled / minced
 	2 inch piece fresh ginger, peeled / chopped
@@ -18,7 +18,7 @@ Ingredients:
 	1/2 cup peanut butter
 	4 cups peeled / diced sweet potatoes (2 med potatoes)
 	1 tbsp lightly packed dark brown sugar
-	1/2 tsp cayenne pepper, more if desired
+	1/2 teaspoon cayenne pepper, more if desired
 
 Instructions:
 	In the large soup pot, cook the onion, garlic, ginger.

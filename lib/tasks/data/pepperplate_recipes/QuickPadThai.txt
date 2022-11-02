@@ -2,9 +2,9 @@ Title: Quick Pad Thai
 Description: The original recipe is light on the sauce. This version corrects that.
 Source: womenshealthmag
 Original URL: http://recipes.womenshealthmag.com/Recipe/quick-pad-thai.aspx
-Yield: 
-Active: 
-Total: 
+Yield:
+Active:
+Total:
 Categories: thai, noodles
 Image: https://cdn2.pepperplate.com/recipes/dad9e72fa23f4e839c6057b8684da88e.jpg
 Ingredients:
@@ -14,9 +14,9 @@ Ingredients:
 	1/2 cup finely chopped onion
 	1 carrot julienned
 	1/3 C chopped cilantro
-	2 tsp red chili flakes
-	1 tsp soy sauce
-	2 tsp olive oil
+	2 teaspoon red chili flakes
+	1 teaspoon soy sauce
+	2 teaspoon olive oil
 	1 tbsp sugar
 	3 tbsp creamy peanut butter
 	1 tbsp water

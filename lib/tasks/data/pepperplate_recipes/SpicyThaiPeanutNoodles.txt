@@ -3,8 +3,8 @@ Description: From the Once Again nut butters site. Even though we love this reci
 Source: Once Again Nut Butters
 Original URL: https://www.onceagainnutbutter.com/peanut-butter
 Yield: 4
-Active: 
-Total: 
+Active:
+Total:
 Categories: thai, peanut
 Image: https://cdn2.pepperplate.com/recipes/ac24744742d74725b402116c15fc681a.jpg
 Ingredients:
@@ -17,8 +17,8 @@ Ingredients:
 	2 tbsp rice vinegar
 	1 tbsp dark brown sugar
 	1 tbsp fresh ginger, peeled and minced
-	2 tsp soy sauce
-	2 tsp Sriracha Hot Chili Sauce
+	2 teaspoon soy sauce
+	2 teaspoon Sriracha Hot Chili Sauce
 	1 clove garlic, chopped
 	1 8 oz box or bag Pad Thai rice noodles
 	1 cup carrots, julienned or shredded

@@ -1,5 +1,5 @@
 Title: Chickpea, Chorizo & Spinach Stew
-Description: 
+Description:
 Source: BBC GoodFood
 Original URL: http://www.bbcgoodfood.com/recipes/10775/chickpea-chorizo-and-spinach-stew
 Yield: 4
@@ -16,8 +16,8 @@ Ingredients:
 	2 bay leaves
 	2 garlic clove, finely chopped
 	7 oz chorizo, diced
-	1/4 tsp cinnamon
-	1 tsp hot smoked paprika
+	1/4 teaspoon cinnamon
+	1 teaspoon hot smoked paprika
 	2 x 14oz cans chickpeas, rinsed and drained <-- use lentils
 	1 to 2 tbsp sherry vinegar
 	14 oz bag spinach <-- use frozen kale

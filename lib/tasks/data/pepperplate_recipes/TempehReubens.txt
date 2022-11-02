@@ -4,7 +4,7 @@ Source: Vegetarian Times
 Original URL: http://www.vegetariantimes.com/recipe/vegan-tempeh-reubens/
 Yield: Serves 6
 Active: 1 hour
-Total: 
+Total:
 Categories: tempeh, sauerkraut
 Image: https://cdn2.pepperplate.com/recipes/7a311fafb5084a90a14b4473bc0a12a9.jpg
 Ingredients:
@@ -19,7 +19,7 @@ Ingredients:
 
 [Sauerkraut]
 	1 jar fresh sauerkraut or 1 can of the cheap stuff
-	1/2 tsp caraway seeds
+	1/2 teaspoon caraway seeds
 
 [Sandwiches]
 	1 loaf Boulangerie Normandy Rye, sliced

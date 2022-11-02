@@ -1,10 +1,10 @@
 Title: Black Bean Enchiladas
-Description: 
+Description:
 Source: Minimalist Baker
 Original URL: https://minimalistbaker.com/sweet-potato-black-bean-enchiladas/
 Yield: 10 enchiladas
-Active: 
-Total: 
+Active:
+Total:
 Categories: oven, mexican, vegan
 Image: https://cdn2.pepperplate.com/recipes/b9af8b258dbe4e0198ceb6e458eaa21f.jpg
 Ingredients:
@@ -14,9 +14,9 @@ Ingredients:
 [FILLING]
 	3 cups cubed sweet potatoes (skin on)
 	1 Tbsp coconut or avocado oil (or sub water)
-	1 tsp ground cumin
-	1/2 tsp smoked paprika
-	1/4 tsp sea salt
+	1 teaspoon ground cumin
+	1/2 teaspoon smoked paprika
+	1/4 teaspoon sea salt
 	2 cups chopped kale (or other sturdy green)
 	2 Tbsp (30 ml) water
 	1 15-ounce can black beans* (drained // or sub pinto or refried beans)

@@ -3,8 +3,8 @@ Description: This is the original recipe. I prefer to use FAR LESS of each of th
 Source: Minimalist Baker
 Original URL: https://minimalistbaker.com/spicy-jackfruit-tacos-1-pot-meal/
 Yield: 12 tacos
-Active: 
-Total: 
+Active:
+Total:
 Categories: jackfruit, mexican, vegan
 Image: https://cdn2.pepperplate.com/recipes/e22ce5f2a12f48c1930eec2b1bc21caa.jpg
 Ingredients:
@@ -13,13 +13,13 @@ Ingredients:
 	2 Tbsp avocado or coconut oil (if avoiding oil, sub water)
 	1/2 large white or yellow onion (thinly sliced)
 	4 cloves garlic (minced)
-	1/2 tsp sea salt
+	1/2 teaspoon sea salt
 	1 Tbsp ground smoked paprika
 	1 Tbsp ground cumin
 	1 Tbsp chili powder
 	2 to 3 Tbsp coconut sugar (or maple syrup or organic brown sugar)
 	1 to 2 small chipotle peppers in adobo sauce (from a can // roughly chopped)
-	3 tsp adobo sauce (use more or less to preferred spice level)
+	3 teaspoon adobo sauce (use more or less to preferred spice level)
 	1/4 cup coconut aminos*
 	2/3 cup water (plus more as needed)
 	3 Tbsp lime juice

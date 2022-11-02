@@ -2,7 +2,7 @@ Title: Busy-Day Chocolate Cake
 Description: Makes 1 pie plate of cake. Perfect fit!
 Source: MarthaStewart
 Original URL: http://www.marthastewart.com/334278/busy-day-chocolate-cake
-Yield: 
+Yield:
 Active: 15 min
 Total: 1 hr
 Categories: cake, chocolate
@@ -11,9 +11,9 @@ Ingredients:
 	1 1/2 cups all-purpose flour, (spooned and leveled)
 	1 cup sugar
 	6 tablespoons unsweetened cocoa powder
-	1/4 tsp cinnamon
-	1/4 tsp chili powder
-	1/8 tsp cayenne
+	1/4 teaspoon cinnamon
+	1/4 teaspoon chili powder
+	1/8 teaspoon cayenne
 	1 teaspoon baking soda
 	1/4 teaspoon salt
 	1/3 cup liquid coconut oil
@@ -23,8 +23,8 @@ Ingredients:
 
 Instructions:
 	Preheat oven to 350 degrees.
-	Whisk together 1.5 cups flour, 1 cup sugar, 3 TBSP cocoa powder, 1 tsp baking soda, and 1/2 tsp salt.
-	Make a well in center of flour mixture and add 6 TBSP vegetable oil,  1 tsp vanilla extract, 1 TBSP white vinegar, and 1 cup cold water.
+	Whisk together 1.5 cups flour, 1 cup sugar, 3 tablespoon cocoa powder, 1 teaspoon baking soda, and 1/2 teaspoon salt.
+	Make a well in center of flour mixture and add 6 tablespoon vegetable oil,  1 teaspoon vanilla extract, 1 tablespoon white vinegar, and 1 cup cold water.
 	Whisk until well combined.
 	Pour into  an 8-inch square baking pan.
 	Bake until a toothpick inserted in center comes out clean, 35 to 40 minutes.

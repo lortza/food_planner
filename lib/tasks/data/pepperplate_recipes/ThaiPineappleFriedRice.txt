@@ -1,5 +1,5 @@
 Title: Thai Pineapple Fried Rice
-Description: 
+Description:
 Source: Cookie + Kate
 Original URL: http://cookieandkate.com/2015/thai-pineapple-fried-rice-recipe/
 Yield: Serves 2 to 4 servings
@@ -19,7 +19,7 @@ Ingredients:
 	1 tablespoon reduced-sodium tamari or soy sauce
 	1 to 2 teaspoons chili garlic sauce or sriracha
 	1 juice of lime
-	1/2 tsp salt
+	1/2 teaspoon salt
 	1/2 bunch cilantro, chopped
 
 Instructions:
