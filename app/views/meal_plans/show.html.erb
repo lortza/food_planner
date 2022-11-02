@@ -43,6 +43,7 @@
       <% details.each do |detail| %>
       <li>
         <%= detail_display(detail) %>
+        (<%= link_to detail.recipe.title, detail.recipe %>)
         <%= link_to '',
                     shopping_list_item_builders_path(
                       shopping_list_id: current_user.shopping_lists.default&.id,

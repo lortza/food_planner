@@ -2,28 +2,28 @@
 
 module IngredientsHelper
   def ingredient_display(ingredient)
-    display_name = [
-      qty_display(ingredient),
-      ingredient.measurement_unit,
-      ingredient.name,
-    ].join(' ')
-
-    if ingredient.preparation_style.present?
-      "#{display_name}: #{ingredient.preparation_style}"
+    display_name = if Ingredient::DESCRIPTIVE_UNITS.include?(ingredient.measurement_unit)
+      pluralize(qty_display(ingredient), "#{ingredient.measurement_unit} #{ingredient.name}")
     else
-      display_name
+      "#{pluralize(qty_display(ingredient), ingredient.measurement_unit)} #{ingredient.name}"
     end
+
+    return "#{display_name}: #{ingredient.preparation_style}" if ingredient.preparation_style.present?
+
+    display_name
   end
 
   def detail_display(detail)
-    ingredient = [
-      qty_display(detail),
-      detail.measurement_unit,
-      detail.preparation_style,
-      "(#{detail.recipe.title})",
-    ].join(' ')
+    pluralized = if Ingredient::DESCRIPTIVE_UNITS.include?(detail.measurement_unit)
+      "#{qty_display(detail)} #{detail.measurement_unit}"
+    else
+      pluralize(qty_display(detail), detail.measurement_unit)
+    end
 
-    link_to ingredient, recipe_path(detail.recipe)
+    [
+      pluralized,
+      detail.preparation_style.presence,
+    ].compact.join(' ')
   end
 
   def qty_display(ingredient)

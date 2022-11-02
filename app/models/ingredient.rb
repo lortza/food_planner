@@ -4,6 +4,15 @@ class Ingredient < ApplicationRecord
   belongs_to :recipe, inverse_of: :ingredients
   before_save :format_name
 
+  # Units that do not get pluralized
+  DESCRIPTIVE_UNITS = %w[
+    small
+    medium
+    large
+    whole
+  ].freeze
+
+  # Standard units
   UNITS = %w[
     4oz\ can
     7oz\ can
@@ -19,23 +28,19 @@ class Ingredient < ApplicationRecord
     head
     inch
     jar
-    large
     lb
     leaf
     loaf
-    medium
     quart
     ounce
     pint
     slice
-    small
     sprig
     stalk
     stick
     tablespoon
     teaspoon
-    whole
-  ].freeze
+  ] + DESCRIPTIVE_UNITS
 
   STYLES = %w[
     \
