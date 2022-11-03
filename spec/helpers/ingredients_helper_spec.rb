@@ -5,25 +5,92 @@ require 'rails_helper'
 RSpec.describe IngredientsHelper, type: :helper do
   describe 'ingredient_display' do
     it "displays an ingredient's qty unit and name" do
-      ingredient = build(:ingredient, preparation_style: nil)
-      display_output = "#{ingredient.quantity} #{ingredient.measurement_unit} #{ingredient.name}"
-      expect(helper.ingredient_display(ingredient)).to eq(display_output)
+      ingredient = build(:ingredient,
+                         measurement_unit: 'cup',
+                         quantity: 1,
+                         name: 'water')
+      expected_output = '1 cup water'
+      expect(helper.ingredient_display(ingredient)).to eq(expected_output)
+    end
+
+    it 'pluralizes the unit when it is a standard unit' do
+      ingredient = build(:ingredient,
+                         measurement_unit: 'cup',
+                         quantity: 2,
+                         name: 'water')
+      expected_output = '2 cups water'
+      expect(helper.ingredient_display(ingredient)).to eq(expected_output)
+    end
+
+    it 'pluralizes the name when the unit is a descriptive unit' do
+      ingredient = build(:ingredient,
+                         measurement_unit: 'whole',
+                         quantity: 2,
+                         name: 'carrot')
+      expected_output = '2 whole carrots'
+      expect(helper.ingredient_display(ingredient)).to eq(expected_output)
     end
 
     it 'if present, displays the preparation_style' do
-      ingredient = build(:ingredient, preparation_style: 'styled')
-      display_output = "#{ingredient.quantity} #{ingredient.measurement_unit} #{ingredient.name}: #{ingredient.preparation_style}"
-      expect(helper.ingredient_display(ingredient)).to eq(display_output)
+      ingredient = build(:ingredient,
+                         preparation_style: 'minced',
+                         measurement_unit: 'clove',
+                         quantity: 3,
+                         name: 'garlic')
+      expected_output = '3 cloves garlic: minced'
+      expect(helper.ingredient_display(ingredient)).to eq(expected_output)
     end
   end
 
   describe 'detail_display' do
-    it "displays an ingredient's qty, unit, prep style, and recipe" do
-      recipe = create(:recipe)
-      ingredient = build(:ingredient, quantity: 1, measurement_unit: 'cup', preparation_style: 'dry', recipe: recipe)
-      display_output = "<a href=\"/recipes/#{recipe.id}\">1 cup dry (#{recipe.title})</a>"
+    let(:recipe) { create(:recipe) }
 
-      expect(helper.detail_display(ingredient)).to eq(display_output)
+    it "displays an ingredient's qty and unit" do
+      ingredient = build(
+        :ingredient,
+        quantity: 1,
+        measurement_unit: 'cup',
+        recipe: recipe
+      )
+      expected_output = '1 cup'
+      expect(helper.detail_display(ingredient)).to eq(expected_output)
+    end
+
+    it 'includes prep style when present' do
+      ingredient = build(
+        :ingredient,
+        name: 'tomato',
+        quantity: 1,
+        measurement_unit: 'cup',
+        preparation_style: 'diced',
+        recipe: recipe
+      )
+      expected_output = '1 cup diced'
+      expect(helper.detail_display(ingredient)).to eq(expected_output)
+    end
+
+    describe 'pluralization' do
+      it 'pluralizes the unit when it is a standard unit' do
+        ingredient = build(
+          :ingredient,
+          measurement_unit: 'cup',
+          quantity: 2,
+          recipe: recipe
+        )
+        expected_output = '2 cups'
+        expect(helper.detail_display(ingredient)).to eq(expected_output)
+      end
+
+      it 'does not pluralizes the unit when the unit is a descriptive unit' do
+        ingredient = build(
+          :ingredient,
+          measurement_unit: 'whole',
+          quantity: 2,
+          recipe: recipe
+        )
+        expected_output = '2 whole'
+        expect(helper.detail_display(ingredient)).to eq(expected_output)
+      end
     end
   end
 
