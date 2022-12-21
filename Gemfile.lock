@@ -105,7 +105,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.10)
     crass (1.0.6)
-    date (3.3.2)
+    date (3.3.3)
     debug_inspector (1.1.0)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
@@ -182,7 +182,7 @@ GEM
     minitest (5.16.3)
     msgpack (1.6.0)
     nenv (0.3.0)
-    net-imap (0.3.2)
+    net-imap (0.3.3)
       date
       net-protocol
     net-pop (0.1.2)
