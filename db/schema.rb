@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_18_163452) do
-
+ActiveRecord::Schema[7.0].define(version: 2023_04_07_144321) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,7 +19,7 @@ ActiveRecord::Schema.define(version: 2022_10_18_163452) do
     t.string "record_type", null: false
     t.bigint "record_id", null: false
     t.bigint "blob_id", null: false
-    t.datetime "created_at", null: false
+    t.datetime "created_at", precision: nil, null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
@@ -32,8 +31,8 @@ ActiveRecord::Schema.define(version: 2022_10_18_163452) do
     t.text "metadata"
     t.string "service_name", null: false
     t.bigint "byte_size", null: false
-    t.string "checksum", null: false
-    t.datetime "created_at", null: false
+    t.string "checksum"
+    t.datetime "created_at", precision: nil, null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
@@ -46,8 +45,8 @@ ActiveRecord::Schema.define(version: 2022_10_18_163452) do
   create_table "aisles", force: :cascade do |t|
     t.bigint "user_id"
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.integer "order_number"
     t.index ["user_id"], name: "index_aisles_on_user_id"
   end
@@ -56,8 +55,8 @@ ActiveRecord::Schema.define(version: 2022_10_18_163452) do
     t.string "title"
     t.string "source_url"
     t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_experimental_recipes_on_user_id"
   end
 
@@ -67,32 +66,32 @@ ActiveRecord::Schema.define(version: 2022_10_18_163452) do
     t.string "measurement_unit", default: "", null: false
     t.string "name", default: "", null: false
     t.string "preparation_style", default: "", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
   end
 
   create_table "inventories", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.text "items"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_inventories_on_user_id"
   end
 
   create_table "meal_plan_recipes", force: :cascade do |t|
     t.bigint "meal_plan_id"
     t.bigint "recipe_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.index ["meal_plan_id"], name: "index_meal_plan_recipes_on_meal_plan_id"
     t.index ["recipe_id"], name: "index_meal_plan_recipes_on_recipe_id"
   end
 
   create_table "meal_plans", force: :cascade do |t|
     t.date "prepared_on", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.integer "people_served", default: 0, null: false
     t.bigint "user_id"
     t.text "notes"
@@ -105,8 +104,8 @@ ActiveRecord::Schema.define(version: 2022_10_18_163452) do
     t.string "source_url", default: "", null: false
     t.integer "servings", default: 0, null: false
     t.text "instructions", default: "", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.integer "prep_time", default: 0, null: false
     t.integer "cook_time", default: 0, null: false
     t.string "image_url", default: "", null: false
@@ -124,11 +123,11 @@ ActiveRecord::Schema.define(version: 2022_10_18_163452) do
   end
 
   create_table "scheduled_deliveries", force: :cascade do |t|
-    t.datetime "scheduled_for"
+    t.datetime "scheduled_for", precision: nil
     t.string "service_provider"
     t.bigint "shopping_list_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["shopping_list_id"], name: "index_scheduled_deliveries_on_shopping_list_id"
   end
 
@@ -137,8 +136,8 @@ ActiveRecord::Schema.define(version: 2022_10_18_163452) do
     t.bigint "aisle_id"
     t.float "quantity"
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "recurrence_frequency"
     t.float "recurrence_quantity", default: 0.0
     t.string "heb_upc"
@@ -150,8 +149,8 @@ ActiveRecord::Schema.define(version: 2022_10_18_163452) do
   create_table "shopping_lists", force: :cascade do |t|
     t.bigint "user_id"
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.boolean "favorite", default: false
     t.boolean "main", default: false
     t.index ["user_id"], name: "index_shopping_lists_on_user_id"
@@ -161,10 +160,10 @@ ActiveRecord::Schema.define(version: 2022_10_18_163452) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "reset_password_sent_at", precision: nil
+    t.datetime "remember_created_at", precision: nil
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
