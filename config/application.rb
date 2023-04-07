@@ -9,21 +9,18 @@ Bundler.require(*Rails.groups)
 module FoodPlanner
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.1
+    config.load_defaults 7.0
 
-    # Configuration for the application, engines, and railties goes here
+    # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
-
-    # config.time_zone = "Central Time (US & Canada)"
-    # Don't generate system test files.
-    config.generators.system_tests = nil
+    #
     # config.eager_load_paths << Rails.root.join("extras")
 
-    Raven.configure do |config|
-      config.dsn = Rails.application.credentials.sentry_raven_dsn
-      config.environments = %w[ production ]
-    end
+    # Don't generate system test files.
+    config.generators.system_tests = nil
+
+    config.active_support.cache_format_version = 7.0
   end
 end
