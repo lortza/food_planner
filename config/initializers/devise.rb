@@ -296,4 +296,21 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
+
+  # ## Hotwire / Turbo Integration ##
+  # https://github.com/heartcombo/devise/wiki/How-To:-Upgrade-to-Devise-4.9.0-%5BHotwire-Turbo-integration%5D
+  # For better Hotwire / Turbo integration and these new defaults, Devise requires the
+  # latest `Responders` gem version (v3.1.0 or higher), which allows configuring the status used
+  # for validation error responses (error_status) and for redirects after POST/PUT/PATCH/DELETE
+  # requests (redirect_status).
+  # For backwards compatibility, Devise is configured internally with error_status as :ok (200 OK), and
+  # redirect_status as :found (302 Found). Configuring it like above would set the error and redirect
+  # statuses to 422 Unprocessable Entity and 303 See Other respectively, to match the behavior
+  # expected by Hotwire/Turbo.
+  # Trying to set these configs on the latest Devise but with an older version of Responders
+  # that does not support them, will issue a warning and have no effect.
+  # Note: these defaults may change in future versions of Devise, to better match the Rails + Hotwire/Turbo
+  # defaults across the board.
+  # config.responder.error_status = :unprocessable_entity
+  # config.responder.redirect_status = :see_other
 end
