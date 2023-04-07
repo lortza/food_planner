@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.0'
-gem 'rails', '~> 7.0.4.2' # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '~> 7.0.4.3' # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 
 gem 'bootsnap', '>= 1.1.0', require: false # Reduces boot times through caching; required in config/boot.rb
 gem 'coffee-rails'              # Use CoffeeScript for .coffee assets and views
@@ -18,6 +18,7 @@ gem 'pundit'                    # Authorization
 gem 'rack', '>= 2.0.6'          # Upgrade for security update
 gem 'sass-rails', '~> 6.0'      # Use SCSS for stylesheets
 gem 'sentry-raven'              # Error reporting in sentry
+# gem 'sentry-ruby'               # WIP need to replace sentry-raven with this
 gem 'uglifier', '>= 1.3.0'      # Use Uglifier as compressor for JavaScript assets
 gem 'will_paginate', '~> 3.3.0' # pagination. Styles: http://mislav.github.io/will_paginate/
 # gem 'redis', '~> 4.0'           # Use Redis adapter to run Action Cable in production
