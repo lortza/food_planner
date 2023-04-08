@@ -28,7 +28,7 @@ module ApplicationHelper
 
   def display_link_to_plan
     upcoming = current_user.meal_plans.upcoming
-    link_to "Meal Plan: #{upcoming.prepared_on.to_s(:short)}", meal_plan_path(upcoming), class: 'nav-link' if upcoming
+    link_to "Meal Plan: #{upcoming.prepared_on.to_fs(:short)}", meal_plan_path(upcoming), class: 'nav-link' if upcoming
   end
 
   def display_list_and_count

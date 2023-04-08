@@ -38,7 +38,7 @@ class ScheduledDeliveriesController < ApplicationController
     # authorize(scheduled_delivery)
 
     scheduled_delivery.destroy
-    flash[:success] = "Your #{@scheduled_delivery.scheduled_for.to_s(:timestamp)} delivery was deleted."
+    flash[:success] = "Your #{@scheduled_delivery.scheduled_for.to_fs(:timestamp)} delivery was deleted."
     redirect_to @scheduled_delivery.shopping_list
   end
 

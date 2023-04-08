@@ -9,10 +9,10 @@ class MealPlanRecipesController < ApplicationController
     if meal_plan_recipe.save
       redirect_back(
         fallback_location: recipes_url,
-        notice: "#{@recipe.title} added to #{@meal_plan.prepared_on.to_s(:short)} meal plan"
+        notice: "#{@recipe.title} added to #{@meal_plan.prepared_on.to_fs(:short)} meal plan"
       )
     else
-      flash[:error] = "#{@recipe.title} was already part of the #{@meal_plan.prepared_on.to_s(:short)} meal plan."
+      flash[:error] = "#{@recipe.title} was already part of the #{@meal_plan.prepared_on.to_fs(:short)} meal plan."
       redirect_back(fallback_location: recipes_url)
     end
   end
