@@ -2,7 +2,7 @@
 
 <h1>
   <%= link_to "", shopping_list_path(@scheduled_delivery.shopping_list), class: Icon.back %>
-  Editing <%= @scheduled_delivery.scheduled_for.to_s(:timestamp) %>
+  Editing <%= @scheduled_delivery.scheduled_for.to_fs(:timestamp) %>
 </h1>
 
 <%= render 'form', scheduled_delivery: @scheduled_delivery, shopping_list: @shopping_list %>
