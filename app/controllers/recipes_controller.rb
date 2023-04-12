@@ -15,6 +15,7 @@ class RecipesController < ApplicationController
   end
 
   def show
+    fail
   end
 
   def new
