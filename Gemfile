@@ -17,8 +17,8 @@ gem 'puma'                      # Use Puma as the app server
 gem 'pundit'                    # Authorization
 gem 'rack', '>= 2.0.6'          # Upgrade for security update
 gem 'sass-rails', '~> 6.0'      # Use SCSS for stylesheets
-gem 'sentry-raven'              # Error reporting in sentry
-# gem 'sentry-ruby'               # WIP need to replace sentry-raven with this
+gem 'sentry-rails'              # Rails support for Sentry
+gem 'sentry-ruby'               # Error reporting to Sentry.io
 gem 'uglifier', '>= 1.3.0'      # Use Uglifier as compressor for JavaScript assets
 gem 'will_paginate', '~> 3.3.0' # pagination. Styles: http://mislav.github.io/will_paginate/
 # gem 'redis', '~> 4.0'           # Use Redis adapter to run Action Cable in production
