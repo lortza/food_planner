@@ -20,7 +20,7 @@ gem 'sass-rails', '~> 6.0'      # Use SCSS for stylesheets
 gem 'sentry-rails'              # Rails support for Sentry
 gem 'sentry-ruby'               # Error reporting to Sentry.io
 gem 'uglifier', '>= 1.3.0'      # Use Uglifier as compressor for JavaScript assets
-gem 'will_paginate', '~> 3.3.0' # pagination. Styles: http://mislav.github.io/will_paginate/
+gem 'will_paginate', '~> 4.0.0' # pagination. Styles: http://mislav.github.io/will_paginate/
 # gem 'redis', '~> 4.0'           # Use Redis adapter to run Action Cable in production
 # gem 'mini_magick', '~> 4.8'  # Use ActiveStorage variant
 # gem 'capistrano-rails', group: :development # Use Capistrano for deployment
