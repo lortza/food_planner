@@ -21,7 +21,7 @@ module RecipesHelper
   def extra_work_flag(recipe)
     return unless recipe.extra_work_required?
 
-    "<i class=\"#{Icon.clock}\", title=\"Heads Up! #{recipe.extra_work_note}\"></i>".html_safe
+    "<i class=\"#{Icon.clock} fa-xs\", title=\"Heads Up! #{recipe.extra_work_note}\"></i>".html_safe
   end
 
   def recipe_ingredient_ids(recipe)

@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-11">
-    <h1><%= @recipe.title %> <small><%= extra_work_flag(@recipe) if current_user.present? %></small></h1>
+    <h1><%= @recipe.title %><sup><%= extra_work_flag(@recipe) if current_user.present? %></sup></h1>
     <p>
       Source: <%= link_to @recipe.source_name, @recipe.source_url, title: @recipe.source_name, target: '_blank' %>
     </p>
@@ -24,10 +24,10 @@
           <li>Total Time: <%= display_time(@recipe.total_time) %></li>
           <li>Reheat Time: <%= display_time(@recipe.reheat_time) %></li>
           <li>Prepared: <%= pluralize(@recipe.frequency, 'time') %></li>
-          <% if @recipe.extra_work_required? %>
-            <li>Extra Work Warning: <%= @recipe.extra_work_note %></li>
-          <% end %>
         </ul>
+        <% if @recipe.extra_work_required? %>
+          <p><%= extra_work_flag(@recipe) %> <strong>Heads up!</strong> <%= @recipe.extra_work_note %></p>
+        <% end %>
       </div> <!-- col-6 -->
 
       <div class='col-md-6 col-sm-12'>
