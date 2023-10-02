@@ -1,131 +1,128 @@
 <div class="recipe-form">
   <%= form_for(recipe) do |form| %>
-  <%= render 'shared/errors', object: recipe %>
+    <%= render 'shared/errors', object: recipe %>
 
-  <%= hidden_field(:recipe, :experimental_recipe_id )  %>
+    <%= hidden_field(:recipe, :experimental_recipe_id )  %>
 
-  <div class="row">
-    <div class="col">
-      <div class="field">
-        <%= form.label :title %>
-        <%= form.text_field :title, autofocus: true, class: 'form-control' %>
+    <div class="row">
+      <div class="col">
+        <div class="field">
+          <%= form.label :title %>
+          <%= form.text_field :title, autofocus: true, class: 'form-control' %>
+        </div>
+      </div>
+    </div> <!-- row -->
+
+    <div class="row">
+      <div class="field col-sm">
+        <%= form.label :source_name %>
+        <%= form.text_field :source_name, class: 'form-control' %>
+      </div>
+
+      <div class="field col-sm">
+        <%= form.label :source_url %>
+        <%= form.text_field :source_url, class: 'form-control' %>
       </div>
     </div>
-  </div> <!-- row -->
 
-  <div class="row">
-    <div class="field col-sm">
-      <%= form.label :source_name %>
-      <%= form.text_field :source_name, class: 'form-control' %>
-    </div>
-
-    <div class="field col-sm">
-      <%= form.label :source_url %>
-      <%= form.text_field :source_url, class: 'form-control' %>
-    </div>
-  </div>
-
-  <div class="field">
-    <%= form.label :image_url %>
-    <%= form.text_field :image_url, class: 'form-control' %>
-  </div>
-
-  <div class="row">
-    <div class="field col-sm">
-      <%= form.label :servings %>
-      <%= form.number_field :servings, class: 'form-control' %>
-    </div>
-
-    <div class="field col-sm">
-      <%= form.label 'Prep Time (min)' %>
-      <%= form.number_field :prep_time, class: 'form-control' %>
-    </div>
-
-    <div class="field col-sm">
-      <%= form.label 'Cook Time (min)' %>
-      <%= form.number_field :cook_time, class: 'form-control' %>
-    </div>
-
-    <div class="field col-sm">
-      <%= form.label 'Reheat Time (min)' %>
-      <%= form.number_field :reheat_time, class: 'form-control' %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="field">
-        <%= form.label :extra_work_note %>
-        <%= form.text_field :extra_work_note, class: 'form-control' %>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="field">
-        <%= form.label 'Cronometer iframe' %>
-        <%= form.text_area :nutrition_data_iframe, class: 'form-control' %>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-10">
-      <div class="field">
-        <%= form.label :notes %>
-        <%= form.text_area :notes, class: 'form-control' %>
-      </div>
-    </div>
-    <div class="col-sm-2">
-      <div class="field">
-        <%= form.label :archived %>
-        <%= form.check_box :archived, class: 'form-control' %>
-      </div>
-    </div>
-  </div> <!-- row -->
-
-  <table class="table table-ingredients">
-    <thead>
-      <tr>
-        <th>Qty</th>
-        <th>Measurement</th>
-        <th>Name</th>
-        <th>Preparation Style</th>
-        <th>Delete?</th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= form.fields_for :ingredients do |f_ingredient| %>
-      <tr>
-        <%= render 'ingredients/form_fields', f_ingredient: f_ingredient %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<div class="field">
-  <%= form.label 'Instructions' %>
-  <%= form.text_area :instructions, class: 'form-control instructions' %>
-</div>
-
-<div class="row">
-  <div class="col-lg-6 col-md-12">
     <div class="field">
-      <%= form.label 'Prep Day Instructions' %>
-      <%= form.text_area :prep_day_instructions, class: 'form-control instructions' %>
+      <%= form.label :image_url %>
+      <%= form.text_field :image_url, class: 'form-control' %>
     </div>
-  </div>
 
-  <div class="col-lg-6 col-md-12">
+    <div class="row">
+      <div class="field col-sm">
+        <%= form.label :servings %>
+        <%= form.number_field :servings, class: 'form-control' %>
+      </div>
+
+      <div class="field col-sm">
+        <%= form.label 'Prep Time (min)' %>
+        <%= form.number_field :prep_time, class: 'form-control' %>
+      </div>
+
+      <div class="field col-sm">
+        <%= form.label 'Cook Time (min)' %>
+        <%= form.number_field :cook_time, class: 'form-control' %>
+      </div>
+
+      <div class="field col-sm">
+        <%= form.label 'Reheat Time (min)' %>
+        <%= form.number_field :reheat_time, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="field">
+          <%= form.label :extra_work_note %>
+          <%= form.text_field :extra_work_note, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="field">
+          <%= form.label 'Cronometer iframe' %>
+          <%= form.text_area :nutrition_data_iframe, class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-10">
+        <div class="field">
+          <%= form.label :notes %>
+          <%= form.text_area :notes, class: 'form-control' %>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="field">
+          <%= form.label :archived %>
+          <%= form.check_box :archived, class: 'form-control' %>
+        </div>
+      </div>
+    </div> <!-- row -->
+
+    <table class="table table-ingredients">
+      <thead>
+        <tr>
+          <th>Qty</th>
+          <th>Measurement</th>
+          <th>Name</th>
+          <th>Preparation Style</th>
+          <th>Delete?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= form.fields_for :ingredients do |f_ingredient| %>
+          <tr><%= render 'ingredients/form_fields', f_ingredient: f_ingredient %></tr>
+        <% end %>
+      </tbody>
+    </table>
+
     <div class="field">
-      <%= form.label :reheat_instructions %>
-      <%= form.text_area :reheat_instructions, class: 'form-control instructions' %>
+      <%= form.label 'Instructions' %>
+      <%= form.text_area :instructions, class: 'form-control instructions' %>
     </div>
-  </div>
-</div><!-- row -->
 
-<%= form.submit class: button_classes('primary mt-3') %>
+    <div class="row">
+      <div class="col-lg-6 col-md-12">
+        <div class="field">
+          <%= form.label 'Prep Day Instructions' %>
+          <%= form.text_area :prep_day_instructions, class: 'form-control instructions' %>
+        </div>
+      </div>
 
-<% end %>
+      <div class="col-lg-6 col-md-12">
+        <div class="field">
+          <%= form.label :reheat_instructions %>
+          <%= form.text_area :reheat_instructions, class: 'form-control instructions' %>
+        </div>
+      </div>
+    </div><!-- row -->
+
+    <%= form.submit class: button_classes('primary mt-3') %>
+  <% end %>
 </div>
