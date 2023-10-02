@@ -25,17 +25,18 @@
           <li>Reheat Time: <%= display_time(@recipe.reheat_time) %></li>
           <li>Prepared: <%= pluralize(@recipe.frequency, 'time') %></li>
         </ul>
-        <% if @recipe.extra_work_required? %>
-          <p><%= extra_work_flag(@recipe) %> <strong>Heads up!</strong> <%= @recipe.extra_work_note %></p>
-        <% end %>
       </div> <!-- col-6 -->
 
       <div class='col-md-6 col-sm-12'>
-        <%= render partial: 'related_meal_plans', locals: {recipe: @recipe} if policy(@recipe).update? %>
+        <% if @recipe.extra_work_required? %>
+            <p class='alert alert-warning'><strong>Heads up!</strong> <%= @recipe.extra_work_note %></p>
+        <% end %>
+        <% if @recipe.notes.present? %>
+          <h5>Notes</h5>
+          <p><%= @recipe.notes %></p>
+        <% end %>
       </div> <!-- col-6 -->
     </div> <!-- row -->
-
-    <p><%= @recipe.notes %></p>
 
     <div class='row'>
       <div class='col-12'>
@@ -52,12 +53,12 @@
 
   <div class='col-md-4 col-sm-12'>
     <div class='image-container mb-3'>
-      <%#= image_tag @recipe.image_url, { class: 'image' } %>
       <%= image_tag guaranteed_image(@recipe), { class: 'image' } %>
-
     </div>
+
     <% if policy(@recipe).update? %>
       <%= render partial: 'shared/add_to_shopping_list_dropdown', locals: { ingredient_ids: recipe_ingredient_ids(@recipe) } %>
+      <%= render partial: 'related_meal_plans', locals: {recipe: @recipe} %>
       <%= render partial: 'copy_for_user_form', locals: { recipe: @recipe } %>
       <%= render partial: 'related_recipes', locals: {recipe: @recipe} %>
     <% end %>
