@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.0'
+ruby File.read('.ruby-version').strip
 gem 'rails', '~> 7.0.8' # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 
 gem 'bootsnap', '>= 1.1.0', require: false # Reduces boot times through caching; required in config/boot.rb
@@ -49,14 +49,14 @@ group :development, :test do
   gem 'rspec-rails', '~> 6.0.3'
   gem 'better_errors'           # creates console in browser for errors
   gem 'binding_of_caller'       # goes with better_errors
-  gem 'bullet'                  # detects n+1 queries
+  # gem 'bullet'                  # detects n+1 queries
   gem 'byebug', platforms: %i[mri mingw x64_mingw] # Call 'byebug' anywhere in the code to get a debugger console
   gem 'factory_bot_rails'       # factory support for rspec
   gem 'guard-rspec', require: false # runs rspec automatically
   gem 'pry-rails'               # helps with pry
   gem 'reek'                    # https://github.com/troessner/reek/blob/master/docs/Code-Smells.md
   gem 'selenium-webdriver'
-  gem 'webdrivers'              # to help with testing
+  gem 'webdrivers', '= 5.3.0'   # to help with testing
 end
 
 group :test do
