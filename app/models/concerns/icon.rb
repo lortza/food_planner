@@ -21,7 +21,7 @@ module Icon
     'icon fas fa-info-circle float-right'
   end
 
-  def self.new
+  def self.plus
     'icon nav-link-icon fas fa-plus-circle float-right'
   end
 
