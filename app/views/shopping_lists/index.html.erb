@@ -1,7 +1,7 @@
 <% content_for(:title, 'Shopping Lists') %>
 
 <h1>
-  <%= link_to "", new_shopping_list_path, class: Icon.plus %>
+  <%= link_to MaterialIcon.new(icon: :plus_circle, title: 'Create a new shopping list', classes: 'float-right').render, new_shopping_list_path %>
   Shopping Lists
 </h1>
 
@@ -15,8 +15,8 @@
         </span>
         <%  if shopping_list.deletable? %>
           <span class='controls'>
-            <%= link_to "", shopping_list, method: :delete, data: { confirm: 'Are you sure? This action cannot be undone.' }, class: Icon.delete %>
-            <%= link_to "", edit_shopping_list_path(shopping_list), class: Icon.edit %>
+            <%= link_to MaterialIcon.new(icon: :trash).render, shopping_list, method: :delete, data: { confirm: 'Are you sure? This action cannot be undone.' } %>
+            <%= link_to MaterialIcon.new(icon: :edit, classes: 'float-right').render, edit_shopping_list_path(shopping_list) %>
           </span>
         <% end %>
       </h3>
