@@ -15,8 +15,7 @@
         </span>
         <%  if shopping_list.deletable? %>
           <span class='controls'>
-            <%= link_to MaterialIcon.new(icon: :trash).render, shopping_list, method: :delete, data: { confirm: 'Are you sure? This action cannot be undone.' } %>
-            <%= link_to MaterialIcon.new(icon: :edit, classes: 'float-right').render, edit_shopping_list_path(shopping_list) %>
+            <%= link_to MaterialIcon.new(icon: :settings, classes: 'float-right').render, edit_shopping_list_path(shopping_list) %>
           </span>
         <% end %>
       </h3>

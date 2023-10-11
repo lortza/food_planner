@@ -10,8 +10,7 @@
     <h3 class='index-item controls-on-right-parent'>
       <%= aisle.order_number %> | <%= aisle.name %>
       <span class='controls'>
-        <%= link_to MaterialIcon.new(icon: :trash).render, aisle, method: :delete, data: { confirm: 'Are you sure? This action cannot be undone.' } %>
-        <%= link_to MaterialIcon.new(icon: :edit, classes: 'float-right').render, edit_aisle_path(aisle) %>
+        <%= link_to MaterialIcon.new(icon: :settings, classes: 'float-right').render, edit_aisle_path(aisle) %>
       </span>
     </h3>
   <% end %>
