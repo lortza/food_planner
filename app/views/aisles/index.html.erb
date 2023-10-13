@@ -7,12 +7,12 @@
 
 <% if current_user.aisles.any? %>
   <% @aisles.each do |aisle| %>
-    <h3 class='index-item controls-on-right-parent'>
+    <p class='index-item controls-on-right-parent'>
       <%= aisle.order_number %> | <%= aisle.name %>
       <span class='controls'>
         <%= link_to MaterialIcon.new(icon: :settings, classes: 'float-right').render, edit_aisle_path(aisle) %>
       </span>
-    </h3>
+    </p>
   <% end %>
 <% else %>
   <p>Create a New Aisle</p>
