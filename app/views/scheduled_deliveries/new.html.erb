@@ -1,8 +1,7 @@
 <% content_for(:title, 'Schedule a Delivery') %>
 
-<h1>
-  <%= link_to "", @shopping_list, class: Icon.back %>
-  Schedule a Delivery
-</h1>
+<p><%= link_to MaterialIcon.new(icon: :arrow_left).render + @shopping_list.name, @shopping_list %></p>
+
+<h1>Schedule a Delivery</h1>
 
 <%= render 'form', scheduled_delivery: @scheduled_delivery, shopping_list: @shopping_list %>

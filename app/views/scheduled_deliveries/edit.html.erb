@@ -1,9 +1,10 @@
 <% content_for(:title, "Edit #{@scheduled_delivery.shopping_list.name}") %>
 
-<h1>
-  <%= link_to "", shopping_list_path(@scheduled_delivery.shopping_list), class: Icon.back %>
-  Editing <%= @scheduled_delivery.scheduled_for.to_fs(:timestamp) %>
-</h1>
+<p><%= link_to MaterialIcon.new(icon: :arrow_left).render + @shopping_list.name, @shopping_list %></p>
+
+<h1>Editing <%= @scheduled_delivery.scheduled_for.to_fs(:timestamp) %></h1>
 
 <%= render 'form', scheduled_delivery: @scheduled_delivery, shopping_list: @shopping_list %>
+
+<hr>
 <%= link_to 'Delete', shopping_list_scheduled_delivery_path(@shopping_list, @scheduled_delivery), method: :delete, data: { confirm: 'Are you sure? This action cannot be undone.' }, class: "#{button_classes('danger')} mt-5" %>
