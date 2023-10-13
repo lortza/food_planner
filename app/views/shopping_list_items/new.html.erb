@@ -1,9 +1,7 @@
 <% content_for(:title, 'Add an Item') %>
 
-<h3>
-  <%= link_to "", @shopping_list, class: Icon.back %>
-  <%= @shopping_list.name %>
-</h3>
+<p><%= link_to MaterialIcon.new(icon: :arrow_left).render + @shopping_list.name, @shopping_list %></p>
+
 <h1>Add an Item</h1>
 
 <%= render 'form' %>

@@ -48,14 +48,13 @@
       <li>
         <%= detail_display(detail) %>
         (<%= link_to detail.recipe.title, detail.recipe %>)
-        <%= link_to '',
+        <%= link_to MaterialIcon.new(icon: :plus_square, title: 'Add to shopping list', size: :medium).render,
                     shopping_list_item_builders_path(
                       shopping_list_id: current_user.shopping_lists.default&.id,
-                      ingredient_ids: [detail.id]
+                      ingredient_ids: detail.id
                     ),
                     method: 'POST',
-                    title: 'add to list',
-                    class: Icon.copy_to_list
+                    title: 'add to list'
         %>
       </li>
       <% end %>

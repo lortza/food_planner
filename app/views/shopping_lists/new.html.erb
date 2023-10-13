@@ -1,6 +1,7 @@
-<h1>
-  <%= link_to "", shopping_lists_path, class: Icon.back %>
-  Create a Shopping List
-</h1>
+<% content_for(:title, 'Add a Shopping List') %>
+
+<p><%= link_to MaterialIcon.new(icon: :arrow_left).render + 'Shopping Lists', shopping_lists_path %></p>
+
+<h1>Create a Shopping List</h1>
 
 <%= render 'form', shopping_list: @shopping_list %>

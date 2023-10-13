@@ -28,6 +28,7 @@ class MaterialIcon
     when :star_outline then star_outline;
     when :sync then sync;
     when :trash then trash;
+    when :truck then truck;
     else
       raise "ERROR: See app/components/material_icon.rb for icon options."
     end
@@ -129,6 +130,12 @@ class MaterialIcon
     content_tag(:span, 'delete',
       class: "#{symbol_base_classes} #{@classes}",
       title: @title.presence || 'Delete')
+  end
+
+  def truck
+    content_tag(:span, 'local_shipping',
+      class: "#{symbol_base_classes} #{@classes}",
+      title: @title.presence || 'Delivery')
   end
 
   def size_class

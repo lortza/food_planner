@@ -1,8 +1,7 @@
 <% content_for(:title, 'Add an Aisle') %>
 
-<h1>
-  <%= link_to "", aisles_path, class: Icon.back %>
-  Create an Aisle
-</h1>
+<p><%= link_to MaterialIcon.new(icon: :arrow_left).render + 'All Aisles', aisles_path %></p>
+
+<h1>Create an Aisle</h1>
 
 <%= render 'form', aisle: @aisle %>
