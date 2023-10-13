@@ -1,6 +1,6 @@
 <h1>
-  <%= link_to "", new_shopping_list_shopping_list_item_path(@shopping_list, search_term: params[:search]), class: Icon.plus %>
-  <%= link_to "", @shopping_list, class: Icon.back %>
+  <%= link_to MaterialIcon.new(icon: :plus_circle, classes: 'float-right').render, new_shopping_list_shopping_list_item_path(@shopping_list, search_term: params[:search]) %>
+  <%= link_to MaterialIcon.new(icon: :arrow_left).render, @shopping_list %>
   Find an Item
 </h1>
 
@@ -21,8 +21,8 @@
                       class: 'js-toggle',
                       method: :post,
                       remote: true %>
-          <%= display_status(item) %>
-          <%= link_to "", edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: Icon.edit %>
+          <%= display_in_cart_status(item) %>
+          <%= link_to MaterialIcon.new(icon: :settings, title: 'Edit item').render, edit_shopping_list_shopping_list_item_path(@shopping_list, item) %>
         </p>
       </article>
     <% end %>

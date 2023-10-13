@@ -3,31 +3,43 @@
 class MaterialIcon
   include ActionView::Helpers::TagHelper
 
-  def initialize(icon:, title: nil, classes: nil)
+  def initialize(icon:, title: nil, size: :inherit, classes: nil)
     @icon = icon
     @title = title
+    @size = size
     @classes = classes
   end
 
   def render
     case @icon
+    when :add_shopping_cart then add_shopping_cart;
     when :arrow_left then arrow_left;
     when :calendar_clock then calendar_clock;
     when :clock then clock;
     when :edit then edit_note;
+    when :event_repeat then event_repeat;
+    when :info then info;
     when :new then new_release;
     when :plus_circle then plus_circle;
     when :plus_square then plus_square;
+    when :settings then settings;
+    when :shopping_cart then shopping_cart;
     when :star_filled then star_filled;
     when :star_outline then star_outline;
     when :sync then sync;
     when :trash then trash;
     else
-      raise 'ERROR: Available icons are :arrow_left, :calendar_clock, :clock, :edit, :new, :plus_circle, :plus_square, :star_filled, :star_outline, :sync, :trash'
+      raise "ERROR: See app/components/material_icon.rb for icon options."
     end
   end
 
   private
+
+  def add_shopping_cart
+    content_tag(:span, 'add_shopping_cart',
+      class: "#{symbol_base_classes} #{@classes}",
+      title: @title.presence || 'Add to cart')
+  end
 
   def arrow_left
     content_tag(:span, 'arrow_back',
@@ -53,6 +65,18 @@ class MaterialIcon
       title: @title.presence || 'Edit')
   end
 
+   def event_repeat
+    content_tag(:span, 'event_repeat',
+      class: "#{symbol_base_classes} #{@classes}",
+      title: @title.presence || 'Sync')
+  end
+
+  def info
+    content_tag(:span, 'info',
+      class: "#{symbol_base_classes} #{@classes}",
+      title: @title.presence || 'Info')
+  end
+
   def new_release
     content_tag(:span, 'new_releases',
       class: "#{symbol_base_classes} #{@classes} text-warning",
@@ -71,9 +95,15 @@ class MaterialIcon
       title: @title.presence || 'Add to list')
   end
 
+  def shopping_cart
+    content_tag(:span, 'shopping_cart',
+      class: "#{icon_base_classes} #{@classes}",
+      title: @title.presence || 'Cart')
+  end
+
   def star_filled
     content_tag(:span, 'star',
-      class: "#{icon_base_classes} #{@classes} text-warning",
+      class: "#{icon_base_classes} #{@classes}",
       title: @title.presence || 'Starred')
   end
 
@@ -83,9 +113,15 @@ class MaterialIcon
       title: @title.presence || 'Star')
   end
 
+  def settings
+    content_tag(:span, 'settings',
+      class: "#{symbol_base_classes} #{@classes}",
+      title: @title.presence || 'Settings')
+  end
+
   def sync
     content_tag(:span, 'sync',
-      class: "#{symbol_base_classes} #{@classes} nav-link-icon",
+      class: "#{symbol_base_classes} #{@classes}",
       title: @title.presence || 'Sync')
   end
 
@@ -95,11 +131,29 @@ class MaterialIcon
       title: @title.presence || 'Delete')
   end
 
+  def size_class
+    case @size
+    when :xsmall then 'text-xsmall'
+    when :small then 'text-small'
+    when :medium then 'text-medium'
+    when :large then 'text-large'
+    when :xlarge then 'text-xlarge'
+    when :xxlarge then 'text-xxlarge'
+    when :inherit then 'text-size-inherit'
+    else
+      raise 'ERROR: Available sizes are :xsmall, :small, :medium, :large, :xlarge, :xxlarge, :inherit'
+    end
+  end
+
   def symbol_base_classes
-    "material-symbols-outlined"
+    "material-symbols-outlined #{base_classes}"
   end
 
   def icon_base_classes
-    "material-icons-outlined"
+    "material-icons-outlined #{base_classes}"
+  end
+
+  def base_classes
+    "#{size_class} align-middle"
   end
 end
