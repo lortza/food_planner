@@ -1,8 +1,9 @@
 <% content_for(:title, 'Meal Plans') %>
 
-<div class="float-right"><%= link_to 'New Meal Plan', new_meal_plan_path, class: button_classes %></div>
-
-<h1>Meal Plans</h1>
+<h1>
+  Meal Plans
+  <%= link_to MaterialIcon.new(icon: :plus_circle, title: 'Create new Meal Plan', classes: 'float-right').render, new_meal_plan_path %>
+</h1>
 
 <% @meal_plans.each do |plan| %>
   <div class="card mb-3">
@@ -10,8 +11,8 @@
       <h5 class="card-title controls-on-right-parent">
         <%= link_to "#{l plan.prepared_on, format: :month_as_text}", meal_plan_path(plan) %>
         <span class='controls'>
-          <%= link_to 'Copy', copy_meal_plan_path(plan), title: 'Make a copy of this meal plan', class: button_classes %>
-          <%= link_to 'Edit', edit_meal_plan_path(plan), title: 'Edit this meal plan', class: button_classes %>
+          <%= link_to MaterialIcon.new(icon: :copy, title: 'Make a copy of this meal plan').render, copy_meal_plan_path(plan)%>
+          <%= link_to MaterialIcon.new(icon: :settings, title: 'Edit this meal plan').render, edit_meal_plan_path(plan) %>
         </span>
       </h5>
       <p class="card-text text-muted"><%= display_recipes(plan) %></p>

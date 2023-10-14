@@ -12,14 +12,15 @@
 .index-item {
   border-top: 1px solid $light-gray;
   color: $default-text;
-  padding: .5rem;
   margin: 0;
+  padding: .5rem;
 }
 
 .recurrence-tag {
   border: 1px solid $brand-light-blue;
   border-radius: 5px;
   color: $brand-light-blue;
+  display: inline-block;
   font-size: .8em;
   margin-left: .25rem;
   padding: 1px 5px;

@@ -42,6 +42,7 @@ group :development do
   # in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.1.0'
+  gem 'standard'                # standard rb code linter
   gem 'web-console', '>= 3.3.0' # Access an IRB console by using <%= console %> anywhere in the code.
 end
 

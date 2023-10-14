@@ -27,7 +27,7 @@
             <% if available_meal_plans_dropdown(current_user, recipe).any? %>
               <%= render 'add_to_meal_plan_dropdown', meal_plan_recipe: MealPlanRecipe.new, recipe: recipe %></td>
             <% end %>
-          <td><%= link_to 'Edit', edit_recipe_path(recipe), class: button_classes %></td>
+          <td><%= link_to MaterialIcon.new(icon: :settings, title: 'Edit recipe').render, edit_recipe_path(recipe) %></td>
         </tr>
       <% end %>
     </tbody>

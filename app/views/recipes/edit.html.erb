@@ -1,4 +1,4 @@
-<%= link_to 'Cancel', @recipe, class: "#{button_classes} float-right"  %>
+<p><%= link_to MaterialIcon.new(icon: :arrow_left).render + 'Back to Recipe', @recipe %></p>
 
 <h1>Editing <%= @recipe.title %></h1>
 

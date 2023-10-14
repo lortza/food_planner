@@ -16,6 +16,7 @@ class MaterialIcon
     when :arrow_left then arrow_left;
     when :calendar_clock then calendar_clock;
     when :clock then clock;
+    when :copy then copy;
     when :edit then edit_note;
     when :event_repeat then event_repeat;
     when :info then info;
@@ -30,7 +31,7 @@ class MaterialIcon
     when :trash then trash;
     when :truck then truck;
     else
-      raise "ERROR: See app/components/material_icon.rb for icon options."
+      raise "ERROR: There is no ':#{@icon}' icon. See app/components/material_icon.rb for icon options."
     end
   end
 
@@ -56,8 +57,14 @@ class MaterialIcon
 
   def clock
     content_tag(:span, 'update',
-      class: symbol_base_classes,
+      class: "#{symbol_base_classes} #{@classes}",
       title: @title.presence || 'Duration warning')
+  end
+
+  def copy
+    content_tag(:span, 'file_copy',
+      class: "#{symbol_base_classes} #{@classes}",
+      title: @title.presence || 'Copy')
   end
 
   def edit_note
@@ -80,8 +87,8 @@ class MaterialIcon
 
   def new_release
     content_tag(:span, 'new_releases',
-      class: "#{symbol_base_classes} #{@classes} text-warning",
-      title: @title || 'New')
+      class: "#{symbol_base_classes} #{@classes}",
+      title: @title.presence || 'New')
   end
 
   def plus_circle

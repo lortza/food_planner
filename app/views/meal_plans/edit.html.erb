@@ -1,4 +1,6 @@
-<%= link_to 'Cancel', meal_plans_path, class: "#{button_classes} float-right" %>
+<% content_for(:title, 'Editing Meal Plan') %>
+
+<p><%= link_to MaterialIcon.new(icon: :arrow_left).render + 'Meal Plan', @meal_plan %></p>
 
 <h1>Edit the Plan for <%= @meal_plan.prepared_on.to_fs(:long) %> </h1>
 
