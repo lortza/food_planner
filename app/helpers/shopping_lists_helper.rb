@@ -4,14 +4,12 @@ module ShoppingListsHelper
   def toggle_favorite(list)
     if list.favorite
       # Show the filled star and link to "unfavorite" it
-      link_to '', shopping_list_favorite_path(list),
-              class: Icon.star_filled,
-              method: :delete
+      link_to MaterialIcon.new(icon: :star_filled, classes: 'text-warning').render,
+        shopping_list_favorite_path(list), method: :delete
     else
       # Show the outlined star and link to "favorite" it
-      link_to '', shopping_list_favorites_path(id: list.id),
-              class: Icon.star_outline,
-              method: :post
+      link_to MaterialIcon.new(icon: :star_outline).render,
+        shopping_list_favorites_path(id: list.id), method: :post
     end
   end
 
@@ -21,16 +19,14 @@ module ShoppingListsHelper
     # rubocop enable: Rails/OutputSafety
   end
 
-  def display_status(item)
-    # "<span class='material-icons in-cart'>shopping_cart</span>"
-    tag = <<~TAG
-      <span class='status-tag js-remove-from-cart'>
-        <span class='material-icons-outlined in-cart' title='Item is purchased and scheduled for home delivery'>
-          shopping_cart
-        </span>
-      </span>
-    TAG
-    tag.html_safe if item.in_cart?
+  def display_in_cart_status(item)
+    if item.in_cart?
+      content_tag(:span,
+        MaterialIcon.new(icon: :shopping_cart,
+          title: 'Item is purchased and scheduled for home delivery',
+          classes: 'in-cart').render,
+        class: 'status-tag js-remove-from-cart')
+    end
   end
 
   private
@@ -43,9 +39,15 @@ module ShoppingListsHelper
   end
 
   def display_recurrence(item)
-    return if item.recurrence_frequency.blank?
-
-    "<span class='recurrence-tag'><span class='#{Icon.sync}'></span> #{item.recurrence_frequency}</span>"
+    unless item.recurrence_frequency.blank?
+      content_tag(:span,
+        MaterialIcon.new(
+          icon: :event_repeat,
+          size: :small,
+          title: "Added automatically every #{item.recurrence_frequency}"
+        ).render + ' ' + item.recurrence_frequency,
+        class: 'recurrence-tag')
+    end
   end
 
   def display_upc(item)

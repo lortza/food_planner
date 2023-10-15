@@ -32,29 +32,17 @@
       <h4 class='aisle'><%= aisle.name %></h4>
       <% items.each do |item| %>
         <article id='<%= item.id %>' class='index-item'>
-          <p class='shopping-list-item controls-on-right-parent'>
+          <div class='shopping-list-item controls-on-right-parent'>
             <span>
               <%= link_to display_item(item), deactivate_item_path(id: item.id), class: 'js-toggle', method: :post, remote: true %>
               <%= display_in_cart_status(item) %>
             </span>
             <span class='controls'>
-            <!-- STILL NEED TO FIX JS AND USE CORRECT ICON -->
-              <%= link_to MaterialIcon.new(icon: :sync, classes: 'js-add-to-cart', title: 'Mark item as scheduled for home delivery').render,
-                          add_item_to_cart_path(id: item.id),
-                          style: 'border: 1px solid red;',
-                          method: :post,
-                          remote: true if item.active? %>
-              <%= link_to 'add_shopping_cart',
-                          add_item_to_cart_path(id: item.id),
-                          class: 'js-add-to-cart material-icons',
-                          title: 'Mark item as scheduled for home delivery',
-                          method: :post,
-                          remote: true if item.active? %>
-
+              <%= render partial: 'scheduled_deliveries/toggle_icons', locals: { item: item, shopping_list: @shopping_list } %>
               <%= link_to MaterialIcon.new(icon: :settings, title: 'Edit item').render,
                 edit_shopping_list_shopping_list_item_path(@shopping_list, item) %>
             </span>
-          </p>
+          </div>
         </article>
       <% end %><!-- each -->
     <% end %><!-- if aisle -->
@@ -68,13 +56,7 @@
       <p class='shopping-list-item '>
         <%= link_to display_item(item), activate_item_path(id: item.id), class: 'js-toggle', method: :post, remote: true %>
         <span class='float-right'>
-        <!-- NEED TO UPDATE ICON HERE -->
-          <%= link_to 'add_shopping_cart',
-                      add_item_to_cart_path(id: item.id),
-                      class: 'js-add-to-cart material-icons mr-2',
-                      title: 'Mark item as scheduled for home delivery',
-                      method: :post,
-                      remote: true %>
+          <%= render partial: 'scheduled_deliveries/toggle_icons', locals: { item: item, shopping_list: @shopping_list } %>
           <%= link_to MaterialIcon.new(icon: :settings, title: 'Edit item').render, edit_shopping_list_shopping_list_item_path(@shopping_list, item) %>
         </span>
       </p>

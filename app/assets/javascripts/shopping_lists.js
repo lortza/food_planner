@@ -8,9 +8,9 @@ function shoppingListItemToggler() {
     if (activeSection || inactiveSection) {
       activeSection.addEventListener('click', function(e){
         let item = e.target;
-        let itemArticle = item.parentNode.parentNode.parentNode;
+        let itemArticle = item.closest('article');
 
-        if ( item.classList.contains('js-toggle') ) {
+        if (item.classList.contains('js-toggle')) {
           let statusTag = itemArticle.querySelector('.status-tag')
           if (statusTag){
             statusTag.remove();
@@ -21,8 +21,7 @@ function shoppingListItemToggler() {
           inactiveSection.insertAdjacentHTML('afterbegin', itemArticle.outerHTML);
         }
 
-        if ( item.classList.contains('js-add-to-cart') ) {
-          let itemArticle = item.parentNode.parentNode.parentNode;
+        if (item.classList.contains('js-add-to-cart')) {
           let itemDisplayname = itemArticle.querySelector('.js-toggle')
 
           itemDisplayname.insertAdjacentHTML('afterend', statusTagHTML)
@@ -38,7 +37,7 @@ function shoppingListItemToggler() {
         let item = e.target;
 
         if ( item.classList.contains('js-toggle') ) {
-          let itemArticle = item.parentNode.parentNode;
+          let itemArticle = item.closest('article');
 
           itemArticle.remove();
           itemArticle.classList.remove('item-crossed-off');
@@ -46,7 +45,7 @@ function shoppingListItemToggler() {
         }
 
         if ( item.classList.contains('js-add-to-cart') ) {
-          let itemArticle = item.parentNode.parentNode.parentNode;
+          let itemArticle = item.closest('article');
           let itemDisplayname = itemArticle.querySelector('.js-toggle')
 
           item.remove();
@@ -71,7 +70,7 @@ function shoppingListItemToggler() {
       })
     } // if searchResults
 
-    function activateItem(itemArticle){
+    function activateItem(itemArticle) {
       itemArticle.remove();
       itemArticle.classList.remove('item-crossed-off');
       activeSection.insertAdjacentHTML('beforeend', itemArticle.outerHTML)

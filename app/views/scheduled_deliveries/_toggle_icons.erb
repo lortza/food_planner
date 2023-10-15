@@ -1,0 +1,15 @@
+<% if shopping_list.scheduled_deliveries.future.any? %>
+  <%= button_to MaterialIcon.new(icon: :add_shopping_cart, classes: 'js-add-to-cart', title: 'Mark item as scheduled for home delivery').render,
+              add_item_to_cart_path(id: item.id),
+              method: :post,
+              class: 'icon-button',
+              remote: true if item.active? %>
+
+  <!-- TODO: toggle icon in place instead of using html in JS -->
+  <%#= button_to MaterialIcon.new(icon: :shopping_cart, classes: 'status-tag js-remove-from-cart', title: 'Item is purchased and scheduled for home delivery').render,
+              add_item_to_cart_path(id: item.id),
+              method: :post,
+              class: 'icon-button',
+              remote: true if item.in_cart? %>
+<% end %>
+
