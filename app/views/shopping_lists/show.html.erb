@@ -5,8 +5,8 @@
 <header class="d-flex justify-content-between align-items-center">
   <h1><%= @shopping_list.name %></h1>
   <div class='d-flex align-items-center'>
-    <%= link_to MaterialIcon.new(icon: :truck, size: :xxlarge, classes: '').render, new_shopping_list_scheduled_delivery_path(@shopping_list), title: 'Schedule an upcoming delivery', class: "mr-2" %>
-    <%= link_to MaterialIcon.new(icon: :sync, size: :xxlarge, classes: '').render, @shopping_list %>
+    <%= link_to MaterialIcon.new(icon: :truck, size: :xxlarge, title: 'Schedule an upcoming delivery').render, new_shopping_list_scheduled_delivery_path(@shopping_list), class: "mr-2" %>
+    <%= link_to MaterialIcon.new(icon: :sync, size: :xxlarge).render, @shopping_list %>
   </div>
 </header>
 

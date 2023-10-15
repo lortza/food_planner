@@ -20,7 +20,14 @@ RSpec.describe RecipesHelper, type: :helper do
       recipe = build(:recipe)
       recipe.meal_plan_recipes = []
 
-      expect(helper.status_flag(recipe)).to include('assets/icon_')
+      expect(helper.status_flag(recipe)).to include('new_releases')
+    end
+
+    it 'returns "new" when recipe has no prep dates before today' do
+      recipe = build(:recipe)
+      recipe.meal_plans << create(:meal_plan, prepared_on: Time.zone.today)
+
+      expect(helper.status_flag(recipe)).to include('new_releases')
     end
 
     it 'returns "been a while" when recipe has not been made in the past 4 months' do
@@ -28,12 +35,13 @@ RSpec.describe RecipesHelper, type: :helper do
       four_months_ago = Time.zone.today - 5.months
       recipe.meal_plans << create(:meal_plan, prepared_on: four_months_ago)
 
-      expect(helper.status_flag(recipe)).to include('assets/icon_')
+      expect(helper.status_flag(recipe)).to include('calendar_clock')
     end
 
-    it 'does not return a flag when recipe has no conditions' do
+    it 'does not return a flag when recipe was made recently' do
       recipe = create(:recipe)
-      recipe.meal_plans << create(:meal_plan, prepared_on: Time.zone.today)
+      four_days_ago = Time.zone.today - 4.days
+      recipe.meal_plans << create(:meal_plan, prepared_on: four_days_ago)
 
       expect(helper.status_flag(recipe)).to eq('')
     end
