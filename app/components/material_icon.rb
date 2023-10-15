@@ -12,25 +12,25 @@ class MaterialIcon
 
   def render
     case @icon
-    when :add_shopping_cart then add_shopping_cart;
-    when :arrow_left then arrow_left;
-    when :calendar_clock then calendar_clock;
-    when :clock then clock;
-    when :copy then copy;
-    when :edit then edit_note;
-    when :event_repeat then event_repeat;
-    when :info then info;
-    when :new then new_release;
-    when :plus_circle then plus_circle;
-    when :plus_square then plus_square;
-    when :search then search;
-    when :settings then settings;
-    when :shopping_cart then shopping_cart;
-    when :star_filled then star_filled;
-    when :star_outline then star_outline;
-    when :sync then sync;
-    when :trash then trash;
-    when :truck then truck;
+    when :add_shopping_cart then add_shopping_cart
+    when :arrow_left then arrow_left
+    when :calendar_clock then calendar_clock
+    when :clock then clock
+    when :copy then copy
+    when :edit then edit_note
+    when :event_repeat then event_repeat
+    when :info then info
+    when :new then new_release
+    when :plus_circle then plus_circle
+    when :plus_square then plus_square
+    when :search then search
+    when :settings then settings
+    when :shopping_cart then shopping_cart
+    when :star_filled then star_filled
+    when :star_outline then star_outline
+    when :sync then sync
+    when :trash then trash
+    when :truck then truck
     else
       raise "ERROR: There is no ':#{@icon}' icon. See app/components/material_icon.rb for icon options."
     end
@@ -74,7 +74,7 @@ class MaterialIcon
       title: @title.presence || 'Edit')
   end
 
-   def event_repeat
+  def event_repeat
     content_tag(:span, 'event_repeat',
       class: "#{symbol_base_classes} #{@classes}",
       title: @title.presence || 'Sync')
