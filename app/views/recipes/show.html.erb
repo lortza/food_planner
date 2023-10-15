@@ -2,6 +2,8 @@
 
 <div class="row">
   <div class="col-12">
+    <p><%= link_to MaterialIcon.new(icon: :arrow_left).render + "All Recipes", recipes_path %></p>
+
     <h1>
       <%= link_to MaterialIcon.new(icon: :settings, title: 'Edit recipe', classes: 'float-right').render, edit_recipe_path(@recipe) if policy(@recipe).update? %>
       <%= @recipe.title %>

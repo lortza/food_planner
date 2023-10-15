@@ -1,4 +1,4 @@
-<p><%= link_to MaterialIcon.new(icon: :arrow_left).render + "#{@shopping_list.name} List", aisles_path %></p>
+<p><%= link_to MaterialIcon.new(icon: :arrow_left).render + "#{@shopping_list.name} List", @shopping_list %></p>
 
 <h1>Editing <%= @shopping_list_item.name %></h1>
 
