@@ -11,6 +11,8 @@ Live on heroku as [myfoodplanner](http://myfoodplanner.herokuapp.com)
 * Postgres
 * RuboCop
 * RSpec
+* [Bootstrap 4.1.3](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
+* [Material Icons](https://fonts.google.com/icons)
 - [Dependabot](https://app.dependabot.com/accounts/lortza/) dependency manager
 
 ## Features

@@ -1,12 +1,14 @@
 <% content_for(:title, @shopping_list.name) %>
 
-<h1>
-  <%= link_to "", @shopping_list, title: 'sync', class: "#{Icon.sync} float-right"%>
-  <%= link_to 'Clear List', deactivate_all_items_path(@shopping_list), method: :post, data: { confirm: 'Are you sure you want to cross off all items? This action cannot be undone.' }, title: 'clear list', class: "#{button_classes} float-right mr-3 mt-2" %>
-  <%= link_to 'Add Delivery', new_shopping_list_scheduled_delivery_path(@shopping_list), title: 'Schedule an upcoming delivery', class: "#{button_classes} float-right mr-2 mt-2" %>
-  <%= link_to '', shopping_lists_path, class: Icon.back %>
-  <%= @shopping_list.name %>
-</h1>
+<p><%= link_to MaterialIcon.new(icon: :arrow_left).render + 'Shopping Lists', shopping_lists_path %></p>
+
+<header class="d-flex justify-content-between align-items-center">
+  <h1><%= @shopping_list.name %></h1>
+  <div class='d-flex align-items-center'>
+    <%= link_to MaterialIcon.new(icon: :truck, size: :xxlarge, title: 'Schedule an upcoming delivery').render, new_shopping_list_scheduled_delivery_path(@shopping_list), class: "mr-2" %>
+    <%= link_to MaterialIcon.new(icon: :sync, size: :xxlarge).render, @shopping_list %>
+  </div>
+</header>
 
 <article class='index-item'>
   <%= form_tag(search_shopping_list_path(@shopping_list), method: 'get', id: 'search-form' ) do %>
@@ -30,21 +32,17 @@
       <h4 class='aisle'><%= aisle.name %></h4>
       <% items.each do |item| %>
         <article id='<%= item.id %>' class='index-item'>
-          <p class='shopping-list-item controls-on-right-parent'>
+          <div class='shopping-list-item controls-on-right-parent'>
             <span>
               <%= link_to display_item(item), deactivate_item_path(id: item.id), class: 'js-toggle', method: :post, remote: true %>
-              <%= display_status(item) %>
+              <%= display_in_cart_status(item) %>
             </span>
             <span class='controls'>
-              <%= link_to 'add_shopping_cart',
-                          add_item_to_cart_path(id: item.id),
-                          class: 'js-add-to-cart material-icons',
-                          title: 'Mark item as scheduled for home delivery',
-                          method: :post,
-                          remote: true if item.active? %>
-              <%= link_to '', edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: Icon.edit %>
+              <%= render partial: 'scheduled_deliveries/toggle_icons', locals: { item: item, shopping_list: @shopping_list } %>
+              <%= link_to MaterialIcon.new(icon: :settings, title: 'Edit item').render,
+                edit_shopping_list_shopping_list_item_path(@shopping_list, item) %>
             </span>
-          </p>
+          </div>
         </article>
       <% end %><!-- each -->
     <% end %><!-- if aisle -->
@@ -58,13 +56,8 @@
       <p class='shopping-list-item '>
         <%= link_to display_item(item), activate_item_path(id: item.id), class: 'js-toggle', method: :post, remote: true %>
         <span class='float-right'>
-          <%= link_to 'add_shopping_cart',
-                      add_item_to_cart_path(id: item.id),
-                      class: 'js-add-to-cart material-icons mr-2',
-                      title: 'Mark item as scheduled for home delivery',
-                      method: :post,
-                      remote: true %>
-          <%= link_to '', edit_shopping_list_shopping_list_item_path(@shopping_list, item), class: Icon.edit %>
+          <%= render partial: 'scheduled_deliveries/toggle_icons', locals: { item: item, shopping_list: @shopping_list } %>
+          <%= link_to MaterialIcon.new(icon: :settings, title: 'Edit item').render, edit_shopping_list_shopping_list_item_path(@shopping_list, item) %>
         </span>
       </p>
     </article>

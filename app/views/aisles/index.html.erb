@@ -1,22 +1,19 @@
 <% content_for(:title, 'Aisles') %>
 
 <h1>
-  <%= link_to "", new_aisle_path, class: Icon.new %>
+  <%= link_to MaterialIcon.new(icon: :plus_circle, title: 'Create new Aisle', classes: 'float-right').render, new_aisle_path %>
   Aisles
 </h1>
 
 <% if current_user.aisles.any? %>
-
   <% @aisles.each do |aisle| %>
-    <h3 class='index-item controls-on-right-parent'>
-      <%= aisle.order_number %> | <%= aisle.name %> <span style="font-size: 1rem;"></span>
+    <p class='index-item controls-on-right-parent'>
+      <%= aisle.order_number %> | <%= aisle.name %>
       <span class='controls'>
-        <%= link_to "", aisle, method: :delete, data: { confirm: 'Are you sure? This action cannot be undone.' }, class: Icon.delete %>
-        <%= link_to "", edit_aisle_path(aisle), class: Icon.edit %>
+        <%= link_to MaterialIcon.new(icon: :settings, classes: 'float-right').render, edit_aisle_path(aisle) %>
       </span>
-    </h3>
+    </p>
   <% end %>
-
 <% else %>
   <p>Create a New Aisle</p>
   <%= link_to 'New Aisle', new_aisle_path, class: button_classes('primary btn-wide') %>

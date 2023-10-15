@@ -24,6 +24,13 @@ class ShoppingListItemStatusesController < ApplicationController
     respond_to :js
   end
 
+  # TODO: toggle icon in place instead of using html in js
+  # def remove_item_from_cart
+  #   binding.pry
+  #   @shopping_list_item.remove_from_cart!
+  #   respond_to :js
+  # end
+
   def deactivate_all
     # crosses all items on the list
     list = current_user.shopping_lists.find(params[:id])

@@ -1,8 +1,9 @@
 <% content_for(:title, 'Recipes') %>
 
-<div class="float-right"><%= link_to 'New Recipe', new_recipe_path, class: button_classes %></div>
-
-<h1>Recipes</h1>
+<h1>
+  <%= link_to MaterialIcon.new(icon: :plus_circle, title: 'Create new Recipe', classes: 'float-right').render, new_recipe_path %>
+  Recipes
+</h1>
 
 <% if @recipes.present? %>
   <table class="table table-sm table--recipes-index">
@@ -27,7 +28,7 @@
             <% if available_meal_plans_dropdown(current_user, recipe).any? %>
               <%= render 'add_to_meal_plan_dropdown', meal_plan_recipe: MealPlanRecipe.new, recipe: recipe %></td>
             <% end %>
-          <td><%= link_to 'Edit', edit_recipe_path(recipe), class: button_classes %></td>
+          <td><%= link_to MaterialIcon.new(icon: :settings, title: 'Edit recipe').render, edit_recipe_path(recipe) %></td>
         </tr>
       <% end %>
     </tbody>

@@ -9,10 +9,10 @@ module RecipesHelper
   def status_flag(recipe)
     if !recipe.active?
       'archived'
-    elsif recipe.last_prepared.nil?
-      image_tag('icon_new.png', class: 'icon-small', title: 'New! You have not made this yet!')
+    elsif recipe.last_prepared.nil? || first_time_is_this_week?(recipe)
+      MaterialIcon.new(icon: :new, classes: 'text-warning cursor-default', title: 'New! Has not been made yet').render
     elsif recipe.last_prepared < Time.zone.today.prev_month(4)
-      image_tag('icon_been_a_while.png', class: 'icon-small', title: 'Been a while...')
+      MaterialIcon.new(icon: :calendar_clock, classes: 'cursor-default', title: "It's been a while since this was last made").render
     else
       ''
     end
@@ -21,7 +21,7 @@ module RecipesHelper
   def extra_work_flag(recipe)
     return unless recipe.extra_work_required?
 
-    "<i class=\"#{Icon.clock} fa-xs\", title=\"Heads Up! #{recipe.extra_work_note}\"></i>".html_safe
+    MaterialIcon.new(icon: :clock, classes: 'text-warning cursor-default', title: "Heads Up! #{recipe.extra_work_note}").render
   end
 
   def recipe_ingredient_ids(recipe)
@@ -30,5 +30,12 @@ module RecipesHelper
 
   def available_meal_plans_dropdown(user, recipe)
     user.meal_plans.future - recipe.meal_plans
+  end
+
+  private
+
+  def first_time_is_this_week?(recipe)
+    recipe.meal_plans.count == 1 &&
+    recipe.meal_plans.first&.prepared_on == MealPlan.upcoming&.prepared_on
   end
 end

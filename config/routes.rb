@@ -37,6 +37,8 @@ Rails.application.routes.draw do
   post 'shopping_lists/:id/activate', to: 'shopping_list_item_statuses#activate', as: 'activate_item'
   post 'shopping_lists/:id/deactivate', to: 'shopping_list_item_statuses#deactivate', as: 'deactivate_item'
   post 'shopping_lists/:id/add_item_to_cart', to: 'shopping_list_item_statuses#add_item_to_cart', as: 'add_item_to_cart'
+  # TODO: toggle icon in place instead of using html in js
+  # post 'shopping_lists/:id/remove_item_from_cart', to: 'shopping_list_item_statuses#remove_item_from_cart', as: 'remove_item_from_cart'
   post 'shopping_lists/:id/deactivate_all', to: 'shopping_list_item_statuses#deactivate_all', as: 'deactivate_all_items'
 
   resources :shopping_list_favorites, only: [:create, :destroy]

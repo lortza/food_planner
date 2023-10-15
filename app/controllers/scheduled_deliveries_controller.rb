@@ -5,7 +5,7 @@ class ScheduledDeliveriesController < ApplicationController
   before_action :set_shopping_list, only: %i[new create edit update destroy]
 
   def new
-    @scheduled_delivery = @shopping_list.scheduled_deliveries.new(service_provider: 'HEB')
+    @scheduled_delivery = @shopping_list.scheduled_deliveries.new(service_provider: 'Instacart')
   end
 
   def create

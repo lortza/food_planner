@@ -1,6 +1,12 @@
-<h1>
-  <%= link_to "", @shopping_list, class: Icon.back %>
-  Editing <%= @shopping_list.name %>
-</h1>
+<p><%= link_to MaterialIcon.new(icon: :arrow_left).render + 'Shopping Lists', shopping_lists_path %></p>
+
+<h1>Editing <%= @shopping_list.name %></h1>
+
+<%= link_to 'Clear List', deactivate_all_items_path(@shopping_list), method: :post, data: { confirm: 'Are you sure you want to cross off all items? This action cannot be undone.' }, title: 'clear list', class: "#{button_classes} mr-2" %>
+
+<hr>
 
 <%= render 'form', shopping_list: @shopping_list %>
+
+<%= render partial: 'shared/delete_footer', locals: { object: @shopping_list } %>
+

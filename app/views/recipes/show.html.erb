@@ -1,14 +1,17 @@
 <% content_for(:title, @recipe.title) %>
 
 <div class="row">
-  <div class="col-11">
-    <h1><%= @recipe.title %><sup><%= extra_work_flag(@recipe) if current_user.present? %></sup></h1>
+  <div class="col-12">
+    <p><%= link_to MaterialIcon.new(icon: :arrow_left).render + "All Recipes", recipes_path %></p>
+
+    <h1>
+      <%= link_to MaterialIcon.new(icon: :settings, title: 'Edit recipe', classes: 'float-right').render, edit_recipe_path(@recipe) if policy(@recipe).update? %>
+      <%= @recipe.title %>
+      <sup><%= extra_work_flag(@recipe) if current_user.present? %> <%= status_flag(@recipe) %></sup>
+    </h1>
     <p>
       Source: <%= link_to @recipe.source_name, @recipe.source_url, title: @recipe.source_name, target: '_blank' %>
     </p>
-  </div>
-  <div class="col-1">
-    <div class="float-right"><%= link_to 'Edit', edit_recipe_path(@recipe), class: button_classes if policy(@recipe).update? %></div>
   </div>
 </div><!-- row -->
 

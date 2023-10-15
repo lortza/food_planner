@@ -1,7 +1,11 @@
 <% content_for(:title, "Food Prep #{@meal_plan.prepared_on}") %>
-<div class="float-right"><%= link_to 'Edit', edit_meal_plan_path(@meal_plan), class: button_classes %></div>
 
-<h1>Meal Plan for <%= @meal_plan.prepared_on.to_fs(:long) %></h1>
+<p><%= link_to MaterialIcon.new(icon: :arrow_left).render + "Meal Plans", meal_plans_path %></p>
+
+<h1>
+  <%= link_to MaterialIcon.new(icon: :settings, title: 'Edit', classes: 'float-right').render, edit_meal_plan_path(@meal_plan) %>
+  Meal Plan for <%= @meal_plan.prepared_on.to_fs(:long) %>
+</h1>
 
 <div class="row">
   <section class="col-12 col-sm-6">
@@ -48,14 +52,12 @@
       <li>
         <%= detail_display(detail) %>
         (<%= link_to detail.recipe.title, detail.recipe %>)
-        <%= link_to '',
+        <%= link_to MaterialIcon.new(icon: :plus_square, title: 'Add to shopping list', size: :medium).render,
                     shopping_list_item_builders_path(
                       shopping_list_id: current_user.shopping_lists.default&.id,
-                      ingredient_ids: [detail.id]
+                      ingredient_ids: detail.id
                     ),
-                    method: 'POST',
-                    title: 'add to list',
-                    class: Icon.copy_to_list
+                    method: 'POST'
         %>
       </li>
       <% end %>

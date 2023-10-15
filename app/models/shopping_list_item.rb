@@ -60,4 +60,9 @@ class ShoppingListItem < ApplicationRecord
   def add_to_cart!
     update!(status: 'in_cart')
   end
+
+  # TODO: toggle icon in place instead of using html in js
+  # def remove_from_cart!
+  #   update!(status: 'active')
+  # end
 end
