@@ -23,6 +23,7 @@ class MaterialIcon
     when :new then new_release;
     when :plus_circle then plus_circle;
     when :plus_square then plus_square;
+    when :search then search;
     when :settings then settings;
     when :shopping_cart then shopping_cart;
     when :star_filled then star_filled;
@@ -125,6 +126,13 @@ class MaterialIcon
     content_tag(:span, 'settings',
       class: "#{symbol_base_classes} #{@classes}",
       title: @title.presence || 'Settings')
+  end
+
+  def search
+    content_tag(:span, 'search',
+      class: "#{symbol_base_classes} #{@classes}",
+      title: @title.presence || 'Search',
+      aria: {hidden: true})
   end
 
   def sync

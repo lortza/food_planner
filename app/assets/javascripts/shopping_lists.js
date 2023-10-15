@@ -64,7 +64,7 @@ function shoppingListItemToggler() {
         let itemHtml = item.parentNode;
 
         if ( item.classList.contains('js-toggle') ) {
-          itemHtml.insertAdjacentHTML('afterbegin', '<i class="fas fa-check text-success"></i>')
+          itemHtml.insertAdjacentHTML('afterbegin', '<i class="text-success">&#10003;</i>')
           itemHtml.insertAdjacentHTML('beforeend', '<span class="text-success item-added-confirmation">Added to list!</span>')
         }
       })
