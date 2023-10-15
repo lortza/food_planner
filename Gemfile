@@ -57,7 +57,7 @@ group :development, :test do
   gem 'pry-rails'               # helps with pry
   gem 'reek'                    # https://github.com/troessner/reek/blob/master/docs/Code-Smells.md
   gem 'selenium-webdriver'
-  gem 'webdrivers', '= 5.3.0'   # to help with testing
+  gem 'webdrivers', '5.3.1'   # to help with testing
 end
 
 group :test do
