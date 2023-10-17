@@ -13,23 +13,28 @@ class ShoppingListItemStatusesController < ApplicationController
     respond_to :js
   end
 
+  def activate_from_search
+    @shopping_list_item.activate! unless @shopping_list_item.in_cart?
+    respond_to :js
+  end
+
   def deactivate
     # crosses an item off of the list
     @shopping_list_item.deactivate!
     respond_to :js
   end
 
-  def add_item_to_cart
+  def add_to_cart
+    # Marks item as part of delivery
     @shopping_list_item.add_to_cart!
     respond_to :js
   end
 
-  # TODO: toggle icon in place instead of using html in js
-  # def remove_item_from_cart
-  #   binding.pry
-  #   @shopping_list_item.remove_from_cart!
-  #   respond_to :js
-  # end
+  def remove_from_cart
+    # Removes part-of-delivery marking from item
+    @shopping_list_item.remove_from_cart!
+    respond_to :js
+  end
 
   def deactivate_all
     # crosses all items on the list

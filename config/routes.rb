@@ -34,12 +34,13 @@ Rails.application.routes.draw do
     end
   end
 
-  post 'shopping_lists/:id/activate', to: 'shopping_list_item_statuses#activate', as: 'activate_item'
-  post 'shopping_lists/:id/deactivate', to: 'shopping_list_item_statuses#deactivate', as: 'deactivate_item'
-  post 'shopping_lists/:id/add_item_to_cart', to: 'shopping_list_item_statuses#add_item_to_cart', as: 'add_item_to_cart'
-  # TODO: toggle icon in place instead of using html in js
-  # post 'shopping_lists/:id/remove_item_from_cart', to: 'shopping_list_item_statuses#remove_item_from_cart', as: 'remove_item_from_cart'
-  post 'shopping_lists/:id/deactivate_all', to: 'shopping_list_item_statuses#deactivate_all', as: 'deactivate_all_items'
+  # TODO: refactor these routes to use `member do`
+  post 'shopping_list_items/:id/search/activate', to: 'shopping_list_item_statuses#activate_from_search', as: 'activate_from_search'
+  post 'shopping_list_items/:id/activate', to: 'shopping_list_item_statuses#activate', as: 'activate_item'
+  post 'shopping_list_items/:id/deactivate', to: 'shopping_list_item_statuses#deactivate', as: 'deactivate_item'
+  post 'shopping_list_items/:id/add_to_cart', to: 'shopping_list_item_statuses#add_to_cart', as: 'add_to_cart'
+  post 'shopping_list_items/:id/remove_from_cart', to: 'shopping_list_item_statuses#remove_from_cart', as: 'remove_from_cart'
+  post 'shopping_list_items/:id/deactivate_all', to: 'shopping_list_item_statuses#deactivate_all', as: 'deactivate_all_items'
 
   resources :shopping_list_favorites, only: [:create, :destroy]
   resources :shopping_list_item_builders, only: [:create]

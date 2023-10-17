@@ -1,0 +1,2 @@
+document.getElementById("<%= dom_id(@shopping_list_item) %>")
+        .outerHTML = "<%= escape_javascript(render partial: '/shopping_list_items/shopping_list_item', locals: { item: @shopping_list_item }) %>"

@@ -26,44 +26,20 @@
 
 <%= render 'scheduled_deliveries/scheduled_deliveries', shopping_list: @shopping_list %>
 
-<section id='active-items'>
+<section id='js-active-items'>
   <% @shopping_list.shopping_list_items.not_purchased.by_aisle_order_number.group_by(&:aisle).each do |aisle, items| %>
     <% if aisle %>
       <h4 class='aisle'><%= aisle.name %></h4>
       <% items.each do |item| %>
-        <article id='<%= item.id %>' class='index-item'>
-          <div class='shopping-list-item controls-on-right-parent'>
-            <span>
-              <%= link_to display_item(item), deactivate_item_path(id: item.id), class: 'js-toggle', method: :post, remote: true %>
-              <%= display_in_cart_status(item) %>
-            </span>
-            <span class='controls'>
-              <%= render partial: 'scheduled_deliveries/toggle_icons', locals: { item: item, shopping_list: @shopping_list } %>
-              <%= link_to MaterialIcon.new(icon: :settings, title: 'Edit item').render,
-                edit_shopping_list_shopping_list_item_path(@shopping_list, item) %>
-            </span>
-          </div>
-        </article>
+        <%= render partial: '/shopping_list_items/shopping_list_item', locals: { item: item } %>
       <% end %><!-- each -->
     <% end %><!-- if aisle -->
   <% end %>
 </section>
 
 <h4 class='aisle'>Crossed Off</h4>
-<section id='inactive-items'>
+<section id='js-inactive-items' class='inactive-items'>
   <% @shopping_list.shopping_list_items.inactive.by_recently_edited.limit(30).each do |item| %>
-    <article id='<%= item.id %>' class='index-item item-crossed-off'>
-      <p class='shopping-list-item '>
-        <%= link_to display_item(item), activate_item_path(id: item.id), class: 'js-toggle', method: :post, remote: true %>
-        <span class='float-right'>
-          <%= render partial: 'scheduled_deliveries/toggle_icons', locals: { item: item, shopping_list: @shopping_list } %>
-          <%= link_to MaterialIcon.new(icon: :settings, title: 'Edit item').render, edit_shopping_list_shopping_list_item_path(@shopping_list, item) %>
-        </span>
-      </p>
-    </article>
+    <%= render partial: '/shopping_list_items/shopping_list_item', locals: { item: item } %>
   <% end %>
 </section>
-
-<script type='text/javascript'>
-  shoppingListItemToggler();
-</script>

@@ -9,13 +9,6 @@
   padding: 5px 8px;
 }
 
-.index-item {
-  border-top: 1px solid $light-gray;
-  color: $default-text;
-  margin: 0;
-  padding: .5rem;
-}
-
 .recurrence-tag {
   border: 1px solid $brand-light-blue;
   border-radius: 5px;
@@ -26,44 +19,26 @@
   padding: 1px 5px;
 }
 
-.status-tag {
-  border: 1px solid $brand-yellow;
-  border-radius: 5px;
-  color: $brand-yellow;
-  font-size: .8em;
-  margin-left: .25rem;
-  padding: 1px 5px;
-}
-
 .shopping-list-item {
+  border-top: 1px solid $light-gray;
+  color: $default-text;
   font-size: 1rem;
   font-weight: normal;
+  margin: 0;
   margin-bottom: 0;
+  padding: .5rem;
   a { color: $default-text; }
-  .material-icons,
-  .material-icons-outlined { font-size: 1.25em; }
-
-  .in-cart {
-    color: $brand-yellow;
-    vertical-align: text-bottom;
-  }
 }
 
-.item-crossed-off {
-  color: $medium-gray;
-  font-weight: normal;
-  text-decoration: line-through;
-  a:link { color: $medium-gray; }
-  a:visited { color: $medium-gray; }
-  .recurrence-tag {
-    border: 1px solid $medium-gray;
+.inactive-items {
+  .shopping-list-item {
     color: $medium-gray;
+    text-decoration: line-through;
+    a:link { color: $medium-gray; }
+    a:visited { color: $medium-gray; }
+    .recurrence-tag {
+      border: 1px solid $medium-gray;
+      color: $medium-gray;
+    }
   }
-}
-
-.item-added-confirmation {
-  font-size: .75em;
-  letter-spacing: 1px;
-  margin-left: 1.5rem;
-  text-transform: uppercase;
 }

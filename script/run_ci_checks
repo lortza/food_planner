@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# run command: lint
+# run command: cichecks
 
 echo '==== RUNNING RSPEC ====='
 bundle exec rspec
