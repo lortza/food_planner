@@ -33,8 +33,9 @@ Rails.application.routes.draw do
       get :search
     end
   end
-  post 'shopping_list_items/:id/search/activate', to: 'shopping_list_item_statuses#activate_from_search', as: 'activate_from_search'
 
+  # TODO: refactor these routes to use `member do`
+  post 'shopping_list_items/:id/search/activate', to: 'shopping_list_item_statuses#activate_from_search', as: 'activate_from_search'
   post 'shopping_list_items/:id/activate', to: 'shopping_list_item_statuses#activate', as: 'activate_item'
   post 'shopping_list_items/:id/deactivate', to: 'shopping_list_item_statuses#deactivate', as: 'deactivate_item'
   post 'shopping_list_items/:id/add_to_cart', to: 'shopping_list_item_statuses#add_to_cart', as: 'add_to_cart'
