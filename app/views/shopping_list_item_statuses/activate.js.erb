@@ -1,0 +1,8 @@
+// TODO: put item back under aisle where it belongs.
+// If aisle does not exist, make one.
+
+document.getElementById("<%= dom_id(@shopping_list_item) %>")
+        .remove();
+
+document.getElementById('active-items')
+        .insertAdjacentHTML('beforeend', "<%= escape_javascript(render partial: '/shopping_list_items/shopping_list_item', locals: { item: @shopping_list_item }) %>");
