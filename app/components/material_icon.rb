@@ -27,6 +27,7 @@ class MaterialIcon
     when :plus_square then plus_square;
     when :search then search;
     when :settings then settings;
+    when :shopping_bag then shopping_bag;
     when :shopping_cart then shopping_cart;
     when :star_filled then star_filled;
     when :star_outline then star_outline;
@@ -110,6 +111,12 @@ class MaterialIcon
     content_tag(:span, 'add_box',
       class: "#{symbol_base_classes} #{@classes}",
       title: @title.presence || 'Add to list')
+  end
+
+  def shopping_bag
+    content_tag(:span, 'shopping_bag',
+      class: "#{icon_base_classes} #{@classes}",
+      title: @title.presence || 'In shopping bag')
   end
 
   def shopping_cart

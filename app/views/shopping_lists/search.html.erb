@@ -24,7 +24,3 @@
   <p>Sorry, there are no results matching <strong>"<%= params[:search] %>"</strong></p>
   <%= link_to 'Create New Item', new_shopping_list_shopping_list_item_path(@shopping_list, search_term: params[:search]), class: button_classes('primary btn-block mt-3') %>
 <% end %>
-
-<script type='text/javascript'>
-  shoppingListItemToggler();
-</script>
