@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# run command: lint
+
+echo '==== RUNNING CSS LINT ====='
+bundle exec scss-lint app/assets/stylesheets/**.scss
+
+echo '==== RUNNING RUBOCOP ====='
+bundle exec rubocop
+
+echo 'DONE'
