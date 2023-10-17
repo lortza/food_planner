@@ -1,0 +1,17 @@
+<article id='<%= dom_id(item) %>' class='shopping-list-item'>
+  <div class='controls-on-right-parent'>
+    <span>
+      <!-- local_assigns handles whether the local arg has been passed to the partial.
+      This allows the partial to be used by the normal shopping list functions as well
+      as the search function. The reason I'm not passing a destination_path every time
+      is that when the controller has to render the partial via js, it does not have
+      access to that argument so it is derived via this embedded toggle path helper. -->
+      <%= link_to display_item(item), local_assigns[:destination_path].presence || toggle_active_inactive_path(item), method: :post, remote: true %> <%= display_recurrence(item) %>
+    </span>
+    <span class='controls'>
+      <%= scheduled_delivery_status(item) %>
+      <%= link_to MaterialIcon.new(icon: :settings, title: 'Edit item').render,
+        edit_shopping_list_shopping_list_item_path(item.list, item) %>
+    </span>
+  </div>
+</article>

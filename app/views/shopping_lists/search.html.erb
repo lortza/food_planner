@@ -17,17 +17,7 @@
 <% if @shopping_list_items.present? %>
   <section id='searched-items'>
     <% @shopping_list_items.by_recently_edited.each do |item| %>
-      <article id='<%= item.id %>' class='index-item'>
-        <p class='shopping-list-item '>
-          <%= link_to display_item(item),
-                      activate_item_path(id: item.id),
-                      class: 'js-toggle',
-                      method: :post,
-                      remote: true %>
-          <%= display_in_cart_status(item) %>
-          <%= link_to MaterialIcon.new(icon: :settings, title: 'Edit item').render, edit_shopping_list_shopping_list_item_path(@shopping_list, item) %>
-        </p>
-      </article>
+      <%= render partial: '/shopping_list_items/shopping_list_item', locals: { item: item }.deep_merge(destination_path: activate_from_search_path(id: item.id)) %>
     <% end %>
   </section>
 <% else %>

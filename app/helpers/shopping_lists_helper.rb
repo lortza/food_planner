@@ -14,19 +14,27 @@ module ShoppingListsHelper
   end
 
   def display_item(item)
-    # rubocop disable: Rails/OutputSafety
-    "#{item.name} #{display_quantity(item)} #{display_upc(item)} #{display_recurrence(item)}".html_safe
-    # rubocop enable: Rails/OutputSafety
+    "#{item.name} #{display_quantity(item)} #{display_upc(item)}"
   end
 
-  def display_in_cart_status(item)
-    if item.in_cart?
-      content_tag(:span,
-        MaterialIcon.new(icon: :shopping_cart,
-          title: 'Item is purchased and scheduled for home delivery',
-          classes: 'in-cart').render,
-        class: 'status-tag js-remove-from-cart')
-    end
+  def toggle_active_inactive_path(item)
+    item.inactive? ? activate_item_path(id: item.id) : deactivate_item_path(id: item.id)
+  end
+
+  def scheduled_delivery_status(item)
+    return nil unless item.list.scheduled_deliveries.future.any?
+
+    return button_to MaterialIcon.new(icon: :add_shopping_cart, size: :large, classes: 'js-add-to-cart', title: 'Click to mark item as scheduled for home delivery.').render,
+                    add_to_cart_path(id: item.id),
+                    method: :post,
+                    class: 'icon-button',
+                    remote: true if item.active?
+
+    return button_to MaterialIcon.new(icon: :shopping_bag, size: :large, classes: 'text-warning js-remove-from-cart', title: 'Item is scheduled for home delivery. Click to remove.').render,
+              remove_from_cart_path(id: item.id),
+              method: :post,
+              class: 'icon-button',
+              remote: true if item.in_cart?
   end
 
   private
