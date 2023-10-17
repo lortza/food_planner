@@ -13,6 +13,11 @@ class ShoppingListItemStatusesController < ApplicationController
     respond_to :js
   end
 
+  def activate_from_search
+    @shopping_list_item.activate! unless @shopping_list_item.in_cart?
+    respond_to :js
+  end
+
   def deactivate
     # crosses an item off of the list
     @shopping_list_item.deactivate!

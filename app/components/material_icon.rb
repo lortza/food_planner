@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class MaterialIcon
+  # https://fonts.google.com/icons
   include ActionView::Helpers::TagHelper
 
   def initialize(icon:, title: nil, size: :inherit, classes: nil)
@@ -15,6 +16,7 @@ class MaterialIcon
     when :add_shopping_cart then add_shopping_cart;
     when :arrow_left then arrow_left;
     when :calendar_clock then calendar_clock;
+    when :checkmark then checkmark;
     when :clock then clock;
     when :copy then copy;
     when :edit then edit_note;
@@ -60,6 +62,12 @@ class MaterialIcon
     content_tag(:span, 'update',
       class: "#{symbol_base_classes} #{@classes}",
       title: @title.presence || 'Duration warning')
+  end
+
+  def checkmark
+    content_tag(:span, 'done',
+      class: "#{symbol_base_classes} #{@classes}",
+      title: @title.presence || 'Done')
   end
 
   def copy
