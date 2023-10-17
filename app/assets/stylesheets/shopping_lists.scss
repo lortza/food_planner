@@ -30,14 +30,15 @@
   a { color: $default-text; }
 }
 
-#inactive-items .shopping-list-item {
-  color: $medium-gray;
-  font-weight: normal;
-  text-decoration: line-through;
-  a:link { color: $medium-gray; }
-  a:visited { color: $medium-gray; }
-  .recurrence-tag {
-    border: 1px solid $medium-gray;
+.inactive-items {
+  .shopping-list-item {
     color: $medium-gray;
+    text-decoration: line-through;
+    a:link { color: $medium-gray; }
+    a:visited { color: $medium-gray; }
+    .recurrence-tag {
+      border: 1px solid $medium-gray;
+      color: $medium-gray;
+    }
   }
 }
