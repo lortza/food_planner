@@ -1,8 +1,11 @@
+// Remove item
+document.getElementById("<%= dom_id(@shopping_list_item) %>").remove();
+
+// Hide aisle if this was the last item in it
 if (<%= @remove_aisle %>) {
-  document.getElementById("<%= dom_id(@shopping_list_item.aisle) %>").remove();
-} else {
-  document.getElementById("<%= dom_id(@shopping_list_item) %>").remove();
+  document.getElementById("<%= dom_id(@shopping_list_item.aisle) %>").classList.add('hidden');
 }
 
+// Prepend item to crossed-off section
 document.getElementById('js-inactive-items')
         .insertAdjacentHTML('afterbegin', "<%= escape_javascript(render partial: '/shopping_list_items/shopping_list_item', locals: { item: @shopping_list_item }) %>");
