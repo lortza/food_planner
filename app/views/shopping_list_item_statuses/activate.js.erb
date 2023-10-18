@@ -1,8 +1,8 @@
-// TODO: put item back under aisle where it belongs.
-// If aisle does not exist, make one.
+// Reveal aisle
+document.getElementById("<%= dom_id(@shopping_list_item.aisle) %>").classList.remove('hidden');
 
-document.getElementById("<%= dom_id(@shopping_list_item) %>")
-        .remove();
+// Remove crossed-off item
+document.getElementById("<%= dom_id(@shopping_list_item) %>").remove();
 
-document.getElementById('js-active-items')
-        .insertAdjacentHTML('beforeend', "<%= escape_javascript(render partial: '/shopping_list_items/shopping_list_item', locals: { item: @shopping_list_item }) %>");
+// Insert item back in aisle
+document.getElementById("<%= dom_id(@shopping_list_item.aisle) %>").insertAdjacentHTML('beforeend', "<%= escape_javascript(render partial: '/shopping_list_items/shopping_list_item', locals: { item: @shopping_list_item }) %>");
