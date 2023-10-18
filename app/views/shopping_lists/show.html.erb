@@ -29,12 +29,14 @@
 <section id='js-active-items'>
   <% @shopping_list.shopping_list_items.not_purchased.by_aisle_order_number.group_by(&:aisle).each do |aisle, items| %>
     <% if aisle %>
-      <h4 class='aisle'><%= aisle.name %></h4>
-      <% items.each do |item| %>
-        <%= render partial: '/shopping_list_items/shopping_list_item', locals: { item: item } %>
-      <% end %><!-- each -->
+      <div id='<%= dom_id(aisle) %>'>
+        <h4 class='aisle'><%= aisle.name %></h4>
+        <% items.each do |item| %>
+          <%= render partial: '/shopping_list_items/shopping_list_item', locals: { item: item } %>
+        <% end %><!-- each -->
+      </div>
     <% end %><!-- if aisle -->
-  <% end %>
+  <% end %><!-- each -->
 </section>
 
 <h4 class='aisle'>Crossed Off</h4>
