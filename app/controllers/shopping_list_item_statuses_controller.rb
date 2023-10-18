@@ -21,6 +21,7 @@ class ShoppingListItemStatusesController < ApplicationController
   def deactivate
     # crosses an item off of the list
     @shopping_list_item.deactivate!
+    @remove_aisle = @shopping_list_item.list.items.active.where(aisle: @shopping_list_item.aisle).blank?
     respond_to :js
   end
 

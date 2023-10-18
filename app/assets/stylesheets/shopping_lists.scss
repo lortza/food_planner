@@ -3,10 +3,11 @@
 .aisle {
   background-color: $brand-secondary;
   color: $white;
-  font-size: .75rem;
+  font-size: .8rem;
   font-weight: normal;
   margin-bottom: 0;
   padding: 5px 8px;
+  text-transform: uppercase;
 }
 
 .recurrence-tag {

@@ -1,7 +1,8 @@
-// TODO: when aisle is empty, remove aisle heading
-
-document.getElementById("<%= dom_id(@shopping_list_item) %>")
-        .remove();
+if (<%= @remove_aisle %>) {
+  document.getElementById("<%= dom_id(@shopping_list_item.aisle) %>").remove();
+} else {
+  document.getElementById("<%= dom_id(@shopping_list_item) %>").remove();
+}
 
 document.getElementById('js-inactive-items')
         .insertAdjacentHTML('afterbegin', "<%= escape_javascript(render partial: '/shopping_list_items/shopping_list_item', locals: { item: @shopping_list_item }) %>");
