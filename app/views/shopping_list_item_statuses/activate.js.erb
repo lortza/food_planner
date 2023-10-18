@@ -3,5 +3,9 @@ document.getElementById("<%= dom_id(@shopping_list_item) %>").remove();
 
 // Reinstate item as active in aisle
 var aisle = document.getElementById("<%= dom_id(@shopping_list_item.aisle) %>")
-aisle.classList.remove('hidden');
-aisle.insertAdjacentHTML('beforeend', "<%= escape_javascript(render partial: '/shopping_list_items/shopping_list_item', locals: { item: @shopping_list_item }) %>");
+if (aisle === null ) {
+  document.getElementById('js-active-items').insertAdjacentHTML('beforeend', "<%= escape_javascript(render partial: '/shopping_list_items/shopping_list_item', locals: { item: @shopping_list_item }) %>");
+} else {
+  aisle.classList.remove('hidden');
+  aisle.insertAdjacentHTML('beforeend', "<%= escape_javascript(render partial: '/shopping_list_items/shopping_list_item', locals: { item: @shopping_list_item }) %>");
+}
