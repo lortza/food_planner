@@ -2,8 +2,9 @@
 document.getElementById("<%= dom_id(@shopping_list_item) %>").remove();
 
 // Hide aisle if this was the last item in it
-if (<%= @remove_aisle %>) {
-  document.getElementById("<%= dom_id(@shopping_list_item.aisle) %>").classList.add('hidden');
+var activeAisle = document.getElementById("<%= dom_id(@shopping_list_item.aisle) %>")
+if (<%= @remove_aisle %> && activeAisle != null) {
+  activeAisle.classList.add('hidden');
 }
 
 // Prepend item to crossed-off section
