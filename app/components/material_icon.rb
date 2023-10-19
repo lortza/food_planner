@@ -83,7 +83,7 @@ class MaterialIcon
       title: @title.presence || 'Edit')
   end
 
-   def event_repeat
+  def event_repeat
     content_tag(:span, 'event_repeat',
       class: "#{symbol_base_classes} #{@classes}",
       title: @title.presence || 'Sync')

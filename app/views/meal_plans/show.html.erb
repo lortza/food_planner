@@ -39,33 +39,26 @@
 </div><!-- row -->
 
 <hr>
-<button id='button__ingredients-toggle' class="<%= button_classes('secondary') %> float-right opened">Collapse All</button>
+
 <h2>Ingredient Breakdown</h2>
-<section id='section__ingredient-breakdown' class='row ingredient-breakdown'>
+<section class='row'>
   <% @ingredient_set.each do |ingredient, details| %>
-  <div class="col-12 col-md-6 col-xl-4">
-    <h3>
-      <%= ingredient %> <i class="caret fas fa-caret-down"></i>
-    </h3>
-    <ul>
-      <% details.each do |detail| %>
-      <li>
-        <%= detail_display(detail) %>
-        (<%= link_to detail.recipe.title, detail.recipe %>)
-        <%= link_to MaterialIcon.new(icon: :plus_square, title: 'Add to shopping list', size: :medium).render,
-                    shopping_list_item_builders_path(
-                      shopping_list_id: current_user.shopping_lists.default&.id,
-                      ingredient_ids: detail.id
-                    ),
-                    method: 'POST'
-        %>
-      </li>
-      <% end %>
-    </ul>
-  </div><!-- cols -->
+    <div class="col-12 col-md-6 col-xl-4">
+      <details open class='card mb-2'>
+        <summary class='card-header'><%= ingredient %></summary>
+        <div class="card-body">
+          <% details.each do |detail| %>
+            <div class='mb-2'>
+              <input type="checkbox">
+              <label class="mb-0 inline">
+                <%= detail_display(detail) %> (<%= link_to detail.recipe.title, recipe_path(detail.recipe) %>)
+                <%= link_to MaterialIcon.new(icon: :plus_square, title: "Add ingredient to shopping list", size: :medium).render,
+                            shopping_list_item_builders_path(shopping_list_id: current_user.shopping_lists.default&.id, ingredient_ids: detail.id), method: 'POST' %>
+              </label>
+            </div>
+          <% end %>
+        </div>
+      </details>
+    </div>
   <% end %>
 </section><!-- row -->
-
-<script type='text/javascript'>
-  mealPlanListToggler();
-</script>
