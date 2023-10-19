@@ -41,24 +41,22 @@
 <hr>
 
 <h2>Ingredient Breakdown</h2>
-<section class='row'>
-  <% @ingredient_set.each do |ingredient, details| %>
-    <div class="col-12 col-md-6 col-xl-4">
+<section class="card-columns">
+  <% @ingredient_set.each do |ingredient, preparations| %>
       <details open class='card mb-2'>
         <summary class='card-header'><%= ingredient %></summary>
         <div class="card-body">
-          <% details.each do |detail| %>
+          <% preparations.each do |preparation| %>
             <div class='mb-2'>
               <input type="checkbox">
               <label class="mb-0 inline">
-                <%= detail_display(detail) %> (<%= link_to detail.recipe.title, recipe_path(detail.recipe) %>)
+                <%= detail_display(preparation) %> (<%= link_to preparation.recipe.title, recipe_path(preparation.recipe) %>)
                 <%= link_to MaterialIcon.new(icon: :plus_square, title: "Add ingredient to shopping list", size: :medium).render,
-                            shopping_list_item_builders_path(shopping_list_id: current_user.shopping_lists.default&.id, ingredient_ids: detail.id), method: 'POST' %>
+                            shopping_list_item_builders_path(shopping_list_id: current_user.shopping_lists.default&.id, ingredient_ids: preparation.id), method: 'POST' %>
               </label>
             </div>
           <% end %>
         </div>
       </details>
-    </div>
   <% end %>
 </section><!-- row -->
