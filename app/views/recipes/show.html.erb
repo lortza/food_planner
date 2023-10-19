@@ -47,7 +47,7 @@
         <div class='ml-3 mb-4'>
           <% @recipe.ingredients.by_id.each do |ingredient| %>
             <input type="checkbox">
-            <label class="mb-0"><%= ingredient_display(ingredient) %></label><br>
+            <label class="mb-0 inline"><%= ingredient_display(ingredient) %></label><br>
           <% end %>
         </div>
       </div> <!-- col-12 -->

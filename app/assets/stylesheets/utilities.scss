@@ -9,8 +9,12 @@
 .text-xxlarge { font-size: xx-large; }
 .text-size-inherit { font-size: inherit; }
 
-// Visibility
+// Display
 .hidden { display: none; }
+.inline {
+  display: inline;
+  word-wrap: break-word;
+}
 
 // Cursor
 .cursor-default { cursor: default; }
