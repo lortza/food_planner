@@ -4,4 +4,4 @@
 
 <%= render 'form', recipe: @recipe %>
 
-<%= render partial: 'shared/delete_footer', locals: { object: @recipe } %>
+<%= render partial: 'shared/delete_footer', locals: { object: @recipe, delete_path: @recipe } %>

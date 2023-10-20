@@ -6,4 +6,4 @@
 
 <%= render 'form', meal_plan: @meal_plan %>
 
-<%= render partial: 'shared/delete_footer', locals: { object: @meal_plan } %>
+<%= render partial: 'shared/delete_footer', locals: { object: @meal_plan, delete_path: @meal_plan } %>

@@ -6,5 +6,4 @@
 
 <%= render 'form', scheduled_delivery: @scheduled_delivery, shopping_list: @shopping_list %>
 
-<hr>
-<%= link_to 'Delete', shopping_list_scheduled_delivery_path(@shopping_list, @scheduled_delivery), method: :delete, data: { confirm: 'Are you sure? This action cannot be undone.' }, class: "#{button_classes('danger')} mt-5" %>
+<%= render partial: 'shared/delete_footer', locals: { object: @scheduled_delivery, delete_path: shopping_list_scheduled_delivery_path(@shopping_list, @scheduled_delivery) } %>

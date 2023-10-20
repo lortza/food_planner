@@ -8,5 +8,5 @@
 
 <%= render 'form', shopping_list: @shopping_list %>
 
-<%= render partial: 'shared/delete_footer', locals: { object: @shopping_list } %>
+<%= render partial: 'shared/delete_footer', locals: { object: @shopping_list, delete_path: @shopping_list } %>
 

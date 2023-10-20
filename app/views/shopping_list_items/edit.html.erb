@@ -4,8 +4,4 @@
 
 <%= render 'form' %>
 
-<footer class='footer--delete'>
-  <h5>Danger Zone</h5>
-  <p>Deleting this shopping list item cannot be undone. If you just want to cross it off, go back to the list and click on the item name.</p>
-  <%= link_to "Delete", shopping_list_shopping_list_item_path(@shopping_list_item.list, @shopping_list_item), method: :delete, data: { confirm: "Are you sure you want to delete #{@shopping_list_item.name}? This action cannot be undone." }, class: button_classes('danger') %>
-</footer>
+<%= render partial: 'shared/delete_footer', locals: { object: @shopping_list_item, delete_path: shopping_list_shopping_list_item_path(@shopping_list_item.list, @shopping_list_item) } %>
