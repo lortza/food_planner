@@ -8,7 +8,11 @@ module RecipesHelper
 
   def status_flag(recipe)
     if !recipe.active?
-      'archived'
+      icon = MaterialIcon.new(icon: :archived, size: :small).render
+      content_tag(:span, "Archived",
+        class: "badge badge-secondary ml-2 text-small font-weight-normal cursor-default",
+        title: 'Recipe is archived. Edit to unarchive.'
+      ) {icon + " Archived"}
     elsif recipe.last_prepared.nil? || first_time_is_this_week?(recipe)
       MaterialIcon.new(icon: :new, classes: 'text-warning cursor-default', title: 'New! Has not been made yet').render
     elsif recipe.last_prepared < Time.zone.today.prev_month(4)

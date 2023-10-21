@@ -13,7 +13,7 @@ RSpec.describe RecipesHelper, type: :helper do
   describe 'status_flag' do
     it 'returns "archived" when recipe is not active' do
       recipe = build(:recipe, archived: true)
-      expect(helper.status_flag(recipe)).to eq('archived')
+      expect(helper.status_flag(recipe)).to include('Archived')
     end
 
     it 'returns "new" when recipe has no prep dates' do

@@ -14,6 +14,7 @@ class MaterialIcon
   def render
     case @icon
     when :add_shopping_cart then add_shopping_cart;
+    when :archived then archived;
     when :arrow_left then arrow_left;
     when :calendar_clock then calendar_clock;
     when :checkmark then checkmark;
@@ -51,6 +52,12 @@ class MaterialIcon
     content_tag(:span, 'arrow_back',
       class: "#{symbol_base_classes} #{@classes} nav-link-icon left",
       title: @title.presence || 'Back')
+  end
+
+  def archived
+    content_tag(:span, 'inventory_2',
+      class: "#{symbol_base_classes} #{@classes}",
+      title: @title.presence || 'Archived')
   end
 
   def calendar_clock
