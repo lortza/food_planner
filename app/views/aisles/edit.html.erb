@@ -1,8 +1,9 @@
 <% content_for(:title, "Edit #{@aisle.name}") %>
 
 <p><%= link_to MaterialIcon.new(icon: :arrow_left).render + 'All Aisles', aisles_path %></p>
+
 <h1>Editing <%= @aisle.name %></h1>
 
 <%= render 'form', aisle: @aisle %>
 
-<%= render partial: 'shared/delete_footer', locals: { object: @aisle } %>
+<%= render partial: 'shared/delete_footer', locals: { object: @aisle, delete_path: @aisle } %>

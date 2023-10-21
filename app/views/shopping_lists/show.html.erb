@@ -12,7 +12,7 @@
 
 <article class='index-item'>
   <%= form_tag(search_shopping_list_path(@shopping_list), method: 'get', id: 'search-form' ) do %>
-    <div class="col-xs-12">
+    <div class="col-xs-12 mb-2">
       <%= text_field_tag :search, params[:search], list: 'name', placeholder: 'Find or Add an item...', class: 'form-control form-control-sm' %>
       <datalist id="name">
         <option value="  "></option>
