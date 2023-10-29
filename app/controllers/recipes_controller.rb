@@ -69,7 +69,8 @@ class RecipesController < ApplicationController
       title: experimental_recipe.title,
       source_name: URI.parse(experimental_recipe.source_url).host.gsub('www.', ''),
       source_url: experimental_recipe.source_url,
-      experimental_recipe_id: experimental_recipe.id
+      experimental_recipe_id: experimental_recipe.id,
+      instructions: Scraper.new(experimental_recipe.source_url).site_data
     )
     15.times { @recipe.ingredients.build(quantity: nil) }
 
