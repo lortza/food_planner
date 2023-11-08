@@ -88,16 +88,20 @@ RSpec.describe ShoppingListItem, type: :model do
   end
 
   describe 'self.by_aisle_order_number' do
-    it "orders based on the associated aisle's order_number" do
-      first_aisle = create(:aisle, name: 'first aisle', order_number: 1)
+    it "orders based on the associated aisle's order_number then by item name" do
       second_aisle = create(:aisle, name: 'second aisle', order_number: 2)
+      first_aisle = create(:aisle, name: 'first aisle', order_number: 1)
 
       list = create(:shopping_list, name: 'list')
-      second_item = create(:shopping_list_item, shopping_list_id: list.id, aisle_id: second_aisle.id)
-      first_item = create(:shopping_list_item, shopping_list_id: list.id, aisle_id: first_aisle.id)
+      third_item = create(:shopping_list_item, name: 'carrots', shopping_list_id: list.id, aisle_id: second_aisle.id)
+      second_item = create(:shopping_list_item, name: 'bananas', shopping_list_id: list.id, aisle_id: second_aisle.id)
+      first_item = create(:shopping_list_item, name: 'apples', shopping_list_id: list.id, aisle_id: first_aisle.id)
 
-      expect(list.shopping_list_items.by_aisle_order_number.first).to eq(first_item)
-      expect(list.shopping_list_items.by_aisle_order_number.last).to eq(second_item)
+      aggregate_failures("verifying item order") do
+        expect(list.shopping_list_items.by_aisle_order_number[0]).to eq(first_item)
+        expect(list.shopping_list_items.by_aisle_order_number[1]).to eq(second_item)
+        expect(list.shopping_list_items.by_aisle_order_number[2]).to eq(third_item)
+      end
     end
   end
 

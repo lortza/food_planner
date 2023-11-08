@@ -34,7 +34,7 @@ class ShoppingListItem < ApplicationRecord
   end
 
   def self.by_aisle_order_number
-    includes(:aisle).order('aisles.order_number')
+    includes(:aisle).order('aisles.order_number ASC, shopping_list_items.name ASC')
   end
 
   def active?
