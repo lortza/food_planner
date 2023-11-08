@@ -1,5 +1,39 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: recipes
+#
+#  id                    :bigint           not null, primary key
+#  archived              :boolean          default(FALSE)
+#  cook_time             :integer          default(0), not null
+#  extra_work_note       :string
+#  image_url             :string           default(""), not null
+#  instructions          :text             default(""), not null
+#  last_prepared_on      :date
+#  notes                 :text
+#  nutrition_data_iframe :text
+#  pepperplate_url       :string
+#  prep_day_instructions :text             default("")
+#  prep_time             :integer          default(0), not null
+#  reheat_instructions   :text             default("")
+#  reheat_time           :integer          default(0)
+#  servings              :integer          default(0), not null
+#  source_name           :string           default(""), not null
+#  source_url            :string           default(""), not null
+#  title                 :string           default(""), not null
+#  created_at            :datetime         not null
+#  updated_at            :datetime         not null
+#  user_id               :bigint
+#
+# Indexes
+#
+#  index_recipes_on_user_id  (user_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (user_id => users.id)
+#
 class Recipe < ApplicationRecord
   extend Searchable
 
