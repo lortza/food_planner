@@ -28,6 +28,7 @@ gem 'net-pop', require: false
 gem 'net-imap', require: false
 
 group :development do
+  gem 'annotate'
   gem 'awesome_print'
   gem 'listen'
   # gem 'magic_frozen_string_literal'
