@@ -7,18 +7,16 @@
 
 <% if current_user.shopping_lists.any? %>
   <% @shopping_lists.each do |shopping_list| %>
-      <p class='index-item controls-on-right-parent'>
-        <span>
-          <%= toggle_favorite(shopping_list) %>
-          <%= link_to shopping_list.name, shopping_list_path(shopping_list) %>
-          (<%= shopping_list.items.not_purchased.length %>)
-        </span>
-        <%  if shopping_list.deletable? %>
-          <span class='controls'>
-            <%= link_to MaterialIcon.new(icon: :settings, classes: 'float-right').render, edit_shopping_list_path(shopping_list) %>
-          </span>
-        <% end %>
-      </p>
+    <p class='index-item controls-on-right-parent'>
+      <span>
+        <%= toggle_favorite(shopping_list) %>
+        <%= link_to shopping_list.name, shopping_list_path(shopping_list) %>
+        (<%= shopping_list.items.not_purchased.length %>)
+      </span>
+      <span class='controls'>
+        <%= link_to MaterialIcon.new(icon: :settings, classes: 'float-right').render, edit_shopping_list_path(shopping_list) %>
+      </span>
+    </p>
   <% end %>
 
 <% else %>

@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root 'recipes#index'
+  root 'shopping_lists#show'
 
   # Skip registrations for now so no new users can sign up.
   devise_for :users, skip: [:registrations]

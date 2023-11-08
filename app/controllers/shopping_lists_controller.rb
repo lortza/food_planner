@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ShoppingListsController < ApplicationController
-  before_action :set_shopping_list, only: %i[show search edit update destroy]
+  before_action :set_shopping_list, only: %i[search edit update destroy]
 
   def index
     @shopping_lists = current_user.shopping_lists.search(field: 'name', terms: params[:search]).by_favorite.by_name
@@ -9,6 +9,7 @@ class ShoppingListsController < ApplicationController
   end
 
   def show
+    set_shopping_list_for_root
     authorize(@shopping_list)
 
     @shopping_list_item = @shopping_list.shopping_list_items.new(quantity: 1)
@@ -61,6 +62,10 @@ class ShoppingListsController < ApplicationController
   end
 
   private
+
+  def set_shopping_list_for_root
+    @shopping_list = ShoppingList.find_by(id: params[:id]) || current_user.shopping_lists.by_favorite.first || current_user.shopping_lists.default
+  end
 
   def set_shopping_list
     @shopping_list = ShoppingList.find(params[:id])

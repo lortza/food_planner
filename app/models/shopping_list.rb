@@ -21,6 +21,10 @@ class ShoppingList < ApplicationRecord
     order(favorite: :desc)
   end
 
+  def default?
+    main == true
+  end
+
   def deletable?
     main == false
   end
