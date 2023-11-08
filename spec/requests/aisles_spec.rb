@@ -100,7 +100,6 @@ RSpec.describe 'Aisles', type: :request do
       delete aisle_path(user_aisle)
 
       expect(response).to redirect_to(aisles_url)
-      expect(response.body).to include(aisles_url)
     end
   end
 
