@@ -1,5 +1,25 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: meal_plans
+#
+#  id            :bigint           not null, primary key
+#  notes         :text
+#  people_served :integer          default(0), not null
+#  prepared_on   :date             not null
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  user_id       :bigint
+#
+# Indexes
+#
+#  index_meal_plans_on_user_id  (user_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (user_id => users.id)
+#
 class MealPlan < ApplicationRecord
   belongs_to :user
   has_many :meal_plan_recipes, dependent: :destroy
