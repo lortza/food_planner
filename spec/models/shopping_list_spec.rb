@@ -65,6 +65,18 @@ RSpec.describe ShoppingList, type: :model do
     end
   end
 
+  describe 'default?' do
+    it 'returns true if it is the "main" list' do
+      list = build(:shopping_list, main: true)
+      expect(list.default?).to be(true)
+    end
+
+    it 'returns false if it is any other list' do
+      list = build(:shopping_list)
+      expect(list.default?).to be(false)
+    end
+  end
+
   describe 'deletable?' do
     it 'returns false if it is the "main" list' do
       list = build(:shopping_list, main: true)

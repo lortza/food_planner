@@ -1,12 +1,19 @@
 <p><%= link_to MaterialIcon.new(icon: :arrow_left).render + 'Shopping Lists', shopping_lists_path %></p>
 
-<h1>Editing <%= @shopping_list.name %></h1>
+<h1>
+  Editing <%= @shopping_list.name %>
+  <% if @shopping_list.default? %>
+    (Default List)
+  <% end %>
+</h1>
 
-<%= link_to 'Clear List', deactivate_all_items_path(@shopping_list), method: :post, data: { confirm: 'Are you sure you want to cross off all items? This action cannot be undone.' }, title: 'clear list', class: "#{button_classes} mr-2" %>
+<%= link_to 'Cross off all items on list', deactivate_all_items_path(@shopping_list), method: :post, data: { confirm: 'Are you sure you want to cross off all items? This action cannot be undone.' }, title: 'clear list', class: "#{button_classes} mr-2" %>
 
 <hr>
 
 <%= render 'form', shopping_list: @shopping_list %>
 
-<%= render partial: 'shared/delete_footer', locals: { object: @shopping_list, delete_path: @shopping_list } %>
+<% if policy(@shopping_list).destroy? %>
+  <%= render partial: 'shared/delete_footer', locals: { object: @shopping_list, delete_path: @shopping_list } %>
+<% end %>
 
