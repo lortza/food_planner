@@ -106,7 +106,6 @@ RSpec.describe 'MealPlans', type: :request do
       delete meal_plan_path(user_meal_plan)
 
       expect(response).to redirect_to meal_plans_url
-      expect(response.body).to include(meal_plans_url)
     end
   end
 

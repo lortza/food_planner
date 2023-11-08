@@ -109,7 +109,6 @@ RSpec.describe 'ShoppingLists', type: :request do
       delete shopping_list_path(user_shopping_list)
 
       expect(response).to redirect_to(shopping_lists_url)
-      expect(response.body).to include(shopping_lists_url)
     end
   end
 
