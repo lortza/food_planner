@@ -49,11 +49,7 @@ class ShoppingListItem < ApplicationRecord
 
   scope :active, -> { where(status: 'active') }
   scope :inactive, -> { where(status: 'inactive') }
-  # DEPRECATION WARNING: Class level methods will no longer inherit scoping from `not_purchased`
-  # in Rails 6.1. To continue using the scoped relation, pass it into the blockdirectly. To instead
-  # access the full set of models, as Rails 6.1 will, use `ShoppingListItem.default_scoped`. (called
-  # from block in <class:ShoppingListItem> at app/models/shopping_list_item.rb:25)
-  scope :not_purchased, -> { where(status: 'active').or(ShoppingListItem.where(status: 'in_cart')) }
+  scope :not_purchased, -> { where(status: 'active').or(self.where(status: 'in_cart')) }
 
   def self.by_recently_edited
     order(updated_at: 'DESC')
