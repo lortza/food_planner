@@ -19,6 +19,28 @@ RSpec.describe Ingredient, type: :model do
       it { should validate_inclusion_of(:measurement_unit).in_array(Ingredient::UNITS) }
     end
 
+    context 'quantity' do
+      it 'is valid with a float' do
+        ingredient.quantity = '0.0222'
+        expect(ingredient.valid?).to be true
+      end
+
+      it 'is valid with an integer' do
+        ingredient.quantity = '2'
+        expect(ingredient.valid?).to be true
+      end
+
+      it 'is valid with a space' do
+        ingredient.quantity = '    0.2222   '
+        expect(ingredient.valid?).to be true
+      end
+
+      it 'is invalid with a non-number' do
+        ingredient.quantity = 'tacos'
+        expect(ingredient.valid?).to be false
+      end
+    end
+
     context 'a valid preparation_style' do
       let(:invalid_style) { 'invalid style' }
 

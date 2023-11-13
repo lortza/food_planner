@@ -1,14 +1,14 @@
-<td><%= f_ingredient.text_field :quantity, class: 'form-control input--small' %></td>
-<td>
-  <%= f_ingredient.select :measurement_unit,
+<div class='ingredients-col flex-sm'><%= f_ingredient.number_field :quantity, class: 'form-control', step: 'any' %></div>
+
+  <div class='ingredients-col'><%= f_ingredient.select :measurement_unit,
                           options_for_select(Ingredient::UNITS, selected: f_ingredient.object.measurement_unit),
                           {include_blank: true},
-                          class: 'form-control' %>
-</td>
-<td><%= f_ingredient.text_field :name, class: 'form-control' %></td>
-<td>
-  <%= f_ingredient.text_field :preparation_style,
+                          class: 'form-control' %></div>
+
+<div class='ingredients-col'><%= f_ingredient.text_field :name, class: 'form-control' %></div>
+
+<div class='ingredients-col'><%= f_ingredient.text_field :preparation_style,
                               placeholder: 'Ex: rinsed and drained',
-                              class: 'form-control' %>
-</td>
-<td><%= f_ingredient.check_box :_destroy if f_ingredient.object.persisted? %></td>
+                              class: 'form-control' %></div>
+
+<div class='ingredients-col flex-xs'><%= f_ingredient.check_box :_destroy if f_ingredient.object.persisted? %></div>
