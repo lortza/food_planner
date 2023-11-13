@@ -85,22 +85,18 @@
       </div>
     </div> <!-- row -->
 
-    <table class="table table-ingredients">
-      <thead>
-        <tr>
-          <th>Qty</th>
-          <th>Measurement</th>
-          <th>Name</th>
-          <th>Preparation Style</th>
-          <th>Delete?</th>
-        </tr>
-      </thead>
-      <tbody>
-        <%= form.fields_for :ingredients do |f_ingredient| %>
-          <tr><%= render 'ingredients/form_fields', f_ingredient: f_ingredient %></tr>
-        <% end %>
-      </tbody>
-    </table>
+    <section id='ingredients-container'>
+      <header id='ingredients-header'>
+        <div class="ingredients-col flex-sm">Qty</div>
+        <div class="ingredients-col">Measurement</div>
+        <div class="ingredients-col">Name</div>
+        <div class="ingredients-col">Prep Style</div>
+        <div class="ingredients-col flex-xs"><%= MaterialIcon.new(icon: :trash, size: :medium).render %></div>
+      </header>
+      <%= form.fields_for :ingredients do |f_ingredient| %>
+        <div class='ingredients-row'><%= render 'ingredients/form_fields', f_ingredient: f_ingredient %></div>
+      <% end %>
+    </section>
 
     <div class="field">
       <%= form.label 'Instructions' %>
