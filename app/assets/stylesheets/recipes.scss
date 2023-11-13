@@ -30,25 +30,26 @@
   }
 
   input#recipe_archived {
-    width: 30px;
     margin-left: 20px;
+    width: 30px;
   }
 
 }
 
 // Ingredients form styling
-#ingredients-container {
+.ingredients-container {
   margin-top: 1rem;
   overflow-x: scroll;
 
-  #ingredients-header {
+  .ingredients-header {
+    border-radius: .25rem;
     display: flex;
-    border-radius: 0.25rem;
     font-weight: bold;
+
     .ingredients-col {
-      padding: 0 5px;
       background: $brand-light-blue;
       border: 1px solid $light-gray;
+      padding: 0 5px;
     }
   }
 
@@ -59,27 +60,29 @@
   .ingredients-col {
     flex: 1 1 20%;
     min-width: 180px;
+
     .form-control {
-      padding: 5px 3px;
       min-width: 100px;
+      padding: 5px 3px;
     }
   }
 
   .flex-sm {
-    min-width: 50px;
     flex: 1 1 10%;
+    min-width: 50px;
   }
 
   .flex-xs {
+    border: 1px solid $bootstrap-grey;
+    flex: 0 1 10px;
     min-width: 1.25rem;
     padding: 3px;
     text-align: center;
-    flex: 0 1 10px;
-    border: 1px solid #ced4da;
+
     .material-symbols-outlined {
+      left: -3px;
       position: relative;
       top: 0;
-      left: -3px;
     }
   }
 }
