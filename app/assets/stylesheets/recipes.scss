@@ -34,52 +34,52 @@
     margin-left: 20px;
   }
 
-  // Ingredients form styling
+}
 
-  #ingredients-container {
-    margin-top: 1rem;
-    overflow-x: scroll;
+// Ingredients form styling
+#ingredients-container {
+  margin-top: 1rem;
+  overflow-x: scroll;
 
-    #ingredients-header {
-      display: flex;
-      border-radius: 0.25rem;
-      font-weight: bold;
-      .ingredients-col {
-        padding: 0 5px;
-        background: $brand-light-blue;
-        border: 1px solid $light-gray;
-      }
-    }
-
-    .ingredients-row {
-      display: flex;
-    }
-
+  #ingredients-header {
+    display: flex;
+    border-radius: 0.25rem;
+    font-weight: bold;
     .ingredients-col {
-      flex: 1 1 20%;
-      min-width: 180px;
-      .form-control {
-        padding: 5px 3px;
-        min-width: 100px;
-      }
+      padding: 0 5px;
+      background: $brand-light-blue;
+      border: 1px solid $light-gray;
     }
+  }
 
-    .flex-sm {
-      min-width: 50px;
-      flex: 1 1 10%;
+  .ingredients-row {
+    display: flex;
+  }
+
+  .ingredients-col {
+    flex: 1 1 20%;
+    min-width: 180px;
+    .form-control {
+      padding: 5px 3px;
+      min-width: 100px;
     }
+  }
 
-    .flex-xs {
-      min-width: 1.25rem;
-      padding: 3px;
-      text-align: center;
-      flex: 0 1 10px;
-      border: 1px solid #ced4da;
-      .material-symbols-outlined {
-        position: relative;
-        top: 0;
-        left: -3px;
-      }
+  .flex-sm {
+    min-width: 50px;
+    flex: 1 1 10%;
+  }
+
+  .flex-xs {
+    min-width: 1.25rem;
+    padding: 3px;
+    text-align: center;
+    flex: 0 1 10px;
+    border: 1px solid #ced4da;
+    .material-symbols-outlined {
+      position: relative;
+      top: 0;
+      left: -3px;
     }
   }
 }
