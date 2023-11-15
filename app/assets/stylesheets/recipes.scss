@@ -24,65 +24,10 @@
 
   .input--small { width: 4.5rem; }
 
-  .table-ingredients {
-    border: 0;
-    margin-top: 1rem;
-  }
-
-  input#recipe_archived {
-    margin-left: 20px;
-    width: 30px;
-  }
-
-}
-
-// Ingredients form styling
-.ingredients-container {
-  margin-top: 1rem;
-  overflow-x: scroll;
-
-  .ingredients-header {
-    border-radius: .25rem;
-    display: flex;
-    font-weight: bold;
-
-    .ingredients-col {
-      background: $brand-light-blue;
-      border: 1px solid $light-gray;
-      padding: 0 5px;
-    }
-  }
-
-  .ingredients-row {
-    display: flex;
-  }
-
-  .ingredients-col {
-    flex: 1 1 20%;
-    min-width: 180px;
-
+  .ingredients-container {
     .form-control {
-      min-width: 100px;
-      padding: 5px 3px;
-    }
-  }
-
-  .flex-sm {
-    flex: 1 1 10%;
-    min-width: 50px;
-  }
-
-  .flex-xs {
-    border: 1px solid $bootstrap-grey;
-    flex: 0 1 10px;
-    min-width: 1.25rem;
-    padding: 3px;
-    text-align: center;
-
-    .material-symbols-outlined {
-      left: -3px;
-      position: relative;
-      top: 0;
+      border: 0;
+      padding-left: 0;
     }
   }
 }

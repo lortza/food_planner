@@ -80,40 +80,49 @@
       <div class="col-sm-2">
         <div class="field">
           <%= form.label :archived %>
-          <%= form.check_box :archived, class: 'form-control' %>
+          <%= form.check_box :archived, class: 'form-control checkbox-m' %>
         </div>
       </div>
     </div> <!-- row -->
 
-    <section class='ingredients-container'>
-      <header class='ingredients-header'>
-        <div class="ingredients-col flex-sm">Qty</div>
-        <div class="ingredients-col">Measurement</div>
-        <div class="ingredients-col">Name</div>
-        <div class="ingredients-col">Prep Style</div>
-        <div class="ingredients-col flex-xs"><%= MaterialIcon.new(icon: :trash, size: :medium).render %></div>
-      </header>
-      <%= form.fields_for :ingredients do |f_ingredient| %>
-        <div class='ingredients-row'><%= render 'ingredients/form_fields', f_ingredient: f_ingredient %></div>
-      <% end %>
-    </section>
+    <%= form.label 'Ingredients', class: 'font-weight-bold mt-5' %>
+    <div class="ingredients-container w-100 overflow-x-scroll">
+      <table>
+        <thead>
+          <tr class='border-bottom'>
+            <th class='w-10 mw-5'>Qty</th>
+            <th class='w-10 mw-6'>Unit</th>
+            <th class='w-20 mw-15'>Name</th>
+            <th class='w-20 mw-15'>Preparation Style</th>
+            <th class='w-5 mw-1'><%= MaterialIcon.new(icon: :trash, size: :large).render %></th>
+          </tr>
+        </thead>
+        <tbody class=''>
+          <%= form.fields_for :ingredients do |f_ingredient| %>
+            <tr class='border-bottom'>
+              <%= render 'ingredients/form_fields', f_ingredient: f_ingredient %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
 
     <div class="field">
-      <%= form.label 'Instructions' %>
+      <%= form.label 'Instructions', class: 'font-weight-bold mt-5' %>
       <%= form.text_area :instructions, class: 'form-control instructions' %>
     </div>
 
     <div class="row">
       <div class="col-lg-6 col-md-12">
         <div class="field">
-          <%= form.label 'Prep Day Instructions' %>
+          <%= form.label 'Prep Day Instructions', class: 'font-weight-bold mt-5' %>
           <%= form.text_area :prep_day_instructions, class: 'form-control instructions' %>
         </div>
       </div>
 
       <div class="col-lg-6 col-md-12">
         <div class="field">
-          <%= form.label :reheat_instructions %>
+          <%= form.label :reheat_instructions, class: 'font-weight-bold mt-5' %>
           <%= form.text_area :reheat_instructions, class: 'form-control instructions' %>
         </div>
       </div>
