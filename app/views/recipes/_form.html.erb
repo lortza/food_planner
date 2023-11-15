@@ -97,7 +97,7 @@
             <th class='w-5 mw-1'><%= MaterialIcon.new(icon: :trash, size: :large).render %></th>
           </tr>
         </thead>
-        <tbody class=''>
+        <tbody>
           <%= form.fields_for :ingredients do |f_ingredient| %>
             <tr class='border-bottom'>
               <%= render 'ingredients/form_fields', f_ingredient: f_ingredient %>
