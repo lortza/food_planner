@@ -47,7 +47,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 6.0.3'
+  gem 'rspec-rails', '~> 6.1.0'
   gem 'better_errors'           # creates console in browser for errors
   gem 'binding_of_caller'       # goes with better_errors
   # gem 'bullet'                  # detects n+1 queries
