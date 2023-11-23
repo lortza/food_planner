@@ -51,6 +51,6 @@ class ExperimentalRecipesController < ApplicationController
   end
 
   def experimental_recipe_params
-    params.require(:experimental_recipe).permit(:title, :source_url, :user_id)
+    params.require(:experimental_recipe).permit(:title, :source_url, :image_url, :user_id)
   end
 end

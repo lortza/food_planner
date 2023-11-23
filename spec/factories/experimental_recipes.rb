@@ -5,6 +5,7 @@
 # Table name: experimental_recipes
 #
 #  id         :bigint           not null, primary key
+#  image_url  :string
 #  source_url :string
 #  title      :string
 #  created_at :datetime         not null
