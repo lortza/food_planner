@@ -5,19 +5,27 @@
 <h1>Recipes to Try</h1>
 <p>Save interesting recipes that we'd like to try here. Once we make a recipe, if we like it, we will add it in to our regular recipes collection.</p>
 
-<table class="table">
+<table class="table table-sm table--recipes-index">
   <thead>
     <tr>
-      <th>Recipe</th>
+      <th colspan='2'>Recipe</th>
       <th colspan='3'>Manage</th>
     </tr>
   </thead>
   <tbody>
     <% @experimental_recipes.each do |recipe| %>
       <tr>
+        <td>
+          <div class="img--container">
+            <%= link_to (image_tag guaranteed_image(recipe), alt: recipe.title), recipe, 'aria-label': 'Go to recipe' %>
+          </div>
+        </td>
         <td><%= link_to recipe.title, recipe.source_url, target: '_blank' %></td>
-        <td><%= link_to 'edit', edit_experimental_recipe_path(recipe) %></td>
-        <td><%= link_to 'delete', recipe, method: :delete, data: { confirm: 'Are you sure? This action cannot be undone.' } %></td>
+        <td><%= link_to MaterialIcon.new(icon: :settings, size: :xlarge, title: 'Edit recipe').render, edit_experimental_recipe_path(recipe), 'aria-label': 'Edit recipe' %></td>
+        <td>
+          <%= link_to MaterialIcon.new(icon: :trash, size: :xlarge, title: 'Delete recipe').render,
+                recipe, method: :delete, 'aria-label': 'Delete recipe', data: { confirm: 'Are you sure? This action cannot be undone.' } %>
+        </td>
         <td><%= link_to 'convert to recipe', convert_from_experimental_path(experimental_recipe_id: recipe.id), method: :post %></td>
       </tr>
     <% end %>
