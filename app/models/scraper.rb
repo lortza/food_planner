@@ -24,11 +24,14 @@ class Scraper
     # @client.initialize_http_header({'User-Agent' => "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36" })
     # response = @client.request_get(@endpoint)
     # JSON.parse(response)
-    html = URI.open(@endpoint)
-    doc = Nokogiri::HTML(html)
-    items = doc.css("li").filter_map { |li| li.text.squish unless li.text.blank? }
-    items.join("\n")
-
+    begin
+      html = URI.open(@endpoint)
+      doc = Nokogiri::HTML(html)
+      items = doc.css("li").filter_map { |li| li.text.squish unless li.text.blank? }
+      items.join("\n")
+    rescue
+      "could not scrape"
+    end
     # lis = doc.css('li')
     # ingredient_heading = doc.at('h2:contains("Ingredients")') || doc.at('h3:contains("Ingredients")') || doc.at('h4:contains("Ingredients")')
     # instructions_heading = doc.at('h2:contains("Instructions")') || doc.at('h3:contains("Instructions")') || doc.at('h4:contains("Instructions")')
