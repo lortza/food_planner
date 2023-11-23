@@ -4,11 +4,11 @@ module ShoppingListsHelper
   def toggle_favorite(list)
     if list.favorite
       # Show the filled star and link to "unfavorite" it
-      link_to MaterialIcon.new(icon: :star_filled, classes: 'text-warning').render,
+      link_to MaterialIcon.new(icon: :star, filled: true, title: 'Click to unfavorite', classes: 'text-warning').render,
         shopping_list_favorite_path(list), method: :delete
     else
       # Show the outlined star and link to "favorite" it
-      link_to MaterialIcon.new(icon: :star_outline).render,
+      link_to MaterialIcon.new(icon: :star, filled: false, title: 'Click to favorite').render,
         shopping_list_favorites_path(id: list.id), method: :post
     end
   end
