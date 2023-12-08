@@ -61,20 +61,20 @@ jobs:
         run: bundle exec scss-lint app/assets/stylesheets/**.scss
       # - name: Rubocop
       #   run: bundle exec rubocop --parallel
-      # - name: Reek
-      #   run: bundle exec reek
+      - name: Reek
+        run: bundle exec reek
 
-  security:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Install Ruby and gems
-        uses: ruby/setup-ruby@8f312efe1262fb463d906e9bf040319394c18d3e # v1.92
-        with:
-          bundler-cache: true
-      # Add or replace any other services here
-      - name: Security audit dependencies
-        run: bin/bundler-audit --update
-      # - name: Security audit application code
-      #   run: bin/brakeman -q -w2
+  # security:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v3
+  #     - name: Install Ruby and gems
+  #       uses: ruby/setup-ruby@8f312efe1262fb463d906e9bf040319394c18d3e # v1.92
+  #       with:
+  #         bundler-cache: true
+  #     # Add or replace any other services here
+  #     - name: Security audit dependencies
+  #       run: bin/bundle-audit check --update
+  #     - name: Security audit application code
+  #       run: bin/brakeman -q -w2
