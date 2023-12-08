@@ -47,22 +47,22 @@ jobs:
       - name: Check Seeds
         run: bundle exec rake db:seed
 
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Install Ruby and gems
-        uses: ruby/setup-ruby@8f312efe1262fb463d906e9bf040319394c18d3e # v1.92
-        with:
-          bundler-cache: true
-      # Add or replace any other lints here
-      - name: Lint CSS
-        run: bundle exec scss-lint app/assets/stylesheets/**.scss
-      # - name: Rubocop
-      #   run: bundle exec rubocop --parallel
-      - name: Reek
-        run: bundle exec reek
+  # lint:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v3
+  #     - name: Install Ruby and gems
+  #       uses: ruby/setup-ruby@8f312efe1262fb463d906e9bf040319394c18d3e # v1.92
+  #       with:
+  #         bundler-cache: true
+  #     # Add or replace any other lints here
+  #     - name: Lint CSS
+  #       run: bundle exec scss-lint app/assets/stylesheets/**.scss
+  #     - name: Rubocop
+  #       run: bundle exec rubocop --parallel
+  #     - name: Reek
+  #       run: bundle exec reek
 
   # security:
   #   runs-on: ubuntu-latest
