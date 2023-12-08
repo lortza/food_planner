@@ -66,6 +66,8 @@ group :test do
   gem 'launchy' # open browser with save_and_open_page
   gem 'rails-controller-testing' # allows for controller testing
   gem 'shoulda-matchers' # library for easier testing syntax
+  gem 'simplecov'
+  gem 'simplecov-lcov'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

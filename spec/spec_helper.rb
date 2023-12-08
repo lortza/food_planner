@@ -13,7 +13,16 @@
 # a separate helper file that requires the additional dependencies and performs
 # the additional setup, and require it from the spec files that actually need
 # it.
-#
+
+require 'simplecov'
+# require 'simplecov-lcov'
+
+# SimpleCov::Formatter::LcovFormatter.config.report_with_single_file = true
+# SimpleCov.formatter = SimpleCov::Formatter::LcovFormatter
+SimpleCov.start 'rails' do
+  enable_coverage :branch
+end
+
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate

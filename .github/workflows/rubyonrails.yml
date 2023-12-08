@@ -38,7 +38,11 @@ jobs:
         run: bin/rails db:schema:load
       # Add or replace test runners here
       - name: Run tests
-        run: bin/rake
+        run: bundle exec rspec
+      - name: SimpleCov Report
+        uses: aki77/simplecov-report-action@v1
+          with:
+            token: ${{ secrets.GITHUB_TOKEN }}
       - name: Check Seeds
         run: bundle exec rake db:seed
 
