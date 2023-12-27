@@ -39,11 +39,14 @@ jobs:
       # Add or replace test runners here
       - name: Run tests
         run: bundle exec rspec
-      - name: SimpleCov Report
-        uses: aki77/simplecov-report-action@v1
+      - uses: joshmfrankel/simplecov-check-action@main
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          failedThreshold: 0
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      # - name: SimpleCov Report
+      #   uses: aki77/simplecov-report-action@v1
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     failedThreshold: 0
       - name: Check Seeds
         run: bundle exec rake db:seed
 
