@@ -9,25 +9,30 @@
       <%= @recipe.title %>
       <sup><%= extra_work_flag(@recipe) if current_user.present? %> <%= status_flag(@recipe) %></sup>
     </h1>
-    <p>
-      Source: <%= link_to @recipe.source_name, @recipe.source_url, title: @recipe.source_name, target: '_blank' %>
-    </p>
+    <div class='recipe-show-stats text-small'>
+      <div>Source: <%= link_to @recipe.source_name, @recipe.source_url, title: @recipe.source_name, target: '_blank' %></div>
+      <div>Servings: <%= @recipe.servings %></div>
+      <div>Prep Time: <%= display_time(@recipe.prep_time) %></div>
+      <div>Cook Time: <%= display_time(@recipe.cook_time) %></div>
+      <div>Total Time: <%= display_time(@recipe.total_time) %></div>
+      <div>Reheat Time: <%= display_time(@recipe.reheat_time) %></div>
+      <div>Prepared: <%= pluralize(@recipe.frequency, 'time') %></div>
+    </div>
   </div>
 </div><!-- row -->
 
 <div class='row'>
+  <!-- Left side content -->
   <div class='col-md-8 col-sm-12'>
     <div class='row'>
       <div class='col-md-6 col-sm-12'>
-        <h5>Stats</h5>
-        <ul>
-          <li>Servings: <%= @recipe.servings %></li>
-          <li>Prep Time: <%= display_time(@recipe.prep_time) %></li>
-          <li>Cook Time: <%= display_time(@recipe.cook_time) %></li>
-          <li>Total Time: <%= display_time(@recipe.total_time) %></li>
-          <li>Reheat Time: <%= display_time(@recipe.reheat_time) %></li>
-          <li>Prepared: <%= pluralize(@recipe.frequency, 'time') %></li>
-        </ul>
+       <h3>Ingredients</h3>
+        <div class='ml-3 mb-4'>
+          <% @recipe.ingredients.by_id.each do |ingredient| %>
+            <input type="checkbox">
+            <label class="mb-0 inline"><%= ingredient_display(ingredient) %></label><br>
+          <% end %>
+        </div>
       </div> <!-- col-6 -->
 
       <div class='col-md-6 col-sm-12'>
@@ -42,18 +47,49 @@
     </div> <!-- row -->
 
     <div class='row'>
-      <div class='col-12'>
-        <h3>Ingredients</h3>
-        <div class='ml-3 mb-4'>
-          <% @recipe.ingredients.by_id.each do |ingredient| %>
-            <input type="checkbox">
-            <label class="mb-0 inline"><%= ingredient_display(ingredient) %></label><br>
-          <% end %>
-        </div>
-      </div> <!-- col-12 -->
+      <div class='col-sm-12'>
+        <h3>Instructions</h3>
+        <div class="card mb-5">
+          <div class="card-header">
+            <ul class="nav nav-tabs card-header-tabs">
+              <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#regular" role="tab" aria-controls="regular" aria-selected="true">Regular</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#prep-day" role="tab" aria-controls="prep-day" aria-selected="false">Prep Day</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#reheat" role="tab" aria-controls="reheat" aria-selected="false">Reheat</a>
+              </li>
+            </ul>
+          </div>
+          <div class="card-body">
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade show active" id="regular" role="tabpanel" aria-labelledby="regular-tab">
+                <ol>
+                  <%= simple_format(@recipe.instructions, {}, wrapper_tag: 'li') %>
+                </ol>
+              </div>
+
+              <div class="tab-pane fade" id="prep-day" role="tabpanel" aria-labelledby="prep-day-tab">
+                <ol>
+                  <%= simple_format(@recipe.prep_day_instructions, {}, wrapper_tag: 'li') %>
+                </ol>
+              </div>
+
+              <div class="tab-pane fade" id="reheat" role="tabpanel" aria-labelledby="reheat-tab">
+                <ol>
+                  <%= simple_format(@recipe.reheat_instructions, {}, wrapper_tag: 'li') %>
+                </ol>
+              </div>
+            </div><!-- tab-content -->
+          </div><!-- card body -->
+        </div><!-- card -->
+      </div>
     </div> <!-- row -->
   </div> <!-- col-8 -->
 
+  <!-- Right side sidebar -->
   <div class='col-md-4 col-sm-12'>
     <div class='image-container mb-3'>
       <%= image_tag guaranteed_image(@recipe), { class: 'image' } %>
@@ -65,52 +101,8 @@
       <%= render partial: 'copy_for_user_form', locals: { recipe: @recipe } %>
       <%= render partial: 'related_recipes', locals: {recipe: @recipe} %>
     <% end %>
-  </div>
-</div> <!-- row -->
 
-<div class='row'>
-  <div class='col-md-8 col-sm-12'>
-    <h3>Instructions</h3>
-    <div class="card mb-5">
-      <div class="card-header">
-        <ul class="nav nav-tabs card-header-tabs">
-          <li class="nav-item">
-            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#regular" role="tab" aria-controls="regular" aria-selected="true">Regular</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#prep-day" role="tab" aria-controls="prep-day" aria-selected="false">Prep Day</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#reheat" role="tab" aria-controls="reheat" aria-selected="false">Reheat</a>
-          </li>
-        </ul>
-      </div>
-      <div class="card-body">
-        <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active" id="regular" role="tabpanel" aria-labelledby="regular-tab">
-            <ol>
-              <%= simple_format(@recipe.instructions, {}, wrapper_tag: 'li') %>
-            </ol>
-          </div>
-
-          <div class="tab-pane fade" id="prep-day" role="tabpanel" aria-labelledby="prep-day-tab">
-            <ol>
-              <%= simple_format(@recipe.prep_day_instructions, {}, wrapper_tag: 'li') %>
-            </ol>
-          </div>
-
-          <div class="tab-pane fade" id="reheat" role="tabpanel" aria-labelledby="reheat-tab">
-            <ol>
-              <%= simple_format(@recipe.reheat_instructions, {}, wrapper_tag: 'li') %>
-            </ol>
-          </div>
-        </div><!-- tab-content -->
-      </div><!-- card body -->
-    </div><!-- card -->
-  </div> <!-- left column -->
-
-  <div class='col-md-4 col-sm-12'>
-    <h3>Nutrition Facts</h3>
+    <h3 class="mt-3">Nutrition Facts</h3>
     <%= render partial: 'nutritional_information', locals: { recipe: @recipe, iframe_parser: CronometerParser.new(@recipe.nutrition_data_iframe) } %>
-  </div> <!-- right column -->
+  </div>
 </div> <!-- row -->
