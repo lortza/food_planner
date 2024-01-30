@@ -31,6 +31,9 @@
           <div class='form-check'>
             <%= r.check_box class: 'form-check-input' %>
             <%= r.label class: 'form-check-label' %>
+            <%= link_to(
+                MaterialIcon.new(icon: :quick_reference, title: 'Go to recipe').render,
+                r.object) %>
           </div>
         <% end %>
       </div>
