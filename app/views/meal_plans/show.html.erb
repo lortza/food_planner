@@ -43,11 +43,11 @@
 <h2>Ingredient Breakdown</h2>
 <section class="card-columns">
   <% @ingredient_set.each do |ingredient, preparations| %>
-      <details open class='card mb-2'>
-        <summary class='card-header'><%= ingredient %></summary>
-        <div class="card-body">
+      <details open>
+        <summary class='mt-2 border-top border-secondary'><%= ingredient %></summary>
+        <div class="mb-3">
           <% preparations.each do |preparation| %>
-            <div class='mb-2'>
+            <div class='pl-4 mb-2'>
               <input type="checkbox">
               <label class="mb-0 inline">
                 <%= detail_display(preparation) %> (<%= link_to preparation.recipe.title, recipe_path(preparation.recipe) %>)
