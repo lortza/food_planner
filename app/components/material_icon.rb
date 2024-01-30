@@ -27,6 +27,7 @@ class MaterialIcon
     when :new then new_release;
     when :plus_circle then plus_circle;
     when :plus_square then plus_square;
+    when :quick_reference then quick_reference;
     when :search then search;
     when :settings then settings;
     when :shopping_bag then shopping_bag;
@@ -118,6 +119,12 @@ class MaterialIcon
     content_tag(:span, 'add_box',
       class: symbol_classes,
       title: @title.presence || 'Add to list')
+  end
+
+  def quick_reference
+    content_tag(:span, 'quick_reference',
+      class: symbol_classes,
+      title: @title.presence || 'Learn more')
   end
 
   def shopping_bag
