@@ -1,5 +1,9 @@
-<footer class='footer--delete'>
-  <h5>Danger Zone</h5>
-  <p>Deleting this <%= object.class.name %> cannot be undone.</p>
-  <%= link_to "Delete #{object.class.name}", delete_path,  method: :delete, data: { confirm: 'Are you sure? This action cannot be undone.' }, class: "#{button_classes('danger')} mb-5"  %>
-</footer>
+<details>
+  <summary class='mt-4 border-top border-secondary'><h5 class="inline-block pt-3">Danger Zone</h5></summary>
+  <footer>
+    <p>Deleting this <%= object.class.name %> cannot be undone.
+      <%= link_to "Delete #{object.class.name}", delete_path,  method: :delete, data: { confirm: 'Are you sure? This action cannot be undone.' }, class: "text-danger" %>
+    </p>
+  </footer>
+</details>
+
