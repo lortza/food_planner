@@ -23,6 +23,8 @@ class MealPlansController < ApplicationController
     }
     @meal_plan = current_user.meal_plans.new(default_params)
     authorize(@meal_plan)
+
+    @recipes = current_user.recipes.includes(:meal_plan_recipes, :meal_plans).active.by_title
   end
 
   def copy
@@ -48,6 +50,8 @@ class MealPlansController < ApplicationController
 
   def edit
     authorize(@meal_plan)
+    @recipes = current_user.recipes.includes(:meal_plan_recipes, :meal_plans).active.by_title
+
   end
 
   def update

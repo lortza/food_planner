@@ -30,6 +30,7 @@ gem 'net-imap', require: false
 group :development do
   gem 'annotate'
   gem 'awesome_print'
+  gem 'bullet'                  # detects n+1 queries
   gem 'listen'
   # gem 'magic_frozen_string_literal'
   gem 'rails-erd', require: false   # generates table diagram run `bundle exec erd`
@@ -50,7 +51,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 6.1.1'
   gem 'better_errors'           # creates console in browser for errors
   gem 'binding_of_caller'       # goes with better_errors
-  # gem 'bullet'                  # detects n+1 queries
   gem 'byebug', platforms: %i[mri mingw x64_mingw] # Call 'byebug' anywhere in the code to get a debugger console
   gem 'factory_bot_rails'       # factory support for rspec
   gem 'guard-rspec', require: false # runs rspec automatically

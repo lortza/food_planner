@@ -27,13 +27,12 @@
       <div class="col-sm-3">Select Recipes</div>
 
       <div class="col-sm-9">
-        <%= form.collection_check_boxes :recipe_ids, current_user.recipes.active.by_title, :id, :checkbox_label do |r| %>
+        <%= form.collection_check_boxes :recipe_ids, @recipes, :id, :title do |r| %>
           <div class='form-check'>
             <%= r.check_box class: 'form-check-input' %>
-            <%= r.label class: 'form-check-label' %>
-            <%= link_to(
-                MaterialIcon.new(icon: :quick_reference, title: 'Go to recipe').render,
-                r.object) %>
+            <%= r.label class: 'form-check-label' do %>
+              <%= link_to r.object.title, r.object %> (serves <%= r.object.servings %>) <%= r.object.last_prepared if r.object.last_prepared.present? %>
+            <% end %>
           </div>
         <% end %>
       </div>
