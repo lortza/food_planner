@@ -97,11 +97,6 @@ class Recipe < ApplicationRecord
     self.source_url = DEFAULT_SOURCE[:source_url] if source_url.blank?
   end
 
-  def checkbox_label
-    output = "#{title} (#{servings} servings)"
-    last_prepared ? output + ": #{last_prepared}" : output
-  end
-
   def last_prepared
     meal_plans.pluck(:prepared_on).max
   end
