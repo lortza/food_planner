@@ -86,20 +86,55 @@ RSpec.describe 'MealPlans', type: :request do
       expect(response).to render_template(:edit)
     end
 
-    xit 'renders meal_plans#create' do
-      starting_count = MealPlan.count
-      meal_plan_attributes = build(:meal_plan, user: user).attributes
-      post meal_plans_path(meal_plan: meal_plan_attributes)
+    describe '#create' do
+      context 'when the save is successful' do
+        it 'creates a new record' do
+          starting_count = MealPlan.count
+          meal_plan_attributes = build(:meal_plan, user: user).attributes
+          post meal_plans_path(meal_plan: meal_plan_attributes)
 
-      expect(response).to be_successful
-      expect(MealPlan.count).to eq(starting_count + 1)
+          expect(MealPlan.count).to eq(starting_count + 1)
+        end
+
+        it 'redirects to the new record' do
+          meal_plan_attributes = build(:meal_plan, user: user).attributes
+          post meal_plans_path(meal_plan: meal_plan_attributes)
+
+          expect(response).to redirect_to meal_plan_url(user.meal_plans.last)
+        end
+      end
+
+      context 'when the save is unsuccessful' do
+        it 'renders :new' do
+          same_date = '2024-04-01'
+          existing_meal_plan = create(:meal_plan, prepared_on: same_date, user: user)
+          meal_plan_attributes = build(:meal_plan, prepared_on: same_date, user: user).attributes
+          post meal_plans_path(meal_plan: meal_plan_attributes)
+
+          expect(response).to render_template(:new)
+        end
+      end
     end
 
-    it 'renders meal_plans#update' do
-      new_prepared_on = Time.zone.now + 15
-      patch meal_plan_path(user_meal_plan, meal_plan: { prepared_on: new_prepared_on })
+    describe '#update' do
+      context 'when the update is successful' do
+        it 'redirects to the meal_plan' do
+          new_prepared_on = Time.zone.now + 15
+          patch meal_plan_path(user_meal_plan, meal_plan: { prepared_on: new_prepared_on })
 
-      expect(response).to redirect_to meal_plan_url(user_meal_plan)
+          expect(response).to redirect_to meal_plan_url(user_meal_plan)
+        end
+      end
+
+      context 'when the update is unsuccessful' do
+        it 'redirects to the meal_plan' do
+          same_date = '2024-04-01'
+          existing_meal_plan = create(:meal_plan, prepared_on: same_date, user: user)
+          patch meal_plan_path(user_meal_plan, meal_plan: { prepared_on: same_date })
+
+          expect(response).to render_template(:edit)
+        end
+      end
     end
 
     it 'renders meal_plans#destroy' do

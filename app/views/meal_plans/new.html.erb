@@ -4,4 +4,4 @@
 
 <h1>Create a Meal Plan</h1>
 
-<%= render 'form', meal_plan: @meal_plan %>
+<%= render partial: 'form', locals: { meal_plan: @meal_plan, recipes: @recipes } %>
