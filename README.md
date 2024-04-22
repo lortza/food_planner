@@ -67,7 +67,7 @@ Never open the `master.key` or `credentials.yml.enc` in atom. This will add newl
 
 To edit this file, run:
 ```
-EDITOR="atom --wait" bin/rails credentials:edit
+EDITOR="code --wait" bin/rails credentials:edit
 ```
 If this file gets borked, [this post](https://stackoverflow.com/a/54279636/5009528) and [this post](https://medium.com/@kirill_shevch/encrypted-secrets-credentials-in-rails-6-rails-5-1-5-2-f470accd62fc) will help.
 

@@ -4,6 +4,6 @@
 
 <h1>Edit the Plan for <%= @meal_plan.prepared_on.to_fs(:long) %> </h1>
 
-<%= render 'form', meal_plan: @meal_plan %>
+<%= render partial: 'form', locals: { meal_plan: @meal_plan, recipes: @recipes } %>
 
 <%= render partial: 'shared/delete_footer', locals: { object: @meal_plan, delete_path: @meal_plan } %>
