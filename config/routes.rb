@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'shopping_lists#show'
 
-  # Skip registrations for now so no new users can sign up.
-  devise_for :users, skip: [:registrations]
+  # Clobber sign_up for now so no new users can sign up.
+  devise_for :users, path_names: {
+    sign_up: ''
+  }
 
   # When we do want to allow new users to sign up, we need to override the
   # devise registrations controller so that we can run custom UserDataSetup
