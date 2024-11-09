@@ -39,7 +39,7 @@ FactoryBot.define do
     user
     sequence(:title) { |n| "Recipe Title #{n}" }
     sequence(:source_name) { |n| "Recipe Source #{n}" }
-    sequence(:source_url) { |n| "http://recipesource#{n}.com" }
+    sequence(:source_url) { |n| "https://example#{n}.com" }
     prep_time { rand(0..20) }
     nutrition_data_iframe { '' }
     cook_time { rand(0..60) }
