@@ -53,6 +53,7 @@ group :development, :test do
   gem 'binding_of_caller'       # goes with better_errors
   gem 'byebug', platforms: %i[mri mingw x64_mingw] # Call 'byebug' anywhere in the code to get a debugger console
   gem 'factory_bot_rails'       # factory support for rspec
+  gem 'faker'                   # Fake data for factories
   gem 'guard-rspec', require: false # runs rspec automatically
   gem 'pry-rails'               # helps with pry
   gem 'reek'                    # https://github.com/troessner/reek/blob/master/docs/Code-Smells.md

@@ -25,7 +25,11 @@ FactoryBot.define do
   factory :ingredient do
     recipe { association(:recipe) }
     sequence(:name) { |n| "ingredient name #{n}" }
-    quantity { 1.5 }
+    quantity { (0.25..3).step(0.25).to_a.sample }
     measurement_unit { Ingredient::UNITS[1..-1].sample }
+
+    trait :with_faker_data do
+      name { Faker::Food.ingredient }
+    end
   end
 end

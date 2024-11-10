@@ -24,6 +24,11 @@ FactoryBot.define do
   factory :experimental_recipe do
     user
     sequence(:title) { |n| "experimental_recipe#{n}" }
-    sequence(:source_url) { |n| "http://www.google.com/#{n}" }
+    sequence(:source_url) { |n| "http://www.example.com/#{n}" }
+
+    trait :with_faker_data do
+      title { Faker::Food.dish }
+      image_url { 'https://placehold.co/400x400' }
+    end
   end
 end
