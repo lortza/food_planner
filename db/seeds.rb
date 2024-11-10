@@ -41,8 +41,10 @@ end
 
 # Aisles
 puts "Seeding aisles..."
-aisle_names = ['Unassigned', 'produce: fruits', 'produce: greens', 'produce: peppers',
-               'produce: vegetables', 'produce: potatoes & roots', 'bread & tortillas']
+aisle_names = ['Unassigned', 'Produce: fruits', 'Produce: greens', 'Produce: vegetables',
+               'Produce: potatoes & roots', 'Bakery', 'Deli', 'Prepared hot foods',
+               'Canned foods', 'International', 'Snacks', 'Dairy', 'Frozen foods',
+               'Cleaning supplies', 'Personal care']
 
 order_number = 0
 aisle_names.each do |aisle_name|
@@ -55,13 +57,13 @@ puts "Seeding shopping lists..."
 user.shopping_lists.find_or_create_by!(name: 'grocery', main: true)
 
 # Shopping List Items
-shopping_list_item_names = ['apple', 'blueberries', 'salad greens', 'bulb of fennel']
+shopping_list_item_names = ['apple', 'blueberries', 'salad greens', 'oat milk', 'sliced cheese', 'loaf of crusty bread', 'cereal', 'ground coffee']
 
 ShoppingListItem.find_or_create_by!(
   shopping_list_item_names.map do |name|
     { shopping_list: user.shopping_lists.default,
       aisle: user.aisles.sample,
-      quantity: [1, 2].sample,
+      quantity: (1..10).to_a.sample,
       name: name,
       status: ['active', 'inactive'].sample
     }
