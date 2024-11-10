@@ -53,27 +53,27 @@
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
               <li class="nav-item">
-                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#regular" role="tab" aria-controls="regular" aria-selected="true">Regular</a>
+                <a class="nav-link active" id="prep-tab" data-toggle="tab" href="#prep-day" role="tab" aria-controls="prep-day" aria-selected="false">Prep Day</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#prep-day" role="tab" aria-controls="prep-day" aria-selected="false">Prep Day</a>
+                <a class="nav-link" id="original-tab" data-toggle="tab" href="#original" role="tab" aria-controls="original" aria-selected="true">Original</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#reheat" role="tab" aria-controls="reheat" aria-selected="false">Reheat</a>
+                <a class="nav-link" id="reheat-tab" data-toggle="tab" href="#reheat" role="tab" aria-controls="reheat" aria-selected="false">Reheat</a>
               </li>
             </ul>
           </div>
           <div class="card-body">
             <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active" id="regular" role="tabpanel" aria-labelledby="regular-tab">
+              <div class="tab-pane fade show active" id="prep-day" role="tabpanel" aria-labelledby="prep-day-tab">
                 <ol>
-                  <%= simple_format(@recipe.instructions, {}, wrapper_tag: 'li') %>
+                  <%= simple_format(@recipe.prep_day_instructions, {}, wrapper_tag: 'li') %>
                 </ol>
               </div>
 
-              <div class="tab-pane fade" id="prep-day" role="tabpanel" aria-labelledby="prep-day-tab">
+              <div class="tab-pane fade" id="original" role="tabpanel" aria-labelledby="original-tab">
                 <ol>
-                  <%= simple_format(@recipe.prep_day_instructions, {}, wrapper_tag: 'li') %>
+                  <%= simple_format(@recipe.instructions, {}, wrapper_tag: 'li') %>
                 </ol>
               </div>
 

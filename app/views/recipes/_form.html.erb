@@ -107,11 +107,6 @@
       </table>
     </div>
 
-    <div class="field">
-      <%= form.label 'Instructions', class: 'font-weight-bold mt-5' %>
-      <%= form.text_area :instructions, class: 'form-control instructions' %>
-    </div>
-
     <div class="row">
       <div class="col-lg-6 col-md-12">
         <div class="field">
@@ -127,6 +122,11 @@
         </div>
       </div>
     </div><!-- row -->
+
+    <div class="field">
+      <%= form.label 'Original Instructions', class: 'font-weight-bold mt-5' %>
+      <%= form.text_area :instructions, class: 'form-control instructions' %>
+    </div>
 
     <%= form.submit class: button_classes('primary mt-3') %>
   <% end %>
