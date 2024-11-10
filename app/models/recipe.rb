@@ -55,11 +55,13 @@ class Recipe < ApplicationRecord
   }.freeze
 
   before_validation :provide_default_source, on: :create
+  before_validation :guarantee_instructions_values, on: :create
   # before_save :instructions_to_lines
 
   validates :title,
             :servings,
             :instructions,
+            :prep_day_instructions,
             :source_name,
             :source_url,
             :prep_time,
@@ -67,6 +69,7 @@ class Recipe < ApplicationRecord
             :reheat_time,
             presence: true
 
+  validates :title, uniqueness: { scope: :user_id,  case_sensitive: false}
   validates :prep_time, numericality: { other_than: 0 }, if: -> { cook_time&.zero? && reheat_time&.zero? }
   validates :cook_time, numericality: { other_than: 0 }, if: -> { reheat_time&.zero? && prep_time&.zero? }
   validates :reheat_time, numericality: { other_than: 0 }, if: -> { prep_time&.zero? && cook_time&.zero? }
@@ -95,6 +98,13 @@ class Recipe < ApplicationRecord
   def provide_default_source
     self.source_name = DEFAULT_SOURCE[:source_name] if source_name.blank?
     self.source_url = DEFAULT_SOURCE[:source_url] if source_url.blank?
+  end
+
+  def guarantee_instructions_values
+    return false if prep_day_instructions.blank? && instructions.blank?
+
+    self.instructions = self.prep_day_instructions if instructions.blank?
+    self.prep_day_instructions = self.instructions if prep_day_instructions.blank?
   end
 
   def last_prepared

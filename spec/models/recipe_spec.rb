@@ -22,6 +22,7 @@ RSpec.describe Recipe, type: :model do
     it { should validate_presence_of(:title) }
     it { should validate_presence_of(:servings) }
     it { should validate_presence_of(:instructions) }
+    it { should validate_presence_of(:prep_day_instructions) }
     it { should validate_presence_of(:prep_time) }
     it { should validate_presence_of(:cook_time) }
     it { should validate_presence_of(:reheat_time) }
@@ -37,15 +38,107 @@ RSpec.describe Recipe, type: :model do
       expect(recipe).to be_valid
     end
 
-    context 'when it does not have a source' do
-      let(:recipe_missing_source) { create(:recipe, source_name: '', source_url: '') }
+    describe 'title uniqueness' do
+      let(:user_1) { create(:user) }
+      let(:user_2) { create(:user) }
 
-      it 'is provided a source name' do
-        expect(recipe_missing_source.source_name).to eq(Recipe::DEFAULT_SOURCE[:source_name])
+      it 'considers "FOO" and "foo" to be the same title' do
+        recipe_1 = create(:recipe, user_id: user_1.id, title: "FOO")
+        recipe_2 = build(:recipe, user_id: user_1.id, title: "foo")
+        expect(recipe_2.valid?).to be(false)
       end
 
-      it 'is provided a source url' do
-        expect(recipe_missing_source.source_url).to eq(Recipe::DEFAULT_SOURCE[:source_url])
+      it 'does not permit the same user to have multiple recipes with the same title' do
+        recipe_1 = create(:recipe, user_id: user_1.id, title: "Foo")
+        recipe_2 = build(:recipe, user_id: user_1.id, title: "Foo")
+        expect(recipe_2.valid?).to be(false)
+      end
+
+      it 'permits multiple users to have the same recipe title' do
+        recipe_1 = create(:recipe, user_id: user_1.id, title: "Foo")
+        recipe_2 = build(:recipe, user_id: user_2.id, title: "Foo")
+        expect(recipe_2.valid?).to be(true)
+      end
+    end
+
+    describe 'before validations' do
+      describe 'guarantee_instructions_values' do
+        let(:instructions_value) { "instructions value" }
+        let(:prep_day_instructions_value) { "prep_day_instructions value" }
+
+        context 'when a new recipe has neither instructions nor prep_day_instructions' do
+          let(:recipe) { build(:recipe, instructions: "", prep_day_instructions: "") }
+
+          it 'fails validation' do
+            expect(recipe.valid?).to be(false)
+          end
+
+          it 'raises an error on save!' do
+            expect{recipe.save!}.to raise_error(ActiveRecord::RecordInvalid)
+          end
+        end
+
+        context 'when a new recipe has both instructions and prep_day_instructions' do
+          let(:recipe) { build(:recipe, instructions: instructions_value, prep_day_instructions: prep_day_instructions_value) }
+
+          it 'does not modify the value for instructions' do
+            recipe.save
+            recipe.reload
+            expect(recipe.instructions).to eq(instructions_value)
+          end
+
+          it 'does not modify the value for prep_day_instructions' do
+            recipe.save
+            recipe.reload
+            expect(recipe.prep_day_instructions).to eq(prep_day_instructions_value)
+          end
+        end
+
+        context 'when a new recipe has instructions but not prep_day_instructions' do
+          let(:recipe) { build(:recipe, instructions: instructions_value, prep_day_instructions: '') }
+
+          it 'fills the prep_day_instructions field with the instructions data' do
+            recipe.save
+            recipe.reload
+            expect(recipe.prep_day_instructions).to eq(instructions_value)
+          end
+
+          it 'does not modify the value for instructions' do
+            recipe.save
+            recipe.reload
+            expect(recipe.instructions).to eq(instructions_value)
+          end
+        end
+
+        context 'when a new recipe has prep_day_instructions but not instructions' do
+          let(:recipe) { build(:recipe, instructions: '', prep_day_instructions: prep_day_instructions_value) }
+
+          it 'fills the instructions field with the prep_day_instructions data' do
+            recipe.save
+            recipe.reload
+            expect(recipe.instructions).to eq(prep_day_instructions_value)
+          end
+
+          it 'does not modify the value for prep_day_instructions' do
+            recipe.save
+            recipe.reload
+            expect(recipe.prep_day_instructions).to eq(prep_day_instructions_value)
+          end
+        end
+      end
+
+      describe 'provide_default_source' do
+        context 'when it does not have a source' do
+          let(:recipe_missing_source) { create(:recipe, source_name: '', source_url: '') }
+
+          it 'is provided a source name' do
+            expect(recipe_missing_source.source_name).to eq(Recipe::DEFAULT_SOURCE[:source_name])
+          end
+
+          it 'is provided a source url' do
+            expect(recipe_missing_source.source_url).to eq(Recipe::DEFAULT_SOURCE[:source_url])
+          end
+        end
       end
     end
   end
