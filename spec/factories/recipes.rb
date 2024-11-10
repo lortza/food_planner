@@ -45,37 +45,48 @@ FactoryBot.define do
     cook_time { rand(0..60) }
     reheat_time { rand(0..60) }
     servings { rand(1..10) }
-    instructions do
-      [
-        'Lorem ipsum dolor sit amet.',
-        'Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.',
-        'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
-        'Nisi ut aliquip ex ea commodo consequat.',
-        'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.',
-        'Excepteur sint occaecat cupidatat non proident.',
-        'Sunt in culpa qui officia deserunt mollit anim id est laborum.',
-      ].join("\n\n")
-    end
-    prep_day_instructions do
-      [
-        'On prep day, lorem ipsum dolor sit amet.',
-        'Sint occaecat cupidatat non proident.',
-        'Aliquip ex ea commodo consequat.',
-      ].join("\n\n")
+    instructions { Faker::Lorem.sentences(number: 15).join("\n\n") }
+    prep_day_instructions { Faker::Hipster.sentences(number: 8).join("\n\n") }
+    reheat_instructions { Faker::Lorem.sentences(number: 4).join("\n\n") }
+
+
+    trait :db_default do
+      title { '' }
+      source_name { '' }
+      source_url { '' }
+      servings { 0 }
+      instructions { '' }
+      prep_time { 0 }
+      cook_time { 0 }
+      image_url { '' }
+      reheat_time { '' }
+      archived { false }
+      prep_day_instructions { '' }
+      reheat_instructions { '' }
     end
 
-    reheat_instructions do
-      [
-        'Reheat by lorem ipsum dolor sit amet.',
-        'Nisi ut aliquip ex ea commodo consequat.',
-        'Excepteur sint occaecat cupidatat non proident.',
-      ].join("\n\n")
+    trait :with_faker_data do
+      sequence(:title) { |n| "#{Faker::Food.dish} #{n}" }
+      source_name { Faker::Restaurant.name }
+      image_url { ['', 'https://picsum.photos/400/400', 'https://picsum.photos/450/450', 'https://loremflickr.com/500/500', 'https://loremflickr.com/500/500/food,dessert,drink,dinner,lunch/all', 'https://loremflickr.com/400/400/food,dessert,drink,dinner,lunch/all'].sample }
     end
-  end
 
-  trait :with_2_ingredients do
-    after :create do |recipe|
-      create_list :ingredient, 2, recipe: recipe
+    # This allow you to pass in the number of ingredients you want to build. Ex:
+    # create(:recipe, :with_faker_data, :with_faker_ingredients, ingredients_count: 5, user: user)
+    transient do
+      ingredients_count { 2 }  # default to 2, but can be overridden
+    end
+
+    trait :with_2_ingredients do
+      after(:create) do |recipe, evaluator|
+        create_list(:ingredient, evaluator.ingredients_count, recipe: recipe)
+      end
+    end
+
+    trait :with_faker_ingredients do
+      after(:create) do |recipe, evaluator|
+        create_list(:ingredient, evaluator.ingredients_count, :with_faker_data, recipe: recipe)
+      end
     end
   end
 end

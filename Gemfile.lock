@@ -172,6 +172,8 @@ GEM
     factory_bot_rails (6.4.4)
       factory_bot (~> 6.5)
       railties (>= 5.0.0)
+    faker (3.5.1)
+      i18n (>= 1.8.11, < 2)
     ffi (1.17.0-x86_64-darwin)
     ffi (1.17.0-x86_64-linux-gnu)
     flay (2.13.3)
@@ -516,6 +518,7 @@ DEPENDENCIES
   coffee-rails
   devise
   factory_bot_rails
+  faker
   guard-rspec
   jbuilder (~> 2.12)
   launchy
