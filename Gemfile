@@ -48,7 +48,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 7.0.1'
+  gem 'rspec-rails', '~> 7.1.0'
   gem 'better_errors'           # creates console in browser for errors
   gem 'binding_of_caller'       # goes with better_errors
   gem 'byebug', platforms: %i[mri mingw x64_mingw] # Call 'byebug' anywhere in the code to get a debugger console
