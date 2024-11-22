@@ -9,7 +9,7 @@ Live on heroku as [myfoodplanner](http://myfoodplanner.herokuapp.com)
 * Ruby
 * Rails
 * Postgres
-* RuboCop
+* [Standard (Ruby)](https://github.com/standardrb/standard), which supports the [VSCode extension](https://github.com/standardrb/vscode-standard-ruby)
 * RSpec
 * [Bootstrap 4.1.3](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
 * [Material Icons](https://fonts.google.com/icons)
@@ -47,9 +47,11 @@ Run them locally on your machine like this:
 ```
 bundle exec reek
 
-bundle exec rubocop
-
 bundle exec scss-lint app/assets/stylesheets/**.scss
+
+standardrb --fix
+# or
+rake standard:fix
 ```
 
 ## Related Docs
