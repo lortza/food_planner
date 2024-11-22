@@ -2,11 +2,11 @@
 
 module Searchable
   def by_name
-    order(Arel.sql('lower(name) ASC'))
+    order(Arel.sql("lower(name) ASC"))
   end
 
   def by_title
-    order(Arel.sql('lower(title) ASC'))
+    order(Arel.sql("lower(title) ASC"))
   end
 
   def by_id

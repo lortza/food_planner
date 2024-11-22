@@ -9,9 +9,9 @@ class ShoppingListItemBuilder
         updated_quantity = existing_item.quantity + incoming_item.quantity
         existing_item.update(quantity: updated_quantity)
       elsif existing_item&.inactive?
-        existing_item.update(quantity: incoming_item.quantity, status: 'active')
+        existing_item.update(quantity: incoming_item.quantity, status: "active")
       else
-        incoming_item.status = 'active'
+        incoming_item.status = "active"
         shopping_list.items << incoming_item
       end
     end
@@ -24,7 +24,7 @@ class ShoppingListItemBuilder
           aisle_id: Aisle.unassigned(shopping_list).id,
           quantity: ingredient.quantity,
           name: ingredient.measurement_and_name,
-          status: 'active'
+          status: "active"
         )
         add_item_to_list(shopping_list: shopping_list, incoming_item: item)
       end

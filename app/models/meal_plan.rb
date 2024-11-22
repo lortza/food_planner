@@ -28,17 +28,17 @@ class MealPlan < ApplicationRecord
 
   validates :people_served, presence: true
   validates :prepared_on,
-            presence: true,
-            uniqueness: { scope: :user_id }
+    presence: true,
+    uniqueness: {scope: :user_id}
 
-  PREP_END_TIME = Time.zone.parse('5:00 PM')
+  PREP_END_TIME = Time.zone.parse("5:00 PM")
   EFFICIENCY_RATE = 0.66
 
   scope :by_date, -> { order(prepared_on: :asc) }
   scope :most_recent_first, -> { order(prepared_on: :DESC) }
 
   def self.future
-    where('prepared_on >= ?', Time.zone.today).by_date
+    where("prepared_on >= ?", Time.zone.today).by_date
   end
 
   def self.upcoming
@@ -87,7 +87,7 @@ class MealPlan < ApplicationRecord
   end
 
   def recommended_start_time
-    (prep_end_time - estimated_time * 60).strftime('%I:%M %p')
+    (prep_end_time - estimated_time * 60).strftime("%I:%M %p")
   end
 
   def total_unique_ingredients

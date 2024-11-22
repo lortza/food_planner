@@ -14,7 +14,7 @@ class ShoppingListItemBuildersController < ApplicationController
   private
 
   def flash_message(ingredient_ids)
-    pluralized_ingredients = ActionController::Base.helpers.pluralize(ingredient_ids.length, 'item')
+    pluralized_ingredients = ActionController::Base.helpers.pluralize(ingredient_ids.length, "item")
     link = ActionController::Base.helpers.link_to(@shopping_list.name.titleize, shopping_list_path(@shopping_list))
 
     "#{pluralized_ingredients} added to your #{link} list."

@@ -21,7 +21,7 @@ class ExperimentalRecipesController < ApplicationController
     authorize(@experimental_recipe)
 
     if @experimental_recipe.save
-      redirect_to experimental_recipes_url, notice: 'Experimental recipe was successfully created.'
+      redirect_to experimental_recipes_url, notice: "Experimental recipe was successfully created."
     else
       render :new
     end
@@ -31,7 +31,7 @@ class ExperimentalRecipesController < ApplicationController
     authorize(@experimental_recipe)
 
     if @experimental_recipe.update(experimental_recipe_params)
-      redirect_to experimental_recipes_url, notice: 'Recipe link was successfully updated.'
+      redirect_to experimental_recipes_url, notice: "Recipe link was successfully updated."
     else
       render :edit
     end
@@ -41,7 +41,7 @@ class ExperimentalRecipesController < ApplicationController
     authorize(@experimental_recipe)
 
     @experimental_recipe.destroy
-    redirect_to experimental_recipes_url, notice: 'Recipe link was successfully destroyed.'
+    redirect_to experimental_recipes_url, notice: "Recipe link was successfully destroyed."
   end
 
   private

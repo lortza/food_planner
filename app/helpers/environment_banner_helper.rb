@@ -5,7 +5,7 @@ module EnvironmentBannerHelper
     if git_available?
       `git rev-parse --abbrev-ref HEAD`.chomp
     else
-      ENV.fetch('CURRENT_BRANCH', '--branch-not-found--')
+      ENV.fetch("CURRENT_BRANCH", "--branch-not-found--")
     end
   end
 
@@ -13,12 +13,12 @@ module EnvironmentBannerHelper
     if git_available?
       `git log --oneline -1`
     else
-      ENV.fetch('CURRENT_SHA', '--sha-not-found--')
+      ENV.fetch("CURRENT_SHA", "--sha-not-found--")
     end
   end
 
   def git_available?
-    to_dev_null = '> /dev/null 2>&1'
+    to_dev_null = "> /dev/null 2>&1"
     system("which git #{to_dev_null} && git rev-parse --git-dir #{to_dev_null}")
   end
 end

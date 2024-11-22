@@ -52,11 +52,6 @@ class ShoppingListItemStatusesController < ApplicationController
 
   def shopping_list_item_params
     params.require(:shopping_list_item)
-          .permit(:shopping_list_id,
-                  :aisle_id,
-                  :heb_upc,
-                  :name,
-                  :quantity,
-                  :status)
+      .permit(:shopping_list_id, :aisle_id, :heb_upc, :name, :quantity, :status)
   end
 end

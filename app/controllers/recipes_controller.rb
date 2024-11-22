@@ -7,11 +7,11 @@ class RecipesController < ApplicationController
   def index
     recipes = policy_scope(Recipe)
     search_term = params[:search]
-    recipes = search_term.present? ? recipes.search(field: 'title', terms: search_term) : recipes.active
+    recipes = search_term.present? ? recipes.search(field: "title", terms: search_term) : recipes.active
 
     @recipes = recipes.includes(:meal_plans, :meal_plan_recipes)
-                      .order(updated_at: 'DESC')
-                      .paginate(page: params[:page], per_page: 30)
+      .order(updated_at: "DESC")
+      .paginate(page: params[:page], per_page: 30)
   end
 
   def show
@@ -33,7 +33,7 @@ class RecipesController < ApplicationController
 
       current_user.experimental_recipes.find(experimental_recipe_id).delete if experimental_recipe_id.present?
 
-      redirect_to recipe_url(@recipe), alert: ('Recipe converted successfully.' if experimental_recipe_id.present?)
+      redirect_to recipe_url(@recipe), alert: ("Recipe converted successfully." if experimental_recipe_id.present?)
     else
       render :new
     end
@@ -49,7 +49,7 @@ class RecipesController < ApplicationController
     authorize(@recipe)
 
     if @recipe.update(recipe_params)
-      redirect_to recipe_url(@recipe), notice: 'Recipe Updated'
+      redirect_to recipe_url(@recipe), notice: "Recipe Updated"
     else
       render :edit
     end
@@ -59,7 +59,7 @@ class RecipesController < ApplicationController
     authorize(@recipe)
 
     @recipe.destroy
-    flash[:success] = 'Recipe deleted'
+    flash[:success] = "Recipe deleted"
     redirect_to recipes_path
   end
 
@@ -67,7 +67,7 @@ class RecipesController < ApplicationController
     experimental_recipe = current_user.experimental_recipes.find(params[:experimental_recipe_id])
     @recipe = current_user.recipes.new(
       title: experimental_recipe.title,
-      source_name: URI.parse(experimental_recipe.source_url).host.gsub('www.', ''),
+      source_name: URI.parse(experimental_recipe.source_url).host.gsub("www.", ""),
       source_url: experimental_recipe.source_url,
       image_url: experimental_recipe.image_url,
       experimental_recipe_id: experimental_recipe.id,
@@ -100,29 +100,31 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params # rubocop:disable Metrics/MethodLength
-    params.require(:recipe).permit(:archived,
-                                   :cook_time,
-                                   :experimental_recipe_id,
-                                   :extra_work_note,
-                                   :image_url,
-                                   :instructions,
-                                   :notes,
-                                   :nutrition_data_iframe,
-                                   :prep_day_instructions,
-                                   :prep_time,
-                                   :reheat_instructions,
-                                   :reheat_time,
-                                   :servings,
-                                   :source_name,
-                                   :source_url,
-                                   :title,
-                                   ingredients_attributes: %i[
-                                     id
-                                     name
-                                     quantity
-                                     measurement_unit
-                                     preparation_style
-                                     _destroy
-                                   ])
+    params.require(:recipe).permit(
+      :archived,
+      :cook_time,
+      :experimental_recipe_id,
+      :extra_work_note,
+      :image_url,
+      :instructions,
+      :notes,
+      :nutrition_data_iframe,
+      :prep_day_instructions,
+      :prep_time,
+      :reheat_instructions,
+      :reheat_time,
+      :servings,
+      :source_name,
+      :source_url,
+      :title,
+      ingredients_attributes: %i[
+        id
+        name
+        quantity
+        measurement_unit
+        preparation_style
+        _destroy
+      ]
+    )
   end
 end
