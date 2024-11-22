@@ -7,8 +7,7 @@ RSpec.describe ShoppingListItemBuilder, type: :model do
       let(:incoming_item) { build(:shopping_list_item, shopping_list: shopping_list) }
 
       before do
-        ShoppingListItemBuilder.add_item_to_list(shopping_list: shopping_list,
-          incoming_item: incoming_item)
+        ShoppingListItemBuilder.add_item_to_list(shopping_list: shopping_list, incoming_item: incoming_item)
       end
 
       it "creates a new the item" do
@@ -34,8 +33,7 @@ RSpec.describe ShoppingListItemBuilder, type: :model do
       let(:incoming_item) { build(:shopping_list_item, shopping_list: shopping_list, quantity: 2, name: shopping_list_item.name) }
 
       before do
-        ShoppingListItemBuilder.add_item_to_list(shopping_list: shopping_list,
-          incoming_item: incoming_item)
+        ShoppingListItemBuilder.add_item_to_list(shopping_list: shopping_list, incoming_item: incoming_item)
       end
 
       it "adds the incoming quantity to the existing quantity" do
@@ -50,8 +48,7 @@ RSpec.describe ShoppingListItemBuilder, type: :model do
       let(:incoming_item) { build(:shopping_list_item, shopping_list: shopping_list, quantity: 1, name: shopping_list_item.name) }
 
       before do
-        ShoppingListItemBuilder.add_item_to_list(shopping_list: shopping_list,
-          incoming_item: incoming_item)
+        ShoppingListItemBuilder.add_item_to_list(shopping_list: shopping_list, incoming_item: incoming_item)
       end
 
       it "sets the item quantity to the incoming quantity" do
@@ -71,8 +68,7 @@ RSpec.describe ShoppingListItemBuilder, type: :model do
       let(:incoming_item) { build(:shopping_list_item, shopping_list: shopping_list, quantity: 1, name: shopping_list_item.name) }
 
       before do
-        ShoppingListItemBuilder.add_item_to_list(shopping_list: shopping_list,
-          incoming_item: incoming_item)
+        ShoppingListItemBuilder.add_item_to_list(shopping_list: shopping_list, incoming_item: incoming_item)
       end
 
       it "adds the incoming quantity to the existing quantity" do
@@ -89,11 +85,7 @@ RSpec.describe ShoppingListItemBuilder, type: :model do
 
   describe "#add_ingredients_to_list" do
     let(:shopping_list) { create(:shopping_list, main: true) }
-    # let(:meal_plan) { create(:meal_plan) }
-    # let(:recipe) { create(:recipe) }
-    # let(:ingredient) { create(:ingredient, recipe: recipe, quantity: 1, measurement_unit: 'cup', name: 'rice') }
     let(:ingredients) { create_list(:ingredient, 3) }
-    # let(:ingredient_ids) { ingredient.id }
     let(:ingredient_ids) { ingredients.pluck(:id) }
     let!(:aisle) { create(:aisle, name: "Unassigned") }
 
