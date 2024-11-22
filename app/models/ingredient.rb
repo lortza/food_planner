@@ -64,7 +64,7 @@ class Ingredient < ApplicationRecord
 
   UNITS = [
     STANDARD_UNITS,
-    DESCRIPTIVE_UNITS,
+    DESCRIPTIVE_UNITS
   ].flatten.sort
 
   STYLES = %w[
@@ -97,12 +97,12 @@ class Ingredient < ApplicationRecord
   ].freeze
 
   validates :name,
-            :quantity,
-            :measurement_unit,
-            presence: true
+    :quantity,
+    :measurement_unit,
+    presence: true
 
   validates :quantity, numericality: true
-  validates :measurement_unit, inclusion: { in: UNITS }
+  validates :measurement_unit, inclusion: {in: UNITS}
 
   def self.by_id
     order(:id)

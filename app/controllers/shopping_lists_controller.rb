@@ -4,7 +4,7 @@ class ShoppingListsController < ApplicationController
   before_action :set_shopping_list, only: %i[search edit update destroy]
 
   def index
-    @shopping_lists = current_user.shopping_lists.search(field: 'name', terms: params[:search]).by_favorite.by_name
+    @shopping_lists = current_user.shopping_lists.search(field: "name", terms: params[:search]).by_favorite.by_name
     @shopping_list = current_user.shopping_lists.new
   end
 
@@ -43,7 +43,7 @@ class ShoppingListsController < ApplicationController
     authorize(@shopping_list)
 
     if @shopping_list.update(shopping_list_params)
-      redirect_to shopping_list_url(@shopping_list), notice: 'ShoppingList Updated'
+      redirect_to shopping_list_url(@shopping_list), notice: "ShoppingList Updated"
     else
       render :edit
     end
@@ -55,7 +55,7 @@ class ShoppingListsController < ApplicationController
 
     if list.deletable?
       list.destroy
-      redirect_to shopping_lists_url, success: 'ShoppingList Deleted'
+      redirect_to shopping_lists_url, success: "ShoppingList Deleted"
     else
       redirect_to shopping_lists_url, alert: "#{list.name} is not deletable"
     end
@@ -73,8 +73,8 @@ class ShoppingListsController < ApplicationController
 
   def shopping_list_params
     params.require(:shopping_list)
-          .permit(:user_id,
-                  :name,
-                  :favorite)
+      .permit(:user_id,
+        :name,
+        :favorite)
   end
 end

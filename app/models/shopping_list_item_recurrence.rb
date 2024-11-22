@@ -5,10 +5,10 @@ class ShoppingListItemRecurrence
 
   class << self
     def check_schedule
-      Rails.logger.info('Checking schedule...')
-      add_weekly_item? ? add_items_to_list('weekly') : Rails.logger.info('No weekly items added.')
-      add_biweekly_item? ? add_items_to_list('biweekly') : Rails.logger.info('No biweekly items added.')
-      add_monthly_item? ? add_items_to_list('monthly') : Rails.logger.info('No monthly items added.')
+      Rails.logger.info("Checking schedule...")
+      add_weekly_item? ? add_items_to_list("weekly") : Rails.logger.info("No weekly items added.")
+      add_biweekly_item? ? add_items_to_list("biweekly") : Rails.logger.info("No biweekly items added.")
+      add_monthly_item? ? add_items_to_list("monthly") : Rails.logger.info("No monthly items added.")
     end
 
     private
@@ -20,7 +20,7 @@ class ShoppingListItemRecurrence
       items.each do |item|
         Rails.logger.info(item.name)
         if item.inactive?
-          item.status = 'active'
+          item.status = "active"
           item.quantity = item.recurrence_quantity
         else
           item.quantity += item.recurrence_quantity
@@ -43,7 +43,7 @@ class ShoppingListItemRecurrence
 
     def today_is_weekly_item_day?
       # Abstracting this so it can eventually be set via the front end
-      str = 'Monday'
+      str = "Monday"
       day_method = "#{str.downcase}?"
       Time.zone.today.send(day_method)
     end

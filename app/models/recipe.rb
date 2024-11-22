@@ -42,12 +42,12 @@ class Recipe < ApplicationRecord
   belongs_to :user
   has_many :ingredients, inverse_of: :recipe, dependent: :destroy
   accepts_nested_attributes_for :ingredients,
-                                reject_if: :all_blank, # at least 1 ingredient should be present
-                                allow_destroy: true # allows user to delete ingredient via checkbox
+    reject_if: :all_blank, # at least 1 ingredient should be present
+    allow_destroy: true # allows user to delete ingredient via checkbox
   has_many :meal_plan_recipes, dependent: :destroy
   has_many :meal_plans, through: :meal_plan_recipes
 
-  DEFAULT_SOURCE = { source_name: 'Original Creation', source_url: '/' }.freeze
+  DEFAULT_SOURCE = {source_name: "Original Creation", source_url: "/"}.freeze
   DEFAULT_PARAMS = {
     prep_time: 10,
     cook_time: 20,
@@ -59,20 +59,20 @@ class Recipe < ApplicationRecord
   # before_save :instructions_to_lines
 
   validates :title,
-            :servings,
-            :instructions,
-            :prep_day_instructions,
-            :source_name,
-            :source_url,
-            :prep_time,
-            :cook_time,
-            :reheat_time,
-            presence: true
+    :servings,
+    :instructions,
+    :prep_day_instructions,
+    :source_name,
+    :source_url,
+    :prep_time,
+    :cook_time,
+    :reheat_time,
+    presence: true
 
-  validates :title, uniqueness: { scope: :user_id,  case_sensitive: false}
-  validates :prep_time, numericality: { other_than: 0 }, if: -> { cook_time&.zero? && reheat_time&.zero? }
-  validates :cook_time, numericality: { other_than: 0 }, if: -> { reheat_time&.zero? && prep_time&.zero? }
-  validates :reheat_time, numericality: { other_than: 0 }, if: -> { prep_time&.zero? && cook_time&.zero? }
+  validates :title, uniqueness: {scope: :user_id, case_sensitive: false}
+  validates :prep_time, numericality: {other_than: 0}, if: -> { cook_time&.zero? && reheat_time&.zero? }
+  validates :cook_time, numericality: {other_than: 0}, if: -> { reheat_time&.zero? && prep_time&.zero? }
+  validates :reheat_time, numericality: {other_than: 0}, if: -> { prep_time&.zero? && cook_time&.zero? }
 
   def self.for_prep_date(date)
     # WIP
@@ -80,7 +80,7 @@ class Recipe < ApplicationRecord
   end
 
   def self.by_last_prepared
-    order('meal_plans.prepared_on asc')
+    order("meal_plans.prepared_on asc")
   end
 
   def self.active
@@ -103,8 +103,8 @@ class Recipe < ApplicationRecord
   def guarantee_instructions_values
     return false if prep_day_instructions.blank? && instructions.blank?
 
-    self.instructions = self.prep_day_instructions if instructions.blank?
-    self.prep_day_instructions = self.instructions if prep_day_instructions.blank?
+    self.instructions = prep_day_instructions if instructions.blank?
+    self.prep_day_instructions = instructions if prep_day_instructions.blank?
   end
 
   def last_prepared

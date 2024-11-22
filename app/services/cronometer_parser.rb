@@ -22,11 +22,11 @@ class CronometerParser
 
   def food_number
     match_data = raw_iframe_code.match(/.*food=(\d*)&/)
-    match_data.present? && match_data[1].present? ? match_data[1] : nil
+    (match_data.present? && match_data[1].present?) ? match_data[1] : nil
   end
 
   def measure_number
     match_data = raw_iframe_code.match(/.*measure=(\d*)&/)
-    match_data.present? && match_data[1].present? ? match_data[1] : nil
+    (match_data.present? && match_data[1].present?) ? match_data[1] : nil
   end
 end

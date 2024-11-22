@@ -22,8 +22,8 @@ module IngredientsHelper
 
     [
       pluralized,
-      detail.preparation_style.presence,
-    ].compact.join(' ')
+      detail.preparation_style.presence
+    ].compact.join(" ")
   end
 
   def qty_display(ingredient)
@@ -48,12 +48,12 @@ module IngredientsHelper
 
   def known_fraction(number)
     fractions = {
-      0.125 => '1/8',
-      0.25 => '1/4',
-      0.33 => '1/3',
-      0.5 => '1/2',
-      0.66 => '2/3',
-      0.75 => '3/4'
+      0.125 => "1/8",
+      0.25 => "1/4",
+      0.33 => "1/3",
+      0.5 => "1/2",
+      0.66 => "2/3",
+      0.75 => "3/4"
     }
     fractions[number]
   end

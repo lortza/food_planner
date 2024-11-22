@@ -5,7 +5,7 @@ class ScheduledDeliveriesController < ApplicationController
   before_action :set_shopping_list, only: %i[new create edit update destroy]
 
   def new
-    @scheduled_delivery = @shopping_list.scheduled_deliveries.new(service_provider: 'Instacart')
+    @scheduled_delivery = @shopping_list.scheduled_deliveries.new(service_provider: "Instacart")
   end
 
   def create
@@ -54,7 +54,7 @@ class ScheduledDeliveriesController < ApplicationController
 
   def scheduled_delivery_params
     params.require(:scheduled_delivery).permit(:shopping_list_id,
-                                               :service_provider,
-                                               :scheduled_for)
+      :service_provider,
+      :scheduled_for)
   end
 end

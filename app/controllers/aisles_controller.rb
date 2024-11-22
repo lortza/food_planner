@@ -41,7 +41,7 @@ class AislesController < ApplicationController
     authorize(aisle)
 
     aisle.destroy
-    flash[:success] = 'Aisle deleted'
+    flash[:success] = "Aisle deleted"
     redirect_to aisles_path
   end
 
@@ -53,7 +53,7 @@ class AislesController < ApplicationController
 
   def aisle_params
     params.require(:aisle).permit(:user_id,
-                                  :order_number,
-                                  :name)
+      :order_number,
+      :name)
   end
 end

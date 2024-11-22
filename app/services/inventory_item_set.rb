@@ -25,8 +25,8 @@ class InventoryItemSet
 
   def matching_user_ingredients(item)
     Ingredient.includes([:recipe])
-              .where(recipes: { user_id: @user.id })
-              .where('name ilike ?', "%#{item}%")
+      .where(recipes: {user_id: @user.id})
+      .where("name ilike ?", "%#{item}%")
   end
 
   def strip_items_list(list)
