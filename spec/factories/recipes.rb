@@ -41,7 +41,7 @@ FactoryBot.define do
     sequence(:source_name) { |n| "Recipe Source #{n}" }
     sequence(:source_url) { |n| "https://example#{n}.com" }
     prep_time { rand(0..20) }
-    nutrition_data_iframe { '' }
+    nutrition_data_iframe { "" }
     cook_time { rand(0..60) }
     reheat_time { rand(0..60) }
     servings { rand(1..10) }
@@ -49,26 +49,25 @@ FactoryBot.define do
     prep_day_instructions { Faker::Hipster.sentences(number: 8).join("\n\n") }
     reheat_instructions { Faker::Lorem.sentences(number: 4).join("\n\n") }
 
-
     trait :db_default do
-      title { '' }
-      source_name { '' }
-      source_url { '' }
+      title { "" }
+      source_name { "" }
+      source_url { "" }
       servings { 0 }
-      instructions { '' }
+      instructions { "" }
       prep_time { 0 }
       cook_time { 0 }
-      image_url { '' }
-      reheat_time { '' }
+      image_url { "" }
+      reheat_time { "" }
       archived { false }
-      prep_day_instructions { '' }
-      reheat_instructions { '' }
+      prep_day_instructions { "" }
+      reheat_instructions { "" }
     end
 
     trait :with_faker_data do
       sequence(:title) { |n| "#{Faker::Food.dish} #{n}" }
       source_name { Faker::Restaurant.name }
-      image_url { ['', 'https://picsum.photos/400/400', 'https://picsum.photos/450/450', 'https://loremflickr.com/500/500', 'https://loremflickr.com/500/500/food,dessert,drink,dinner,lunch/all', 'https://loremflickr.com/400/400/food,dessert,drink,dinner,lunch/all'].sample }
+      image_url { ["", "https://picsum.photos/400/400", "https://picsum.photos/450/450", "https://loremflickr.com/500/500", "https://loremflickr.com/500/500/food,dessert,drink,dinner,lunch/all", "https://loremflickr.com/400/400/food,dessert,drink,dinner,lunch/all"].sample }
     end
 
     # This allow you to pass in the number of ingredients you want to build. Ex:

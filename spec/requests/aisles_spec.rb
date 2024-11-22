@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe 'Aisles', type: :request do
-  describe 'Public access to aisles' do
+RSpec.describe "Aisles", type: :request do
+  describe "Public access to aisles" do
     let(:user) { create(:user) }
     let(:user_aisle) { create(:aisle, user: user) }
 
@@ -11,28 +11,28 @@ RSpec.describe 'Aisles', type: :request do
       user_aisle
     end
 
-    it 'denies access to aisles#index' do
+    it "denies access to aisles#index" do
       get aisles_path
 
       expect(response).to have_http_status(302)
       expect(response).to redirect_to new_user_session_path
     end
 
-    it 'denies access to aisles#new' do
+    it "denies access to aisles#new" do
       get new_aisle_path
 
       expect(response).to have_http_status(302)
       expect(response).to redirect_to new_user_session_path
     end
 
-    it 'denies access to aisles#edit' do
+    it "denies access to aisles#edit" do
       get edit_aisle_path(user_aisle.id)
 
       expect(response).to have_http_status(302)
       expect(response).to redirect_to new_user_session_path
     end
 
-    it 'denies access to aisles#create' do
+    it "denies access to aisles#create" do
       aisle_attributes = build(:aisle, user: user).attributes
 
       expect {
@@ -43,14 +43,14 @@ RSpec.describe 'Aisles', type: :request do
       expect(response).to redirect_to new_user_session_path
     end
 
-    it 'denies access to aisles#update' do
+    it "denies access to aisles#update" do
       patch aisle_path(user_aisle, aisle: user_aisle.attributes)
 
       expect(response).to have_http_status(302)
       expect(response).to redirect_to new_user_session_path
     end
 
-    it 'denies access to aisles#destroy' do
+    it "denies access to aisles#destroy" do
       delete aisle_path(user_aisle)
 
       expect(response).to have_http_status(302)
@@ -58,7 +58,7 @@ RSpec.describe 'Aisles', type: :request do
     end
   end
 
-  describe 'Authenticated access to own aisles' do
+  describe "Authenticated access to own aisles" do
     let(:user) { create(:user) }
     let(:user_aisle) { create(:aisle, user: user) }
 
@@ -67,21 +67,21 @@ RSpec.describe 'Aisles', type: :request do
       sign_in(user)
     end
 
-    it 'renders aisles#new' do
+    it "renders aisles#new" do
       get new_aisle_path
 
       expect(response).to be_successful
       expect(response).to render_template(:new)
     end
 
-    it 'renders aisles#edit' do
+    it "renders aisles#edit" do
       get edit_aisle_path(user_aisle.id)
 
       expect(response).to be_successful
       expect(response).to render_template(:edit)
     end
 
-    it 'renders aisles#create' do
+    it "renders aisles#create" do
       starting_count = Aisle.count
       aisle_attributes = build(:aisle, user: user).attributes
       post aisles_path(aisle: aisle_attributes)
@@ -89,14 +89,14 @@ RSpec.describe 'Aisles', type: :request do
       expect(Aisle.count).to eq(starting_count + 1)
     end
 
-    it 'renders aisles#update' do
-      new_name = 'different name'
-      patch aisle_path(user_aisle, aisle: { name: new_name })
+    it "renders aisles#update" do
+      new_name = "different name"
+      patch aisle_path(user_aisle, aisle: {name: new_name})
 
       expect(response).to redirect_to aisles_url
     end
 
-    it 'renders aisles#destroy' do
+    it "renders aisles#destroy" do
       delete aisle_path(user_aisle)
 
       expect(response).to redirect_to(aisles_url)
@@ -113,7 +113,7 @@ RSpec.describe 'Aisles', type: :request do
       sign_in(user1)
     end
 
-    it 'denies access to aisles#edit' do
+    it "denies access to aisles#edit" do
       get edit_aisle_path(user2_aisle.id)
 
       expect(response).to_not be_successful
@@ -121,15 +121,15 @@ RSpec.describe 'Aisles', type: :request do
       expect(response).to redirect_to(root_url)
     end
 
-    it 'denies access to aisles#update' do
-      new_name = 'completely different name'
-      patch aisle_path(user2_aisle, aisle: { name: new_name })
+    it "denies access to aisles#update" do
+      new_name = "completely different name"
+      patch aisle_path(user2_aisle, aisle: {name: new_name})
 
       expect(response).to_not be_successful
       expect(response).to redirect_to root_url
     end
 
-    it 'denies access to aisles#destroy' do
+    it "denies access to aisles#destroy" do
       delete aisle_path(user2_aisle)
 
       expect(response).to_not be_successful

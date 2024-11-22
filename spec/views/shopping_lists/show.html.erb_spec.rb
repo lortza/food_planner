@@ -2,7 +2,7 @@
 
 # require 'rails_helper'
 
-RSpec.describe 'shopping_lists/show', type: :view do
+RSpec.describe "shopping_lists/show", type: :view do
   before(:each) do
     @user = create(:user)
     @shopping_list = create(:shopping_list, user_id: @user.id)
@@ -10,7 +10,7 @@ RSpec.describe 'shopping_lists/show', type: :view do
     render
   end
 
-  it 'displays basic shopping_list info' do
+  it "displays basic shopping_list info" do
     expect(rendered).to match(/Schedule an upcoming delivery/)
     expect(rendered).to match(/Shopping List Name 1/)
   end
