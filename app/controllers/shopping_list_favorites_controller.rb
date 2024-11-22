@@ -23,9 +23,6 @@ class ShoppingListFavoritesController < ApplicationController
   end
 
   def shopping_list_params
-    params.require(:shopping_list)
-      .permit(:user_id,
-        :name,
-        :favorite)
+    params.require(:shopping_list).permit(:user_id, :name, :favorite)
   end
 end

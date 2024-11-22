@@ -100,7 +100,8 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params # rubocop:disable Metrics/MethodLength
-    params.require(:recipe).permit(:archived,
+    params.require(:recipe).permit(
+      :archived,
       :cook_time,
       :experimental_recipe_id,
       :extra_work_note,
@@ -123,6 +124,7 @@ class RecipesController < ApplicationController
         measurement_unit
         preparation_style
         _destroy
-      ])
+      ]
+    )
   end
 end
