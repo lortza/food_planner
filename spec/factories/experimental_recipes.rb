@@ -28,7 +28,7 @@ FactoryBot.define do
 
     trait :with_faker_data do
       title { Faker::Food.dish }
-      image_url { 'https://placehold.co/400x400' }
+      image_url { "https://placehold.co/400x400" }
     end
   end
 end

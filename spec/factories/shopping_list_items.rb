@@ -32,7 +32,7 @@ FactoryBot.define do
     aisle_id { create(:aisle).id }
     sequence(:name) { |n| "List Item Name #{n}" }
     quantity { 1 }
-    heb_upc { '1234' }
-    status { 'active' }
+    heb_upc { "1234" }
+    status { "active" }
   end
 end

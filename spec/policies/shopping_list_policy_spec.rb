@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe ShoppingListPolicy, type: :policy do
   let(:author) { create(:user) }
@@ -10,24 +10,24 @@ RSpec.describe ShoppingListPolicy, type: :policy do
   subject { ShoppingListPolicy }
 
   permissions :show? do
-    describe 'denies access to...' do
-      it 'visitors' do
+    describe "denies access to..." do
+      it "visitors" do
         no_user = nil
         expect(subject).not_to permit(no_user, shopping_list)
       end
 
-      it 'non-author users' do
+      it "non-author users" do
         different_user = create(:user)
         expect(subject).not_to permit(different_user, shopping_list)
       end
     end
 
-    describe 'permits access to...' do
-      it 'author users' do
+    describe "permits access to..." do
+      it "author users" do
         expect(subject).to permit(author, shopping_list)
       end
 
-      it 'non-author admin users' do
+      it "non-author admin users" do
         # admin = create(:user, admin: true)
         expect(subject).to permit(admin, shopping_list)
       end
@@ -35,24 +35,24 @@ RSpec.describe ShoppingListPolicy, type: :policy do
   end
 
   permissions :create? do
-    describe 'denies access to...' do
-      it 'visitors' do
+    describe "denies access to..." do
+      it "visitors" do
         no_user = nil
         expect(subject).not_to permit(no_user, shopping_list)
       end
 
-      it 'non-author users' do
+      it "non-author users" do
         different_user = create(:user)
         expect(subject).not_to permit(different_user, shopping_list)
       end
     end
 
-    describe 'permits access to...' do
-      it 'author users' do
+    describe "permits access to..." do
+      it "author users" do
         expect(subject).to permit(author, shopping_list)
       end
 
-      it 'non-author admin users' do
+      it "non-author admin users" do
         # admin = create(:user, admin: true)
         expect(subject).to permit(admin, shopping_list)
       end
@@ -60,24 +60,24 @@ RSpec.describe ShoppingListPolicy, type: :policy do
   end
 
   permissions :edit? do
-    describe 'denies access to...' do
-      it 'visitors' do
+    describe "denies access to..." do
+      it "visitors" do
         no_user = nil
         expect(subject).not_to permit(no_user, shopping_list)
       end
 
-      it 'non-author users' do
+      it "non-author users" do
         different_user = create(:user)
         expect(subject).not_to permit(different_user, shopping_list)
       end
     end
 
-    describe 'permits access to...' do
-      it 'author users' do
+    describe "permits access to..." do
+      it "author users" do
         expect(subject).to permit(author, shopping_list)
       end
 
-      it 'non-author admin users' do
+      it "non-author admin users" do
         # admin = create(:user, admin: true)
         expect(subject).to permit(admin, shopping_list)
       end
@@ -85,24 +85,24 @@ RSpec.describe ShoppingListPolicy, type: :policy do
   end
 
   permissions :update? do
-    describe 'denies access to...' do
-      it 'visitors' do
+    describe "denies access to..." do
+      it "visitors" do
         no_user = nil
         expect(subject).not_to permit(no_user, shopping_list)
       end
 
-      it 'non-author users' do
+      it "non-author users" do
         different_user = create(:user)
         expect(subject).not_to permit(different_user, shopping_list)
       end
     end
 
-    describe 'permits access to...' do
-      it 'author users' do
+    describe "permits access to..." do
+      it "author users" do
         expect(subject).to permit(author, shopping_list)
       end
 
-      it 'non-author admin users' do
+      it "non-author admin users" do
         # admin = create(:user, admin: true)
         expect(subject).to permit(admin, shopping_list)
       end
@@ -110,24 +110,24 @@ RSpec.describe ShoppingListPolicy, type: :policy do
   end
 
   permissions :destroy? do
-    describe 'it denies access to...' do
-      it 'visitors' do
+    describe "it denies access to..." do
+      it "visitors" do
         no_user = nil
         expect(subject).not_to permit(no_user, shopping_list)
       end
 
-      it 'non-author users' do
+      it "non-author users" do
         different_user = create(:user)
         expect(subject).not_to permit(different_user, shopping_list)
       end
     end
 
-    describe 'it permits access to...' do
-      it 'author users' do
+    describe "it permits access to..." do
+      it "author users" do
         expect(subject).to permit(author, shopping_list)
       end
 
-      it 'non-author admin users' do
+      it "non-author admin users" do
         # admin = create(:user, admin: true)
         expect(subject).to permit(admin, shopping_list)
       end
@@ -136,16 +136,16 @@ RSpec.describe ShoppingListPolicy, type: :policy do
     describe 'default shopping list ("Grocery")' do
       let(:default_shopping_list) { create(:shopping_list, user: author, main: true) }
 
-      it 'it denies authors' do
+      it "it denies authors" do
         expect(subject).not_to permit(author, default_shopping_list)
       end
 
-      it 'denies non-author admin' do
+      it "denies non-author admin" do
         # admin = create(:user, admin: true)
         expect(subject).not_to permit(admin, default_shopping_list)
       end
 
-      it 'denies author admin' do
+      it "denies author admin" do
         admin_author = create(:user, admin: true)
         default_shopping_list = create(:shopping_list, user: admin_author, main: true)
 

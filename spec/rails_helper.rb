@@ -1,22 +1,22 @@
 # frozen_string_literal: true
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
-require 'spec_helper'
-ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../../config/environment', __FILE__)
+require "spec_helper"
+ENV["RAILS_ENV"] ||= "test"
+require File.expand_path("../../config/environment", __FILE__)
 # Prevent database truncation if the environment is production
-abort('The Rails environment is running in production mode!') if Rails.env.production?
-require 'rspec/rails'
+abort("The Rails environment is running in production mode!") if Rails.env.production?
+require "rspec/rails"
 # Add additional requires below this line. Rails is not loaded until this point!
-require 'pry'
-require 'devise'
-require 'capybara/rails'
-require 'capybara/rspec'
-require 'pundit/rspec'
-require 'webdrivers'
-require 'support/factory_bot'
-require 'support/capybara'
-require 'support/shoulda_matchers'
+require "pry"
+require "devise"
+require "capybara/rails"
+require "capybara/rspec"
+require "pundit/rspec"
+require "webdrivers"
+require "support/factory_bot"
+require "support/capybara"
+require "support/shoulda_matchers"
 
 # Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 
@@ -27,7 +27,6 @@ rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
 end
-
 
 RSpec.configure do |config|
   config.fixture_paths = ["#{::Rails.root}/spec/fixtures"]

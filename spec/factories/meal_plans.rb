@@ -25,6 +25,6 @@ FactoryBot.define do
     user
     prepared_on { rand((Time.zone.today - 10)...Time.zone.today) }
     people_served { 2 }
-    notes { '' }
+    notes { "" }
   end
 end
