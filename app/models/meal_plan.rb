@@ -38,7 +38,7 @@ class MealPlan < ApplicationRecord
   scope :most_recent_first, -> { order(prepared_on: :DESC) }
 
   def self.future
-    where("prepared_on >= ?", Time.zone.today).by_date
+    where(prepared_on: Time.zone.today..).by_date
   end
 
   def self.upcoming
@@ -53,7 +53,7 @@ class MealPlan < ApplicationRecord
     latest_plan_date = user.meal_plans.maximum(:prepared_on)
     oldest_allowable_date = 7.days.ago
 
-    if latest_plan_date < oldest_allowable_date
+    if latest_plan_date.before?(oldest_allowable_date)
       upcoming_sunday
     else
       date_after_last_meal_plan(latest_plan_date)
