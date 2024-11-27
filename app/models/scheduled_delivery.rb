@@ -22,13 +22,8 @@
 class ScheduledDelivery < ApplicationRecord
   belongs_to :shopping_list
 
-  validates :scheduled_for,
-    :service_provider,
-    presence: true
+  validates :scheduled_for, :service_provider, presence: true
 
-  def self.future
-    hour_window = Time.zone.now - 3600
-    where("scheduled_for >= ?", hour_window)
-      .order(scheduled_for: :asc)
-  end
+  scope :future, -> { where(scheduled_for: Time.zone.now..).order(scheduled_for: :asc) }
+  scope :today_and_beyond, -> { where(scheduled_for: Date.today.beginning_of_day..).order(scheduled_for: :asc) }
 end

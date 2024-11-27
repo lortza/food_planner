@@ -22,7 +22,7 @@ module ShoppingListsHelper
   end
 
   def scheduled_delivery_status(item)
-    if item.active? && item.list.scheduled_deliveries.future.any?
+    if item.active? && item.list.scheduled_deliveries.today_and_beyond.any?
       icon = MaterialIcon.new(
         icon: :add_shopping_cart,
         size: :large, classes: "js-add-to-cart",
