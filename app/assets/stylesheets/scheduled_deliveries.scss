@@ -1,0 +1,7 @@
+@import 'variables';
+
+.scheduled-deliveries > a:not(:last-child) {
+  padding-right: .5rem;
+  margin-right: .125rem;
+  border-right: 1px solid $brand-light-blue;
+}
