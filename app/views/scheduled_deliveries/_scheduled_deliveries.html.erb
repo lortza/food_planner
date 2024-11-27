@@ -1,7 +1,10 @@
-<% if shopping_list.scheduled_deliveries.future.any? %>
-  <section class='mt-3'>
-    <p><strong>Deliveries:</strong>
-      <%= display_scheduled_deliveries(shopping_list.scheduled_deliveries.future) %>
-    </p>
+<% if shopping_list.scheduled_deliveries.today_and_beyond.any? %>
+  <section class='mt-3 scheduled-deliveries'>
+    <strong>Deliveries:</strong>
+    <% shopping_list.scheduled_deliveries.today_and_beyond.each do |delivery| %>
+      <%= link_to "#{delivery.service_provider} #{delivery.scheduled_for.to_fs(:timestamp)}".squish,
+        edit_shopping_list_scheduled_delivery_path(delivery.shopping_list, delivery),
+        class: '' %>
+    <% end %>
   </section>
 <% end %>

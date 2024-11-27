@@ -35,6 +35,7 @@ group :development do
   # gem 'magic_frozen_string_literal'
   gem "rails-erd", require: false   # generates table diagram run `bundle exec erd`
   gem "standard"                    # standard rb code linter
+  gem "erb_lint"                    # erb code linter
   gem "rubycritic", require: false  # provides stats on code build
   gem "scss_lint", require: false   # css linter
   gem "seed_dump"                   # invoke with `rake db:seed:dump`
