@@ -12,7 +12,7 @@ RSpec.describe ScheduledDelivery, type: :model do
 
   describe "scopes" do
     describe "future" do
-      let(:current_time) { "2024-05-15".to_datetime }
+      let(:current_time) { "2024-05-15 00:00:00.000000000 -0500".to_datetime }
 
       it "does not include past deliveries" do
         travel_to current_time do
@@ -45,7 +45,7 @@ RSpec.describe ScheduledDelivery, type: :model do
     end
 
     describe "today_and_beyond" do
-      let(:current_time) { "2024-05-15".to_datetime }
+      let(:current_time) { "2024-05-15 00:00:00.000000000 -0500".to_datetime }
 
       it "does not include yesterday's deliveries" do
         travel_to current_time do
