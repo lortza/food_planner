@@ -55,7 +55,7 @@ group :development, :test do
   gem "guard-rspec", require: false # runs rspec automatically
   gem "pry-rails"               # helps with pry
   gem "reek"                    # https://github.com/troessner/reek/blob/master/docs/Code-Smells.md
-  gem "rspec-rails", "~> 7.1.0"
+  gem "rspec-rails", "~> 7.1.1"
   gem "selenium-webdriver"
 end
 
