@@ -574,7 +574,6 @@ DEPENDENCIES
   sentry-rails
   sentry-ruby
   shoulda-matchers
-  simplecov
   spring
   spring-watcher-listen (~> 2.1.0)
   standard
