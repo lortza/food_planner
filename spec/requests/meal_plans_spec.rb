@@ -100,7 +100,7 @@ RSpec.describe "MealPlans", type: :request do
           meal_plan_attributes = build(:meal_plan, user: user).attributes
           post meal_plans_path(meal_plan: meal_plan_attributes)
 
-          expect(response).to redirect_to meal_plan_url(user.meal_plans.reload.order(:prepared_on).last)
+          expect(response).to redirect_to meal_plan_url(user.meal_plans.reload.last)
         end
       end
 
