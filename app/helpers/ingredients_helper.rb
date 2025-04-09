@@ -37,9 +37,9 @@ module IngredientsHelper
   def process_fraction(number)
     if known_fraction(number)
       known_fraction(number)
-    elsif number >= 0.3 && number <= 0.4
+    elsif number.between?(0.3, 0.4)
       known_fraction(0.33)
-    elsif number >= 0.6 && number <= 0.7
+    elsif number.between?(0.6, 0.7)
       known_fraction(0.66)
     else
       number.round(3)
