@@ -21,6 +21,7 @@ class MaterialIcon
     when :checkmark then checkmark
     when :clock then clock
     when :copy then copy
+    when :convert then convert
     when :edit then edit_note
     when :event_repeat then event_repeat
     when :info then info
@@ -77,6 +78,12 @@ class MaterialIcon
     content_tag(:span, "done",
       class: symbol_classes,
       title: @title.presence || "Done")
+  end
+
+  def convert
+    content_tag(:span, "convert_to_text",
+      class: symbol_classes,
+      title: @title.presence || "Convert")
   end
 
   def copy
