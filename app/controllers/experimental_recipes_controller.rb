@@ -4,7 +4,7 @@ class ExperimentalRecipesController < ApplicationController
   before_action :set_experimental_recipe, only: %i[edit update destroy]
 
   def index
-    @experimental_recipes = policy_scope(ExperimentalRecipe).by_title
+    @experimental_recipes = policy_scope(ExperimentalRecipe).order(created_at: :desc)
   end
 
   def new
