@@ -9,7 +9,7 @@ gem "rails", "~> 7.2.2.1"         # Updates to the latest patch that's lower tha
 gem "bootsnap", ">= 1.1.0", require: false # Reduces boot times through caching; required in config/boot.rb
 gem "coffee-rails"              # Use CoffeeScript for .coffee assets and views
 gem "devise"                    # User authentication
-gem "jbuilder", "~> 2.12"       # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem "jbuilder", "~> 2.14"       # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem "loofah", ">= 2.2.3"        # Upgrade for security update
 gem "nokogiri", ">= 1.8.5"      # Upgrade for security update
 gem "pg", ">= 0.18", "< 2.0"
