@@ -30,6 +30,7 @@ class User < ApplicationRecord
   has_many :shopping_lists, dependent: :destroy
   has_many :aisles, dependent: :destroy
   has_many :inventories, dependent: :destroy
+  has_many :tags, dependent: :destroy
 
   def favorite_list
     shopping_lists.find_by(favorite: true)
