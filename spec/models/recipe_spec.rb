@@ -7,6 +7,8 @@ RSpec.describe Recipe, type: :model do
     it { should have_many(:ingredients) }
     it { should have_many(:meal_plan_recipes) }
     it { should have_many(:meal_plans).through(:meal_plan_recipes) }
+    it { should have_many(:recipe_tags) }
+    it { should have_many(:tags).through(:recipe_tags) }
 
     it { should accept_nested_attributes_for(:ingredients).allow_destroy(true) }
   end
