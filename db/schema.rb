@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_23_123608) do
+ActiveRecord::Schema[7.2].define(version: 2025_08_21_190258) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -99,6 +99,16 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_23_123608) do
     t.index ["user_id"], name: "index_meal_plans_on_user_id"
   end
 
+  create_table "recipe_tags", force: :cascade do |t|
+    t.bigint "recipe_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id", "tag_id"], name: "index_recipe_tags_on_recipe_id_and_tag_id", unique: true
+    t.index ["recipe_id"], name: "index_recipe_tags_on_recipe_id"
+    t.index ["tag_id"], name: "index_recipe_tags_on_tag_id"
+  end
+
   create_table "recipes", force: :cascade do |t|
     t.string "title", default: "", null: false
     t.string "source_name", default: "", null: false
@@ -157,6 +167,15 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_23_123608) do
     t.index ["user_id"], name: "index_shopping_lists_on_user_id"
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "name"], name: "index_tags_on_user_id_and_name", unique: true
+    t.index ["user_id"], name: "index_tags_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -179,9 +198,12 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_23_123608) do
   add_foreign_key "meal_plan_recipes", "meal_plans"
   add_foreign_key "meal_plan_recipes", "recipes"
   add_foreign_key "meal_plans", "users"
+  add_foreign_key "recipe_tags", "recipes"
+  add_foreign_key "recipe_tags", "tags"
   add_foreign_key "recipes", "users"
   add_foreign_key "scheduled_deliveries", "shopping_lists"
   add_foreign_key "shopping_list_items", "aisles"
   add_foreign_key "shopping_list_items", "shopping_lists"
   add_foreign_key "shopping_lists", "users"
+  add_foreign_key "tags", "users"
 end
