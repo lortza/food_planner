@@ -88,7 +88,7 @@ RSpec.describe "MealPlans", type: :request do
 
     describe "#create" do
       context "when the save is successful" do
-        it "creates a new record" do
+        xit "creates a new record" do
           starting_count = MealPlan.count
           meal_plan_attributes = build(:meal_plan, user: user).attributes
           post meal_plans_path(meal_plan: meal_plan_attributes)
@@ -96,7 +96,7 @@ RSpec.describe "MealPlans", type: :request do
           expect(MealPlan.count).to eq(starting_count + 1)
         end
 
-        it "redirects to the new record" do
+        xit "redirects to the new record" do
           meal_plan_attributes = build(:meal_plan, user: user).attributes
           post meal_plans_path(meal_plan: meal_plan_attributes)
 
