@@ -104,6 +104,8 @@ class Ingredient < ApplicationRecord
   validates :quantity, numericality: true
   validates :measurement_unit, inclusion: {in: UNITS}
 
+  normalizes :name, with: ->(name) { name.strip.squish }
+
   def self.by_id
     order(:id)
   end

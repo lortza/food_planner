@@ -6,7 +6,8 @@ class RecipesController < ApplicationController
 
   def index
     recipes = policy_scope(Recipe)
-    search_term = params[:search]
+    search_term = params[:search]&.strip&.squish
+
     recipes = search_term.present? ? recipes.search(field: "title", terms: search_term) : recipes.active
 
     @recipes = recipes.includes(:meal_plans, :meal_plan_recipes)

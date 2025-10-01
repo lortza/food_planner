@@ -33,6 +33,8 @@ class ShoppingList < ApplicationRecord
     presence: true,
     uniqueness: {case_sensitive: false}
 
+  normalizes :name, with: ->(name) { name.strip.squish }
+
   def self.default
     find_by(main: true)
   end

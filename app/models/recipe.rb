@@ -74,6 +74,8 @@ class Recipe < ApplicationRecord
   validates :cook_time, numericality: {other_than: 0}, if: -> { reheat_time&.zero? && prep_time&.zero? }
   validates :reheat_time, numericality: {other_than: 0}, if: -> { prep_time&.zero? && cook_time&.zero? }
 
+  normalizes :title, with: ->(title) { title.strip.squish }
+
   def self.for_prep_date(date)
     # WIP
     # Recipe.joins(:preparations).where(preparations: {date: date})

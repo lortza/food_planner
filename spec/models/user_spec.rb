@@ -5,12 +5,28 @@ require "rails_helper"
 RSpec.describe User, type: :model do
   let(:user) { build(:user) }
 
-  context "associations" do
+  describe "associations" do
     it { should have_many(:recipes) }
     it { should have_many(:experimental_recipes) }
     it { should have_many(:meal_plans) }
     it { should have_many(:shopping_lists) }
     it { should have_many(:aisles) }
+  end
+
+  describe "a valid user" do
+    context "when has valid params" do
+      it "is valid" do
+        expect(user).to be_valid
+      end
+    end
+  end
+
+  describe "normalization" do
+    it "strips leading/trailing blankspace and downcases the email before validation" do
+      user = build(:user, email: "   foo@EMAIL.com  ")
+      expect(user.valid?).to be(true)
+      expect(user.email).to eq("foo@email.com")
+    end
   end
 
   describe "#favorite_list" do

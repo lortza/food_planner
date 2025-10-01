@@ -9,6 +9,20 @@ RSpec.describe ShoppingListItem, type: :model do
     it { should belong_to(:list) }
   end
 
+  describe "normalization" do
+    it "strips leading/trailing whitespace and squishes internal whitespace in the name" do
+      item = build(:shopping_list_item, name: "  Example    Item  ")
+      expect(item.valid?).to be(true)
+      expect(item.name).to eq("example item")
+    end
+
+    it "converts the name to downcase" do
+      item = build(:shopping_list_item, name: "  ExAmPlE    ItEm  ")
+      expect(item.valid?).to be(true)
+      expect(item.name).to eq("example item")
+    end
+  end
+
   describe "a valid shopping_list_item" do
     context "when has valid params" do
       it "is valid" do

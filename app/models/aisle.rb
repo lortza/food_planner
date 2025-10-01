@@ -31,6 +31,8 @@ class Aisle < ApplicationRecord
 
   validates :name, uniqueness: {scope: :user_id}
 
+  normalizes :name, with: ->(name) { name.strip.squish }
+
   def self.unassigned(list)
     list.user.aisles
       .where("name ILIKE ?", "unassigned")

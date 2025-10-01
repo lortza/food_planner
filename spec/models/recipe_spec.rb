@@ -61,6 +61,14 @@ RSpec.describe Recipe, type: :model do
       end
     end
 
+    describe "title normalization" do
+      it "strips leading/trailing whitespace and squishes internal blankspace before validation" do
+        recipe = build(:recipe, title: "  Example    Recipe  ")
+        expect(recipe.valid?).to be(true)
+        expect(recipe.title).to eq("Example Recipe")
+      end
+    end
+
     describe "before validations" do
       describe "guarantee_instructions_values" do
         let(:instructions_value) { "instructions value" }

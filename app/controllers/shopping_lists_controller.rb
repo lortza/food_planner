@@ -16,7 +16,7 @@ class ShoppingListsController < ApplicationController
   end
 
   def search
-    search_term = params[:search]
+    search_term = params[:search]&.strip&.squish
     @shopping_list_items = @shopping_list.search_results(search_term)
   end
 
