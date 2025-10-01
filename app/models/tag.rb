@@ -26,4 +26,6 @@ class Tag < ApplicationRecord
 
   validates :name, presence: true
   validates :name, uniqueness: {scope: :user_id, case_sensitive: false} # means "Tag1" and "tag1" are considered the same
+
+  normalizes :name, with: ->(name) { name.strip.downcase }
 end

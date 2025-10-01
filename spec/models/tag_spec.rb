@@ -42,4 +42,18 @@ RSpec.describe Tag, type: :model do
       end
     end
   end
+
+  describe "normalization" do
+    it "strips leading/trailing whitespace and downcases the name before validation" do
+      tag = build(:tag, user: user, name: "  ExAmPlE TaG  ")
+      expect(tag.valid?).to be(true)
+      expect(tag.name).to eq("example tag")
+    end
+
+    it "gracefully handles nil name" do
+      tag = build(:tag, user: user, name: nil)
+      expect(tag.valid?).to be(false)
+      expect(tag.errors[:name]).to include("can't be blank")
+    end
+  end
 end
