@@ -47,6 +47,8 @@ class ShoppingListItem < ApplicationRecord
 
   # validates :recurrence_frequency, inclusion: { in: ShoppingListItemRecurrence::FREQUENCIES }
 
+  normalizes :name, with: ->(name) { name.strip.squish.downcase }
+
   scope :active, -> { where(status: "active") }
   scope :inactive, -> { where(status: "inactive") }
   scope :not_purchased, -> { where(status: "active").or(where(status: "in_cart")) }

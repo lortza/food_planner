@@ -28,4 +28,7 @@ class ExperimentalRecipe < ApplicationRecord
   validates :title,
     :source_url,
     presence: true
+
+  normalizes :title, with: ->(title) { title.strip.squish }
+  normalizes :source_url, with: ->(source_url) { source_url.strip }
 end

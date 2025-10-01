@@ -7,6 +7,20 @@ RSpec.describe Ingredient, type: :model do
     it { should belong_to(:recipe) }
   end
 
+  describe "normalization" do
+    it "strips leading/trailing whitespace and squishes internal whitespace in the name" do
+      ingredient = build(:ingredient, name: "  Example    Ingredient  ")
+      expect(ingredient.valid?).to be(true)
+      expect(ingredient.name).to eq("Example Ingredient")
+    end
+
+    it "does not affect case" do
+      ingredient = build(:ingredient, name: "  ExAmPlE    iNGREdiENT  ")
+      expect(ingredient.valid?).to be(true)
+      expect(ingredient.name).to eq("ExAmPlE iNGREdiENT")
+    end
+  end
+
   describe "a valid ingredient" do
     context "when has valid params" do
       it "is valid" do

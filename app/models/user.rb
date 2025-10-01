@@ -31,6 +31,10 @@ class User < ApplicationRecord
   has_many :aisles, dependent: :destroy
   has_many :inventories, dependent: :destroy
 
+  validates :email, presence: true, uniqueness: {case_sensitive: false}
+
+  normalizes :email, with: ->(email) { email.strip.downcase }
+
   def favorite_list
     shopping_lists.find_by(favorite: true)
   end

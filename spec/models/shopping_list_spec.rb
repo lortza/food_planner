@@ -25,6 +25,14 @@ RSpec.describe ShoppingList, type: :model do
     end
   end
 
+  describe "normalization" do
+    it "strips leading/trailing blankspace and squishes internal blankspace in the name" do
+      shopping_list = build(:shopping_list, name: "  My   Shopping   list  ")
+      expect(shopping_list.valid?).to be(true)
+      expect(shopping_list.name).to eq("My Shopping list")
+    end
+  end
+
   describe "self.default" do
     let(:user) { create(:user) }
     let(:shopping_list) { create(:shopping_list, user: user) }

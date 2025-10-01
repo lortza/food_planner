@@ -20,6 +20,20 @@ RSpec.describe Aisle, type: :model do
     end
   end
 
+  describe "normalization" do
+    it "strips leading/trailing whitespace and squishes internal whitespace in the name" do
+      aisle = build(:aisle, name: "  Example    Aisle  ")
+      expect(aisle.valid?).to be(true)
+      expect(aisle.name).to eq("Example Aisle")
+    end
+
+    it "does not affect case" do
+      aisle = build(:aisle, name: "  ExAmPlE    aiSlE  ")
+      expect(aisle.valid?).to be(true)
+      expect(aisle.name).to eq("ExAmPlE aiSlE")
+    end
+  end
+
   describe "self.unassigned" do
     let(:user) { create(:user) }
     let(:shopping_list) { create(:shopping_list, user: user) }
