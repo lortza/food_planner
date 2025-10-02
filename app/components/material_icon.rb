@@ -24,6 +24,7 @@ class MaterialIcon
     when :convert then convert
     when :edit then edit_note
     when :event_repeat then event_repeat
+    when :experimental then experimental
     when :info then info
     when :new then new_release
     when :plus_circle then plus_circle
@@ -102,6 +103,12 @@ class MaterialIcon
     content_tag(:span, "event_repeat",
       class: symbol_classes,
       title: @title.presence || "Repeated")
+  end
+
+  def experimental
+    content_tag(:span, "experiment",
+      class: symbol_classes,
+      title: @title.presence || "Experimental")
   end
 
   def info

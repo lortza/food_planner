@@ -8,7 +8,7 @@ class RecipesController < ApplicationController
     recipes = policy_scope(Recipe)
     search_term = params[:search]&.strip&.squish
 
-    recipes = search_term.present? ? recipes.search(field: "title", terms: search_term) : recipes.active
+    recipes = search_term.present? ? recipes.search(field: "title", terms: search_term) : recipes.active_or_pending
 
     @recipes = recipes.includes(:meal_plans, :meal_plan_recipes)
       .order(updated_at: "DESC")
@@ -102,7 +102,6 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(
-      :archived,
       :cook_time,
       :experimental_recipe_id,
       :extra_work_note,
@@ -117,6 +116,7 @@ class RecipesController < ApplicationController
       :servings,
       :source_name,
       :source_url,
+      :status,
       :title,
       ingredients_attributes: %i[
         id

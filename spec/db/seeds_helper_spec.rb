@@ -17,7 +17,7 @@ RSpec.describe "SeedsHelper" do
       image_url: "http://cdn2.pepperplate.com/recipes/bcb751ba9ab749dbb0f48ffb083a72c5.jpg",
       reheat_time: 20,
       pepperplate_url: "http://www.pepperplate.com/recipes/view.aspx?id=15454393",
-      archived: false
+      status: 1
     },
       {
         title: "Quick Pad Thai",
@@ -30,7 +30,7 @@ RSpec.describe "SeedsHelper" do
         image_url: "http://cdn2.pepperplate.com/recipes/dad9e72fa23f4e839c6057b8684da88e.jpg",
         reheat_time: 10,
         pepperplate_url: "http://www.pepperplate.com/recipes/view.aspx?id=15772038",
-        archived: false
+        status: 1
       }]
   end
   let(:ingredient_data) do

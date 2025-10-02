@@ -3,7 +3,8 @@
   :source_name: Warm Kitchen
   :source_url: https://warmkitchen.wordpress.com/2014/11/12/its-a-veggie-po-boy-yall/
   :servings: 4
-  :instructions: "Turn your oven onto broil\r\n\r\nCut your bread into 6″ lengths,
+  :instructions:
+    "Turn your oven onto broil\r\n\r\nCut your bread into 6″ lengths,
     then cut it open\r\n\r\nPlace both side face up on a baking tray and top both
     pieces of bread with cheese and banana peppers\r\n\r\nBroil for just a few minutes
     while you prep the other vegetables\r\n\r\nThinly slice your cucumbers and bell
@@ -16,14 +17,15 @@
   :image_url: http://cdn2.pepperplate.com/recipes/bcb751ba9ab749dbb0f48ffb083a72c5.jpg
   :reheat_time: 20
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=15454393
-  :notes: ''
-  :archived: false
-  :nutrition_data_iframe: ''
+  :notes: ""
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: Quick Pad Thai
   :source_name: Women's Health Magazine
   :source_url: https://subscribe.hearstmags.com/circulation/shared/index.html
   :servings: 4
-  :instructions: "Cook pasta according to package directions. Toss with 1 teaspoon
+  :instructions:
+    "Cook pasta according to package directions. Toss with 1 teaspoon
     olive oil.\r\n\r\nIn a small bowl, whisk soy sauce, peanut butter, sugar, chili
     flakes, and 1 tablespoon water until smooth. Set aside.\r\n\r\nCook onion and
     bell peppers\r\n\r\nAdd in tofu and cook for another 2 minutes.\r\n\r\nAdd cooked
@@ -34,14 +36,15 @@
   :image_url: http://cdn2.pepperplate.com/recipes/dad9e72fa23f4e839c6057b8684da88e.jpg
   :reheat_time: 10
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=15772038
-  :notes: ''
-  :archived: false
-  :nutrition_data_iframe: ''
+  :notes: ""
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: Quiche
   :source_name: Original Creation
   :source_url: "/"
   :servings: 4
-  :instructions: "Preheat oven 350F (or just use a toaster oven so you don't have
+  :instructions:
+    "Preheat oven 350F (or just use a toaster oven so you don't have
     to preheat)\r\n\r\nPrebake the crust for about 10 mi. Keep an eye on it because
     you don't want it to get too deformed in the process.\r\n\r\nYou don't have to
     prebake, but it keeps the bottom of the crust from getting mushy from the eggs.\r\n\r\nWhile
@@ -53,14 +56,15 @@
   :image_url: http://cdn2.pepperplate.com/recipes/07aae73855464443b20e789a31df8caf.jpg
   :reheat_time: 20
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=19998600
-  :notes: ''
-  :archived: false
-  :nutrition_data_iframe: ''
+  :notes: ""
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: Creamy Lentil Soup
   :source_name: Bob's Red Mill
   :source_url: https://www.bobsredmill.com/recipes/how-to-make/creamed-vegi-soup/
   :servings: 4
-  :instructions: "Simmer soup mix and water for 30 minutes.\r\n\r\nAdd cut-up carrots,
+  :instructions:
+    "Simmer soup mix and water for 30 minutes.\r\n\r\nAdd cut-up carrots,
     celery and onion.\r\n\r\nContinue cooking for 30 minutes or until ingredients
     are soft.\r\n\r\nCool soup enough to blend.\r\n\r\nPlace soup in blender, and
     blend until smooth. <-- skip this\r\n\r\nAdd 1 cup Milk (rice, soy, etc.) to blended
@@ -71,14 +75,15 @@
   :image_url: http://cdn2.pepperplate.com/recipes/66a034972ccf478c98983f876d11de6b.jpg
   :reheat_time: 10
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=18529284
-  :notes: ''
-  :archived: false
-  :nutrition_data_iframe: ''
+  :notes: ""
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: Red Lentil Curry
   :source_name: Jessica in the Kitchen
   :source_url: https://jessicainthekitchen.com/red-lentil-curry-vegan/
   :servings: 4
-  :instructions: "Cook down the onions and tomatoes\r\n\r\nAdd in the spices, simmer
+  :instructions:
+    "Cook down the onions and tomatoes\r\n\r\nAdd in the spices, simmer
     for about 30 seconds\r\n\r\nAdd in the lentils & water and bring to a boil.\r\n\r\nBe
     careful to stir enough to keep the lentils from sticking to the bottom.\r\n\r\nBring
     the temp down and a simmer for 30 min.\r\n\r\nMake rice.\r\n\r\nWhen the lentils
@@ -88,14 +93,15 @@
   :image_url: http://cdn2.pepperplate.com/recipes/5b8972b2e1344a83965f7a248ec4f978.jpg
   :reheat_time: 15
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=22761475
-  :notes: ''
-  :archived: false
-  :nutrition_data_iframe: ''
+  :notes: ""
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: Blended Red Lentil Soup
   :source_name: Loving it Vegan
   :source_url: https://lovingitvegan.com/vegan-lentil-soup/
   :servings: 4
-  :instructions: "Peel and chop the onion and add to a pot with the olive oil and
+  :instructions:
+    "Peel and chop the onion and add to a pot with the olive oil and
     cumin and sauté until slightly softened.\r\n\r\nAdd the carrots and toss together.
     Then the lentils and toss together with the other vegetables.\r\n\r\nFinally,
     add in the vegetable stock and mix together.\r\n\r\nBring to the boil and then
@@ -109,14 +115,15 @@
   :image_url: http://cdn2.pepperplate.com/recipes/7830f70754dd4f75ba89595ee1568cf2.jpg
   :reheat_time: 10
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=22709198
-  :notes: ''
-  :archived: false
-  :nutrition_data_iframe: ''
+  :notes: ""
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: Caraotas Negras
   :source_name: GOYA
   :source_url: https://www.goya.com/en/recipes/dishes-desserts/caraotas-negras
   :servings: 4
-  :instructions: "Add bacon to medium saucepan over medium-high heat.\r\n\r\nCook
+  :instructions:
+    "Add bacon to medium saucepan over medium-high heat.\r\n\r\nCook
     until fat is rendered and bacon begins to crisp, about 7 minutes.\r\n\r\nAdd onions,
     peppers and garlic.\r\n\r\nCook, stirring occasionally, until onions soften and
     begin to brown, about 12 minutes.\r\n\r\nStir in brown sugar cane (if desired),
@@ -127,14 +134,15 @@
   :image_url: http://cdn2.pepperplate.com/recipes/edca0cc48bfe4d45bf3d27bb66b76c3b.jpg
   :reheat_time: 10
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=20213928
-  :notes: ''
-  :archived: false
-  :nutrition_data_iframe: ''
+  :notes: ""
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: Arroz Con Gandules Pigeon Peas
   :source_name: GOYA
   :source_url: https://www.goya.com/en/recipes/arroz-con-gandules
   :servings: 8
-  :instructions: "Toast coconut flakes in a dry skillet until they start to get a
+  :instructions:
+    "Toast coconut flakes in a dry skillet until they start to get a
     little brown\r\n\r\nIn large skillet, cook onions and peppers, cook for 3 minutes\r\n\r\nStir
     in garlic\r\n\r\nAdd gandules, tomato sauce, water, and bring to a boil\r\n\r\nAdd
     coconut flakes and rice\r\n\r\nStir, cover, reduce to simmer for 25 min"
@@ -143,14 +151,15 @@
   :image_url: http://cdn2.pepperplate.com/recipes/597c21cde8f243d8963affe31aa588b6.jpg
   :reheat_time: 15
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=20213636
-  :notes: ''
-  :archived: false
-  :nutrition_data_iframe: ''
+  :notes: ""
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: Asian Raw Kale Salad
   :source_name: Cookie + Kate
   :source_url: https://cookieandkate.com/2011/raw-kale-asian-salad/
   :servings: 4
-  :instructions: "First you have to make the dressing. Simply blend all dressing ingredients
+  :instructions:
+    "First you have to make the dressing. Simply blend all dressing ingredients
     thoroughly in a food processor or blender.\r\n\r\nPull the kale leaves off from
     the tough stem, and break into small, bite sized pieces. \r\n\r\nSprinkle with
     sea salt and massage the leaves for a couple of minutes, meaning that you should
@@ -164,14 +173,15 @@
   :image_url: http://cdn2.pepperplate.com/recipes/eebd1e4d5b7e4a4b8e143c745ac5e180.jpg
   :reheat_time: 0
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=20582867
-  :notes: ''
-  :archived: false
-  :nutrition_data_iframe: ''
+  :notes: ""
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: Potato Leek Soup
   :source_name: Bon Appétit
   :source_url: https://www.bonappetit.com/recipe/potato-leek-soup-toasted-nuts-seeds
   :servings: 6
-  :instructions: "Trim dark green leaves from leeks; discard all but 2. Tuck thyme,
+  :instructions:
+    "Trim dark green leaves from leeks; discard all but 2. Tuck thyme,
     rosemary, and bay leaves inside leek leaves; tie closed with kitchen twine. Thinly
     slice light and pale-green parts of leeks.\r\n\r\nHeat butter in a large heavy
     pot over medium-high. Add celery and sliced leeks and season with salt and pepper.
@@ -196,14 +206,15 @@
   :image_url: http://cdn2.pepperplate.com/recipes/8e88c9c12e3c4ffc93084d97ba476877.jpg
   :reheat_time: 10
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=22778959
-  :notes: ''
-  :archived: false
-  :nutrition_data_iframe: ''
+  :notes: ""
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: Lentil & Kale Egg Noodle Bowl
   :source_name: Clean and Delicious
   :source_url: https://cleananddelicious.com/2017/10/06/lentil-kale-whole-grain-noodle-bowl/
   :servings: 4
-  :instructions: "Heat olive oil in a large sauce pan before adding in onion. Cook
+  :instructions:
+    "Heat olive oil in a large sauce pan before adding in onion. Cook
     for about 5 minutes or until the onions are tender and translucent.\r\n\r\nAdd
     in garlic, cumin and lentils. Gently mix together and season with salt and pepper.
     Next, add the veggie broth and let everything simmer until heated through.\r\n\r\nIn
@@ -216,14 +227,15 @@
   :image_url: http://cdn2.pepperplate.com/recipes/35d6e74b67b74514954b65988119b7c9.jpg
   :reheat_time: 5
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=22997172
-  :notes: ''
-  :archived: false
-  :nutrition_data_iframe: ''
+  :notes: ""
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: Pierogi Pizza
   :source_name: All Recipes
   :source_url: https://www.allrecipes.com/recipe/245593/pierogi-pizza/
   :servings: 4
-  :instructions: "Place potatoes in a large pot and pour in enough water to cover.
+  :instructions:
+    "Place potatoes in a large pot and pour in enough water to cover.
     Add bouillon. Bring to a boil; cook until potatoes are just tender, about 10 minutes.
     Drain.\r\n\r\nHeat 2 tablespoons olive oil in a large skillet over medium-high
     heat; add potatoes and cook until lightly golden, about 5 minutes.\r\n\r\nPreheat
@@ -239,13 +251,14 @@
   :reheat_time: 20
   :pepperplate_url:
   :notes:
-  :archived: false
-  :nutrition_data_iframe: ''
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: Sweet Potato Gnocchis
   :source_name: Original Creation
   :source_url: "/"
   :servings: 4
-  :instructions: "Boil water in a medium sauce pan\r\n\r\nPrepare spices and chop
+  :instructions:
+    "Boil water in a medium sauce pan\r\n\r\nPrepare spices and chop
     the broccolini\r\n\r\nWhen the water is boiling, drop in the gnocchi. Boil until
     they float and then drain immediately.\r\n\r\nMeanwhile, start melting butter
     in a skillet. When the gnocchis are sufficiently drained, add them plus the broccolini
@@ -254,17 +267,18 @@
     combined. Serve immediately. "
   :prep_time: 10
   :cook_time: 20
-  :image_url: ''
+  :image_url: ""
   :reheat_time: 20
   :pepperplate_url:
   :notes:
-  :archived: false
-  :nutrition_data_iframe: ''
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: Corn Chowder
   :source_name: I Eat Green
   :source_url: http://www.ieatgreen.com/vegan-corn-chowder/
   :servings: 6
-  :instructions: "Sautee the onion in the pot with the lid on\r\n\r\nAdd the rest
+  :instructions:
+    "Sautee the onion in the pot with the lid on\r\n\r\nAdd the rest
     of the veg and spices and close the lid. Cook down for about 15 minutes.\r\n\r\nAdd
     the vegetable stock and simmer on low for 20 min.\r\n\r\nRemove from heat. Add
     the can of coconut milk and parsley to the pot.\r\n\r\nBlend with the immersion
@@ -275,13 +289,14 @@
   :reheat_time: 15
   :pepperplate_url:
   :notes:
-  :archived: false
-  :nutrition_data_iframe: ''
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: City O City Breakfast Burrito
   :source_name: Original Creation
   :source_url: "/"
   :servings: 6
-  :instructions: "Cube and bake the potato\r\n\r\nChop and sautee: onion, bell pepper,
+  :instructions:
+    "Cube and bake the potato\r\n\r\nChop and sautee: onion, bell pepper,
     anaheim\r\n\r\nOnce softened, mix in crumbled tofu and add spices\r\n\r\nWhen
     potatoes are done, mix them into the tofu\r\n\r\nUse the Toaster oven to soften
     the large tortillas\r\n\r\nPut each one on a plate, fill with mixture and fixins.\r\n\r\nRoll
@@ -291,14 +306,15 @@
   :image_url: http://cdn2.pepperplate.com/recipes/49fb0f90f37f4c5190840f7565b6d821.jpg
   :reheat_time: 20
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=19268430
-  :notes: ''
-  :archived: false
-  :nutrition_data_iframe: ''
+  :notes: ""
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: Curried Satay Veggie Bowls
   :source_name: Jessica In the Kitchen
   :source_url: https://jessicainthekitchen.com/curried-satay-veggie-bowls/
   :servings: 4
-  :instructions: "Weekly meal prep notes\r\nSpiralize or peel the zucchini into ribbons.
+  :instructions:
+    "Weekly meal prep notes\r\nSpiralize or peel the zucchini into ribbons.
     Cook them briefly in a little oil to soften.\r\nCook the spaghetti.\r\nSet aside
     the zucchini and spaghetti.\r\nPlace everything else in a quart mason jar\r\nBlend
     with the immersion blender\r\nAdd water until it is a saucy consistency\r\nStore
@@ -311,14 +327,15 @@
   :image_url: http://cdn2.pepperplate.com/recipes/b734213a02984cbb83a471eca370fd45.jpg
   :reheat_time: 10
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=22657139
-  :notes: ''
-  :archived: false
-  :nutrition_data_iframe: ''
+  :notes: ""
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: Wild Rice and Mushroom Soup
   :source_name: Pinch of Yum
   :source_url: https://pinchofyum.com/instant-pot-wild-rice-soup
   :servings: 6
-  :instructions: "Stovetop: When the soup is done, melt the butter in a saucepan.
+  :instructions:
+    "Stovetop: When the soup is done, melt the butter in a saucepan.
     Whisk in the flour. Let the mixture cook for a minute or two to remove the floury
     taste. Whisk the milk, a little bit at a time, until you have a smooth, thickened
     sauce. Throw a little salt in there for good measure.\r\n"
@@ -327,14 +344,15 @@
   :image_url: http://cdn2.pepperplate.com/recipes/f758b85c4a374355a63df720998097d2.jpg
   :reheat_time: 10
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=23158236
-  :notes: ''
-  :archived: false
-  :nutrition_data_iframe: ''
+  :notes: ""
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: Jackfruit Melt Sandwich
   :source_name: Keepin It Kind
   :source_url: http://keepinitkind.com/jackfruit-tuna-melt-sandwich/
   :servings: 6
-  :instructions: "Sautee onion & garlic\r\n\r\nAdd tarragon, jackfruit, and beans
+  :instructions:
+    "Sautee onion & garlic\r\n\r\nAdd tarragon, jackfruit, and beans
     to warm\r\n\r\nOnce warmed, pour mixture into a bowl\r\n\r\nMix with mayo, celery,
     mustard, relish, lemon juice, and mash it up together. Mashing the beans is nice,
     but don't expect to mash them completely.\r\n\r\nLightly pre-toast the bread\r\n\r\nWhen
@@ -347,14 +365,15 @@
   :image_url: http://cdn2.pepperplate.com/recipes/47b2f69c8d0d43dda4afe9d63f442a3f.jpg
   :reheat_time: 15
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=19099296
-  :notes: ''
-  :archived: false
-  :nutrition_data_iframe: ''
+  :notes: ""
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: Tortilla Soup
   :source_name: Cookie + Kate
   :source_url: https://cookieandkate.com/2013/vegetarian-tortilla-soup/
   :servings: 6
-  :instructions: "Prep work: Preheat the oven to 475 degrees Fahrenheit. Stack the
+  :instructions:
+    "Prep work: Preheat the oven to 475 degrees Fahrenheit. Stack the
     tortillas and slice them into 1/2-inch-wide, 2-inch-long strips. Remove the seeds
     and membranes from the jalapeno (and poblano, if using) and chop the peppers.
     Wash your hands. Pit, peel, and medium dice the avocado, then squeeze some lime
@@ -381,14 +400,15 @@
   :image_url: http://cdn2.pepperplate.com/recipes/5fce923917ca4cc684742e986d778104.jpg
   :reheat_time: 10
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=22025023
-  :notes: ''
-  :archived: false
-  :nutrition_data_iframe: ''
+  :notes: ""
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: Ginger Broccolini Stir Fry
   :source_name: All Recipes
   :source_url: http://allrecipes.com/recipe/24712/ginger-veggie-stir-fry/
   :servings: 4
-  :instructions: "Put 2 cups water in a pot, add 1 cup dry rice. Turn burner on high.
+  :instructions:
+    "Put 2 cups water in a pot, add 1 cup dry rice. Turn burner on high.
     Bring to boil and then move to new burner on low.\r\n\r\nprepare stir fry to store
     for the week\r\nchop all of the things and divide them equally between 2 yogurt
     containers\r\nmake the rice and divide it between 2 containers\r\n\r\nmake stir
@@ -399,17 +419,18 @@
     still being crispy-ish.\r\nserve over rice."
   :prep_time: 20
   :cook_time: 10
-  :image_url: ''
+  :image_url: ""
   :reheat_time: 10
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=18986094
-  :notes: ''
-  :archived: false
-  :nutrition_data_iframe: ''
+  :notes: ""
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: Spicy Black Bean Soup
   :source_name: Cookie + Kate
   :source_url: https://cookieandkate.com/2016/spicy-vegan-black-bean-soup/
   :servings: 4
-  :instructions: "Cook down the onions, celery and carrot until soft, about 10 to
+  :instructions:
+    "Cook down the onions, celery and carrot until soft, about 10 to
     15 minutes.\r\n\r\nAdd in spices and stir for 30 seconds\r\n\r\nPour in the beans
     and broth and bring to a gentle simmer.\r\n\r\nSimmer until the broth is flavorful
     and the beans are very tender, about 30 minutes.\r\n\r\nTake it off the heat and
@@ -419,14 +440,15 @@
   :image_url: http://cdn2.pepperplate.com/recipes/9380a9a30a0e47cfa4bb65f61b9c3834.jpg
   :reheat_time: 10
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=22230216
-  :notes: ''
-  :archived: false
-  :nutrition_data_iframe: ''
+  :notes: ""
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: Chorizo Sweet Potato Skillet
   :source_name: Budget Bytes
   :source_url: http://www.budgetbytes.com/2014/06/chorizo-sweet-potato-skillet/
   :servings: 6
-  :instructions: "Peel and dice the sweet potato into 1/2 to 3/4 inch cubes (size
+  :instructions:
+    "Peel and dice the sweet potato into 1/2 to 3/4 inch cubes (size
     matters, make them small). Sauté the sweet potato cubes in a large skillet with
     olive oil over medium heat for about 5 minutes, or until the sweet potatoes have
     softened about half way through (they'll cook more later).\r\n\r\nSqueeze the
@@ -449,14 +471,15 @@
   :image_url: http://cdn2.pepperplate.com/recipes/da3e6c1a7731400dbddfba8d6c9f9413.jpg
   :reheat_time: 10
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=15454413
-  :notes: ''
-  :archived: false
-  :nutrition_data_iframe: ''
+  :notes: ""
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: Sweet Potato Pie
   :source_name: ThroughmyiMedia
   :source_url: https://youtu.be/BOYWrXVGV5E?t=148
   :servings: 8
-  :instructions: "Heat oven to 350F\r\n\r\nWash sweet potatoes and poke holes in them
+  :instructions:
+    "Heat oven to 350F\r\n\r\nWash sweet potatoes and poke holes in them
     with a fork\r\n\r\nRub them in butter and wrap them in foil.\r\n\r\nBake for an
     hour or until they are soft. Cool them for 20 minutes before peeling. \r\n\r\nPre-bake
     empty pie shell for 15-20 minutes until dough starts to brown. Remember to cover
@@ -467,12 +490,12 @@
     the crust edges are golden brown.\r\n"
   :prep_time: 10
   :cook_time: 10
-  :image_url: ''
+  :image_url: ""
   :reheat_time: 10
-  :pepperplate_url: ''
-  :notes: ''
-  :archived: false
-  :nutrition_data_iframe: ''
+  :pepperplate_url: ""
+  :notes: ""
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: test recipe
   :source_name: Original Creation
   :source_url: "/"
@@ -482,15 +505,16 @@
   :cook_time: 30
   :image_url: http://i.dailymail.co.uk/i/pix/2015/05/22/13/28F805FD00000578-0-image-a-36_1432299542585.jpg
   :reheat_time: 15
-  :pepperplate_url: ''
-  :notes: ''
-  :archived: false
-  :nutrition_data_iframe: ''
+  :pepperplate_url: ""
+  :notes: ""
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: Twice-Baked Sweet Potatoes
   :source_name: Rachael Ray
   :source_url: https://www.rachaelrayshow.com/recipe/15311_Twice_Baked_Sweet_Potatoes
   :servings: 4
-  :instructions: "Preheat oven to 350F.\r\n\r\nPlace the potatoes on a small baking
+  :instructions:
+    "Preheat oven to 350F.\r\n\r\nPlace the potatoes on a small baking
     sheet. Drizzle with a little EVOO and rub them with some salt and freshly ground
     black pepper. Bake them 45 minutes to an hour, until tender. When the potatoes
     have finished baking, remove them from the oven and allow them to cool enough
@@ -513,15 +537,16 @@
   :cook_time: 120
   :image_url: https://www.rachaelrayshow.com/sites/default/files/styles/1100x620/public/images/2018-07/e3d3df46b70f76b21404bf38e34f3802.jpg?itok=o48-G2nP
   :reheat_time: 20
-  :pepperplate_url: ''
-  :notes: ''
-  :archived: false
-  :nutrition_data_iframe: ''
+  :pepperplate_url: ""
+  :notes: ""
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: Enfrijoladas
   :source_name: Budget Bytes
   :source_url: https://www.budgetbytes.com/enfrijoladas-tortillas-in-black-bean-sauce/
   :servings: 6
-  :instructions: "To make the black bean sauce, combine the drained black beans, chipotle
+  :instructions:
+    "To make the black bean sauce, combine the drained black beans, chipotle
     peppers plus about 1 Tbsp of the adobo sauce, 1/4 of the sweet onion (diced),
     cumin, and garlic in a blender or food processor. Starting with one cup, add the
     broth as you blend until a smooth, thick sauce forms. Taste and adjust the salt
@@ -551,14 +576,15 @@
   :image_url: http://cdn2.pepperplate.com/recipes/3daaf5a950cf4ac6a91489feb1f69ddd.jpg?preset=sitethumb
   :reheat_time: 30
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=22709115
-  :notes: ''
-  :archived: false
-  :nutrition_data_iframe: ''
+  :notes: ""
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: Apricot Lentil Soup
   :source_name: The Stingy Vegan
   :source_url: https://thestingyvegan.com/vegan-lentil-soup/
   :servings: 4
-  :instructions: "Heat a medium-sized pot over medium-high heat and add a splash of
+  :instructions:
+    "Heat a medium-sized pot over medium-high heat and add a splash of
     water (or oil if you prefer), the onion and garlic. Fry (add more water as necessary
     if the pot is dry) until the onion is soft and translucent then add the carrots.
     Fry until the carrots are beginning to soften then add the apricots and cumin.
@@ -576,13 +602,14 @@
   :reheat_time: 10
   :pepperplate_url:
   :notes:
-  :archived: false
-  :nutrition_data_iframe: ''
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: Spicy Roasted Cauliflower with Queso
   :source_name: Budget Bytes
   :source_url: https://www.budgetbytes.com/spicy-roasted-cauliflower-cheese-sauce/
   :servings: 4
-  :instructions: "Make Queso: <a href=\"http://www.pepperplate.com/recipes/view.aspx?id=22615079\">Cashew
+  :instructions:
+    "Make Queso: <a href=\"http://www.pepperplate.com/recipes/view.aspx?id=22615079\">Cashew
     Vegan Queso</a>\r\n\r\nPreheat the oven to 400ºF. In a small bowl combine the
     smoked paprika, granulated garlic, cayenne, salt, and some freshly cracked pepper.\r\n\r\nSpread
     the frozen cauliflower florets out onto a baking sheet (no need to thaw first),
@@ -606,14 +633,15 @@
   :image_url: http://cdn2.pepperplate.com/recipes/4a948fe22cb84ea5b7f55bc7a5c3dff0.jpg
   :reheat_time: 30
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=22615064
-  :notes: ''
-  :archived: false
-  :nutrition_data_iframe: ''
+  :notes: ""
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: Bread Pudding with Roasted Vegetables
   :source_name: Taste Love and Nourish
   :source_url: http://www.tasteloveandnourish.com/2013/09/16/savory-vegetable-bread-pudding/
   :servings: 8
-  :instructions: "In a 12 inch skillet over medium high heat, add 2 T. of the olive
+  :instructions:
+    "In a 12 inch skillet over medium high heat, add 2 T. of the olive
     oil then the onions, celery, red pepper. \r\n\r\nSauté for about two or three
     minutes then add the mushrooms, eggplant and zucchini. \r\nContinue cooking for
     another 2 to 3 minutes. Add the tomato, garlic and thyme and cook for just another
@@ -637,9 +665,9 @@
   :image_url: http://cdn2.pepperplate.com/recipes/08d4329ba51b4f07ac2a501e5249a9d3.jpg
   :reheat_time: 15
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=15772212
-  :notes: ''
-  :archived: false
-  :nutrition_data_iframe: ''
+  :notes: ""
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: Sample Archived Recipe
   :source_name: Original Creation
   :source_url: "/"
@@ -651,13 +679,14 @@
   :reheat_time: 10
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=22709198
   :notes: This recipe was poooo! so it's archived now.
-  :archived: true
-  :nutrition_data_iframe: ''
+  :status: 0
+  :nutrition_data_iframe: ""
 - :title: Cashew Vegan Queso
   :source_name: Minimalist Baker
   :source_url: https://minimalistbaker.com/roasted-jalapeno-vegan-queso-7-ingredients/
   :servings: 4
-  :instructions: "Be sure to soak your cashews overnight in cool water or in very
+  :instructions:
+    "Be sure to soak your cashews overnight in cool water or in very
     hot water for 1 hour before starting this recipe. Drain and then proceed with
     recipe.\r\nPreheat oven to medium broil and add jalapeños to a baking sheet. Broil
     on the top oven rack for 4-7 minutes or until slightly blackened on the outside.
@@ -677,14 +706,15 @@
   :image_url: http://cdn2.pepperplate.com/recipes/3e405e27409441d6a9d75d12e7adde0d.jpg?preset=sitethumb
   :reheat_time: 5
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=22615079
-  :notes: ''
-  :archived: false
-  :nutrition_data_iframe: ''
+  :notes: ""
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: Greek Stuffed Peppers
   :source_name: Edible Perspecitve
   :source_url: http://www.edibleperspective.com/home/2013/10/8/greek-stuffed-peppers.html
   :servings: 4
-  :instructions: "Bring broth and sundried tomatoes to a boil.\r\n\r\nAdd couscous,
+  :instructions:
+    "Bring broth and sundried tomatoes to a boil.\r\n\r\nAdd couscous,
     cover, and remove from heat.\r\n\r\nCut bell peppers in half, deseed, oil, and
     roast them for 30 min.\r\n\r\nContinue on to old instructions below. This is WIP\r\n\r\nHeat
     a pot with a swirl of oil over medium.\r\n\r\nRinse + drain the millet then add
@@ -713,14 +743,15 @@
   :image_url: http://cdn2.pepperplate.com/recipes/e7c04e9e839f4b8a9d8a2f6854e30e24.jpg
   :reheat_time: 20
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=17619375
-  :notes: ''
-  :archived: false
-  :nutrition_data_iframe: ''
+  :notes: ""
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: Shakshuka
   :source_name: Serious Eats
   :source_url: http://www.seriouseats.com/recipes/2016/09/shakshuka-north-african-shirred-eggs-tomato-pepper-recipe.html
   :servings: 4
-  :instructions: "Heat olive oil in a large, deep skillet or straight-sided sauté
+  :instructions:
+    "Heat olive oil in a large, deep skillet or straight-sided sauté
     pan over high heat until shimmering. Add onion, red pepper, and chili and spread
     into an even layer. Cook, without moving, until vegetables on the bottom are deeply
     browned and beginning to char in spots, about 6 minutes. Stir and repeat. Continue
@@ -743,13 +774,14 @@
   :reheat_time: 10
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=18051887
   :notes: "vasu says he makes this and he doesn't like lame ass southern indian food\r\n"
-  :archived: false
-  :nutrition_data_iframe: ''
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: Yellow Lentil Dal
   :source_name: Food & Wine
   :source_url: https://www.foodandwine.com/recipes/yellow-lentil-dal-with-fragrant-basmati-rice
   :servings: 6
-  :instructions: "Soak the lentils overnight\r\n\r\nIn a large saucepan, combine the
+  :instructions:
+    "Soak the lentils overnight\r\n\r\nIn a large saucepan, combine the
     yellow lentils with 3 cups of the chicken stock, the ginger and turmeric and bring
     to a boil. Cover partially and cook over moderate heat, stirring occasionally,
     until the lentils are just tender, about 20 minutes.\r\n\r\nTransfer 1 cup of
@@ -769,14 +801,15 @@
   :image_url: http://cdn2.pepperplate.com/recipes/023af666fb0d47869f31b85ec74dca6c.jpg
   :reheat_time: 15
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=22515951
-  :notes: ''
-  :archived: false
-  :nutrition_data_iframe: ''
+  :notes: ""
+  :status: 1
+  :nutrition_data_iframe: ""
 - :title: Creamy Cherry Tomato & Summer Squash Gnocchi
   :source_name: Cookie + Kate
   :source_url: http://cookieandkate.com/2015/creamy-cherry-tomato-summer-squash-pasta/
   :servings: 4
-  :instructions: "When Preparing in Advance\r\n\r\n\r\n\r\nDivide all of the veg into
+  :instructions:
+    "When Preparing in Advance\r\n\r\n\r\n\r\nDivide all of the veg into
     2 containers.\r\n\r\n\r\n\r\nCook the gnocchi when you plan to eat it, not in
     advance\r\n\r\n\r\n\r\nUse 8oz of a 16oz package for each 2-person meal\r\n\r\n\r\n\r\nGeneral
     Prep Notes\r\n\r\n\r\n\r\nPreheat oven to 400F\r\n\r\n\r\n\r\nSlice the squashes
@@ -803,6 +836,6 @@
   :image_url: http://cdn2.pepperplate.com/recipes/5b2d05dbb7f34128a19cd42869d30848.jpg
   :reheat_time: 30
   :pepperplate_url: http://www.pepperplate.com/recipes/view.aspx?id=16885372
-  :notes: ''
-  :archived: false
-  :nutrition_data_iframe: ''
+  :notes: ""
+  :status: 1
+  :nutrition_data_iframe: ""
