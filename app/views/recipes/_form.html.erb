@@ -2,7 +2,7 @@
   <%= form_for(recipe) do |form| %>
     <%= render 'shared/errors', object: recipe %>
 
-    <%= hidden_field(:recipe, :experimental_recipe_id )  %>
+    <%= hidden_field(:recipe, :experimental_recipe_id ) %>
 
     <div class="row">
       <div class="col">
@@ -79,8 +79,11 @@
       </div>
       <div class="col-sm-2">
         <div class="field">
-          <%= form.label :archived %>
-          <%= form.check_box :archived, class: 'form-control checkbox-m' %>
+          <%= form.label :status %>
+          <%= form.select :status,
+                          Recipe.statuses.keys.map { |s| [s.titleize, s] },
+                          {},
+                          class: 'form-control' %>
         </div>
       </div>
     </div> <!-- row -->
