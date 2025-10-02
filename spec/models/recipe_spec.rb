@@ -151,6 +151,31 @@ RSpec.describe Recipe, type: :model do
     end
   end
 
+  describe "scopes" do
+    describe "active_or_pending" do
+      let(:pending_recipe) { create(:recipe, status: :pending) }
+      let(:active_recipe) { create(:recipe, status: :active) }
+      let(:archived_recipe) { create(:recipe, status: :archived) }
+
+      before do
+        pending_recipe
+        active_recipe
+        archived_recipe
+      end
+      it "includes results for active recipes" do
+        expect(Recipe.active_or_pending).to include(active_recipe)
+      end
+
+      it "includes results for pending recipes" do
+        expect(Recipe.active_or_pending).to include(pending_recipe)
+      end
+
+      it "excludes results for pending recipes" do
+        expect(Recipe.active_or_pending).to_not include(archived_recipe)
+      end
+    end
+  end
+
   describe "self.by_last_prepared" do
     it "puts recipes that have not been made in a while on top" do
       recent_recipe = create(:recipe)

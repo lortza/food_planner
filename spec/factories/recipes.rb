@@ -21,6 +21,7 @@
 #  servings              :integer          default(0), not null
 #  source_name           :string           default(""), not null
 #  source_url            :string           default(""), not null
+#  status                :integer          default("active"), not null
 #  title                 :string           default(""), not null
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
@@ -28,6 +29,7 @@
 #
 # Indexes
 #
+#  index_recipes_on_status   (status)
 #  index_recipes_on_user_id  (user_id)
 #
 # Foreign Keys
@@ -59,7 +61,7 @@ FactoryBot.define do
       cook_time { 0 }
       image_url { "" }
       reheat_time { "" }
-      archived { false }
+      status { 1 }
       prep_day_instructions { "" }
       reheat_instructions { "" }
     end

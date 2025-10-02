@@ -21,6 +21,7 @@
 #  servings              :integer          default(0), not null
 #  source_name           :string           default(""), not null
 #  source_url            :string           default(""), not null
+#  status                :integer          default("active"), not null
 #  title                 :string           default(""), not null
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
@@ -28,6 +29,7 @@
 #
 # Indexes
 #
+#  index_recipes_on_status   (status)
 #  index_recipes_on_user_id  (user_id)
 #
 # Foreign Keys
@@ -38,6 +40,8 @@ class Recipe < ApplicationRecord
   extend Searchable
 
   attr_accessor :experimental_recipe_id
+
+  enum status: {pending: 0, active: 1, archived: 2}
 
   belongs_to :user
   has_many :ingredients, inverse_of: :recipe, dependent: :destroy
@@ -76,6 +80,8 @@ class Recipe < ApplicationRecord
 
   normalizes :title, with: ->(title) { title.strip.squish }
 
+  scope :active_or_pending, -> { where(status: [:pending, :active]) }
+
   def self.for_prep_date(date)
     # WIP
     # Recipe.joins(:preparations).where(preparations: {date: date})
@@ -83,14 +89,6 @@ class Recipe < ApplicationRecord
 
   def self.by_last_prepared
     order("meal_plans.prepared_on asc")
-  end
-
-  def self.active
-    where(archived: false)
-  end
-
-  def active?
-    archived == false
   end
 
   def frequency
