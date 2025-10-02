@@ -22,6 +22,7 @@
 #
 class ShoppingList < ApplicationRecord
   extend Searchable
+
   DEFAULT_NAME = "grocery"
 
   belongs_to :user
