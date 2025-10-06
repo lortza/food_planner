@@ -18,6 +18,7 @@ class MaterialIcon
     when :archived then archived
     when :arrow_left then arrow_left
     when :calendar_clock then calendar_clock
+    when :book then book
     when :checkmark then checkmark
     when :clock then clock
     when :copy then copy
@@ -61,6 +62,12 @@ class MaterialIcon
     content_tag(:span, "inventory_2",
       class: symbol_classes,
       title: @title.presence || "Archived")
+  end
+
+  def book
+    content_tag(:span, "book",
+      class: symbol_classes,
+      title: @title.presence || "Bookmarked")
   end
 
   def calendar_clock
