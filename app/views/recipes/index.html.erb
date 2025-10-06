@@ -1,7 +1,13 @@
 <% content_for(:title, 'Recipes') %>
 
 <h1>
-  <%= link_to MaterialIcon.new(icon: :plus_circle, title: 'Create new Recipe', classes: 'float-right').render, new_recipe_path %>
+  <%= link_to new_recipe_path, class: "#{button_classes} btn-primary ml-2 float-right" do %>
+    <%= MaterialIcon.new(icon: :plus_circle, size: :large, title: 'Create new Recipe').render %>
+  <% end %>
+
+  <%= link_to new_recipe_path(status: :pending), class: "#{button_classes} float-right" do %>
+    <%= MaterialIcon.new(icon: :plus_circle, size: :large, title: 'Create new Pending Recipe').render %> <%= MaterialIcon.new(icon: :book, size: :large, title: 'Add Pending Recipe').render %>
+  <% end %>
   Recipes
 </h1>
 
