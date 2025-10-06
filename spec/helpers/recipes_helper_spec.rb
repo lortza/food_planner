@@ -3,6 +3,45 @@
 require "rails_helper"
 
 RSpec.describe RecipesHelper, type: :helper do
+  describe "#show_recipe_form_fields?" do
+    context "when creating a new recipe" do
+      it "returns false for a new pending recipe" do
+        recipe = build(:recipe, status: :pending)
+        expect(helper.show_recipe_form_fields?(recipe)).to be false
+      end
+
+      it "returns true for a new active recipe" do
+        recipe = build(:recipe, status: :active)
+        expect(helper.show_recipe_form_fields?(recipe)).to be true
+      end
+
+      it "returns true for a new archived recipe" do
+        recipe = build(:recipe, status: :archived)
+        expect(helper.show_recipe_form_fields?(recipe)).to be true
+      end
+    end
+
+    context "when editing an existing recipe" do
+      it "returns true for a persisted pending recipe" do
+        recipe = build(:recipe, status: :pending)
+        recipe.save
+        expect(helper.show_recipe_form_fields?(recipe)).to be true
+      end
+
+      it "returns true for a persisted active recipe" do
+        recipe = build(:recipe, status: :active)
+        recipe.save
+        expect(helper.show_recipe_form_fields?(recipe)).to be true
+      end
+
+      it "returns true for a persisted archived recipe" do
+        recipe = build(:recipe, status: :archived)
+        recipe.save
+        expect(helper.show_recipe_form_fields?(recipe)).to be true
+      end
+    end
+  end
+
   describe "guaranteed_image" do
     let(:recipe) { build(:recipe, image_url: "") }
     it "ensures an image file is returned" do
