@@ -5,7 +5,6 @@
 # Table name: recipes
 #
 #  id                    :bigint           not null, primary key
-#  archived              :boolean          default(FALSE)
 #  cook_time             :integer          default(0), not null
 #  extra_work_note       :string
 #  image_url             :string           default(""), not null
