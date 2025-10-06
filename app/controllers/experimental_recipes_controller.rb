@@ -5,6 +5,7 @@ class ExperimentalRecipesController < ApplicationController
 
   def index
     @experimental_recipes = policy_scope(ExperimentalRecipe).order(created_at: :desc)
+    @pending_recipes = current_user.recipes.pending.order(created_at: :desc)
   end
 
   def new
