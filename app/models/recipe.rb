@@ -58,24 +58,28 @@ class Recipe < ApplicationRecord
   }.freeze
 
   before_validation :provide_default_source, on: :create
-  before_validation :guarantee_instructions_values, on: :create
   # before_save :instructions_to_lines
 
-  validates :title,
-    :servings,
-    :instructions,
-    :prep_day_instructions,
-    :source_name,
-    :source_url,
-    :prep_time,
-    :cook_time,
-    :reheat_time,
-    presence: true
-
+  validates :title, :source_url, presence: true
   validates :title, uniqueness: {scope: :user_id, case_sensitive: false}
-  validates :prep_time, numericality: {other_than: 0}, if: -> { cook_time&.zero? && reheat_time&.zero? }
-  validates :cook_time, numericality: {other_than: 0}, if: -> { reheat_time&.zero? && prep_time&.zero? }
-  validates :reheat_time, numericality: {other_than: 0}, if: -> { prep_time&.zero? && cook_time&.zero? }
+
+  # These validations are skipped if the recipe is pending, but run for all other statuses
+  with_options unless: :pending? do
+    before_validation :guarantee_instructions_values, on: :create
+
+    validates :servings,
+      :instructions,
+      :prep_day_instructions,
+      :source_name,
+      :prep_time,
+      :cook_time,
+      :reheat_time,
+      presence: true
+
+    validates :prep_time, numericality: {other_than: 0}, if: -> { cook_time&.zero? && reheat_time&.zero? }
+    validates :cook_time, numericality: {other_than: 0}, if: -> { reheat_time&.zero? && prep_time&.zero? }
+    validates :reheat_time, numericality: {other_than: 0}, if: -> { prep_time&.zero? && cook_time&.zero? }
+  end
 
   normalizes :title, with: ->(title) { title.strip.squish }
 
