@@ -40,7 +40,7 @@ class Recipe < ApplicationRecord
 
   attr_accessor :experimental_recipe_id
 
-  enum status: {pending: 0, active: 1, archived: 2}
+  enum :status, {pending: 0, active: 1, archived: 2}
 
   belongs_to :user
   has_many :ingredients, inverse_of: :recipe, dependent: :destroy
