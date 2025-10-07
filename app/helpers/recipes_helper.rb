@@ -28,7 +28,6 @@ module RecipesHelper
       content_tag(:span, "New!",
         class: "badge badge-warning ml-2 text-small font-weight-normal cursor-default",
         title: "New! Has not been made yet!") { icon + " New!" }
-      # MaterialIcon.new(icon: :new, classes: "text-warning cursor-default", title: "New! Has not been made yet").render
     elsif recipe.last_prepared < Time.zone.today.prev_month(4)
       MaterialIcon.new(icon: :calendar_clock, classes: "cursor-default", title: "It's been a while since this was last made").render
     else
