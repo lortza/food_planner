@@ -20,21 +20,27 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = current_user.recipes.new
-    15.times { @recipe.ingredients.build(quantity: nil) }
-
     authorize(@recipe)
+
+    @recipe.status = params[:status] if params[:status].present?
+    15.times { @recipe.ingredients.build(quantity: nil) }
   end
 
   def create
     @recipe = current_user.recipes.new(recipe_params)
     authorize(@recipe)
 
+    if @recipe.pending?
+      @recipe.source_name = URI.parse(@recipe.source_url).host.gsub("www.", "")
+      @recipe.instructions = Scraper.new(@recipe.source_url).site_data
+    end
+
     if @recipe.save
-      experimental_recipe_id = recipe_params[:experimental_recipe_id]
-
-      current_user.experimental_recipes.find(experimental_recipe_id).delete if experimental_recipe_id.present?
-
-      redirect_to recipe_url(@recipe), alert: ("Recipe converted successfully." if experimental_recipe_id.present?)
+      if @recipe.pending?
+        redirect_to recipes_url(@recipe), notice: "Pending recipe created." and return
+      else
+        redirect_to recipe_url(@recipe), notice: "Recipe created." and return
+      end
     else
       render :new
     end
@@ -43,7 +49,8 @@ class RecipesController < ApplicationController
   def edit
     authorize(@recipe)
 
-    3.times { @recipe.ingredients.build(quantity: nil) }
+    ingredient_qty = @recipe.ingredients.any? ? 3 : 15
+    ingredient_qty.times { @recipe.ingredients.build(quantity: nil) }
   end
 
   def update
@@ -64,6 +71,7 @@ class RecipesController < ApplicationController
     redirect_to recipes_path
   end
 
+  # TODO REMOVE THIS once populate_from_source_url is working well
   def convert_from_experimental
     experimental_recipe = current_user.experimental_recipes.find(params[:experimental_recipe_id])
     @recipe = current_user.recipes.new(

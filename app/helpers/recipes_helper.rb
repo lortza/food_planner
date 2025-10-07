@@ -1,6 +1,12 @@
 # frozen_string_literal: true
 
 module RecipesHelper
+  def show_recipe_form_fields?(recipe)
+    # Unless recipe is a new pending record, show the form fields
+    new_pending_recipe = recipe.pending? && recipe.id.nil?
+    recipe.persisted? || !new_pending_recipe
+  end
+
   def guaranteed_image(recipe)
     # TIL .presence returns the receiver if it's present otherwise returns nil
     recipe.image_url.presence || "recipe_placeholder.jpg"
@@ -13,10 +19,10 @@ module RecipesHelper
         class: "badge badge-secondary ml-2 text-small font-weight-normal cursor-default",
         title: "Recipe is archived. Edit to unarchive.") { icon + " Archived" }
     elsif recipe.pending?
-      icon = MaterialIcon.new(icon: :experimental, size: :small).render
-      content_tag(:span, "Experimental",
+      icon = MaterialIcon.new(icon: :book, size: :small, title: "Pending").render
+      content_tag(:span, "Pending",
         class: "badge badge-secondary ml-2 text-small font-weight-normal cursor-default",
-        title: "Recipe has not been vetted or imported yet.") { icon + " Experimental" }
+        title: "Recipe has not been vetted or imported yet.") { icon + " Pending" }
     elsif recipe.last_prepared.nil? || first_time_is_this_week?(recipe)
       MaterialIcon.new(icon: :new, classes: "text-warning cursor-default", title: "New! Has not been made yet").render
     elsif recipe.last_prepared < Time.zone.today.prev_month(4)

@@ -7,20 +7,22 @@
     <div class="row">
       <div class="col">
         <div class="field">
-          <%= form.label :title %>
+          <%= form.label "Title*" %>
           <%= form.text_field :title, autofocus: true, class: 'form-control' %>
         </div>
       </div>
     </div> <!-- row -->
 
     <div class="row">
-      <div class="field col-sm">
-        <%= form.label :source_name %>
-        <%= form.text_field :source_name, class: 'form-control' %>
-      </div>
+      <% if show_recipe_form_fields?(recipe) %>
+        <div class="field col-sm">
+          <%= form.label :source_name %>
+          <%= form.text_field :source_name, class: 'form-control' %>
+        </div>
+      <% end %>
 
       <div class="field col-sm">
-        <%= form.label :source_url %>
+        <%= form.label "Source URL*" %>
         <%= form.text_field :source_url, class: 'form-control' %>
       </div>
     </div>
@@ -30,45 +32,47 @@
       <%= form.text_field :image_url, class: 'form-control' %>
     </div>
 
-    <div class="row">
-      <div class="field col-sm">
-        <%= form.label :servings %>
-        <%= form.number_field :servings, class: 'form-control' %>
-      </div>
+    <% if show_recipe_form_fields?(recipe) %>
+      <div class="row">
+        <div class="field col-sm">
+          <%= form.label :servings %>
+          <%= form.number_field :servings, class: 'form-control' %>
+        </div>
 
-      <div class="field col-sm">
-        <%= form.label 'Prep Time (min)' %>
-        <%= form.number_field :prep_time, class: 'form-control' %>
-      </div>
+        <div class="field col-sm">
+          <%= form.label 'Prep Time (min)' %>
+          <%= form.number_field :prep_time, class: 'form-control' %>
+        </div>
 
-      <div class="field col-sm">
-        <%= form.label 'Cook Time (min)' %>
-        <%= form.number_field :cook_time, class: 'form-control' %>
-      </div>
+        <div class="field col-sm">
+          <%= form.label 'Cook Time (min)' %>
+          <%= form.number_field :cook_time, class: 'form-control' %>
+        </div>
 
-      <div class="field col-sm">
-        <%= form.label 'Reheat Time (min)' %>
-        <%= form.number_field :reheat_time, class: 'form-control' %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="field">
-          <%= form.label :extra_work_note %>
-          <%= form.text_field :extra_work_note, class: 'form-control' %>
+        <div class="field col-sm">
+          <%= form.label 'Reheat Time (min)' %>
+          <%= form.number_field :reheat_time, class: 'form-control' %>
         </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="field">
-          <%= form.label 'Cronometer iframe' %>
-          <%= form.text_area :nutrition_data_iframe, class: 'form-control' %>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="field">
+            <%= form.label :extra_work_note %>
+            <%= form.text_field :extra_work_note, class: 'form-control' %>
+          </div>
         </div>
       </div>
-    </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="field">
+            <%= form.label 'Cronometer iframe' %>
+            <%= form.text_area :nutrition_data_iframe, class: 'form-control' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
 
     <div class="row">
       <div class="col-sm-10">
@@ -88,48 +92,50 @@
       </div>
     </div> <!-- row -->
 
-    <%= form.label 'Ingredients', class: 'font-weight-bold mt-5' %>
-    <div class="ingredients-container w-100 overflow-x-scroll">
-      <table>
-        <thead>
-          <tr class='border-bottom'>
-            <th class='w-10 mw-5'>Qty</th>
-            <th class='w-10 mw-6'>Unit</th>
-            <th class='w-20 mw-15'>Name</th>
-            <th class='w-20 mw-15'>Preparation Style</th>
-            <th class='w-5 mw-1'><%= MaterialIcon.new(icon: :trash, size: :large).render %></th>
-          </tr>
-        </thead>
-        <tbody>
-          <%= form.fields_for :ingredients do |f_ingredient| %>
+    <% if show_recipe_form_fields?(recipe) %>
+      <%= form.label 'Ingredients*', class: 'font-weight-bold mt-5' %>
+      <div class="ingredients-container w-100 overflow-x-scroll">
+        <table>
+          <thead>
             <tr class='border-bottom'>
-              <%= render 'ingredients/form_fields', f_ingredient: f_ingredient %>
+              <th class='w-10 mw-5'>Qty</th>
+              <th class='w-10 mw-6'>Unit</th>
+              <th class='w-20 mw-15'>Name</th>
+              <th class='w-20 mw-15'>Preparation Style</th>
+              <th class='w-5 mw-1'><%= MaterialIcon.new(icon: :trash, size: :large).render %></th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-6 col-md-12">
-        <div class="field">
-          <%= form.label 'Prep Day Instructions', class: 'font-weight-bold mt-5' %>
-          <%= form.text_area :prep_day_instructions, class: 'form-control instructions' %>
-        </div>
+          </thead>
+          <tbody>
+            <%= form.fields_for :ingredients do |f_ingredient| %>
+              <tr class='border-bottom'>
+                <%= render 'ingredients/form_fields', f_ingredient: f_ingredient %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
       </div>
 
-      <div class="col-lg-6 col-md-12">
-        <div class="field">
-          <%= form.label :reheat_instructions, class: 'font-weight-bold mt-5' %>
-          <%= form.text_area :reheat_instructions, class: 'form-control instructions' %>
+      <div class="row">
+        <div class="col-lg-6 col-md-12">
+          <div class="field">
+            <%= form.label 'Prep Day Instructions', class: 'font-weight-bold mt-5' %>
+            <%= form.text_area :prep_day_instructions, class: 'form-control instructions' %>
+          </div>
         </div>
-      </div>
-    </div><!-- row -->
 
-    <div class="field">
-      <%= form.label 'Original Instructions', class: 'font-weight-bold mt-5' %>
-      <%= form.text_area :instructions, class: 'form-control instructions' %>
-    </div>
+        <div class="col-lg-6 col-md-12">
+          <div class="field">
+            <%= form.label :reheat_instructions, class: 'font-weight-bold mt-5' %>
+            <%= form.text_area :reheat_instructions, class: 'form-control instructions' %>
+          </div>
+        </div>
+      </div><!-- row -->
+
+      <div class="field">
+        <%= form.label 'Original Instructions*', class: 'font-weight-bold mt-5' %>
+        <%= form.text_area :instructions, class: 'form-control instructions' %>
+      </div>
+    <% end %>
 
     <%= form.submit class: button_classes('primary mt-3') %>
   <% end %>

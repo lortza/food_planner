@@ -12,31 +12,47 @@ end
 # Recipes
 puts "Seeding recipes..."
 15.times do
-  FactoryBot.create(:recipe, :with_faker_data, :with_faker_ingredients, ingredients_count: 5, user: user)
+  begin
+    FactoryBot.create(:recipe, :with_faker_data, :with_faker_ingredients, ingredients_count: 5, user: user)
+  rescue ActiveRecord::RecordInvalid => e
+    puts "Failed to create recipe: #{e.message}"  
+  end
 end
 
-# Recipes to Try
-puts "Seeding experimental recipes..."
+# Pending Recipes
+puts "Seeding pending recipes..."
 5.times do
-  FactoryBot.create(:experimental_recipe, :with_faker_data, user: user)
+  begin
+    FactoryBot.create(:recipe, :with_faker_data, user: user, status: :pending)
+  rescue ActiveRecord::RecordInvalid => e
+    puts "Failed to create pending recipe: #{e.message}" 
+  end
 end
 
 # Meal Plans
 puts "Seeding meal plans..."
 7.times do |i|
-  user.meal_plans.find_or_create_by!(
-    prepared_on: i.weeks.ago.beginning_of_week(:sunday),
-    people_served: [2, 4].sample,
-    notes: ['plan to one of them in the freezer', '', '', ''].sample
-  )
+  begin
+    user.meal_plans.find_or_create_by!(
+      prepared_on: i.weeks.ago.beginning_of_week(:sunday),
+      people_served: [2, 4].sample,
+      notes: ['plan to one of them in the freezer', '', '', ''].sample
+    )
+  rescue ActiveRecord::RecordInvalid => e
+    puts "Failed to create meal plan: #{e.message}" 
+  end
 end
 
 # Meal Plan Recipes
 user.meal_plans.each do |meal_plan|
   # Add random recipes to each meal plan
-  MealPlanRecipe.create!(
-    user.recipes.all.sample(5).map{ |recipe| {recipe: recipe, meal_plan: meal_plan} }
-  )
+  begin
+    MealPlanRecipe.create!(
+      user.recipes.all.sample(5).map{ |recipe| {recipe: recipe, meal_plan: meal_plan} }
+    )
+  rescue ActiveRecord::RecordInvalid => e
+    puts "Failed to create meal plan recipe: #{e.message}"  
+  end
 end
 
 # Aisles

@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 RSpec.describe Recipe, type: :model do
-  let(:recipe) { build(:recipe) }
-
   context "associations" do
+    let(:recipe) { build(:recipe) }
     it { should belong_to(:user) }
     it { should have_many(:ingredients) }
     it { should have_many(:meal_plan_recipes) }
@@ -12,30 +11,83 @@ RSpec.describe Recipe, type: :model do
     it { should accept_nested_attributes_for(:ingredients).allow_destroy(true) }
   end
 
-  describe "a valid recipe" do
+  describe "validation" do
     context "when has valid params" do
+      let(:recipe) { build(:recipe) }
+
       it "is valid" do
         expect(recipe).to be_valid
       end
     end
 
-    it { should validate_presence_of(:title) }
-    it { should validate_presence_of(:servings) }
-    it { should validate_presence_of(:instructions) }
-    it { should validate_presence_of(:prep_day_instructions) }
-    it { should validate_presence_of(:prep_time) }
-    it { should validate_presence_of(:cook_time) }
-    it { should validate_presence_of(:reheat_time) }
+    context "when it has a status of active" do
+      let(:recipe) { build(:recipe, status: :active) }
+      it { should validate_presence_of(:title) }
+      it { should validate_presence_of(:servings) }
+      it { should validate_presence_of(:instructions) }
+      it { should validate_presence_of(:prep_day_instructions) }
+      it { should validate_presence_of(:prep_time) }
+      it { should validate_presence_of(:cook_time) }
+      it { should validate_presence_of(:reheat_time) }
+    end
 
-    it "ensures that 1 of [prep_time | cook_time | reheat_time] has a value" do
-      recipe = build(:recipe, prep_time: 0, cook_time: 0, reheat_time: 0)
-      expect(recipe).to_not be_valid
+    context "when it has a status of active" do
+      let(:recipe) { build(:recipe, status: :active) }
 
-      recipe = build(:recipe, prep_time: 1, cook_time: 0, reheat_time: 0)
-      expect(recipe).to be_valid
+      it "ensures that 1 of [prep_time | cook_time | reheat_time] has a value" do
+        recipe = build(:recipe, status: :active, prep_time: 0, cook_time: 0, reheat_time: 0)
+        expect(recipe).to_not be_valid
 
-      recipe = build(:recipe, prep_time: 0, cook_time: 1, reheat_time: 0)
-      expect(recipe).to be_valid
+        recipe = build(:recipe, status: :active, prep_time: 1, cook_time: 0, reheat_time: 0)
+        expect(recipe).to be_valid
+
+        recipe = build(:recipe, status: :active, prep_time: 0, cook_time: 1, reheat_time: 0)
+        expect(recipe).to be_valid
+      end
+    end
+
+    context "when it has a status of pending" do
+      let(:recipe) { build(:recipe, status: :pending) }
+
+      it "is invalid when a title is not present" do
+        recipe.title = ""
+        expect(recipe).to_not be_valid
+      end
+
+      it "is valid when servings is not present" do
+        recipe.servings = ""
+        expect(recipe).to be_valid
+      end
+
+      it "is valid when instructions is not present" do
+        recipe.instructions = ""
+        expect(recipe).to be_valid
+      end
+
+      it "is valid when prep_day_instructions is not present" do
+        recipe.prep_day_instructions = ""
+        expect(recipe).to be_valid
+      end
+
+      it "is valid when source_name is not present" do
+        recipe.source_name = ""
+        expect(recipe).to be_valid
+      end
+
+      it "is valid when prep_time is not present" do
+        recipe.prep_time = ""
+        expect(recipe).to be_valid
+      end
+
+      it "is valid when cook_time is not present" do
+        recipe.cook_time = ""
+        expect(recipe).to be_valid
+      end
+
+      it "is valid when reheat_time is not present" do
+        recipe.reheat_time = ""
+        expect(recipe).to be_valid
+      end
     end
 
     describe "title uniqueness" do
@@ -203,6 +255,8 @@ RSpec.describe Recipe, type: :model do
   end
 
   describe "#total_time" do
+    let(:recipe) { build(:recipe) }
+
     it "adds the prep and cook times together" do
       recipe.prep_time = 1
       recipe.cook_time = 1

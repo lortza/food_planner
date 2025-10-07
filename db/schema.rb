@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_10_02_174907) do
+ActiveRecord::Schema[7.2].define(version: 2025_10_06_174506) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -113,7 +113,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_10_02_174907) do
     t.integer "reheat_time", default: 0
     t.string "pepperplate_url"
     t.text "notes"
-    t.boolean "archived", default: false
     t.bigint "user_id"
     t.text "reheat_instructions", default: ""
     t.text "prep_day_instructions", default: ""
