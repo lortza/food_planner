@@ -131,6 +131,14 @@
 
       <div class="field">
         <%= form.label 'Original Instructions*', class: 'font-weight-bold mt-5' %>
+        <% if recipe.source_url.present? %>
+          <%= form.label class: 'font-weight-bold mt-5' do %>
+            <%= link_to recipe.source_url, target: '_blank' do %>
+              <%= MaterialIcon.new(icon: :open_in_new, title: "View source recipe").render %>
+            <% end %>
+          <% end %>
+        <% end %>
+
         <%= form.text_area :instructions, class: 'form-control instructions' %>
       </div>
     <% end %>
