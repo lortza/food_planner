@@ -24,11 +24,6 @@ notify_if_missing_recipes(ingredient_data, recipe_hash)
 processed_ingredient_data = assign_recipe_to_seed_data(ingredient_data, recipe_hash).reject{ |seed| seed[:recipe_id].nil? }
 Ingredient.create!(processed_ingredient_data)
 
-# Recipes to Try
-experimental_recipe_seed_data = YAML::load_file("#{Rails.root}/db/seed_fixtures/experimental_recipes.yml")
-processed_experimental_recipe_seed_data = assign_user_to_seed_data(experimental_recipe_seed_data, user)
-ExperimentalRecipe.create!(experimental_recipe_seed_data)
-
 # Meal Plans
 7.times do |i|
   MealPlan.create!(

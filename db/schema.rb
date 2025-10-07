@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_10_06_174506) do
+ActiveRecord::Schema[7.2].define(version: 2025_10_07_140315) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,16 +49,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_10_06_174506) do
     t.datetime "updated_at", precision: nil, null: false
     t.integer "order_number"
     t.index ["user_id"], name: "index_aisles_on_user_id"
-  end
-
-  create_table "experimental_recipes", force: :cascade do |t|
-    t.string "title"
-    t.string "source_url"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "image_url"
-    t.index ["user_id"], name: "index_experimental_recipes_on_user_id"
   end
 
   create_table "ingredients", force: :cascade do |t|
@@ -174,7 +164,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_10_06_174506) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "aisles", "users"
-  add_foreign_key "experimental_recipes", "users"
   add_foreign_key "ingredients", "recipes"
   add_foreign_key "inventories", "users"
   add_foreign_key "meal_plan_recipes", "meal_plans"

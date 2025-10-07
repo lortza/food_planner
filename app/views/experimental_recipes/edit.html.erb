@@ -1,8 +1,0 @@
-<% content_for(:title, 'Edit Recipe') %>
-
-<%= link_to 'Cancel', experimental_recipes_path, class: "#{button_classes} float-right" %>
-<h1>Editing Recipe Link</h1>
-
-<%= render 'form', experimental_recipe: @experimental_recipe %>
-
-<%= render partial: 'shared/delete_footer', locals: { object: @experimental_recipe, delete_path: @experimental_recipe } %>
