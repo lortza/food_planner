@@ -27,6 +27,7 @@ class MaterialIcon
     when :event_repeat then event_repeat
     when :info then info
     when :new then new_release
+    when :open_in_new then open_in_new
     when :plus_circle then plus_circle
     when :plus_square then plus_square
     when :quick_reference then quick_reference
@@ -127,6 +128,12 @@ class MaterialIcon
     content_tag(:span, "add_circle",
       class: symbol_classes,
       title: @title.presence || "Add")
+  end
+
+  def open_in_new
+    content_tag(:span, "open_in_new",
+      class: symbol_classes,
+      title: @title.presence || "Open")
   end
 
   def plus_square
