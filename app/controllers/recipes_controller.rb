@@ -71,22 +71,6 @@ class RecipesController < ApplicationController
     redirect_to recipes_path
   end
 
-  # TODO REMOVE THIS once populate_from_source_url is working well
-  def convert_from_experimental
-    experimental_recipe = current_user.experimental_recipes.find(params[:experimental_recipe_id])
-    @recipe = current_user.recipes.new(
-      title: experimental_recipe.title,
-      source_name: URI.parse(experimental_recipe.source_url).host.gsub("www.", ""),
-      source_url: experimental_recipe.source_url,
-      image_url: experimental_recipe.image_url,
-      experimental_recipe_id: experimental_recipe.id,
-      instructions: Scraper.new(experimental_recipe.source_url).site_data
-    )
-    15.times { @recipe.ingredients.build(quantity: nil) }
-
-    render :new
-  end
-
   def copy_for_user
     user = User.find_by(email: params[:email])
 
@@ -111,7 +95,6 @@ class RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(
       :cook_time,
-      :experimental_recipe_id,
       :extra_work_note,
       :image_url,
       :instructions,

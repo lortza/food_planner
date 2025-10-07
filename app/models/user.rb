@@ -25,7 +25,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
 
   has_many :recipes, dependent: :destroy
-  has_many :experimental_recipes, dependent: :destroy
   has_many :meal_plans, dependent: :destroy
   has_many :shopping_lists, dependent: :destroy
   has_many :aisles, dependent: :destroy

@@ -38,8 +38,6 @@
 class Recipe < ApplicationRecord
   extend Searchable
 
-  attr_accessor :experimental_recipe_id
-
   enum :status, {pending: 0, active: 1, archived: 2}
 
   belongs_to :user
