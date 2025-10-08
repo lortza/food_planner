@@ -10,6 +10,7 @@ RSpec.describe User, type: :model do
     it { should have_many(:meal_plans) }
     it { should have_many(:shopping_lists) }
     it { should have_many(:aisles) }
+    it { should have_many(:tags) }
   end
 
   describe "a valid user" do

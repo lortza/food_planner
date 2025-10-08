@@ -47,6 +47,8 @@ class Recipe < ApplicationRecord
     allow_destroy: true # allows user to delete ingredient via checkbox
   has_many :meal_plan_recipes, dependent: :destroy
   has_many :meal_plans, through: :meal_plan_recipes
+  has_many :recipe_tags, dependent: :destroy
+  has_many :tags, through: :recipe_tags
 
   DEFAULT_SOURCE = {source_name: "Original Creation", source_url: "/"}.freeze
   DEFAULT_PARAMS = {
