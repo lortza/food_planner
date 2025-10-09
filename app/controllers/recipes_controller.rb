@@ -34,14 +34,14 @@ class RecipesController < ApplicationController
       @recipe.source_name = URI.parse(@recipe.source_url).host.gsub("www.", "")
       # scraped_content = Scraper.new(@recipe.source_url).site_data
       # extracted_content = ClaudeApiClient.extract_recipe_data_from_scraped_content(scraped_content)
-      extracted_content = ClaudeApiClient.extract_recipe_data_from_site(@recipe.source_url)
-      binding.pry
       # @recipe.instructions = "#{extracted_content[:ingredients]} #{extracted_content[:instructions]}"
-      @recipe.instructions = extracted_content["ingredients"] + extracted_content["instructions"] +
-        @recipe.image_url = extracted_content["image_url"]
+      extracted_content = ClaudeApiClient.extract_recipe_data_from_site(@recipe.source_url)
+
+      @recipe.instructions = extracted_content["ingredients"] + "\n\n" + extracted_content["instructions"]
+      @recipe.image_url = extracted_content["image_url"]
       @recipe.servings = extracted_content["servings"]
-      @recipe.prep_time = extracted_content["prep_time"]
-      @recipe.cook_time = extracted_content["cook_time"]
+      # @recipe.prep_time = extracted_content["prep_time"]
+      # @recipe.cook_time = extracted_content["cook_time"]
     end
 
     if @recipe.save

@@ -1,21 +1,8 @@
 # frozen_string_literal: true
 
-#
-#
-# curl https://api.anthropic.com/v1/messages \
-#      --header "x-api-key: $ANTHROPIC_API_KEY" \
-#      --header "anthropic-version: 2023-06-01" \
-#      --header "content-type: application/json" \
-#      --data \
-# '{
-#     "model": "claude-sonnet-4-5",
-#     "max_tokens": 1024,
-#     "messages": [
-#         {"role": "user", "content": "Hello, world"}
-#     ]
-# }'
-
 class ClaudeApiClient
+  # API docs https://docs.claude.com/en/api/overview
+
   require "httparty"
   BASE_URL = "https://api.anthropic.com/v1/messages"
 
@@ -155,9 +142,11 @@ class ClaudeApiClient
     )
 
     puts response.parsed_response
+    # TODO handle when response has "type": "error" https://docs.claude.com/en/api/errors
     response["content"][0]["text"]
   end
 
+  # TODO: handle when claude totally fails. fallback to basic scraper output.
   def self.extract_recipe_data_from_site(source_url)
     blocked_response = "site_blocked"
     initial_prompt = "You are a helpful assistant that scrapes recipe data from a provided URL. If the site is blocked or you cannot access the recipe data, respond with the text '#{blocked_response}'. If you can access the recipe data, scrape the recipe."
@@ -165,68 +154,15 @@ class ClaudeApiClient
     prompt_text = "#{initial_prompt} #{formatting_instructions} Here is the URL: #{source_url}"
 
     response_text = post_to_claude(prompt_text)
-    binding.pry
+
     extracted_content = if response_text.include?(blocked_response)
       scraped_content = Scraper.new(source_url).site_data
-      binding.pry
-      prompt_text = "Please extract the recipe from the provided block of text. #{formatting_instructions} Here is the URL: #{source_url}"
+      prompt_text = "Please extract the recipe from the provided block of text. #{formatting_instructions} Here is the provided text: #{scraped_content}"
 
-      response_text = post_to_claude(prompt_text)
-      binding.pry
-      response_text
+      post_to_claude(prompt_text)
     else
-      binding.pry
       response_text
     end
     JSON.parse(extracted_content)
   end
-
-  # ClaudeApiClient.extract_recipe_data_from_site("https://cooking.nytimes.com/recipes/1024490-tortellini-soup")
-
-  def self.extract_recipe_data_from_scraped_content(scraped_text)
-    # SAMPLE_INSTRUCTIONS = 'Please extract the recipe from the provided block of text. Your response should start with { and end with } - nothing else. Do not include ```json or any markdown formatting. Use the following keys: "instructions", "ingredients". The "ingredients" key should be an array and each ingredient should be broken down into its parts with these keys: "quantity", "unit_of_measurement", "item", "preparation_style". The provided block of text:'
-    # prompt_instructions = 'Please extract the recipe from the provided block of text. Your response should start with { and end with } - nothing else. Do not include ```json or any markdown formatting. Use the following keys: "instructions", "ingredients". The provided block of text:'
-    prompt_instructions = "Please extract the recipe from the provided block of text. Your response should be in text format. Start with the ingredients and separate each ingredient with a newline. Then add three newlines and list all of the instructions. Each step of the instructions should be separated by 2 newline characters. The provided block of text:"
-    prompt_text = "#{prompt_instructions}\n\n#{scraped_text}"
-
-    response_text = post_to_claude(prompt_text)
-    binding.pry
-    response_text
-    # parsed_text = JSON.parse(response_text)
-    # {
-    #   ingredients: parsed_text["ingredients"],
-    #   instructions: parsed_text["instructions"]
-    # }
-  end
 end
-
-# {
-#   "model" => "claude-sonnet-4-5-20250929",
-#   "id" => "msg_01JXfLp8D6nC6UnRM3eoASuo",
-#   "type" => "message",
-#   "role" => "assistant",
-#   "content" => [{
-#     "type" => "text",
-#     "text" => "# Five Common Indian Soup Ingredients\n\n1. **Lentils (Dal)** - Red lentils, yellow lentils, or split peas form the base of many Indian soups like dal soup\n\n2. **Cumin** - A quintessential spice used for tempering and flavoring, often toasted to release its aroma\n\n3. **Ginger** - Fresh ginger root adds warmth and a spicy-sweet flavor to soups\n\n4. **Turmeric** - Provides earthy flavor, golden color, and anti-inflammatory properties\n\n5. **Coconut Milk** - Common in South Indian soups, adding creaminess and subtle sweetness\n\nThese ingredients often work together in popular soups like mulligatawny, rasam, and various dal-based soups."
-#   }],
-#   "stop_reason" => "end_turn",
-#   "stop_sequence" => nil,
-#   "usage" => {
-#     "input_tokens" => 19,
-#     "cache_creation_input_tokens" => 0,
-#     "cache_read_input_tokens" => 0,
-#     "cache_creation" => {"ephemeral_5m_input_tokens" => 0, "ephemeral_1h_input_tokens" => 0},
-#     "output_tokens" => 184,
-#     "service_tier" => "standard"
-#   }
-# }
-
-# {"model" => "claude-sonnet-4-5-20250929",
-#  "id" => "msg_01UCCQXaxyZRfGtQpiZHSJZR",
-#  "type" => "message", "role" => "assistant",
-#  "content" => [{
-#    "type" => "text",
-#    "text" => "```json\n{\n  \"ingredients\": [\n    \"1 bunch cilantro\",\n    \"1 white onion\",\n    \"6 garlic cloves\",\n    \"2 pounds tomatillos\",\n    \"3 large poblano chiles\",\n    \"1 jalapeño\",\n    \"1 lime, plus wedges for serving, if you like\",\n    \"4 to 6 tablespoons olive oil\",\n    \"Salt\",\n    \"2 teaspoons ground cumin\",\n    \"2 teaspoons dried oregano\",\n    \"1 bunch lacinato kale, stemmed and chopped into bite-size pieces (or 4 tightly packed cups, about 8 ounces, chopped hardy greens)\",\n    \"2 (15-ounce) cans hominy, drained\",\n    \"4 cups store-bought or homemade vegetable broth\",\n    \"2 to 3 cups shredded green cabbage\",\n    \"2 to 4 radishes, thinly sliced\",\n    \"1 jalapeño, thinly sliced\",\n    \"Queso fresco (about 3 tablespoons per bowl)\",\n    \"Crema or sour cream (about 2 tablespoons per bowl)\",\n    \"Flaky salt\",\n    \"Sliced avocado (optional)\"\n  ],\n  \"instructions\": [\n    \"Heat oven to 475 degrees.\",\n    \"Prepare the soup: Separate the cilantro leaves and tender stems from the thicker stems. Place the thicker stems on a large sheet pan and refrigerate the remaining until ready to serve the soup.\",\n    \"Halve and peel the onion. Cut half into rough wedges and place on the sheet pan; finely dice the second half and set aside. Peel the garlic cloves; place 3 whole cloves on the sheet pan, then mince the remaining 3 cloves and set aside. Peel and quarter the tomatillos; halve, seed and stem the poblanos and jalapeño; and halve the lime; add all to the pan.\"\n  ]\n}\n```"
-#  }], "stop_reason" => "end_turn", "stop_sequence" => nil,
-#  "usage" => {"input_tokens" => 1634, "cache_creation_input_tokens" => 0, "cache_read_input_tokens" => 0, "cache_creation" => {"ephemeral_5m_input_tokens" => 0, "ephemeral_1h_input_tokens" => 0},
-#              "output_tokens" => 510, "service_tier" => "standard"}}
