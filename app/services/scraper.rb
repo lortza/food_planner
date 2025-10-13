@@ -10,12 +10,12 @@ class Scraper
 
   def initialize(endpoint)
     @endpoint = endpoint
-    @site_data = scrape_site
+    @site_data = scrape_recipe_site
   end
 
   private
 
-  def scrape_site
+  def scrape_recipe_site
     html = URI.parse(@endpoint).open
     doc = Nokogiri::HTML(html)
     items = doc.css("li").filter_map { |li| li.text.squish unless li.text.blank? }
