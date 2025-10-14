@@ -32,7 +32,8 @@ class RecipesController < ApplicationController
 
     if @recipe.pending?
       @recipe.source_name = URI.parse(@recipe.source_url).host.gsub("www.", "")
-      @recipe.instructions = Scraper.new(@recipe.source_url).site_data
+      extracted_content = RecipeDataExtractor.extract_from_site(@recipe.source_url)
+      @recipe = RecipeDataExtractor.format_data(recipe: @recipe, extracted_data: extracted_content)
     end
 
     if @recipe.save
