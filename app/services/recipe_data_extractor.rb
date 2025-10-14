@@ -1,27 +1,35 @@
 # frozen_string_literal: true
 
 class RecipeDataExtractor
-  # TODO: handle when claude totally fails. fallback to basic scraper output.
   def self.extract_from_site(source_url)
     blocked_response = "site_blocked"
     initial_prompt = "You are a helpful assistant that scrapes recipe data from a provided URL. If the site is blocked or you cannot access the recipe data, respond with the text '#{blocked_response}'. If you can access the recipe data, scrape the recipe."
     formatting_instructions = 'Your response should start with { and end with } - nothing else. Do not include ```json or any markdown formatting. Use the following keys: "title", "instructions", "ingredients", "servings", "prep_time", "cook_time", "total_time", "image_url". Ingredients should be stored as text with each ingredient separated by a newline character. The instructions should be text with each step separated by 2 newline characters. If servings is given as a range, provide the lower number in the range. For "prep_time", "cook_time", and "total_time", if time is given in minutes, provide just the integer (d not include the word "minutes"). If time is given in hours, convert that to minutes and provide just the integer. If there are several image urls on the page, use the one that includes words from the recipe title for the "image_url" field.'
     prompt_text = "#{initial_prompt} #{formatting_instructions} Here is the URL: #{source_url}"
+    fallback_response = {}
 
-    response = AnthropicApiClient.create_message(prompt: prompt_text)
-    response_text = response["content"][0]["text"]
-
-    extracted_content = if response_text.include?(blocked_response)
-      scraped_content = Scraper.new(source_url).site_data
-      prompt_text = "Please extract the recipe from the provided block of text. #{formatting_instructions} Here is the provided text: #{scraped_content}"
-
+    begin
       response = AnthropicApiClient.create_message(prompt: prompt_text)
-      response["content"][0]["text"]
-    else
-      response_text
-    end
+      response_text = response["content"][0]["text"]
 
-    JSON.parse(extracted_content.gsub("```json", "").gsub("```", "").strip)
+      extracted_content = if response_text.include?(blocked_response)
+        scraped_content = Scraper.new(source_url).site_data
+        prompt_text = "Please extract the recipe from the provided block of text. #{formatting_instructions} Here is the provided text: #{scraped_content}"
+
+        response = AnthropicApiClient.create_message(prompt: prompt_text)
+        response["content"][0]["text"]
+      else
+        response_text
+      end
+
+      JSON.parse(extracted_content.gsub("```json", "").gsub("```", "").strip)
+    rescue JSON::ParserError => e
+      puts "JSON parsing error: #{e.message}"
+      fallback_response
+    rescue => e
+      puts "An error occurred: #{e.message}"
+      fallback_response
+    end
   end
 
   def self.format_data(recipe:, extracted_data:)
