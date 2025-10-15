@@ -10,7 +10,7 @@ user = User.find_or_create_by(email: 'admin@email.com') do |user|
 end
 
 # Recipes
-puts "Seeding recipes..."
+puts "Seeding active recipes..."
 15.times do
   begin
     FactoryBot.create(:recipe, :with_faker_data, :with_faker_ingredients, ingredients_count: 5, user: user)
@@ -28,6 +28,28 @@ puts "Seeding pending recipes..."
     puts "Failed to create pending recipe: #{e.message}" 
   end
 end
+
+# Tags 
+puts "Seeding tags..."
+tag_names = ['breakfast', 'vegetarian', 'vegan', 'gluten-free', 'dairy-free', 'quick', 'slow-cooker', 'one-pot']
+tag_names.each do |tag_name|
+  begin
+    user.tags.find_or_create_by!(name: tag_name)
+  rescue ActiveRecord::RecordInvalid => e
+    puts "Failed to create tag: #{e.message}" 
+  end
+end
+
+# Add random tags to each recipe
+Recipe.all.each do |recipe|
+  begin
+    tag = user.tags.all.sample
+    RecipeTag.create!(tag: tag, recipe: recipe)
+  rescue ActiveRecord::RecordInvalid => e
+    puts "Failed to create recipe tag: #{e.message}"  
+  end
+end
+
 
 # Meal Plans
 puts "Seeding meal plans..."
