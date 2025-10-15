@@ -1,6 +1,6 @@
 <% content_for(:title, @recipe.title) %>
 
-<div class="row">
+<div class="row mb-4">
   <div class="col-12">
     <p><%= link_to MaterialIcon.new(icon: :arrow_left).render + "All Recipes", recipes_path %></p>
 
@@ -17,6 +17,11 @@
       <div>Total Time: <%= display_time(@recipe.total_time) %></div>
       <div>Reheat Time: <%= display_time(@recipe.reheat_time) %></div>
       <div>Prepared: <%= pluralize(@recipe.frequency, 'time') %></div>
+    </div>
+    <div>
+      <% @recipe.tags.each do |tag| %>
+        <span class="text-normal badge badge-pill badge-info"><%= tag.name %></span>
+      <% end %>
     </div>
   </div>
 </div><!-- row -->
