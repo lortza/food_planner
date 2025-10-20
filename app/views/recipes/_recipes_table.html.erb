@@ -1,0 +1,27 @@
+<table class="table table-sm table--recipes-index">
+  <thead>
+    <tr>
+      <th colspan='2'>Title</th>
+      <th>Servings</th>
+      <th>Last Prepared</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% recipes.each do |recipe| %>
+      <tr>
+        <td><div class="img--container">
+          <%= link_to (image_tag guaranteed_image(recipe)), recipe %>
+        </div></td>
+        <td><%= link_to recipe.title, recipe %> <%= extra_work_flag(recipe) %> <%= status_flag(recipe) %></td>
+        <td><%= recipe.servings %></td>
+        <td><%= recipe.last_prepared %></td>
+        <td>
+          <% if available_meal_plans_dropdown(current_user, recipe).any? %>
+            <%= render 'add_to_meal_plan_dropdown', meal_plan_recipe: MealPlanRecipe.new, recipe: recipe %></td>
+          <% end %>
+        <td><%= link_to MaterialIcon.new(icon: :settings, title: 'Edit recipe').render, edit_recipe_path(recipe) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

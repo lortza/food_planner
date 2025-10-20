@@ -1,0 +1,6 @@
+<h1>Recipes for tag: <%= @tag.name %></h1>
+
+<%= link_to 'all', recipes_path, class: "text-normal badge badge-pill badge-info" %>
+<%= render partial: 'tags/tag_links_list', locals: { tags: current_user.tags.by_name } %>
+
+<%= render partial: 'recipes/recipes_table', locals: { recipes: @tag.recipes } %>
