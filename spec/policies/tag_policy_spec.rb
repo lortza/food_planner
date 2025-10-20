@@ -1,0 +1,31 @@
+# frozen_string_literal: true
+
+require "rails_helper"
+
+RSpec.describe TagPolicy, type: :policy do
+  let(:user) { create(:user) }
+  let(:tag) { create(:tag, user: user) }
+
+  subject { TagPolicy }
+
+  permissions :show? do
+    it "denies access to visitors" do
+      no_user = nil
+      expect(subject).not_to permit(no_user, tag)
+    end
+
+    it "denies access to non-author users" do
+      different_user = create(:user)
+      expect(subject).not_to permit(different_user, tag)
+    end
+
+    it "permits access to author users" do
+      expect(subject).to permit(user, tag)
+    end
+
+    it "permits access to non-author admin users" do
+      admin = create(:user, admin: true)
+      expect(subject).to permit(admin, tag)
+    end
+  end
+end
