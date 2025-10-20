@@ -44,6 +44,9 @@ Rails.application.routes.draw do
 
   resources :shopping_list_favorites, only: [:create, :destroy]
   resources :shopping_list_item_builders, only: [:create]
+  resources :tags, only: [:show]
+  # TODO: enable full CRUD for tags
+  # resources :tags, only: [:show, :index, :new, :create, :edit, :update, :destroy]
 
   resources :inventories, only: [:edit, :update] do
     resources :recipe_suggestions, only: [:index]
