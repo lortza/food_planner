@@ -117,7 +117,8 @@ class RecipesController < ApplicationController
         measurement_unit
         preparation_style
         _destroy
-      ]
+      ],
+      tag_ids: []
     )
   end
 end

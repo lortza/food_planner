@@ -2,6 +2,6 @@
 
 <h1>Editing <%= @recipe.title %></h1>
 
-<%= render 'form', recipe: @recipe %>
+<%= render partial: 'form', locals: { recipe: @recipe, tags: current_user.tags.by_name } %>
 
 <%= render partial: 'shared/delete_footer', locals: { object: @recipe, delete_path: @recipe } %>

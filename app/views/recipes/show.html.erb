@@ -22,6 +22,8 @@
       <% @recipe.tags.each do |tag| %>
         <span class="text-normal badge badge-pill badge-info"><%= tag.name %></span>
       <% end %>
+      <!-- TODO: Link to filtered tag page -->
+      <%#= render partial: 'tags/tag_links_list', locals: { tags: @recipe.tags } %>
     </div>
   </div>
 </div><!-- row -->

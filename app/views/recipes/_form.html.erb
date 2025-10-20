@@ -113,6 +113,24 @@
         </table>
       </div>
 
+      <% if tags.present? %>
+        <div class="row mt-3">
+          <div class="col-sm-3">
+            <%= form.label 'Select Tags', class: 'font-weight-bold' %>
+          </div>
+          <div class="col-sm-9">
+            <%= form.collection_check_boxes :tag_ids, tags, :id, :name do |r| %>
+              <div class='form-check'>
+                <%= r.check_box class: 'form-check-input' %>
+                <%= r.label class: 'form-check-label' do %>
+                  <%= link_to r.object.name, r.object %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
       <div class="row">
         <div class="col-lg-6 col-md-12">
           <div class="field">
