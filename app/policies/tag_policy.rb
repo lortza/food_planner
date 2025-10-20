@@ -28,10 +28,10 @@ class TagPolicy < ApplicationPolicy
   #   user_is_owner_of_record_or_admin?
   # end
 
-  private
+  # private
 
-  def user_is_owner_of_record_or_admin?
-    # only allow action to run if the current_user on their own recipe
-    (record.user_id == user&.id) || user&.admin?
-  end
+  # def user_is_owner_of_record_or_admin?
+  #   # only allow action to run if the current_user on their own recipe
+  #   (record.user_id == user&.id) || user&.admin?
+  # end
 end
