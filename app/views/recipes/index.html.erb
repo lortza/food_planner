@@ -11,6 +11,12 @@
   Recipes
 </h1>
 
+<details>
+  <summary>Filter by Tag</summary>
+  <%= link_to 'all', recipes_path, class: "text-normal badge badge-pill badge-info" %>
+  <%= render partial: 'tags/tag_links_list', locals: { tags: current_user.tags.by_name } %>
+</details>
+
 <% if @recipes.present? %>
   <%= render partial: 'recipes_table', locals: { recipes: @recipes } %>
 <% else %>
