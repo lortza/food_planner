@@ -4,4 +4,4 @@
 
 <h1>Create a Recipe</h1>
 
-<%= render 'form', recipe: @recipe %>
+<%= render partial: 'form', locals: { recipe: @recipe, tags: current_user.tags.by_name } %>

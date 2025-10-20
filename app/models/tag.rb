@@ -20,6 +20,8 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Tag < ApplicationRecord
+  extend Searchable
+
   belongs_to :user
   has_many :recipe_tags, dependent: :destroy
   has_many :recipes, through: :recipe_tags
