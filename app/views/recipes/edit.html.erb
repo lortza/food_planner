@@ -1,3 +1,5 @@
+<% content_for(:title, "Editing: #{@recipe.title}") %>
+
 <p><%= link_to MaterialIcon.new(icon: :arrow_left).render + 'Back to Recipe', @recipe %></p>
 
 <h1>Editing <%= @recipe.title %></h1>
