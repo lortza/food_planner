@@ -8,7 +8,102 @@ RSpec.describe TagPolicy, type: :policy do
 
   subject { TagPolicy }
 
+  permissions :index? do
+    it "denies access to visitors" do
+      no_user = nil
+      expect(subject).not_to permit(no_user)
+    end
+
+    it "permits access to authenticated users" do
+      expect(subject).to permit(user)
+    end
+  end
+
   permissions :show? do
+    it "denies access to visitors" do
+      no_user = nil
+      expect(subject).not_to permit(no_user, tag)
+    end
+
+    it "denies access to non-author users" do
+      different_user = create(:user)
+      expect(subject).not_to permit(different_user, tag)
+    end
+
+    it "permits access to author users" do
+      expect(subject).to permit(user, tag)
+    end
+
+    it "permits access to non-author admin users" do
+      admin = create(:user, admin: true)
+      expect(subject).to permit(admin, tag)
+    end
+  end
+
+  permissions :create? do
+    it "denies access to visitors" do
+      no_user = nil
+      expect(subject).not_to permit(no_user, tag)
+    end
+
+    it "denies access to non-author users" do
+      different_user = create(:user)
+      expect(subject).not_to permit(different_user, tag)
+    end
+
+    it "permits access to author users" do
+      expect(subject).to permit(user, tag)
+    end
+
+    it "permits access to non-author admin users" do
+      admin = create(:user, admin: true)
+      expect(subject).to permit(admin, tag)
+    end
+  end
+
+  permissions :edit? do
+    it "denies access to visitors" do
+      no_user = nil
+      expect(subject).not_to permit(no_user, tag)
+    end
+
+    it "denies access to non-author users" do
+      different_user = create(:user)
+      expect(subject).not_to permit(different_user, tag)
+    end
+
+    it "permits access to author users" do
+      expect(subject).to permit(user, tag)
+    end
+
+    it "permits access to non-author admin users" do
+      admin = create(:user, admin: true)
+      expect(subject).to permit(admin, tag)
+    end
+  end
+
+  permissions :update? do
+    it "denies access to visitors" do
+      no_user = nil
+      expect(subject).not_to permit(no_user, tag)
+    end
+
+    it "denies access to non-author users" do
+      different_user = create(:user)
+      expect(subject).not_to permit(different_user, tag)
+    end
+
+    it "permits access to author users" do
+      expect(subject).to permit(user, tag)
+    end
+
+    it "permits access to non-author admin users" do
+      admin = create(:user, admin: true)
+      expect(subject).to permit(admin, tag)
+    end
+  end
+
+  permissions :destroy? do
     it "denies access to visitors" do
       no_user = nil
       expect(subject).not_to permit(no_user, tag)
