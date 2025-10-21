@@ -1,0 +1,14 @@
+<%= form_for(tag) do |form| %>
+  <%= render 'shared/errors', object: tag %>
+
+  <div class='row'>
+    <div class='col-sm-12'>
+      <div class='field'>
+        <%= form.label :name %>
+        <%= form.text_field :name, autofocus: true, placeholder: 'Enter tag name', class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+
+  <%= form.submit class: "#{button_classes} mt-3" %>
+<% end %>

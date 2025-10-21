@@ -1,0 +1,9 @@
+<% content_for(:title, "Edit #{@tag.name}") %>
+
+<p><%= link_to MaterialIcon.new(icon: :arrow_left).render + 'All tags', tags_path %></p>
+
+<h1>Editing <%= @tag.name %></h1>
+
+<%= render 'form', tag: @tag %>
+
+<%= render partial: 'shared/delete_footer', locals: { object: @tag, delete_path: @tag } %>
