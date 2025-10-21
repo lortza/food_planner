@@ -11,6 +11,10 @@ class TagPolicy < ApplicationPolicy
     user.present?
   end
 
+  def new?
+    user.present?
+  end
+
   def show?
     user_is_owner_of_record_or_admin?
   end

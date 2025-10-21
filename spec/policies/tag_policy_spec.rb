@@ -19,6 +19,17 @@ RSpec.describe TagPolicy, type: :policy do
     end
   end
 
+  permissions :new? do
+    it "denies access to visitors" do
+      no_user = nil
+      expect(subject).not_to permit(no_user)
+    end
+
+    it "permits access to authenticated users" do
+      expect(subject).to permit(user)
+    end
+  end
+
   permissions :show? do
     it "denies access to visitors" do
       no_user = nil
