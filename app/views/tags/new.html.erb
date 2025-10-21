@@ -1,0 +1,7 @@
+<% content_for(:title, 'Add a Tag') %>
+
+<p><%= link_to MaterialIcon.new(icon: :arrow_left).render + 'All Tags', tags_path %></p>
+
+<h1>Create a Tag</h1>
+
+<%= render 'form', tag: @tag %>

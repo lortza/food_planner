@@ -26,11 +26,4 @@ class ShoppingListPolicy < ApplicationPolicy
   def destroy?
     user_is_owner_of_record_or_admin? && record.default? == false
   end
-
-  private
-
-  def user_is_owner_of_record_or_admin?
-    # only allow action to run if the current_user on their own shopping_list
-    (record.user_id == user&.id) || user&.admin?
-  end
 end

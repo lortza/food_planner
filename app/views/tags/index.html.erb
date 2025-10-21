@@ -1,0 +1,20 @@
+<% content_for(:title, 'Tags') %>
+
+<h1>
+  <%= link_to MaterialIcon.new(icon: :plus_circle, title: 'Create new Tag', classes: 'float-right').render, new_tag_path %>
+  Tags
+</h1>
+
+<% if current_user.tags.any? %>
+  <% @tags.by_name.each do |tag| %>
+    <p class='index-item controls-on-right-parent'>
+      <%= tag.name %>
+      <span class='controls'>
+        <%= link_to MaterialIcon.new(icon: :settings, classes: 'float-right').render, edit_tag_path(tag) %>
+      </span>
+    </p>
+  <% end %>
+<% else %>
+  <p>Create a New Tag</p>
+  <%= link_to 'New Tag', new_tag_path, class: button_classes('primary btn-wide') %>
+<% end %>
