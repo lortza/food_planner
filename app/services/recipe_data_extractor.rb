@@ -31,13 +31,25 @@ class RecipeDataExtractor
     end
 
     def format_data(recipe:, extracted_data:)
-      # TODO: build out ingredients parsing
-      recipe.title = extracted_data["title"] if extracted_data["title"].present?
-      recipe.instructions = extracted_data["ingredients"] + "\n\n" + extracted_data["instructions"] if extracted_data["instructions"].present? && extracted_data["ingredients"].present?
+      recipe.title = extracted_data["title"] if extracted_data["title"].present? && recipe.title.blank?
+      recipe.instructions = extracted_data["ingredients_text"] + "\n\n" + extracted_data["instructions"] if extracted_data["instructions"].present? && extracted_data["ingredients_text"].present?
       recipe.servings = extracted_data["servings"] if extracted_data["servings"].present?
       recipe.prep_time = extracted_data["prep_time"] if extracted_data["prep_time"].present?
       recipe.cook_time = extracted_data["cook_time"] if extracted_data["cook_time"].present?
       recipe.image_url = extracted_data["image_url"] if extracted_data["image_url"].present?
+
+      if extracted_data["ingredients"].present?
+        extracted_data["ingredients"].each do |ingredient|
+          if ingredient["name"].present? && ingredient["quantity"].present? && ingredient["measurement_unit"].present?
+            recipe.ingredients.build(
+              name: ingredient["name"],
+              quantity: ingredient["quantity"],
+              measurement_unit: ingredient["measurement_unit"],
+              preparation_style: ingredient["preparation_style"]
+            )
+          end
+        end
+      end
 
       recipe
     end
@@ -61,11 +73,19 @@ class RecipeDataExtractor
         'Your response should start with { and end with } - nothing else. Do not 
         include ```json or any markdown formatting. 
         
-        Use the following keys: "title", "instructions", "ingredients", "servings", "prep_time", 
+        Use the following keys: "title", "instructions", "ingredients", "ingredients_text", "servings", "prep_time", 
         "cook_time", "total_time", "image_url". 
         
-        Ingredients should be stored as text with each ingredient separated by a newline character. 
-        
+        Ingredients data will be stored redundantly in two different keys. 
+        The data in the "ingredients_text" key should be stored as text with each ingredient separated by a newline character. 
+        The data in the "ingredients" key should be stored as an array with each ingredient broken into its own hash with the following keys: "name", "quantity", "measurement_unit", and "preparation_style". 
+        For example, an ingredient of "2 cloves of garlic, minced" would be represented as: 
+        {"name": "garlic", "quantity": 2, "measurement_unit": "clove", "preparation_style": "minced"}.
+        If an ingredient does not have a quantity or measurement unit, skip that ingredient.
+        If an ingredient does not have a preparation_style, use a value of "" for that key.
+        If an ingredient quantity has a fraction, convert it to a decimal number (e.g., 1 1/2 becomes 1.5).
+        For measurement units, match to the following standard units where possible: #{Ingredient::UNITS.join(", ")}.
+
         The instructions should be text with each step separated by 2 newline characters. 
         
         If servings is given as a range, provide the lower number in the range. 
