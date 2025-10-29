@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   resources :aisles, only: [:index, :new, :create, :edit, :update, :destroy]
 
+  resources :pending_recipes, only: [:new, :create]
   resources :recipes
   post '/recipe_copy_for_user', to: 'recipes#copy_for_user'
 
