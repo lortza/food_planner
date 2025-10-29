@@ -22,7 +22,6 @@ class RecipesController < ApplicationController
     @recipe = current_user.recipes.new
     authorize(@recipe)
 
-    @recipe.status = params[:status] if params[:status].present?
     15.times { @recipe.ingredients.build(quantity: nil) }
   end
 
@@ -30,18 +29,8 @@ class RecipesController < ApplicationController
     @recipe = current_user.recipes.new(recipe_params)
     authorize(@recipe)
 
-    if @recipe.pending?
-      @recipe.source_name = URI.parse(@recipe.source_url).host.gsub("www.", "")
-      extracted_content = RecipeDataExtractor.extract_from_site(@recipe.source_url)
-      @recipe = RecipeDataExtractor.format_data(recipe: @recipe, extracted_data: extracted_content)
-    end
-
     if @recipe.save
-      if @recipe.pending?
-        redirect_to recipes_url(@recipe), notice: "Pending recipe created." and return
-      else
-        redirect_to recipe_url(@recipe), notice: "Recipe created." and return
-      end
+      redirect_to recipe_url(@recipe), notice: "Recipe created." and return
     else
       render :new
     end
