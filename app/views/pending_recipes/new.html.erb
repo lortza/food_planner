@@ -1,0 +1,80 @@
+<% content_for(:title, 'Save a Pending Recipe') %>
+
+<p><%= link_to MaterialIcon.new(icon: :arrow_left).render + 'Recipes', recipes_path %></p>
+
+<h1>Save a Pending Recipe</h1>
+
+<div id="js-loading-state-content-area" class="hidden">
+  <%= render partial: "shared/recipe_parsing_loading_state" %>
+</div>
+
+<div class="js-pending-recipe-form">
+  <%= form_with model: @recipe, url: pending_recipes_path, method: :post, id: "js-pending-recipe-form" do |form| %>
+    <%= render 'shared/errors', object: @recipe %>
+    <%= form.hidden_field :status %>
+
+    <div class="row">
+      <div class="col">
+        <div class="field">
+          <%= form.label "Title*" %>
+          <%= form.text_field :title, autofocus: true, class: 'form-control' %>
+        </div>
+      </div>
+    </div> <!-- row -->
+
+    <div class="row">
+
+      <div class="field col-sm">
+        <%= form.label "Source URL*" %>
+        <%= form.text_field :source_url, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= form.label :image_url %>
+      <%= form.text_field :image_url, class: 'form-control' %>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="field">
+          <%= form.label :notes %>
+          <%= form.text_area :notes, class: 'form-control' %>
+        </div>
+      </div>
+    </div> <!-- row -->
+
+    <% if current_user.tags.present? %>
+        <div class="row mt-3">
+          <div class="col-sm-3">
+            <%= form.label 'Select Tags', class: 'font-weight-bold' %>
+          </div>
+          <div class="col-sm-9">
+            <%= form.collection_check_boxes :tag_ids, current_user.tags, :id, :name do |r| %>
+              <div class='form-check'>
+                <%= r.check_box class: 'form-check-input' %>
+                <%= r.label class: 'form-check-label' do %>
+                  <%= r.object.name %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
+    <%= form.submit class: button_classes('primary mt-3') %>
+  <% end %>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const loadingStatePartial = document.getElementById("js-loading-state-content-area");
+    const pendingRecipeForm = document.getElementById("js-pending-recipe-form");
+
+    // Show loading state when the form is submitted
+    pendingRecipeForm.addEventListener("submit", function() {
+      loadingStatePartial.classList.remove('hidden');
+      pendingRecipeForm.classList.add('hidden');
+    });
+  });
+</script>
