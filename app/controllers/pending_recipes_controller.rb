@@ -12,7 +12,10 @@ class PendingRecipesController < ApplicationController
     @recipe = current_user.recipes.new(recipe_params)
     authorize(@recipe)
 
+    extracted_uri = URI.extract(@recipe.source_url)[0]
+    @recipe.source_url = extracted_uri if extracted_uri.present?
     @recipe.source_name = URI.parse(@recipe.source_url).host.gsub("www.", "")
+
     extracted_content = RecipeDataExtractor.extract_from_site(@recipe.source_url)
     @recipe = RecipeDataExtractor.format_data(recipe: @recipe, extracted_data: extracted_content)
 
