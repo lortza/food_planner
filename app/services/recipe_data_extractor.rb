@@ -81,10 +81,11 @@ class RecipeDataExtractor
         The data in the "ingredients" key should be stored as an array with each ingredient broken into its own hash with the following keys: "name", "quantity", "measurement_unit", and "preparation_style". 
         For example, an ingredient of "2 cloves of garlic, minced" would be represented as: 
         {"name": "garlic", "quantity": 2, "measurement_unit": "clove", "preparation_style": "minced"}.
-        If an ingredient does not have a quantity or measurement unit, skip that ingredient.
+        If an ingredient does not have a quantity or measurement unit, set the quantity to 1 and set the measurement_unit to "as-needed" for that ingredient.
         If an ingredient does not have a preparation_style, use a value of "" for that key.
         If an ingredient quantity has a fraction, convert it to a decimal number (e.g., 1 1/2 becomes 1.5).
         For measurement units, match to the following standard units where possible: #{Ingredient::UNITS.join(", ")}.
+        If the measurement_unit is not included in that list, use a value of "as-needed" for the measurement_unit.
 
         The instructions should be text with each step separated by 2 newline characters. 
         
