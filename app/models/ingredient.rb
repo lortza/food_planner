@@ -27,14 +27,17 @@ class Ingredient < ApplicationRecord
 
   STANDARD_UNITS = %w[
     4oz\ can
+    6oz\ can
     7oz\ can
     15oz\ can
     30oz\ can
+    as-needed
     box
     bulb
     bunch
     clove
     cup
+    dash
     dozen
     handful
     head
@@ -45,13 +48,17 @@ class Ingredient < ApplicationRecord
     loaf
     quart
     ounce
+    pinch
     pint
     slice
     sprig
     stalk
+    stem
     stick
+    strip
     tablespoon
     teaspoon
+    wedge
   ].freeze
 
   # Units that do not get pluralized
