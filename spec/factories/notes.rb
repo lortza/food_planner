@@ -21,8 +21,8 @@
 FactoryBot.define do
   factory :note do
     user { nil }
-    title { "MyString" }
-    content { "MyText" }
+    sequence(:title) { |n| "Note #{n}" }
+    sequence(:content) { Faker::Markdown.random }
     favorite { false }
   end
 end
