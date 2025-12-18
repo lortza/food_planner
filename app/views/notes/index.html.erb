@@ -1,0 +1,22 @@
+<% content_for :title, "Notebook" %>
+
+<h1>
+  <%= link_to MaterialIcon.new(icon: :plus_circle, title: 'Create new Note', classes: 'float-right').render, new_note_path if policy(Note.new).create? %>
+  Notes
+</h1>
+
+<% if current_user.notes.any? %>
+  <% @notes.each do |note| %>
+    <p class='index-item controls-on-right-parent'>
+      <%= link_to note.title, note %>
+      <% if policy(note).edit? %>
+        <span class='controls'>
+          <%= link_to MaterialIcon.new(icon: :settings, classes: 'float-right').render, edit_note_path(note) %>
+        </span>
+      <% end %>
+    </p>
+  <% end %>
+<% else %>
+  <p>Create a New Note</p>
+  <%= link_to 'New note', new_note_path, class: button_classes('primary btn-wide') %>
+<% end %>
