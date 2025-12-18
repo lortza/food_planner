@@ -18,7 +18,6 @@ RSpec.describe NotesController, type: :routing do
       expect(get: "/notes/1/edit").to route_to("notes#edit", id: "1")
     end
 
-
     it "routes to #create" do
       expect(post: "/notes").to route_to("notes#create")
     end

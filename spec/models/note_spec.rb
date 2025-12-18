@@ -18,7 +18,7 @@ RSpec.describe Note, type: :model do
       it "returns only favorite notes" do
         user = User.create!(email: "test@example.com", password: "password")
         favorite_note = Note.create!(user: user, title: "Favorite Note", content: "Content", favorite: true)
-        non_favorite_note = Note.create!(user: user, title: "Non-Favorite Note", content: "Content", favorite: false)
+        Note.create!(user: user, title: "Non-Favorite Note", content: "Content", favorite: false)
 
         expect(Note.favorites).to eq([favorite_note])
       end
