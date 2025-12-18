@@ -89,7 +89,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_12_18_151004) do
     t.index ["user_id"], name: "index_meal_plans_on_user_id"
   end
 
-  create_table "notes", force: :cascade do |t|
+  create_table "notes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "title", default: "", null: false
     t.text "content", default: "", null: false
