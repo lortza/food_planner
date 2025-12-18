@@ -108,7 +108,8 @@ RSpec.describe "Notes", type: :request do
 
         it "redirects to the created note" do
           post notes_path, params: {note: valid_attributes}
-          expect(response).to redirect_to(note_path(Note.last))
+          created_note = user.notes.order(created_at: :desc).first
+          expect(response).to redirect_to(note_path(created_note))
         end
       end
 
