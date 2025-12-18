@@ -11,10 +11,7 @@
 
 // Display
 .hidden { display: none; }
-.inline {
-  display: inline;
-  word-wrap: break-word;
-}
+.inline { display: inline; word-wrap: break-word; }
 .inline-block { display: inline-block; }
 
 // Input Sizes
@@ -37,3 +34,19 @@
 .cursor-default { cursor: default; }
 .cursor-help { cursor: help; }
 .cursor-pointer { cursor: pointer; }
+
+// Forms
+.textarea-form-control {
+  background-clip: padding-box;
+  background-color: $white;
+  border: 1px solid $bootstrap-light-grey;
+  border-radius: .25rem;
+  color: $bootstrap-medium-grey;
+  display: block;
+  font-size: 1rem;
+  // height: calc(2.25rem + 2px);
+  line-height: 1.5;
+  padding: .375rem .75rem;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  width: 100%;
+}

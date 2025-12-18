@@ -23,8 +23,11 @@ require "support/shoulda_matchers"
 begin
   ActiveRecord::Migration.maintain_test_schema!
 rescue ActiveRecord::PendingMigrationError => e
-  puts e.to_s.strip
-  exit 1
+  # Don't exit during Rails generators, only during actual test runs
+  unless defined?(Rails::Generators)
+    puts e.to_s.strip
+    exit 1
+  end
 end
 
 RSpec.configure do |config|

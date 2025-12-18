@@ -1,0 +1,24 @@
+<div id="<%= dom_id note %>">
+
+  <div class="row mb-4">
+    <div class="col-12">
+      <p><%= link_to MaterialIcon.new(icon: :arrow_left).render + "All Notes", notes_path %></p>
+
+      <h2>
+        <%= link_to MaterialIcon.new(icon: :settings, title: 'Edit Note', classes: 'float-right').render, edit_note_path(note) if policy(note).edit? %>
+        <%= note.title %>
+        <%= toggle_favorite_status(note) %>
+      </h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <%= render_markdown(note.content) %>
+      <p>
+        <strong>Favorite:</strong>
+        <%= note.favorite %>
+      </p>
+    </div>
+  </div>
+</div>

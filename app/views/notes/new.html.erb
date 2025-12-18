@@ -1,0 +1,7 @@
+<% content_for(:title, 'Add a Note') %>
+
+<p><%= link_to MaterialIcon.new(icon: :arrow_left).render + 'Notes', notes_path %></p>
+
+<h1>Create a Note</h1>
+
+<%= render "form", note: @note %>

@@ -108,4 +108,16 @@ ShoppingListItem.find_or_create_by!(
   end
 )
 
+# Notes
+puts "Seeding notes..."
+FactoryBot.create(:note, user: user, favorite: true, title: Faker::Lorem.sentence, content: Faker::Markdown.random, favorite: [true, false].sample)
+
+3.times do
+  begin
+    FactoryBot.create(:note, user: user, title: Faker::Lorem.sentence, content: Faker::Markdown.random, favorite: [true, false].sample)
+  rescue ActiveRecord::RecordInvalid => e
+    puts "Failed to create note: #{e.message}"  
+  end
+end
+
 output_results

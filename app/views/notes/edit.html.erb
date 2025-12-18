@@ -1,0 +1,8 @@
+<% content_for(:title, "Editing: #{@note.title}") %>
+<p><%= link_to MaterialIcon.new(icon: :arrow_left).render + 'Back to Note', @note %></p>
+
+<h1>Editing note</h1>
+
+<%= render "form", note: @note %>
+
+<%= render partial: 'shared/delete_footer', locals: { object: @note, delete_path: @note } %>

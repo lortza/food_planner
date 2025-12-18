@@ -9,6 +9,7 @@
   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
     <%= link_to '+ New Recipe', new_recipe_path, class: 'dropdown-item' %>
     <%= link_to '+ New Pending Recipe', new_pending_recipe_path, class: 'dropdown-item' %>
+    <%= link_to '+ New Meal Plan', new_meal_plan_path, class: 'dropdown-item' %>
     <% if current_user.inventory.present? %>
       <div class='dropdown-divider'></div>
       <%= link_to 'Recipe Suggestions', inventory_recipe_suggestions_path(current_user.inventory), class: 'dropdown-item' %>
@@ -29,15 +30,28 @@
     Manage
   </a>
   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-    <%= link_to '+ New Recipe', new_recipe_path, class: 'dropdown-item' %>
-    <%= link_to '+ New Meal Plan', new_meal_plan_path, class: 'dropdown-item' %>
-    <div class='dropdown-divider'></div>
     <%= link_to 'Meal Plans', meal_plans_path, class: 'dropdown-item' %>
     <%= link_to 'Shopping lists', shopping_lists_path, class: 'dropdown-item' %>
     <%= render partial: 'shared/navbar/favorite_shopping_list' %>
     <%= link_to 'Aisles', aisles_path, class: 'dropdown-item' %>
     <%= link_to 'Tags', tags_path, class: 'dropdown-item' %>
     <%= link_to 'Inventory', edit_inventory_path(current_user.inventory.id), class: 'dropdown-item' if current_user.inventory.present? %>
+  </div>
+</li>
+
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Notes
+  </a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <%= link_to '+ New Note', new_note_path, class: 'dropdown-item' %>
+    <div class='dropdown-divider'></div>
+    <% if current_user.notes.favorites.any? %>
+      <% current_user.notes.favorites.each do |note| %>
+        <%= link_to note.title, note, class: 'dropdown-item' %>
+      <% end %>
+    <% end %>
+    <%= link_to 'All Notes', notes_path, class: 'dropdown-item' %>
   </div>
 </li>
 
