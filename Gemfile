@@ -27,6 +27,8 @@ gem "will_paginate", "~> 4.0.1" # pagination. Styles: http://mislav.github.io/wi
 gem "net-imap", require: false
 gem "net-pop", require: false
 gem "net-smtp", require: false  # Send internet mail via SMTP
+# gem "redcarpet"                 # Markdown rendering
+gem "commonmarker"                # Fast, safe and extensible Markdown parser in Ruby using the cmark library
 
 group :development do
   gem "annotate"

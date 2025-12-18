@@ -6,6 +6,9 @@
 // justify-content
 .justify-center { justify-content: center; }
 
+// font-family
+.font-mono { font-family: var(--font-mono); }
+
 // flex-direction
 .flex-col{ flex-direction: column; }
 .flex-row { flex-direction: row; }  
@@ -15,3 +18,11 @@
 
 // cursor
 .cursor-pointer {cursor: pointer;}
+
+//height
+.h-full { height: 100%; }
+.h-screen { height: 100vh; }
+
+// width
+.w-full { width: 100%; }
+.w-screen { width: 100vw; }

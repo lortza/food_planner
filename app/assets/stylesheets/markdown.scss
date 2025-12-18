@@ -1,0 +1,59 @@
+@import 'variables';
+
+.markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+}
+
+.markdown table th,
+.markdown table td {
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.markdown table th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+}
+
+.markdown table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.markdown ul,
+.markdown ol {
+  margin: 1em 0;
+  padding-left: 2em;
+}
+
+.markdown li {
+  margin: 0.25em 0;
+}
+
+
+.markdown p {
+  margin: 1em 0;
+}
+
+.markdown code {
+  background-color: #f4f4f4;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+}
+
+.markdown pre {
+  background-color: #f4f4f4;
+  padding: 1em;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.markdown blockquote {
+  border-left: 4px solid #ddd;
+  padding-left: 1em;
+  margin-left: 0;
+  color: #666;
+}

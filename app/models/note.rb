@@ -2,7 +2,7 @@
 #
 # Table name: notes
 #
-#  id         :bigint           not null, primary key
+#  id         :uuid             not null, primary key
 #  content    :text             default(""), not null
 #  favorite   :boolean          default(FALSE), not null
 #  title      :string           default(""), not null
