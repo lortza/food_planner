@@ -17,11 +17,13 @@ class NotesController < ApplicationController
 
   # GET /notes/1/edit
   def edit
+    authorize(@note)
   end
 
   # POST /notes
   def create
     @note = current_user.notes.new(note_params)
+    authorize(@note)
 
     if @note.save
       redirect_to @note, notice: "Note was successfully created."
@@ -32,6 +34,8 @@ class NotesController < ApplicationController
 
   # PATCH/PUT /notes/1
   def update
+    authorize(@note)
+
     if @note.update(note_params)
       redirect_to @note, notice: "Note was successfully updated.", status: :see_other
     else
@@ -41,6 +45,8 @@ class NotesController < ApplicationController
 
   # DELETE /notes/1
   def destroy
+    authorize(@note)
+
     @note.destroy!
     redirect_to notes_path, notice: "Note was successfully destroyed.", status: :see_other
   end
