@@ -8,6 +8,7 @@ class NotesController < ApplicationController
 
   # GET /notes/1
   def show
+    authorize(@note)
   end
 
   # GET /notes/new
@@ -55,7 +56,7 @@ class NotesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_note
-    @note = current_user.notes.find(params[:id])
+    @note = Note.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.

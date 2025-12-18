@@ -7,6 +7,10 @@ class NotePolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    user_is_owner_of_record_or_admin?
+  end
+
   def create?
     user_is_owner_of_record_or_admin?
   end

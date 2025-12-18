@@ -18,11 +18,11 @@
 #
 #  fk_rails_...  (user_id => users.id)
 #
-class Note < ApplicationRecord
-  belongs_to :user
-
-  validates :title, presence: true
-  validates :content, presence: true
-
-  scope :favorites, -> { where(favorite: true) }
+FactoryBot.define do
+  factory :note do
+    user { nil }
+    title { "MyString" }
+    content { "MyText" }
+    favorite { false }
+  end
 end
