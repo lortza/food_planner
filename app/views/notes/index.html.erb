@@ -7,14 +7,15 @@
 
 <% if current_user.notes.any? %>
   <% @notes.each do |note| %>
-    <p class='index-item controls-on-right-parent'>
-      <%= link_to note.title, note %>
+    <div class='index-item controls-on-right-parent'>
+      <p><%= link_to note.title, note %> <%= MaterialIcon.new(icon: :star, title: "Favorite", filled: true, classes: "text-warning").render if note.favorite? %></p>
       <% if policy(note).edit? %>
         <span class='controls'>
-          <%= link_to MaterialIcon.new(icon: :settings, classes: 'float-right').render, edit_note_path(note) %>
+          <%= note.created_at.to_fs %>
+          <%= link_to MaterialIcon.new(icon: :settings).render, edit_note_path(note) %>
         </span>
       <% end %>
-    </p>
+    </div>
   <% end %>
 <% else %>
   <p>Create a New Note</p>

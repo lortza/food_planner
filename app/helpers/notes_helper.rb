@@ -28,16 +28,16 @@ module NotesHelper
   # TODO: make this method use link_to and point to favorite/unfavorite actions
   def toggle_favorite_status(note)
     if note.favorite?
-      MaterialIcon.new(icon: :star, size: :xxlarge, title: "Unfavorite", filled: true, classes: "text-yellow-500").render
-      # link_to MaterialIcon.new(icon: :star, size: :small, title: "Unfavorite", filled: true, classes: "text-yellow-500").render,
+      MaterialIcon.new(icon: :star, size: :xxlarge, title: "Unfavorite", filled: true, classes: "text-warning").render
+      # link_to MaterialIcon.new(icon: :star, size: :small, title: "Unfavorite", filled: true, classes: "text-warning").render,
       #   unfavorite_note_path(note),
       #   method: :post,
       #   remote: true,
       #   title: "Unfavorite",
       #   data: {turbo_method: :post}
     else
-      MaterialIcon.new(icon: :star, filled: false, size: :xxlarge, title: "Favorite").render
-      # link_to MaterialIcon.new(icon: :star, filled: false, size: :small, title: "Favorite").render,
+      MaterialIcon.new(icon: :star, filled: false, size: :xxlarge, title: "Favorite", classes: "text-warning").render
+      # link_to MaterialIcon.new(icon: :star, filled: false, size: :small, title: "Favorite", classes: "text-warning").render,
       #   favorite_note_path(note),
       #   method: :post,
       #   remote: true,

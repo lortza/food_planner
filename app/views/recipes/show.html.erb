@@ -109,16 +109,3 @@
     <%= render partial: 'nutritional_information', locals: { recipe: @recipe, iframe_parser: CronometerParser.new(@recipe.nutrition_data_iframe) } %>
   </div>
 </div> <!-- row -->
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const instructionItems = document.querySelectorAll("#js-instructions .tab-content ol li");
-
-    instructionItems.forEach(line => {
-      line.classList.add('cursor-pointer');
-      line.addEventListener('click', function() {
-        this.classList.toggle('line-through');
-      });
-     });
-  });
-</script>

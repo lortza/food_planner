@@ -3,7 +3,7 @@ class NotesController < ApplicationController
 
   # GET /notes
   def index
-    @notes = current_user.notes.all
+    @notes = current_user.notes.by_title
   end
 
   # GET /notes/1

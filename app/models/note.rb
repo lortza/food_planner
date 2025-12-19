@@ -19,6 +19,8 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Note < ApplicationRecord
+  extend Searchable
+
   belongs_to :user
 
   validates :title, presence: true

@@ -27,7 +27,7 @@
 <%= render 'scheduled_deliveries/scheduled_deliveries', shopping_list: @shopping_list %>
 
 <section id='js-active-items'>
-  <% @shopping_list.shopping_list_items.not_purchased.by_aisle_order_number.group_by(&:aisle).each do |aisle, items| %>
+  <% @shopping_list.shopping_list_items.includes([:list]).not_purchased.by_aisle_order_number.group_by(&:aisle).each do |aisle, items| %>
     <% if aisle %>
       <div id='<%= dom_id(aisle) %>'>
         <h4 class='aisle'><%= aisle.name %></h4>

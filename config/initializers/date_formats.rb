@@ -1,4 +1,5 @@
 # See Docs: https://apidock.com/ruby/DateTime/strftime
+# Call like: object.created_at.to_fs(:short)
 
 # 05-25-2020
 Date::DATE_FORMATS[:default] = "%m-%d-%Y"

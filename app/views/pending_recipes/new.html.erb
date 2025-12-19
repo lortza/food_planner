@@ -65,16 +65,3 @@
     <%= form.submit class: button_classes('primary mt-3') %>
   <% end %>
 </div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const loadingStatePartial = document.getElementById("js-loading-state-content-area");
-    const pendingRecipeForm = document.getElementById("js-pending-recipe-form");
-
-    // Show loading state when the form is submitted
-    pendingRecipeForm.addEventListener("submit", function() {
-      loadingStatePartial.classList.remove('hidden');
-      pendingRecipeForm.classList.add('hidden');
-    });
-  });
-</script>
