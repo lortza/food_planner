@@ -7,22 +7,37 @@ class RecipeDataExtractor
       fallback_response = {}
 
       begin
-        response = AnthropicApiClient.create_message(prompt: prompt_text)
+        response = AnthropicApiClient.create_message(prompt: prompt_text, max_tokens: 8192)
+        if response["stop_reason"] == "max_tokens"
+          puts "WARNING: Response was truncated due to max_tokens limit"
+        end
         response_text = response["content"][0]["text"]
 
         extracted_content = if response_text.include?(blocked_response)
           scraped_content = Scraper.new(source_url).site_data
           prompt_text = "Please extract the recipe from the provided block of text. #{formatting_instructions} Here is the provided text: #{scraped_content}"
 
-          response = AnthropicApiClient.create_message(prompt: prompt_text)
+          response = AnthropicApiClient.create_message(prompt: prompt_text, max_tokens: 8192)
           response["content"][0]["text"]
         else
           response_text
         end
 
-        JSON.parse(extracted_content.gsub("```json", "").gsub("```", "").strip)
+        # Strip markdown formatting more robustly
+        cleaned_content = extracted_content.strip
+        cleaned_content = cleaned_content.gsub(/^```json\s*/m, "").gsub(/^```\s*$/m, "").strip
+
+        # Validate JSON complete before parsing
+        unless cleaned_content.start_with?("{") && cleaned_content.end_with?("}")
+          puts "WARNING: JSON response appears incomplete. First 100 chars: #{cleaned_content[0..100]}"
+          puts "Last 100 chars: #{cleaned_content[-100..-1]}"
+        end
+
+        JSON.parse(cleaned_content)
       rescue JSON::ParserError => e
         puts "JSON parsing error: #{e.message}"
+        puts "Response content (first 500 chars): #{extracted_content&.[](0..500)}"
+        puts "Response content (last 200 chars): #{extracted_content&.[](-200..-1)}"
         fallback_response
       rescue => e
         puts "An error occurred: #{e.message}"
