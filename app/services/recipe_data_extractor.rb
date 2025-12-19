@@ -30,14 +30,14 @@ class RecipeDataExtractor
         # Validate JSON complete before parsing
         unless cleaned_content.start_with?("{") && cleaned_content.end_with?("}")
           puts "WARNING: JSON response appears incomplete. First 100 chars: #{cleaned_content[0..100]}"
-          puts "Last 100 chars: #{cleaned_content[-100..-1]}"
+          puts "Last 100 chars: #{cleaned_content[-100..]}"
         end
 
         JSON.parse(cleaned_content)
       rescue JSON::ParserError => e
         puts "JSON parsing error: #{e.message}"
         puts "Response content (first 500 chars): #{extracted_content&.[](0..500)}"
-        puts "Response content (last 200 chars): #{extracted_content&.[](-200..-1)}"
+        puts "Response content (last 200 chars): #{extracted_content&.[](-200..)}"
         fallback_response
       rescue => e
         puts "An error occurred: #{e.message}"
