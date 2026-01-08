@@ -41,6 +41,7 @@ class Recipe < ApplicationRecord
   enum :status, {pending: 0, active: 1, archived: 2}
 
   belongs_to :user
+  has_one :nutrition_profile, dependent: :destroy
   has_many :ingredients, inverse_of: :recipe, dependent: :destroy
   accepts_nested_attributes_for :ingredients,
     reject_if: :all_blank, # at least 1 ingredient should be present

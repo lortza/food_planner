@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_12_18_151004) do
+ActiveRecord::Schema[7.2].define(version: 2026_01_08_185316) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -98,6 +98,33 @@ ActiveRecord::Schema[7.2].define(version: 2025_12_18_151004) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_notes_on_user_id"
+  end
+
+  create_table "nutrition_profiles", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.bigint "recipe_id", null: false
+    t.integer "servings"
+    t.string "serving_size"
+    t.decimal "calories", precision: 8, scale: 2
+    t.decimal "protein_g", precision: 8, scale: 2
+    t.decimal "fat_total_g", precision: 8, scale: 2
+    t.decimal "fat_saturated_g", precision: 8, scale: 2
+    t.decimal "fat_trans_g", precision: 8, scale: 2
+    t.decimal "cholesterol_mg", precision: 8, scale: 2
+    t.decimal "sodium_mg", precision: 8, scale: 2
+    t.decimal "carbohydrates_total_g", precision: 8, scale: 2
+    t.decimal "fiber_g", precision: 8, scale: 2
+    t.decimal "sugar_g", precision: 8, scale: 2
+    t.decimal "added_sugar_g", precision: 8, scale: 2
+    t.decimal "potassium_mg", precision: 8, scale: 2
+    t.decimal "calcium_mg", precision: 8, scale: 2
+    t.decimal "iron_mg", precision: 8, scale: 2
+    t.decimal "vitamin_d_mcg", precision: 8, scale: 2
+    t.string "api_source"
+    t.jsonb "api_response_data"
+    t.datetime "last_calculated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_nutrition_profiles_on_recipe_id", unique: true
   end
 
   create_table "recipe_tags", force: :cascade do |t|
@@ -200,6 +227,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_12_18_151004) do
   add_foreign_key "meal_plan_recipes", "recipes"
   add_foreign_key "meal_plans", "users"
   add_foreign_key "notes", "users"
+  add_foreign_key "nutrition_profiles", "recipes"
   add_foreign_key "recipe_tags", "recipes"
   add_foreign_key "recipe_tags", "tags"
   add_foreign_key "recipes", "users"
