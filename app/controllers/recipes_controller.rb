@@ -16,6 +16,7 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @recipe.calculate_nutrition! if @recipe.nutrition_profile.blank?
   end
 
   def new

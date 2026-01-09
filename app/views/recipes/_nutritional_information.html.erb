@@ -3,8 +3,20 @@
           width="320"
           height="540"
           src='<%= iframe_parser.sanitized_iframe_src %>'
-          frameborder="0"
-  ></iframe>
-<% else %>
+          frameborder="0"></iframe>
   <p>For nutrition information, enter ingredient details on <%= link_to 'Cronometer.com', 'https://cronometer.com/#foods', target: '_blank' %> then copy the iframe code from the Nutrition Data panel and <%= link_to 'add it to this recipe', edit_recipe_path(recipe) %>.</p>
+<% else %>
+For <%= recipe.servings %> servings, the nutrition information is as follows:
+  <ul>
+    <li>calories: <%= recipe.nutrition_profile.calories %></li>
+    <li>serving_size_g: <%= recipe.nutrition_profile.serving_size_g %></li>
+    <li>fat_total_g: <%= recipe.nutrition_profile.fat_total_g %></li>
+    <li>fat_saturated_g: <%= recipe.nutrition_profile.fat_saturated_g %></li>
+    <li>protein_g: <%= recipe.nutrition_profile.protein_g %></li>
+    <li>sodium_mg: <%= recipe.nutrition_profile.sodium_mg %></li>
+    <li>potassium_mg: <%= recipe.nutrition_profile.potassium_mg %></li>
+    <li>carbohydrates_total_g: <%= recipe.nutrition_profile.carbohydrates_total_g %></li>
+    <li>fiber_g: <%= recipe.nutrition_profile.fiber_g %></li>
+    <li>sugar_g: <%= recipe.nutrition_profile.sugar_g %></li>
+  </ul>
 <% end %>
