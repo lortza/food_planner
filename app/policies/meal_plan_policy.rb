@@ -11,6 +11,10 @@ class MealPlanPolicy < ApplicationPolicy
     user_is_owner_of_record_or_admin?
   end
 
+  def prep_day?
+    user_is_owner_of_record_or_admin?
+  end
+
   def create?
     user_is_owner_of_record_or_admin?
   end
