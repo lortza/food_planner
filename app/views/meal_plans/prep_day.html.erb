@@ -1,0 +1,76 @@
+<% content_for(:title, "Prep Day #{@meal_plan.prepared_on}") %>
+<% content_for :full_width, true %>
+
+<div class="container-navbar-padding">
+  <div class="flex flex-row justify-content-between mb-3">
+  <p><%= link_to MaterialIcon.new(icon: :arrow_left).render + "Meal Plans", meal_plans_path %></p>
+  <p><%= link_to "Toggle View", meal_plan_path(@meal_plan) %></p>
+</div>
+
+  <h1>
+    <%= link_to MaterialIcon.new(icon: :settings, title: 'Edit', classes: 'float-right').render, edit_meal_plan_path(@meal_plan) %>
+    Meal Plan for <%= @meal_plan.prepared_on.to_fs(:long) %>
+  </h1>
+
+    Yield: <%= @meal_plan.total_servings %> (<%= @meal_plan.meals %> Meals for <%= @meal_plan.people_served %> People) |
+    Total Prep Time: <%= display_time(@meal_plan.total_prep_time) %> |
+    Total Cook Time: <%= display_time(@meal_plan.total_cook_time) %> |
+    Total Time: <%= display_time(@meal_plan.total_time) %> |
+
+  <% if @meal_plan.notes.present? %>
+    <h2>Notes</h2>
+    <p><%= @meal_plan.notes %></p>
+  <% end %>
+
+  <hr>
+
+  <div class="flex flex-row gap-30">
+    <% @meal_plan.recipes.each do |recipe| %>
+    <section>
+      <h2>
+        <%= link_to recipe.title, recipe_path(recipe) %>  <%= extra_work_flag(recipe) %> <%= status_flag(recipe) %>
+      </h2>
+      <p>
+        <small>Yield <%= recipe.servings %> | <%= display_time(recipe.prep_time) %> prep | <%= display_time(recipe.cook_time) %> cook | <%= display_time(recipe.total_time) %> total</small>
+      </p>
+
+      <h3>Ingredients</h3>
+      <div class='ml-3 mb-4'>
+        <% recipe.ingredients.by_id.each do |ingredient| %>
+          <input type="checkbox">
+          <label class="mb-0 inline"><%= ingredient_display(ingredient) %></label><br>
+        <% end %>
+      </div>
+
+      <h3>Instructions</h3>
+      <div id="js-instructions" class="card mb-5">
+        <div class="card-header">
+          <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" id="prep-tab" data-toggle="tab" href="#prep-day" role="tab" aria-controls="prep-day" aria-selected="false">Prep Day</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="original-tab" data-toggle="tab" href="#original" role="tab" aria-controls="original" aria-selected="true">Original</a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="prep-day" role="tabpanel" aria-labelledby="prep-day-tab">
+              <ol>
+                <%= simple_format(recipe.prep_day_instructions, {}, wrapper_tag: 'li') %>
+              </ol>
+            </div>
+
+            <div class="tab-pane fade" id="original" role="tabpanel" aria-labelledby="original-tab">
+              <ol>
+                <%= simple_format(recipe.instructions, {}, wrapper_tag: 'li') %>
+              </ol>
+            </div>
+          </div><!-- tab-content -->
+        </div><!-- card body -->
+      </div><!-- card -->
+    </section>
+    <% end %>
+  </div>
+</div>

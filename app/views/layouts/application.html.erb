@@ -23,10 +23,15 @@
     <%= render "layouts/environment_banner" %>
 
     <%= render 'shared/navbar/main' %>
-    <div class='container'>
+    <% if content_for?(:full_width) %>
       <%= render 'shared/flashes' %>
       <%= yield %>
-    </div>
+    <% else %>
+      <div class='container'>
+        <%= render 'shared/flashes' %>
+        <%= yield %>
+      </div>
+    <% end %>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

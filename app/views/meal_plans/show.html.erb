@@ -1,6 +1,9 @@
 <% content_for(:title, "Food Prep #{@meal_plan.prepared_on}") %>
 
-<p><%= link_to MaterialIcon.new(icon: :arrow_left).render + "Meal Plans", meal_plans_path %></p>
+<div class="flex flex-row justify-content-between mb-3">
+  <p><%= link_to MaterialIcon.new(icon: :arrow_left).render + "Meal Plans", meal_plans_path %></p>
+  <p><%= link_to "Toggle View", prep_day_meal_plan_path(@meal_plan) %></p>
+</div>
 
 <h1>
   <%= link_to MaterialIcon.new(icon: :settings, title: 'Edit', classes: 'float-right').render, edit_meal_plan_path(@meal_plan) %>
