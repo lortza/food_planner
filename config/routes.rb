@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   resources :meal_plans do
     member do
       get :copy
+      get :prep_day
     end
   end
 

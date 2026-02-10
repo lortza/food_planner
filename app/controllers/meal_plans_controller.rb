@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class MealPlansController < ApplicationController
-  before_action :set_meal_plan, only: %i[show edit update copy destroy]
+  before_action :set_meal_plan, only: %i[show prep_day edit update copy destroy]
 
   def index
     @meal_plans = current_user.meal_plans
@@ -14,6 +14,10 @@ class MealPlansController < ApplicationController
     authorize(@meal_plan)
 
     @ingredient_set = IngredientSet.build_set(@meal_plan)
+  end
+
+  def prep_day
+    authorize(@meal_plan)
   end
 
   def new
@@ -76,7 +80,7 @@ class MealPlansController < ApplicationController
   private
 
   def set_meal_plan
-    @meal_plan = MealPlan.find(params[:id])
+    @meal_plan = MealPlan.includes(:recipes).find(params[:id])
   end
 
   def meal_plan_params
