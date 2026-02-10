@@ -5,7 +5,7 @@ class CreateNutritionProfiles < ActiveRecord::Migration[7.2]
       
       # Basic info
       t.integer :servings
-      t.string :serving_size
+      t.string :serving_size_g
       
       # Macronutrients
       t.decimal :calories, precision: 8, scale: 2

@@ -21,6 +21,10 @@ Live on heroku as [myfoodplanner](http://myfoodplanner.herokuapp.com)
 - List of recipes & ingredients
 - Display full recipes
 - Display ingredient breakdown for meal prep
+- Add recipes to meal plan for the week
+- Current week meal plan in nav bar
+- AI-driven recipe parsing for adding new recipes
+- Add recipe items to grocery list from recipe or meal plan
 - ERD https://dbdiagram.io/d/5d6ea192ced98361d6de29cd
 
 ## Getting Started

@@ -12,6 +12,7 @@ For <%= recipe.servings %> servings, the nutrition information is as follows:
     <li>serving_size_g: <%= recipe.nutrition_profile.serving_size_g %></li>
     <li>fat_total_g: <%= recipe.nutrition_profile.fat_total_g %></li>
     <li>fat_saturated_g: <%= recipe.nutrition_profile.fat_saturated_g %></li>
+    <li>cholesterol_mg: <%= recipe.nutrition_profile.cholesterol_mg %></li>
     <li>protein_g: <%= recipe.nutrition_profile.protein_g %></li>
     <li>sodium_mg: <%= recipe.nutrition_profile.sodium_mg %></li>
     <li>potassium_mg: <%= recipe.nutrition_profile.potassium_mg %></li>
@@ -19,4 +20,5 @@ For <%= recipe.servings %> servings, the nutrition information is as follows:
     <li>fiber_g: <%= recipe.nutrition_profile.fiber_g %></li>
     <li>sugar_g: <%= recipe.nutrition_profile.sugar_g %></li>
   </ul>
+  U.S. Department of Agriculture, Agricultural Research Service. FoodData Central, 2019. fdc.nal.usda.gov.
 <% end %>

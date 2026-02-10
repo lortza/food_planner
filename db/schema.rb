@@ -103,7 +103,7 @@ ActiveRecord::Schema[7.2].define(version: 2026_01_08_185316) do
   create_table "nutrition_profiles", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.bigint "recipe_id", null: false
     t.integer "servings"
-    t.string "serving_size"
+    t.string "serving_size_g"
     t.decimal "calories", precision: 8, scale: 2
     t.decimal "protein_g", precision: 8, scale: 2
     t.decimal "fat_total_g", precision: 8, scale: 2

@@ -16,7 +16,8 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe.calculate_nutrition! if @recipe.nutrition_profile.blank?
+    @recipe.calculate_nutrition! 
+    # @recipe.calculate_nutrition! if @recipe.nutrition_profile.blank?
   end
 
   def new
@@ -44,11 +45,36 @@ class RecipesController < ApplicationController
     ingredient_qty.times { @recipe.ingredients.build(quantity: nil) }
   end
 
+  #   def update
+  #     authorize(@recipe)
+  #     if @recipe.update(recipe_params)
+  #       redirect_to recipe_url(@recipe), notice: "Recipe Updated"
+  #     else
+  #       render :edit
+  #     end
+  #   end
+
   def update
     authorize(@recipe)
 
+    # Snapshot before update
+    old_ingredients_snapshot = @recipe.recipe_ingredients
+      .pluck(:ingredient_id, :quantity, :unit)
+      .sort
+
     if @recipe.update(recipe_params)
-      redirect_to recipe_url(@recipe), notice: "Recipe Updated"
+      # Snapshot after update
+      new_ingredients_snapshot = @recipe.recipe_ingredients
+        .reload
+        .pluck(:ingredient_id, :quantity, :unit)
+        .sort
+
+      # Compare
+      if (old_ingredients_snapshot != new_ingredients_snapshot) || @recipe.saved_change_to_attribute?(:servings)
+        @recipe.calculate_nutrition!
+      end
+
+      redirect_to @recipe, notice: "Recipe updated!"
     else
       render :edit
     end

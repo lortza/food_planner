@@ -63,6 +63,7 @@ class Recipe < ApplicationRecord
 
   validates :title, :source_url, presence: true
   validates :title, uniqueness: {scope: :user_id, case_sensitive: false}
+  validates :image_url, url: true, allow_blank: true
 
   # These validations are skipped if the recipe is pending, but run for all other statuses
   with_options unless: :pending? do
@@ -93,6 +94,16 @@ class Recipe < ApplicationRecord
 
   def self.by_last_prepared
     order("meal_plans.prepared_on asc")
+  end
+
+  def calculate_nutrition!
+    NutritionCalculator.new(self).calculate_and_save
+  end
+
+  def nutrition_label_data
+    return nil unless nutrition_profile
+
+    nutrition_profile.to_label_format
   end
 
   def frequency
