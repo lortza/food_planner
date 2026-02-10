@@ -19,6 +19,13 @@ RSpec.describe "MealPlans", type: :request do
       expect(response).to have_http_status(302)
     end
 
+    it "denies access to meal_plans#prep_day" do
+      get prep_day_meal_plan_path(user_meal_plan)
+
+      expect(response).to have_http_status(302)
+      expect(response).to redirect_to new_user_session_path
+    end
+
     it "denies access to meal_plans#index" do
       get meal_plans_path
       expect(response).to have_http_status(302)
@@ -70,6 +77,14 @@ RSpec.describe "MealPlans", type: :request do
 
       expect(response).to be_successful
       expect(response).to have_http_status(200)
+    end
+
+    it "renders meal_plans#prep_day" do
+      get prep_day_meal_plan_path(user_meal_plan)
+
+      expect(response).to be_successful
+      expect(response).to have_http_status(200)
+      expect(response).to render_template(:prep_day)
     end
 
     it "renders meal_plans#new" do
@@ -160,6 +175,14 @@ RSpec.describe "MealPlans", type: :request do
 
       expect(response).to_not be_successful
       expect(response).to have_http_status(302)
+    end
+
+    it "denies access to meal_plans#prep_day" do
+      get prep_day_meal_plan_path(user2_meal_plan.id)
+
+      expect(response).to_not be_successful
+      expect(response).to have_http_status(302)
+      expect(response).to redirect_to root_url
     end
 
     it "denies access to meal_plans#edit" do
