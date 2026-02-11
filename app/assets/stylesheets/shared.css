@@ -3,6 +3,10 @@ a {
   color: var(--link-color); 
   text-decoration: none;
 }
+a:hover {
+  color: var(--link-hover-color, var(--link-color));
+  text-decoration: underline;
+}
 
 /* Controls */
 .controls-on-right-parent {
