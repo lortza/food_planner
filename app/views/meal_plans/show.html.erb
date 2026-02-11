@@ -6,7 +6,7 @@
 </div>
 
 <h1>
-  <%= link_to MaterialIcon.new(icon: :settings, title: 'Edit', classes: 'float-right').render, edit_meal_plan_path(@meal_plan) %>
+  <%= link_to MaterialIcon.new(icon: :settings, title: 'Edit', classes: 'float-end').render, edit_meal_plan_path(@meal_plan) %>
   Meal Plan for <%= @meal_plan.prepared_on.to_fs(:long) %>
 </h1>
 
@@ -50,7 +50,7 @@
         <summary class='mt-2 border-top border-secondary'><%= ingredient %></summary>
         <div class="mb-3">
           <% preparations.each do |preparation| %>
-            <div class='pl-4 mb-2'>
+            <div class='ps-4 mb-2'>
               <input type="checkbox">
               <label class="mb-0 inline">
                 <%= detail_display(preparation) %> (<%= link_to preparation.recipe.title, recipe_path(preparation.recipe) %>)

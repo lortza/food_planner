@@ -23,4 +23,14 @@
   --link-color: var(--brand-light-blue);
   --bootstrap-light-grey: #ced4da;
   --bootstrap-medium-grey: #495057;
+
+  /* Bootstrap 5 Color Overrides */
+  --bs-primary: var(--brand-light-blue);
+  --bs-primary-rgb: 54, 158, 186;
+  --bs-secondary: var(--brand-dark-blue);
+  --bs-secondary-rgb: 43, 95, 110;
+  --bs-info: var(--brand-light-blue);
+  --bs-info-rgb: 54, 158, 186;
+  --bs-link-color: var(--brand-light-blue);
+  --bs-link-hover-color: var(--brand-dark-blue);
 }

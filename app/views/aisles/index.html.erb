@@ -1,7 +1,7 @@
 <% content_for(:title, 'Aisles') %>
 
 <h1>
-  <%= link_to MaterialIcon.new(icon: :plus_circle, title: 'Create new Aisle', classes: 'float-right').render, new_aisle_path %>
+  <%= link_to MaterialIcon.new(icon: :plus_circle, title: 'Create new Aisle', classes: 'float-end').render, new_aisle_path %>
   Aisles
 </h1>
 
@@ -10,7 +10,7 @@
     <p class='index-item controls-on-right-parent'>
       <%= aisle.order_number %> | <%= aisle.name %>
       <span class='controls'>
-        <%= link_to MaterialIcon.new(icon: :settings, classes: 'float-right').render, edit_aisle_path(aisle) %>
+        <%= link_to MaterialIcon.new(icon: :settings, classes: 'float-end').render, edit_aisle_path(aisle) %>
       </span>
     </p>
   <% end %>

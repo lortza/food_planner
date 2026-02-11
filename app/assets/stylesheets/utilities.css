@@ -67,3 +67,24 @@
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
   width: 100%;
 }
+
+/* Button overrides - Bootstrap 5 uses component-specific CSS variables */
+.btn-outline-info {
+  --bs-btn-color: var(--brand-light-blue);
+  --bs-btn-border-color: var(--brand-light-blue);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--brand-light-blue);
+  --bs-btn-hover-border-color: var(--brand-light-blue);
+  --bs-btn-active-bg: var(--brand-light-blue);
+  --bs-btn-active-border-color: var(--brand-light-blue);
+}
+
+.btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--brand-light-blue);
+  --bs-btn-border-color: var(--brand-light-blue);
+  --bs-btn-hover-bg: var(--brand-dark-blue);
+  --bs-btn-hover-border-color: var(--brand-dark-blue);
+  --bs-btn-active-bg: var(--brand-dark-blue);
+  --bs-btn-active-border-color: var(--brand-dark-blue);
+}
