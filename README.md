@@ -11,8 +11,10 @@ Live on heroku as [myfoodplanner](http://myfoodplanner.herokuapp.com)
 - Postgres
 - [Standard (Ruby)](https://github.com/standardrb/standard), which supports the [VSCode extension](https://github.com/standardrb/vscode-standard-ruby)
 - RSpec
-- [Bootstrap 4.1.3](https://getbootstrap.com/docs/4.6/getting-started/introduction/)
+- [Bootstrap 5.3.3](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 - [Material Icons](https://fonts.google.com/icons)
+- Plain CSS (no SASS/SCSS)
+- Vanilla JavaScript (no jQuery)
 
 * [Dependabot](https://app.dependabot.com/accounts/lortza/) dependency manager
 
@@ -31,34 +33,31 @@ Live on heroku as [myfoodplanner](http://myfoodplanner.herokuapp.com)
 - User: In development, see the seeds file for the user credentials so you can log in
 - Run `rails s` to start the server
 
-## Standard RB
+## Linting
 
-Standard RB is used for enforcing style guide
-
-- Run with: `standardrb` or `standardrb --fix`
+### Ruby
+Standard RB is used for enforcing Ruby style guide:
+```bash
+standardrb
+standardrb --fix
+# or
+rake standard:fix
+```
 
 ## Tests
 
 - Tests: `bundle exec rspec`
 
-### Linters
+### Code Quality Tools
 
-This project uses these linters in CI:
+This project uses these tools in CI:
 
-- [reek](https://github.com/troessner/reek)
-- [standard](https://github.com/standardrb/standard)
-- [scss-lint](https://github.com/sds/scss-lint)
+- [reek](https://github.com/troessner/reek) - Code smell detection
+- [standard](https://github.com/standardrb/standard) - Ruby style guide
 
-Run them locally on your machine like this:
-
-```
+Run them locally:
+```bash
 bundle exec reek
-
-bundle exec scss-lint app/assets/stylesheets/**.scss
-
-standardrb --fix
-# or
-rake standard:fix
 ```
 
 ## Related Docs
