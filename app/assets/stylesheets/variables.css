@@ -1,0 +1,26 @@
+/* CSS Custom Properties (CSS Variables) */
+:root {
+  /* Dimensions */
+  --card-image-height: 100px;
+  --card-height: calc(var(--card-image-height) * 4);
+  --table-thumbnail: 40px;
+
+  /* Colors: Brand Assignments */
+  --brand-dark-blue: #2b5f6e; /* rgb(43, 95, 110) */
+  --brand-light-blue: #369eba;
+  --brand-purple: #7a3c50;
+  --brand-brown: #3b3711;
+  --brand-yellow: #bab13f;
+  --brand-primary: var(--brand-dark-blue);
+  --brand-secondary: var(--brand-light-blue);
+
+  /* Colors: Other */
+  --white: #fff;
+  --default-text: var(--brand-dark-blue);
+  --light-gray: #f1f1f1;
+  --gray: #808080;
+  --medium-gray: #ccc;
+  --link-color: var(--brand-light-blue);
+  --bootstrap-light-grey: #ced4da;
+  --bootstrap-medium-grey: #495057;
+}

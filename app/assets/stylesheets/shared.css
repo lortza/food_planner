@@ -1,11 +1,10 @@
-@import 'variables';
-@import 'recipes';
+/* Links */
+a { 
+  color: var(--link-color); 
+  text-decoration: none;
+}
 
-// Links
-a { color: $link-color; }
-
-
-// Controls
+/* Controls */
 .controls-on-right-parent {
   align-items: center;
   display: flex;
@@ -17,21 +16,21 @@ a { color: $link-color; }
   align-items: center;
   display: flex;
   justify-content: flex-end;
-
-  a {
-    clear: both;
-    margin-left: 10px;
-
-    &:hover {
-      color: $default-text;
-      text-decoration: none;
-    }
-  }
 }
 
-// SEARCH BAR
+.controls a {
+  clear: both;
+  margin-left: 10px;
+}
+
+.controls a:hover {
+  color: var(--default-text);
+  text-decoration: none;
+}
+
+/* SEARCH BAR */
 .search-icon {
-  color: $medium-gray;
+  color: var(--medium-gray);
   float: right;
   position: relative;
   right: 14px;
@@ -42,25 +41,24 @@ a { color: $link-color; }
   font-size: 90%;
   margin-bottom: 2em;
   text-align: center;
-  a { color: $medium-gray; }
+}
+
+.clear-search a {
+  color: var(--medium-gray);
 }
 
 .environment-banner {
-  color: $white;
+  color: var(--white);
   font-family: monospace;
   font-size: 1.25em;
   padding: .75em;
   text-align: center;
 }
 
-
-// BOOTSTRAP OVERRIDES
-.card {
-  // height: $card-height;
-  .card-img-top {
-    background-color: $gray;
-    height: $card-image-height;
-  }
+/* BOOTSTRAP OVERRIDES */
+.card .card-img-top {
+  background-color: var(--gray);
+  height: var(--card-image-height);
 }
 
 .btn-xs {

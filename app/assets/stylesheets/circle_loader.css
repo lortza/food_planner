@@ -1,5 +1,3 @@
-@import 'variables';
-
 .circle-loader {
   position: relative;
   display: flex;
@@ -10,6 +8,7 @@
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
+
 .circle-loader:before,
 .circle-loader:after {
   content: "";
@@ -18,36 +17,38 @@
   animation: pulsOut 1.8s ease-in-out infinite;
   filter: drop-shadow(0 0 1rem rgba(43, 95, 110, 0.75));
 }
+
 .circle-loader:before {
   width: 100%;
   padding-bottom: 100%;
-  box-shadow: inset 0 0 0 1rem $brand-light-blue;
+  box-shadow: inset 0 0 0 1rem var(--brand-light-blue);
   animation-name: pulsIn;
 }
+
 .circle-loader:after {
   width: calc(100% - 2rem);
   padding-bottom: calc(100% - 2rem);
-  box-shadow: 0 0 0 0 $brand-light-blue;
+  box-shadow: 0 0 0 0 var(--brand-light-blue);
 }
 
 @keyframes pulsIn {
   0% {
-    box-shadow: inset 0 0 0 1rem $brand-light-blue;
+    box-shadow: inset 0 0 0 1rem var(--brand-light-blue);
     opacity: 1;
   }
   50%, 100% {
-    box-shadow: inset 0 0 0 0 $brand-light-blue;
+    box-shadow: inset 0 0 0 0 var(--brand-light-blue);
     opacity: 0;
   }
 }
 
 @keyframes pulsOut {
   0%, 50% {
-    box-shadow: 0 0 0 0 $brand-light-blue;
+    box-shadow: 0 0 0 0 var(--brand-light-blue);
     opacity: 0;
   }
   100% {
-    box-shadow: 0 0 0 1rem $brand-light-blue;
+    box-shadow: 0 0 0 1rem var(--brand-light-blue);
     opacity: 1;
   }
 }

@@ -1,0 +1,51 @@
+.aisle {
+  background-color: var(--brand-secondary);
+  color: var(--white);
+  font-size: .8rem;
+  font-weight: normal;
+  margin-bottom: 0;
+  padding: 5px 8px;
+  text-transform: uppercase;
+}
+
+.recurrence-tag {
+  border: 1px solid var(--brand-light-blue);
+  border-radius: 5px;
+  color: var(--brand-light-blue);
+  display: inline-block;
+  font-size: .8em;
+  margin-left: .25rem;
+  padding: 1px 5px;
+}
+
+.shopping-list-item {
+  border-top: 1px solid var(--light-gray);
+  color: var(--default-text);
+  font-size: 1rem;
+  font-weight: normal;
+  margin: 0;
+  margin-bottom: 0;
+  padding: .5rem;
+}
+
+.shopping-list-item a {
+  color: var(--default-text);
+}
+
+.inactive-items .shopping-list-item {
+  color: var(--medium-gray);
+  text-decoration: line-through;
+}
+
+.inactive-items .shopping-list-item a:link {
+  color: var(--medium-gray);
+}
+
+.inactive-items .shopping-list-item a:visited {
+  color: var(--medium-gray);
+}
+
+.inactive-items .shopping-list-item .recurrence-tag {
+  border: 1px solid var(--medium-gray);
+  color: var(--medium-gray);
+}
