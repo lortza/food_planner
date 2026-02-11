@@ -8,7 +8,7 @@
 </div>
 
   <h1>
-    <%= link_to MaterialIcon.new(icon: :settings, title: 'Edit', classes: 'float-right').render, edit_meal_plan_path(@meal_plan) %>
+    <%= link_to MaterialIcon.new(icon: :settings, title: 'Edit', classes: 'float-end').render, edit_meal_plan_path(@meal_plan) %>
     Meal Plan for <%= @meal_plan.prepared_on.to_fs(:long) %>
   </h1>
 
@@ -35,7 +35,7 @@
       </p>
 
       <h3>Ingredients</h3>
-      <div class='ml-3 mb-4'>
+      <div class='ms-3 mb-4'>
         <% recipe.ingredients.by_id.each do |ingredient| %>
           <input type="checkbox">
           <label class="mb-0 inline"><%= ingredient_display(ingredient) %></label><br>
@@ -47,10 +47,10 @@
         <div class="card-header">
           <ul class="nav nav-tabs card-header-tabs">
             <li class="nav-item">
-              <a class="nav-link active" id="prep-tab" data-toggle="tab" href="#prep-day" role="tab" aria-controls="prep-day" aria-selected="false">Prep Day</a>
+              <a class="nav-link active" id="prep-tab" data-bs-toggle="tab" href="#prep-day" role="tab" aria-controls="prep-day" aria-selected="false">Prep Day</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="original-tab" data-toggle="tab" href="#original" role="tab" aria-controls="original" aria-selected="true">Original</a>
+              <a class="nav-link" id="original-tab" data-bs-toggle="tab" href="#original" role="tab" aria-controls="original" aria-selected="true">Original</a>
             </li>
           </ul>
         </div>

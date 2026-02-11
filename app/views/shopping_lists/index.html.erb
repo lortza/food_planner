@@ -1,7 +1,7 @@
 <% content_for(:title, 'Shopping Lists') %>
 
 <h1>
-  <%= link_to MaterialIcon.new(icon: :plus_circle, title: 'Create a new shopping list', classes: 'float-right').render, new_shopping_list_path %>
+  <%= link_to MaterialIcon.new(icon: :plus_circle, title: 'Create a new shopping list', classes: 'float-end').render, new_shopping_list_path %>
   Shopping Lists
 </h1>
 
@@ -14,7 +14,7 @@
         (<%= shopping_list.items.not_purchased.length %>)
       </span>
       <span class='controls'>
-        <%= link_to MaterialIcon.new(icon: :settings, classes: 'float-right').render, edit_shopping_list_path(shopping_list) %>
+        <%= link_to MaterialIcon.new(icon: :settings, classes: 'float-end').render, edit_shopping_list_path(shopping_list) %>
       </span>
     </p>
   <% end %>

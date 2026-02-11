@@ -1,0 +1,57 @@
+.table--recipes-index {
+  margin-top: 1.5rem;
+}
+
+.table--recipes-index .img--container {
+  height: var(--table-thumbnail);
+  overflow: hidden;
+  width: var(--table-thumbnail);
+}
+
+.table--recipes-index .img--container img {
+  height: 100%;
+  margin: 0 auto;
+  min-height: var(--table-thumbnail);
+  min-width: var(--table-thumbnail);
+  width: 100%;
+}
+
+.recipe-form .instructions {
+  height: 400px;
+  width: 100%;
+}
+
+.recipe-form .input--small {
+  width: 4.5rem;
+}
+
+.recipe-form .ingredients-container .form-control {
+  border: 0;
+  padding-left: 0;
+}
+
+.image-container {
+  height: auto;
+  overflow: hidden;
+  width: 100%;
+}
+
+.image-container .image {
+  width: 100%;
+}
+
+.recipe-show-stats {
+  display: flex;
+  border-top: 1px solid gray;
+  padding-top: .25rem;
+  font-family: Function,'Trebuchet MS',Arial,sans-serif;
+  flex-wrap: wrap;
+  column-gap: 1rem;
+  justify-content: flex-start;
+}
+
+.recipe-show-stats > * {
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+}

@@ -1,0 +1,71 @@
+/* Links */
+a { 
+  color: var(--link-color); 
+  text-decoration: none;
+}
+a:hover {
+  color: var(--link-hover-color, var(--link-color));
+  text-decoration: underline;
+}
+
+/* Controls */
+.controls-on-right-parent {
+  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.controls {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.controls a {
+  clear: both;
+  margin-left: 10px;
+}
+
+.controls a:hover {
+  color: var(--default-text);
+  text-decoration: none;
+}
+
+/* SEARCH BAR */
+.search-icon {
+  color: var(--medium-gray);
+  float: right;
+  position: relative;
+  right: 14px;
+  top: 25px;
+}
+
+.clear-search {
+  font-size: 90%;
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+.clear-search a {
+  color: var(--medium-gray);
+}
+
+.environment-banner {
+  color: var(--white);
+  font-family: monospace;
+  font-size: 1.25em;
+  padding: .75em;
+  text-align: center;
+}
+
+/* BOOTSTRAP OVERRIDES */
+.card .card-img-top {
+  background-color: var(--gray);
+  height: var(--card-image-height);
+}
+
+.btn-xs {
+  font-size: .4em;
+  padding: 1px 4px;
+}

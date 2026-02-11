@@ -1,6 +1,6 @@
 let selectedItem = document.getElementById("<%= dom_id(@shopping_list_item) %>").querySelector('.js-item-content')
 
 let checkmark = "<%= escape_javascript(MaterialIcon.new(icon: :checkmark).render) %>"
-let badge = `<span class="badge badge-success ml-2">${checkmark} Added to list</span>`
+let badge = `<span class="badge badge-success ms-2">${checkmark} Added to list</span>`
 
 selectedItem.insertAdjacentHTML('beforeend', badge)

@@ -7,10 +7,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Food Planner is a Rails 7 application for meal planning, recipe management, and grocery shopping list organization. It helps users plan meals, track recipes with ingredients, generate shopping lists organized by store aisles, and manage meal prep schedules.
 
 **Tech Stack:**
-- Ruby 3.3.6
+- Ruby 3.3.10
 - Rails 7.2.2.2
 - PostgreSQL
-- Bootstrap 4.1.3
+- Bootstrap 5.3.3
+- Plain CSS with CSS custom properties (no SASS/SCSS)
+- Vanilla JavaScript (no jQuery)
 - RSpec for testing
 - Standard RB for linting
 - Devise for authentication
@@ -43,7 +45,6 @@ standardrb              # Check Ruby style
 standardrb --fix        # Auto-fix Ruby style issues
 rake standard:fix       # Alternative auto-fix command
 bundle exec reek        # Check code smells
-bundle exec scss-lint app/assets/stylesheets/**.scss  # Check SCSS style
 bundle exec erblint --lint-all  # Check ERB templates
 ```
 
@@ -198,9 +199,28 @@ Located in `lib/tasks/`:
 - Shopping list item status management has custom routes (activate, deactivate, add_to_cart, etc.)
 - Route refactoring TODO: Shopping list item status routes should use `member do` blocks
 
+## Styling & Assets
+
+**CSS Architecture:**
+- All styles use plain CSS (no SASS/SCSS preprocessor)
+- CSS custom properties defined in `app/assets/stylesheets/variables.css`
+- Variables use `--variable-name` syntax and accessed via `var(--variable-name)`
+- Sprockets asset pipeline for compilation
+- Bootstrap 5.3.3 loaded via CDN in layout
+
+**JavaScript:**
+- Vanilla JavaScript only (no jQuery)
+- Custom scripts in `app/assets/javascripts/`
+- Bootstrap 5 components work without jQuery dependency
+
+**Key Utility Classes:**
+- Custom utilities in `app/assets/stylesheets/utilities.css`
+- Includes flexbox, spacing, cursor, and form helpers
+- `.container-navbar-padding` provides consistent horizontal spacing
+
 ## CI/CD
 
 GitHub Actions workflow: `.github/workflows/rubyonrails.yml`
 - Runs on PRs
-- Linters: reek, standard, scss-lint
+- Linters: reek, standard
 - Tests: RSpec suite

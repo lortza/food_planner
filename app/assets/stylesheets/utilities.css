@@ -1,6 +1,4 @@
-@import 'variables';
-
-// Font
+/* Font */
 .text-xsmall { font-size: x-small; }
 .text-small { font-size: small; }
 .text-medium { font-size: medium; }
@@ -9,10 +7,10 @@
 .text-xxlarge { font-size: xx-large; }
 .text-size-inherit { font-size: inherit; }
 
-// Display
+/* Display */
 .flex { display: flex; }
 .flex-column { flex-direction: column; }
-.flex-row { flex-direction: row; }  
+.flex-row { flex-direction: row; }
 .gap-10 { gap: 10px; }
 .gap-20 { gap: 20px; }
 .gap-30 { gap: 30px; }
@@ -21,10 +19,10 @@
 .inline { display: inline; word-wrap: break-word; }
 .inline-block { display: inline-block; }
 
-// Input Sizes
+/* Input Sizes */
 .checkbox-m { width: 25px; }
 
-// Widths
+/* Widths */
 .mw-1 { min-width: 1rem; }
 .mw-3 { min-width: 3rem; }
 .mw-5 { min-width: 5rem; }
@@ -34,37 +32,59 @@
 .w-10 { width: 10%; }
 .w-20 { width: 20%; }
 
-// Container with navbar-style padding
+/* Container with navbar-style padding */
 .container-navbar-padding {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
+}
 
-  @media (min-width: 576px) {
+@media (min-width: 576px) {
+  .container-navbar-padding {
     padding-left: 1rem;
     padding-right: 1rem;
   }
 }
 
-// Overflow
+/* Overflow */
 .overflow-x-scroll { overflow-x: scroll; }
 
-// Cursor
+/* Cursor */
 .cursor-default { cursor: default; }
 .cursor-help { cursor: help; }
 .cursor-pointer { cursor: pointer; }
 
-// Forms
+/* Forms */
 .textarea-form-control {
   background-clip: padding-box;
-  background-color: $white;
-  border: 1px solid $bootstrap-light-grey;
+  background-color: var(--white);
+  border: 1px solid var(--bootstrap-light-grey);
   border-radius: .25rem;
-  color: $bootstrap-medium-grey;
+  color: var(--bootstrap-medium-grey);
   display: block;
   font-size: 1rem;
-  // height: calc(2.25rem + 2px);
   line-height: 1.5;
   padding: .375rem .75rem;
   transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
   width: 100%;
+}
+
+/* Button overrides - Bootstrap 5 uses component-specific CSS variables */
+.btn-outline-info {
+  --bs-btn-color: var(--brand-light-blue);
+  --bs-btn-border-color: var(--brand-light-blue);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--brand-light-blue);
+  --bs-btn-hover-border-color: var(--brand-light-blue);
+  --bs-btn-active-bg: var(--brand-light-blue);
+  --bs-btn-active-border-color: var(--brand-light-blue);
+}
+
+.btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--brand-light-blue);
+  --bs-btn-border-color: var(--brand-light-blue);
+  --bs-btn-hover-bg: var(--brand-dark-blue);
+  --bs-btn-hover-border-color: var(--brand-dark-blue);
+  --bs-btn-active-bg: var(--brand-dark-blue);
+  --bs-btn-active-border-color: var(--brand-dark-blue);
 }

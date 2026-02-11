@@ -1,6 +1,5 @@
-@import 'variables';
-
 .brand-icon { height: 25px; }
+
 .icon-button {
   background-color: transparent;
   border: 0;
@@ -11,15 +10,15 @@
   padding: 0;
 }
 
-// MATERIAL ICONS
-// https://fonts.google.com/icons
+/* MATERIAL ICONS */
+/* https://fonts.google.com/icons */
 
-// Options:
-// font-variation-settings:
-// 'FILL' 0,
-// 'wght' 400,
-// 'GRAD' 0,
-// 'opsz' 24
+/* Options: */
+/* font-variation-settings: */
+/* 'FILL' 0, */
+/* 'wght' 400, */
+/* 'GRAD' 0, */
+/* 'opsz' 24 */
 
 .icon-outlined { font-variation-settings: 'FILL' 0; }
 .icon-filled { font-variation-settings: 'FILL' 1; }

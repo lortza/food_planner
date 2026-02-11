@@ -3,7 +3,7 @@
 <p><%= link_to MaterialIcon.new(icon: :arrow_left).render + @shopping_list.name, @shopping_list %></p>
 
 <h1>
-  <%= link_to MaterialIcon.new(icon: :plus_circle, classes: 'float-right').render, new_shopping_list_shopping_list_item_path(@shopping_list, search_term: params[:search]) %>
+  <%= link_to MaterialIcon.new(icon: :plus_circle, classes: 'float-end').render, new_shopping_list_shopping_list_item_path(@shopping_list, search_term: params[:search]) %>
   Find an Item
 </h1>
 

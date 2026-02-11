@@ -1,7 +1,7 @@
 <% content_for :title, "Notebook" %>
 
 <h1>
-  <%= link_to MaterialIcon.new(icon: :plus_circle, title: 'Create new Note', classes: 'float-right').render, new_note_path if policy(Note.new).create? %>
+  <%= link_to MaterialIcon.new(icon: :plus_circle, title: 'Create new Note', classes: 'float-end').render, new_note_path if policy(Note.new).create? %>
   Notes
 </h1>
 

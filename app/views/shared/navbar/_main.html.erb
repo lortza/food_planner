@@ -1,17 +1,19 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-light mb-3">
-  <%= image_tag('icon.png', class: 'brand-icon', alt: 'site logo') %><%= link_to 'FoodPlanner', root_url, class: 'navbar-brand' %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <div class="container-fluid">
+    <%= image_tag('icon.png', class: 'brand-icon', alt: 'site logo') %><%= link_to 'FoodPlanner', root_url, class: 'navbar-brand' %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if current_user.present? %>
-        <%= render 'shared/navbar/signed_in' %>
-      <% else %>
-        <li class="nav-item"><%= session_links %></li>
-      <% end %>
-    </ul>
-    <%= render 'shared/navbar/search' if current_user %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <% if current_user.present? %>
+          <%= render 'shared/navbar/signed_in' %>
+        <% else %>
+          <li class="nav-item"><%= session_links %></li>
+        <% end %>
+      </ul>
+      <%= render 'shared/navbar/search' if current_user %>
+    </div>
   </div>
 </nav>

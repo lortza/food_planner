@@ -1,5 +1,3 @@
-@import 'variables';
-
 .markdown table {
   width: 100%;
   border-collapse: collapse;
@@ -31,7 +29,6 @@
 .markdown li {
   margin: 0.25em 0;
 }
-
 
 .markdown p {
   margin: 1em 0;

@@ -17,7 +17,7 @@ gem "pg", ">= 0.18", "< 2.0"
 gem "puma"                      # Use Puma as the app server
 gem "pundit"                    # Authorization
 gem "rack", ">= 2.0.6"          # Upgrade for security update
-gem "sass-rails", "~> 6.0"      # Use SCSS for stylesheets
+gem "sprockets-rails"           # Asset pipeline for Rails
 gem "sentry-rails"              # Rails support for Sentry
 gem "sentry-ruby"               # Error reporting to Sentry.io
 gem "will_paginate", "~> 4.0.1" # pagination. Styles: http://mislav.github.io/will_paginate/
@@ -39,7 +39,6 @@ group :development do
   gem "standard"                    # standard rb code linter
   gem "erb_lint"                    # erb code linter
   gem "rubycritic", require: false  # provides stats on code build
-  gem "scss_lint", require: false   # css linter
   gem "seed_dump"                   # invoke with `rake db:seed:dump`
   # Spring speeds up development by keeping your application running
   # in the background. Read more: https://github.com/rails/spring
@@ -51,7 +50,7 @@ end
 group :development, :test do
   gem "better_errors"           # creates console in browser for errors
   gem "binding_of_caller"       # goes with better_errors
-  gem "byebug", platforms: %i[mri mingw x64_mingw] # Call 'byebug' anywhere in the code to get a debugger console
+  gem "byebug", platforms: %i[mri windows] # Call 'byebug' anywhere in the code to get a debugger console
   gem "factory_bot_rails"       # factory support for rspec
   gem "faker"                   # Fake data for factories
   gem "guard-rspec", require: false # runs rspec automatically
@@ -70,4 +69,4 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
+gem "tzinfo-data", platforms: %i[windows jruby]

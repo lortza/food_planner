@@ -5,7 +5,7 @@
       <p><%= link_to MaterialIcon.new(icon: :arrow_left).render + "All Notes", notes_path %></p>
 
       <h2>
-        <%= link_to MaterialIcon.new(icon: :settings, title: 'Edit Note', classes: 'float-right').render, edit_note_path(note) if policy(note).edit? %>
+        <%= link_to MaterialIcon.new(icon: :settings, title: 'Edit Note', classes: 'float-end').render, edit_note_path(note) if policy(note).edit? %>
         <%= note.title %>
         <%= toggle_favorite_status(note) %>
       </h2>
