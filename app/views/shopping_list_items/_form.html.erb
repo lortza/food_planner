@@ -1,7 +1,7 @@
 <%= form_for([@shopping_list, @shopping_list_item]) do |form| %>
   <%#= render 'shared/errors', object: shopping_list_item %>
 
-  <div class='form-row mb-2'>
+  <div class='row mb-2'>
     <div class='col'>
       <div class='field'>
         <%= form.label :quantity %>
@@ -17,7 +17,7 @@
     </div>
   </div> <!-- row -->
 
-  <div class='form-row mb-2'>
+  <div class='row mb-2'>
     <div class='col-8'>
       <div class='field'>
         <%= form.label :aisle_id %>
@@ -43,7 +43,7 @@
     </div>
   </div> <!-- row -->
 
-  <div class='form-row mb-2'>
+  <div class='row mb-2'>
     <div class='col'>
       <div class='field'>
         <%= form.label :recurrence_frequency %>

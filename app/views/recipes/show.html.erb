@@ -5,7 +5,7 @@
     <p><%= link_to MaterialIcon.new(icon: :arrow_left).render + "All Recipes", recipes_path %></p>
 
     <h1>
-      <%= link_to MaterialIcon.new(icon: :settings, title: 'Edit recipe', classes: 'float-right').render, edit_recipe_path(@recipe) if policy(@recipe).update? %>
+      <%= link_to MaterialIcon.new(icon: :settings, title: 'Edit recipe', classes: 'float-end').render, edit_recipe_path(@recipe) if policy(@recipe).update? %>
       <%= @recipe.title %>
       <sup><%= extra_work_flag(@recipe) if current_user.present? %> <%= status_flag(@recipe) %></sup>
     </h1>
@@ -30,7 +30,7 @@
     <div class='row'>
       <div class='col-md-6 col-sm-12'>
        <h3>Ingredients</h3>
-        <div class='ml-3 mb-4'>
+        <div class='ms-3 mb-4'>
           <% @recipe.ingredients.by_id.each do |ingredient| %>
             <input type="checkbox">
             <label class="mb-0 inline"><%= ingredient_display(ingredient) %></label><br>
@@ -56,13 +56,13 @@
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
               <li class="nav-item">
-                <a class="nav-link active" id="prep-tab" data-toggle="tab" href="#prep-day" role="tab" aria-controls="prep-day" aria-selected="false">Prep Day</a>
+                <a class="nav-link active" id="prep-tab" data-bs-toggle="tab" href="#prep-day" role="tab" aria-controls="prep-day" aria-selected="false">Prep Day</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="original-tab" data-toggle="tab" href="#original" role="tab" aria-controls="original" aria-selected="true">Original</a>
+                <a class="nav-link" id="original-tab" data-bs-toggle="tab" href="#original" role="tab" aria-controls="original" aria-selected="true">Original</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="reheat-tab" data-toggle="tab" href="#reheat" role="tab" aria-controls="reheat" aria-selected="false">Reheat</a>
+                <a class="nav-link" id="reheat-tab" data-bs-toggle="tab" href="#reheat" role="tab" aria-controls="reheat" aria-selected="false">Reheat</a>
               </li>
             </ul>
           </div>

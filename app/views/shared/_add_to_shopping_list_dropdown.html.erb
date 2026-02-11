@@ -2,7 +2,7 @@
   <h5>Add Ingredients to List:</h5>
   <%= form_tag(shopping_list_item_builders_path, method: 'post', id: 'add-to-list-form' ) do %>
 
-    <div class="form-row align-items-center">
+    <div class="row align-items-center">
       <%= hidden_field_tag :ingredient_ids, ingredient_ids %>
 
       <!-- <div class="col-md-8 col-sm-12"> -->
@@ -10,8 +10,7 @@
         <label class="sr-only" for="inlineFormInput">Shopping List</label>
         <%= select_tag :shopping_list_id,
                        options_from_collection_for_select(current_user.shopping_lists.by_favorite, :id, :name),
-                       class: 'form-control mb-2'
-        %>
+                       class: 'form-control mb-2' %>
       </div>
 
       <div class="col-auto">
