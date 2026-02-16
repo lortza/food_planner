@@ -26,7 +26,7 @@
 
   <!-- Recipe toggles -->
   <div class="mb-3">
-    <h4>Recipes:</h4>
+    <strong>Select Recipes:</strong>
     <% @meal_plan.recipes.each do |recipe| %>
       <div class="form-check form-check-inline">
         <input class="form-check-input recipe-toggle-checkbox" type="checkbox" id="recipe-checkbox-<%= recipe.id %>" value="<%= recipe.id %>" checked>
