@@ -26,7 +26,7 @@
 
   <div class="flex flex-row gap-30">
     <% @meal_plan.recipes.each do |recipe| %>
-    <section>
+    <%= tag.section id: "recipe-#{recipe.id}", class: "overflow-scroll max-vh-80 flex-1" %>
       <h2>
         <%= link_to recipe.title, recipe_path(recipe) %>  <%= extra_work_flag(recipe) %> <%= status_flag(recipe) %>
       </h2>
@@ -70,7 +70,7 @@
           </div><!-- tab-content -->
         </div><!-- card body -->
       </div><!-- card -->
-    </section>
+     <% end %><!-- section -->
     <% end %>
   </div>
 </div>
