@@ -24,9 +24,23 @@
   </p>
   <hr>
 
-  <div class="flex flex-row gap-30">
+  <!-- Recipe toggles -->
+  <div class="mb-3">
+    <h4>Recipes:</h4>
     <% @meal_plan.recipes.each do |recipe| %>
-    <%= tag.section id: "recipe-#{recipe.id}", class: "overflow-scroll max-vh-80 flex-1" do %>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input recipe-toggle-checkbox" type="checkbox" id="recipe-checkbox-<%= recipe.id %>" value="<%= recipe.id %>" checked>
+        <label class="form-check-label" for="recipe-checkbox-<%= recipe.id %>">
+          <%= recipe.title %>
+        </label>
+      </div>
+    <% end %>
+  </div>
+
+  <!-- Recipe columns -->
+  <div class="flex flex-row gap-30" id="recipe-columns-container">
+    <% @meal_plan.recipes.each do |recipe| %>
+    <%= tag.section id: "recipe-column-#{recipe.id}", class: "recipe-column overflow-scroll max-vh-80 flex-1", data: { recipe_id: recipe.id } do %>
       <h2 class="sticky-top bg-white">
         <%= link_to recipe.title, recipe_path(recipe) %>  <%= extra_work_flag(recipe) %> <%= status_flag(recipe) %>
       </h2>
@@ -52,22 +66,22 @@
         <div class="card-header">
           <ul class="nav nav-tabs card-header-tabs">
             <li class="nav-item">
-              <a class="nav-link active" id="prep-tab" data-bs-toggle="tab" href="#prep-day" role="tab" aria-controls="prep-day" aria-selected="false">Prep Day</a>
+              <%= link_to "Prep Day", "#prep-day-#{recipe.id}", class: "nav-link active", id: "prep-tab-#{recipe.id}", "aria-controls": "prep-day-#{recipe.id}", "aria-selected": "true", data: { bs_toggle: "tab", bs_target: "#prep-day-#{recipe.id}" } %>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="original-tab" data-bs-toggle="tab" href="#original" role="tab" aria-controls="original" aria-selected="true">Original</a>
+              <%= link_to "Original", "#original-#{recipe.id}", class: "nav-link", id: "original-tab-#{recipe.id}", "aria-controls": "original-#{recipe.id}", "aria-selected": "false", data: { bs_toggle: "tab", bs_target: "#original-#{recipe.id}" } %>
             </li>
           </ul>
         </div>
         <div class="card-body">
           <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="prep-day" role="tabpanel" aria-labelledby="prep-day-tab">
+            <div class="tab-pane fade show active" id="prep-day-<%= recipe.id %>" role="tabpanel" aria-labelledby="prep-day-tab-<%= recipe.id %>">
               <ol>
                 <%= simple_format(recipe.prep_day_instructions, {}, wrapper_tag: 'li') %>
               </ol>
             </div>
 
-            <div class="tab-pane fade" id="original" role="tabpanel" aria-labelledby="original-tab">
+            <div class="tab-pane fade" id="original-<%= recipe.id %>" role="tabpanel" aria-labelledby="original-tab-<%= recipe.id %>">
               <ol>
                 <%= simple_format(recipe.instructions, {}, wrapper_tag: 'li') %>
               </ol>
