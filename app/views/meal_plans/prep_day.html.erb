@@ -26,8 +26,8 @@
 
   <div class="flex flex-row gap-30">
     <% @meal_plan.recipes.each do |recipe| %>
-    <%= tag.section id: "recipe-#{recipe.id}", class: "overflow-scroll max-vh-80 flex-1" %>
-      <h2>
+    <%= tag.section id: "recipe-#{recipe.id}", class: "overflow-scroll max-vh-80 flex-1" do %>
+      <h2 class="sticky-top bg-white">
         <%= link_to recipe.title, recipe_path(recipe) %>  <%= extra_work_flag(recipe) %> <%= status_flag(recipe) %>
       </h2>
       <p>
