@@ -16,17 +16,17 @@ module RecipesHelper
     if recipe.archived?
       icon = MaterialIcon.new(icon: :archived, size: :small).render
       content_tag(:span, "Archived",
-        class: "badge badge-secondary ml-2 text-small font-weight-normal cursor-default",
+        class: "badge text-bg-secondary ml-2 text-small font-weight-normal cursor-default",
         title: "Recipe is archived. Edit to unarchive.") { icon + " Archived" }
     elsif recipe.pending?
       icon = MaterialIcon.new(icon: :book, size: :small, title: "Pending").render
       content_tag(:span, "Pending",
-        class: "badge badge-light ml-2 text-small font-weight-normal cursor-default",
+        class: "badge text-bg-light ml-2 text-small font-weight-normal cursor-default",
         title: "Recipe has not been vetted or imported yet.") { icon + " Pending" }
     elsif recipe.last_prepared.nil? || first_time_is_this_week?(recipe)
       icon = MaterialIcon.new(icon: :new, size: :small, title: "New", classes: "cursor-default").render
       content_tag(:span, "New!",
-        class: "badge badge-warning ml-2 text-small font-weight-normal cursor-default",
+        class: "badge text-bg-warning ml-2 text-small font-weight-normal cursor-default",
         title: "New! Has not been made yet!") { icon + " New!" }
     elsif recipe.last_prepared < Time.zone.today.prev_month(4)
       MaterialIcon.new(icon: :calendar_clock, classes: "cursor-default", title: "It's been a while since this was last made").render
