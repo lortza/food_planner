@@ -11,17 +11,17 @@
     <%= link_to MaterialIcon.new(icon: :settings, title: 'Edit', classes: 'float-end').render, edit_meal_plan_path(@meal_plan) %>
     Meal Plan for <%= @meal_plan.prepared_on.to_fs(:long) %>
   </h1>
-
+  <p>
     Yield: <%= @meal_plan.total_servings %> (<%= @meal_plan.meals %> Meals for <%= @meal_plan.people_served %> People) |
     Total Prep Time: <%= display_time(@meal_plan.total_prep_time) %> |
     Total Cook Time: <%= display_time(@meal_plan.total_cook_time) %> |
-    Total Time: <%= display_time(@meal_plan.total_time) %> |
-
-  <% if @meal_plan.notes.present? %>
-    <h2>Notes</h2>
-    <p><%= @meal_plan.notes %></p>
-  <% end %>
-
+    Total Time: <%= display_time(@meal_plan.total_time) %>
+  </p>
+  <p>
+    <% if @meal_plan.notes.present? %>
+      Notes: <%= @meal_plan.notes %>
+    <% end %>
+  </p>
   <hr>
 
   <div class="flex flex-row gap-30">
