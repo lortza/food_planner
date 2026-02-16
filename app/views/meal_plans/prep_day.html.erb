@@ -34,6 +34,11 @@
         <small>Yield <%= recipe.servings %> | <%= display_time(recipe.prep_time) %> prep | <%= display_time(recipe.cook_time) %> cook | <%= display_time(recipe.total_time) %> total</small>
       </p>
 
+      <% if recipe.notes.present? %>
+        <h2>Notes</h2>
+        <p><%= recipe.notes %></p>
+      <% end %>
+
       <h3>Ingredients</h3>
       <div class='ms-3 mb-4'>
         <% recipe.ingredients.by_id.each do |ingredient| %>
