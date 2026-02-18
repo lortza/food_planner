@@ -97,16 +97,13 @@ user.shopping_lists.find_or_create_by!(name: 'grocery', main: true)
 # Shopping List Items
 shopping_list_item_names = ['apple', 'blueberries', 'salad greens', 'oat milk', 'sliced cheese', 'loaf of crusty bread', 'cereal', 'ground coffee']
 
-ShoppingListItem.find_or_create_by!(
-  shopping_list_item_names.map do |name|
-    { shopping_list: user.shopping_lists.default,
-      aisle: user.aisles.sample,
-      quantity: (1..10).to_a.sample,
-      name: name,
-      status: ['active', 'inactive'].sample
-    }
+shopping_list_item_names.each do |name|
+  ShoppingListItem.find_or_create_by!(shopping_list: user.shopping_lists.default, name: name) do |item|
+    item.aisle = user.aisles.sample
+    item.quantity = (1..10).to_a.sample
+    item.status = ['active', 'inactive'].sample
   end
-)
+end
 
 # Notes
 puts "Seeding notes..."
