@@ -18,9 +18,11 @@
       <div>Reheat Time: <%= display_time(@recipe.reheat_time) %></div>
       <div>Prepared: <%= pluralize(@recipe.frequency, 'time') %></div>
     </div>
-    <div>
-      <%= render partial: 'tags/tag_links_list', locals: { tags: @recipe.tags } %>
-    </div>
+    <% if @recipe.tags.present? %>
+      <div>
+        <%= render partial: 'tags/tag_links_list', locals: { tags: @recipe.tags } %>
+      </div>
+    <% end %>
   </div>
 </div><!-- row -->
 
@@ -40,7 +42,7 @@
 
       <div class='col-md-6 col-sm-12'>
         <% if @recipe.extra_work_required? %>
-            <p class='alert alert-warning'><strong>Heads up!</strong> <%= @recipe.extra_work_note %></p>
+          <p class='alert alert-warning'><strong>Heads up!</strong> <%= @recipe.extra_work_note %></p>
         <% end %>
         <% if @recipe.notes.present? %>
           <h5>Notes</h5>

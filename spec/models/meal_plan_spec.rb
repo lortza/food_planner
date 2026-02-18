@@ -231,8 +231,6 @@ RSpec.describe MealPlan, type: :model do
 
       expect(meal_plan.recommended_start_time).to eq(expected_time)
     end
-
-    xit "will never be later than MealPlan::PREP_END_TIME"
   end
 
   describe "#meals" do

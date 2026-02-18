@@ -103,16 +103,19 @@ RSpec.describe "MealPlans", type: :request do
 
     describe "#create" do
       context "when the save is successful" do
-        xit "creates a new record" do
+        # Use a fixed future date to avoid collisions with user_meal_plan's random prepared_on
+        let(:new_prepared_on) { Time.zone.today + 30 }
+
+        it "creates a new record" do
           starting_count = MealPlan.count
-          meal_plan_attributes = build(:meal_plan, user: user).attributes
+          meal_plan_attributes = build(:meal_plan, user: user, prepared_on: new_prepared_on).attributes
           post meal_plans_path(meal_plan: meal_plan_attributes)
 
           expect(MealPlan.count).to eq(starting_count + 1)
         end
 
-        xit "redirects to the new record" do
-          meal_plan_attributes = build(:meal_plan, user: user).attributes
+        it "redirects to the new record" do
+          meal_plan_attributes = build(:meal_plan, user: user, prepared_on: new_prepared_on).attributes
           post meal_plans_path(meal_plan: meal_plan_attributes)
 
           expect(response).to redirect_to meal_plan_url(user.meal_plans.reload.last)

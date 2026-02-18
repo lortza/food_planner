@@ -24,14 +24,6 @@ RSpec.describe InventoryItemSet, type: :service do
       expect(suggestions.keys).to eq(%w[water rice])
     end
 
-    xit "can handle inventory items ending in s" do
-      items = "waters"
-      inventory = create(:inventory, user: user, items: items)
-      suggestions = InventoryItemSet.new(inventory).suggest_recipes
-
-      expect(suggestions.keys).to eq(%w[water])
-    end
-
     it "removes blanks from the list" do
       items = "water\r\n\r\n   rice\r\n\r\nwater\r\n\r\nbeans  \r\n\r\n"
       inventory = create(:inventory, user: user, items: items)

@@ -62,14 +62,6 @@ RSpec.describe Ingredient, type: :model do
         ingredient.preparation_style = nil
         expect(ingredient).to be_valid
       end
-
-      xit "must be one from the list of styles" do
-        ingredient.preparation_style = Ingredient::STYLES.sample
-        expect(ingredient).to be_valid
-
-        ingredient.preparation_style = invalid_style
-        expect(ingredient).to_not be_valid
-      end
     end
   end
 end
