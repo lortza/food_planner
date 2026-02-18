@@ -110,7 +110,7 @@ ShoppingListItem.find_or_create_by!(
 
 # Notes
 puts "Seeding notes..."
-FactoryBot.create(:note, user: user, favorite: true, title: Faker::Lorem.sentence, content: Faker::Markdown.random, favorite: [true, false].sample)
+FactoryBot.create(:note, user: user, favorite: true, title: Faker::Lorem.sentence, content: Faker::Markdown.random)
 
 3.times do
   begin
