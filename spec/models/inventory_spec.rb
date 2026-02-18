@@ -1,7 +1,13 @@
 # frozen_string_literal: true
 
-require "rails_helper"
-
 RSpec.describe Inventory, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "associations" do
+    let(:inventory) { build(:inventory) }
+    it { should belong_to(:user) }
+  end
+
+  context "validations" do
+    let(:inventory) { build(:inventory) }
+    it { should_not validate_presence_of(:items) }
+  end
 end
