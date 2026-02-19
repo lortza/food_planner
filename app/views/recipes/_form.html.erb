@@ -4,7 +4,7 @@
 
     <div class="row">
       <div class="col">
-        <div class="field">
+        <div class="mb-3">
           <%= form.label "Title*" %>
           <%= form.text_field :title, autofocus: true, class: 'form-control' %>
         </div>
@@ -23,7 +23,7 @@
       </div>
     </div>
 
-    <div class="field">
+    <div class="mb-3">
       <%= form.label :image_url %>
       <%= form.text_field :image_url, class: 'form-control' %>
     </div>
@@ -52,7 +52,7 @@
 
     <div class="row">
       <div class="col-sm-12">
-        <div class="field">
+        <div class="mb-3">
           <%= form.label :extra_work_note %>
           <%= form.text_field :extra_work_note, class: 'form-control' %>
         </div>
@@ -61,7 +61,7 @@
 
     <div class="row">
       <div class="col-sm-12">
-        <div class="field">
+        <div class="mb-3">
           <%= form.label 'Cronometer iframe' %>
           <%= form.text_area :nutrition_data_iframe, class: 'form-control' %>
         </div>
@@ -70,14 +70,14 @@
 
     <div class="row">
       <div class="col-sm-10">
-        <div class="field">
+        <div class="mb-3">
           <%= form.label :notes %>
           <%= form.text_area :notes, class: 'form-control' %>
         </div>
       </div>
       <% if form.object.persisted? %>
         <div class="col-sm-2">
-          <div class="field">
+          <div class="mb-3">
             <%= form.label :status %>
             <%= form.select :status,
                             Recipe.statuses.keys.map { |s| [s.titleize, s] },
@@ -130,21 +130,21 @@
 
     <div class="row">
       <div class="col-lg-6 col-md-12">
-        <div class="field">
+        <div class="mb-3">
           <%= form.label 'Prep Day Instructions', class: 'font-weight-bold mt-5' %>
           <%= form.text_area :prep_day_instructions, class: 'form-control instructions' %>
         </div>
       </div>
 
       <div class="col-lg-6 col-md-12">
-        <div class="field">
+        <div class="mb-3">
           <%= form.label :reheat_instructions, class: 'font-weight-bold mt-5' %>
           <%= form.text_area :reheat_instructions, class: 'form-control instructions' %>
         </div>
       </div>
     </div><!-- row -->
 
-    <div class="field">
+    <div class="mb-3">
       <%= form.label 'Original Instructions*', class: 'font-weight-bold mt-5' %>
       <% if recipe.source_url.present? %>
         <%= form.label class: 'font-weight-bold mt-5' do %>

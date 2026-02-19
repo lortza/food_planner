@@ -2,28 +2,28 @@
   <%= render 'shared/errors', object: meal_plan %>
 
   <form>
-    <div class="form-group row">
+    <div class="form-group row mb-3">
       <%= form.label :prepared_on, class: 'col-sm-3 col-form-label' %>
       <div class="col-sm-9">
         <%= form.date_field :prepared_on, autofocus: true, class: 'form-control' %>
       </div>
     </div>
 
-    <div class="form-group row">
+    <div class="form-group row mb-3">
       <%= form.label :people_served, class: 'col-sm-3 col-form-label' %>
       <div class="col-sm-9">
         <%= form.number_field :people_served, class: 'form-control' %>
       </div>
     </div>
 
-    <div class="form-group row">
+    <div class="form-group row mb-3">
       <%= form.label :notes, class: 'col-sm-3 col-form-label' %>
       <div class="col-sm-9">
         <%= form.text_area :notes, class: 'form-control' %>
       </div>
     </div>
 
-    <div class="form-group row">
+    <div class="form-group row mb-3">
       <div class="col-sm-3">Select Recipes</div>
 
       <div class="col-sm-9">
@@ -37,7 +37,7 @@
         <% end %>
       </div>
     </div>
-    <div class="form-group row">
+    <div class="form-group row mb-3">
       <div class="col-sm-9 offset-sm-3">
         <%= form.submit class: button_classes %>
       </div>
