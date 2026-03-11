@@ -54,7 +54,7 @@ group :development, :test do
 end
 
 group :test do
-  gem "rspec-rails", "~> 8.0.2"
+  gem "rspec-rails", "~> 8.0.4"
   gem "selenium-webdriver"
   gem "capybara"                  # for navigating feature specs
   # gem 'database_cleaner-active_record'
