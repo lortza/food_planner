@@ -297,7 +297,7 @@ Devise.setup do |config|
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
 
-  # ## Hotwire / Turbo Integration ##
+  ## Hotwire / Turbo Integration ##
   # https://github.com/heartcombo/devise/wiki/How-To:-Upgrade-to-Devise-4.9.0-%5BHotwire-Turbo-integration%5D
   # For better Hotwire / Turbo integration and these new defaults, Devise requires the
   # latest `Responders` gem version (v3.1.0 or higher), which allows configuring the status used
@@ -311,6 +311,6 @@ Devise.setup do |config|
   # that does not support them, will issue a warning and have no effect.
   # Note: these defaults may change in future versions of Devise, to better match the Rails + Hotwire/Turbo
   # defaults across the board.
-  # config.responder.error_status = :unprocessable_entity
-  # config.responder.redirect_status = :see_other
+  config.responder.error_status = :unprocessable_entity
+  config.responder.redirect_status = :see_other
 end
