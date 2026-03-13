@@ -78,12 +78,8 @@ jobs:
       - name: Run tests
         env:
           RAILS_ENV: test
-          # REDIS_URL: redis://localhost:6379/0
-        - name: Set up database schema
-          run: bin/rails db:schema:load
-        # Add or replace test runners here
-        - name: Run tests
-          run: bundle exec rspec
+        # REDIS_URL: redis://localhost:6379/0
+        run: bin/rails db:schema:load && bundle exec rspec
 
       - name: Keep screenshots from failed system tests
         uses: actions/upload-artifact@v4
