@@ -10,7 +10,7 @@ class ShoppingListItemStatusesController < ApplicationController
     else
       @shopping_list_item.activate!
     end
-    respond_to :js
+    respond_to :turbo_stream
   end
 
   def activate_from_search
@@ -22,7 +22,7 @@ class ShoppingListItemStatusesController < ApplicationController
     # crosses an item off of the list
     @shopping_list_item.deactivate!
     @remove_aisle = @shopping_list_item.list.items.not_purchased.where(aisle: @shopping_list_item.aisle).blank?
-    respond_to :js
+    respond_to :turbo_stream
   end
 
   def add_to_cart

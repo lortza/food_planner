@@ -44,6 +44,15 @@ class ShoppingList < ApplicationRecord
     order(favorite: :desc)
   end
 
+  def active_items_by_aisle
+    shopping_list_items.includes([:list]).not_purchased.by_aisle_order_number.group_by(&:aisle)
+  end
+
+  # TODO: consider caching an active items count in the model and updating it with callbacks to avoid having to calculate it on every page load
+  def active_items
+    shopping_list_items.not_purchased.by_name
+  end
+
   def default?
     main == true
   end

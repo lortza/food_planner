@@ -25,23 +25,11 @@
 </article>
 
 <%= render 'scheduled_deliveries/scheduled_deliveries', shopping_list: @shopping_list %>
-
-<section id='js-active-items'>
-  <% @shopping_list.shopping_list_items.includes([:list]).not_purchased.by_aisle_order_number.group_by(&:aisle).each do |aisle, items| %>
-    <% if aisle %>
-      <div id='<%= dom_id(aisle) %>'>
-        <h4 class='aisle'><%= aisle.name %></h4>
-        <% items.each do |item| %>
-          <%= render partial: '/shopping_list_items/shopping_list_item', locals: { item: item } %>
-        <% end %><!-- each -->
-      </div>
-    <% end %><!-- if aisle -->
-  <% end %><!-- each -->
-</section>
+<%= render partial: 'shopping_list_items/active_items', locals: { shopping_list: @shopping_list } %>
 
 <h4 class='aisle'>Crossed Off</h4>
 <section id='js-inactive-items' class='inactive-items'>
   <% @shopping_list.shopping_list_items.inactive.by_recently_edited.limit(30).each do |item| %>
-    <%= render partial: '/shopping_list_items/shopping_list_item', locals: { item: item } %>
+    <%= render partial: '/shopping_list_items/item', locals: { item: item } %>
   <% end %>
 </section>

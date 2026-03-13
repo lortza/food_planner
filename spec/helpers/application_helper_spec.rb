@@ -28,13 +28,14 @@ RSpec.describe ApplicationHelper, type: :helper do
     end
   end
 
-  describe "display_link_to_plan" do
-    let(:current_user) { create(:user) }
+  describe "update_nav_bar_shopping_list_count?" do
+    let(:shopping_list) { create(:shopping_list) }
 
-    describe "when the current_user has an upcoming meal_plan" do
-      it "returns a link to that meal_plan" do
-        meal_plan = create(:meal_plan, user: current_user, prepared_on: (Time.zone.today + 5))
-        expect(display_link_to_plan).to include("meal_plans/#{meal_plan.id}")
+    context "when there is no nav bar shopping list" do
+      before { helper.singleton_class.define_method(:nav_bar_shopping_list) { nil } }
+
+      it "returns false" do
+        expect(helper.update_nav_bar_shopping_list_count?(shopping_list)).to be_falsy
       end
     end
 

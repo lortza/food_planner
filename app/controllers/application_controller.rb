@@ -12,6 +12,14 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+  def nav_bar_shopping_list
+    return unless current_user&.shopping_lists&.default
+
+    @nav_bar_shopping_list ||= current_user.shopping_lists.default
+  end
+
+  helper_method :nav_bar_shopping_list
+
   private
 
   def user_not_authorized

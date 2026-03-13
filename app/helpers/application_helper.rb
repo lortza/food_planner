@@ -21,17 +21,7 @@ module ApplicationHelper
     TimeHelper.display_time(minutes)
   end
 
-  def display_link_to_plan
-    upcoming = current_user.meal_plans.upcoming
-    link_to "Meal Plan: #{upcoming.prepared_on.to_fs(:short)}", meal_plan_path(upcoming), class: "nav-link" if upcoming
-  end
-
-  def display_list_and_count
-    return "" unless current_user.shopping_lists.any?
-
-    list = current_user.shopping_lists.default
-    item_count = list.shopping_list_items.active.count
-
-    link_to "#{list.name.titleize}: #{item_count}", shopping_list_path(list), class: "nav-link"
+  def update_nav_bar_shopping_list_count?(shopping_list)
+    nav_bar_shopping_list && shopping_list.id == nav_bar_shopping_list.id
   end
 end

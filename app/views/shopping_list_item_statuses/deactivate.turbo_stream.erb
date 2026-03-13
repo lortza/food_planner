@@ -1,0 +1,17 @@
+<!-- Remove item -->
+<%= turbo_stream.remove dom_id(@shopping_list_item) %>
+
+<!-- Hide aisle if this was the last item in it -->
+<%= turbo_stream.remove dom_id(@shopping_list_item.aisle) if @remove_aisle %>
+
+<!-- Prepend item to crossed-off section -->
+<%= turbo_stream.prepend 'js-inactive-items' do %>
+  <%= render partial: '/shopping_list_items/item', locals: { item: @shopping_list_item } %>
+<% end %>
+
+<!-- Update the list count in the nav bar -->
+<% if update_nav_bar_shopping_list_count?(@shopping_list_item.list) %>
+  <%= turbo_stream.update 'js_shopping_list_nav_item' do %>
+    <%= render partial: 'shared/navbar/shopping_list_nav_item' %>
+  <% end %>
+<% end %>
