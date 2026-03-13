@@ -3,4 +3,6 @@ import "@hotwired/turbo-rails"
 import "controllers"
 
 // TODO: remove this when js is converted over to stimulus controllers
-import "custom"
+import "custom/pending_recipes"
+import "custom/prep_day"
+import "custom/recipes"
