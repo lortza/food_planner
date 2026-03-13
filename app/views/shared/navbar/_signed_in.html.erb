@@ -17,13 +17,8 @@
   </div>
 </li>
 
-<li class="nav-item">
-  <%= display_link_to_plan %>
-</li>
-
-<li class="nav-item">
-  <%= link_to display_list_and_count %>
-</li>
+<%= render partial: 'shared/navbar/upcoming_meal_plan_nav_item' %>
+<%= render partial: 'shared/navbar/shopping_list_nav_item' %>
 
 <li class="nav-item dropdown">
   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

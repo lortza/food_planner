@@ -1,0 +1,5 @@
+<% if upcoming_meal_plan %>
+  <li class="nav-item">
+    <%= link_to "Meal Plan: #{upcoming_meal_plan.prepared_on.to_fs(:short)}", meal_plan_path(upcoming_meal_plan), class: "nav-link" %>
+  </li>
+<% end %>

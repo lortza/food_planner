@@ -39,40 +39,27 @@ RSpec.describe ApplicationHelper, type: :helper do
       end
     end
 
-    describe "when the current_user does not have an upcoming meal_plan" do
-      it "returns nil" do
-        expect(display_link_to_plan).to be(nil)
+    context "when the shopping list matches the nav bar shopping list" do
+      before do
+        list = shopping_list
+        helper.singleton_class.define_method(:nav_bar_shopping_list) { list }
       end
-    end
-  end
 
-  describe "display_list_and_count" do
-    let(:current_user) { create(:user) }
-
-    describe "when a current_user has no shopping lists" do
-      it "returns an empty string" do
-        expect(display_list_and_count).to eq("")
+      it "returns true" do
+        expect(helper.update_nav_bar_shopping_list_count?(shopping_list)).to be_truthy
       end
     end
 
-    describe "when a current_user has a default shopping list" do
-      let!(:list) {
-        create(:shopping_list, user: current_user, name: "Foo", main: true)
-      }
+    context "when the shopping list does not match the nav bar shopping list" do
+      let(:other_list) { create(:shopping_list) }
 
-      it "returns a link to the list" do
-        link = "<a class=\"nav-link\" href=\"/shopping_lists/#{list.id}\">"
-        expect(display_list_and_count).to include(link)
+      before do
+        list = other_list
+        helper.singleton_class.define_method(:nav_bar_shopping_list) { list }
       end
 
-      it "includes the list name" do
-        expect(display_list_and_count).to include("Foo: 0")
-      end
-
-      it "includes the item count" do
-        create(:shopping_list_item, list: list)
-        create(:shopping_list_item, list: list)
-        expect(display_list_and_count).to include("Foo: 2")
+      it "returns false" do
+        expect(helper.update_nav_bar_shopping_list_count?(shopping_list)).to be_falsy
       end
     end
   end

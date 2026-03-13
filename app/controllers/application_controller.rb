@@ -20,6 +20,14 @@ class ApplicationController < ActionController::Base
 
   helper_method :nav_bar_shopping_list
 
+  def upcoming_meal_plan
+    return unless current_user&.meal_plans&.upcoming
+
+    @upcoming_meal_plan ||= current_user.meal_plans.upcoming
+  end
+
+  helper_method :upcoming_meal_plan
+
   private
 
   def user_not_authorized
