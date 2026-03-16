@@ -1,5 +1,5 @@
 // Prep day page - recipe column toggle functionality
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("turbo:load", function() {
   const checkboxes = document.querySelectorAll(".recipe-toggle-checkbox");
 
   // Only run if checkboxes exist on this page

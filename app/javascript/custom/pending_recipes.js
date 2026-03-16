@@ -1,5 +1,5 @@
 // New Pending Recipe spinner loading state
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("turbo:load", function() {
   const loadingStatePartial = document.getElementById("js-loading-state-content-area");
   const pendingRecipeForm = document.getElementById("js-pending-recipe-form");
 
