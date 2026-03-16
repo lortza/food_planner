@@ -15,7 +15,7 @@ class ShoppingListItemStatusesController < ApplicationController
 
   def activate_from_search
     @shopping_list_item.activate! unless @shopping_list_item.in_cart?
-    respond_to :js
+    respond_to :turbo_stream
   end
 
   def deactivate
@@ -28,13 +28,13 @@ class ShoppingListItemStatusesController < ApplicationController
   def add_to_cart
     # Marks item as part of delivery
     @shopping_list_item.add_to_cart!
-    respond_to :js
+    respond_to :turbo_stream
   end
 
   def remove_from_cart
     # Removes part-of-delivery marking from item
     @shopping_list_item.remove_from_cart!
-    respond_to :js
+    respond_to :turbo_stream
   end
 
   def deactivate_all
