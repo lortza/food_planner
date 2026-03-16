@@ -1,5 +1,5 @@
 // Recipe show page - instruction crossing functionality
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("turbo:load", function() {
   const instructionItems = document.querySelectorAll("#js-instructions .tab-content ol li");
 
   // Only run if instruction items exist on this page

@@ -6,3 +6,6 @@ import "controllers"
 import "custom/pending_recipes"
 import "custom/prep_day"
 import "custom/recipes"
+
+// External libraries
+import "bootstrap"

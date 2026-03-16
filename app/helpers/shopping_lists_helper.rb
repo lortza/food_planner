@@ -5,11 +5,11 @@ module ShoppingListsHelper
     if list.favorite
       # Show the filled star and link to "unfavorite" it
       icon = MaterialIcon.new(icon: :star, filled: true, title: "Click to unfavorite", classes: "text-warning").render
-      link_to icon, shopping_list_favorite_path(list), method: :delete
+      link_to icon, shopping_list_favorite_path(list), data: {turbo_method: :delete}
     else
       # Show the outlined star and link to "favorite" it
       icon = MaterialIcon.new(icon: :star, filled: false, title: "Click to favorite").render
-      link_to icon, shopping_list_favorites_path(id: list.id), method: :post
+      link_to icon, shopping_list_favorites_path(id: list.id), data: {turbo_method: :post}
     end
   end
 
@@ -29,7 +29,7 @@ module ShoppingListsHelper
         title: "Click to mark item as scheduled for home delivery."
       ).render
 
-      return button_to(icon, add_to_cart_path(id: item.id), method: :post, class: "icon-button", remote: true)
+      return button_to(icon, add_to_cart_path(id: item.id), data: {turbo_method: :post}, class: "icon-button", remote: true)
     end
 
     if item.in_cart?
@@ -39,7 +39,7 @@ module ShoppingListsHelper
         title: "Item is scheduled for home delivery. Click to remove."
       ).render
 
-      button_to(icon, remove_from_cart_path(id: item.id), method: :post, class: "icon-button", remote: true)
+      button_to(icon, remove_from_cart_path(id: item.id), data: {turbo_method: :post}, class: "icon-button", remote: true)
     end
   end
 
