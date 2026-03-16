@@ -8,7 +8,7 @@ Food Planner is a Rails 7 application for meal planning, recipe management, and 
 
 **Tech Stack:**
 - Ruby 3.3.10
-- Rails 7.2.2.2
+- Rails 8.1.2
 - PostgreSQL
 - Bootstrap 5.3.3
 - Plain CSS with CSS custom properties (no SASS/SCSS)
@@ -199,6 +199,9 @@ Located in `lib/tasks/`:
 - Shopping list item status management has custom routes (activate, deactivate, add_to_cart, etc.)
 - Route refactoring TODO: Shopping list item status routes should use `member do` blocks
 
+## Solid Trio Implementation
+The Solid Trio (`solid_cache`, `solid_cable`, `solid_queue`) are implemented as tables in the main database instead of separate tables. https://guides.rubyonrails.org/8_0_release_notes.html
+
 ## Styling & Assets
 
 **CSS Architecture:**
@@ -210,8 +213,9 @@ Located in `lib/tasks/`:
 
 **JavaScript:**
 - Vanilla JavaScript only (no jQuery)
-- Custom scripts in `app/assets/javascripts/`
+- Custom scripts in `app/javascript/custom/`
 - Bootstrap 5 components work without jQuery dependency
+- Bootstrap 5 is loaded via importmap
 
 **Key Utility Classes:**
 - Custom utilities in `app/assets/stylesheets/utilities.css`
@@ -219,8 +223,8 @@ Located in `lib/tasks/`:
 - `.container-navbar-padding` provides consistent horizontal spacing
 
 ## CI/CD
-
-GitHub Actions workflow: `.github/workflows/rubyonrails.yml`
+GitHub Actions workflow: `.github/workflows/ci.yml`
 - Runs on PRs
-- Linters: reek, standard
-- Tests: RSpec suite
+- Brakeman
+- RSpec test suite
+- Seed check
