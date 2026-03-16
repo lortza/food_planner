@@ -4,7 +4,7 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby File.read(".ruby-version").strip
-gem "rails", "~> 7.2.3"         # Updates to the latest patch that's lower than 7.2
+gem "rails", "~> 8.1.2"         # Updates to the latest patch that's lower than 7.2
 
 gem "sprockets-rails"           # Asset pipeline for Rails
 gem "pg", ">= 0.18", "< 2.0"    # Use PostgreSQL as the database for Active Record
