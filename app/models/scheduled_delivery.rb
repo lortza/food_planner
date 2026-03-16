@@ -1,24 +1,20 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: scheduled_deliveries
 #
-#  id               :bigint           not null, primary key
+#  id               :integer          not null, primary key
 #  scheduled_for    :datetime
 #  service_provider :string
+#  shopping_list_id :integer          not null
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
-#  shopping_list_id :bigint           not null
 #
 # Indexes
 #
 #  index_scheduled_deliveries_on_shopping_list_id  (shopping_list_id)
 #
-# Foreign Keys
-#
-#  fk_rails_...  (shopping_list_id => shopping_lists.id)
-#
+
 class ScheduledDelivery < ApplicationRecord
   belongs_to :shopping_list
 

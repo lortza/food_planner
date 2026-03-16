@@ -72,6 +72,10 @@ Heroku runs a cron job to add the weekly shopping_list items to the grocery list
 
 This feature is dependent on my account having both a list named "grocery" and another list named "weekly items." Without either of those specifically-named lists, this job will error.
 
+## Solid Trio Implementation
+The Solid Trio (`solid_cache`, `solid_cable`, `solid_queue`) are implemented as tables in the main database instead of separate tables. https://guides.rubyonrails.org/8_0_release_notes.html
+
+
 ## Editing the credentials file
 
 Never open the `master.key` or `credentials.yml.enc` in atom. This will add newline characters that you can't remove and it will not be able to be unencrypted.
