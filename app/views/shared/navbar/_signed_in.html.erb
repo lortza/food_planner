@@ -17,13 +17,8 @@
   </div>
 </li>
 
-<li class="nav-item">
-  <%= display_link_to_plan %>
-</li>
-
-<li class="nav-item">
-  <%= link_to display_list_and_count %>
-</li>
+<%= render partial: 'shared/navbar/upcoming_meal_plan_nav_item' %>
+<%= render partial: 'shared/navbar/shopping_list_nav_item' %>
 
 <li class="nav-item dropdown">
   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -61,6 +56,6 @@
   </a>
   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
     <%= link_to 'Change My Password', edit_user_registration_path, class: 'dropdown-item' %>
-    <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+    <%= link_to 'Log Out', destroy_user_session_path, data: { turbo_method: :delete }, class: 'dropdown-item' %>
   </div>
 </li>

@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
+  allow_browser versions: :modern
+
   include Pundit::Authorization
 
   protect_from_forgery with: :exception
@@ -8,6 +11,22 @@ class ApplicationController < ActionController::Base
   before_action :set_sentry_context
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
+  def nav_bar_shopping_list
+    return unless current_user&.shopping_lists&.default
+
+    @nav_bar_shopping_list ||= current_user.shopping_lists.default
+  end
+
+  helper_method :nav_bar_shopping_list
+
+  def upcoming_meal_plan
+    return unless current_user&.meal_plans&.upcoming
+
+    @upcoming_meal_plan ||= current_user.meal_plans.upcoming
+  end
+
+  helper_method :upcoming_meal_plan
 
   private
 

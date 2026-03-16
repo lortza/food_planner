@@ -55,6 +55,63 @@ RSpec.describe ShoppingList, type: :model do
     end
   end
 
+  describe "active_items_by_aisle" do
+    let(:list) { create(:shopping_list) }
+    let(:aisle) { create(:aisle) }
+
+    it "includes active items" do
+      item = create(:shopping_list_item, shopping_list: list, aisle: aisle, status: "active")
+      expect(list.active_items_by_aisle[aisle]).to include(item)
+    end
+
+    it "includes in_cart items" do
+      item = create(:shopping_list_item, shopping_list: list, aisle: aisle, status: "in_cart")
+      expect(list.active_items_by_aisle[aisle]).to include(item)
+    end
+
+    it "excludes inactive items" do
+      create(:shopping_list_item, shopping_list: list, aisle: aisle, status: "inactive")
+      expect(list.active_items_by_aisle[aisle]).to be_nil
+    end
+
+    it "groups items by aisle" do
+      other_aisle = create(:aisle)
+      item_in_aisle = create(:shopping_list_item, shopping_list: list, aisle: aisle, status: "active")
+      item_in_other_aisle = create(:shopping_list_item, shopping_list: list, aisle: other_aisle, status: "active")
+
+      result = list.active_items_by_aisle
+
+      expect(result[aisle]).to include(item_in_aisle)
+      expect(result[other_aisle]).to include(item_in_other_aisle)
+    end
+  end
+
+  describe "active_items" do
+    let(:list) { create(:shopping_list) }
+
+    it "includes active items" do
+      item = create(:shopping_list_item, shopping_list: list, status: "active")
+      expect(list.active_items).to include(item)
+    end
+
+    it "includes in_cart items" do
+      item = create(:shopping_list_item, shopping_list: list, status: "in_cart")
+      expect(list.active_items).to include(item)
+    end
+
+    it "excludes inactive items" do
+      item = create(:shopping_list_item, shopping_list: list, status: "inactive")
+      expect(list.active_items).not_to include(item)
+    end
+
+    it "returns items sorted by name" do
+      item_b = create(:shopping_list_item, shopping_list: list, name: "Bananas", status: "active")
+      item_a = create(:shopping_list_item, shopping_list: list, name: "Apples", status: "active")
+
+      expect(list.active_items.to_a).to eq([item_a, item_b])
+    end
+  end
+
   describe "#favorite!" do
     it 'sets the "favorite" attribute to true and saves the list' do
       list = create(:shopping_list, favorite: false)

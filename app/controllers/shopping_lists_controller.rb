@@ -10,6 +10,7 @@ class ShoppingListsController < ApplicationController
 
   def show
     set_shopping_list_for_root
+    redirect_to recipes_url and return unless @shopping_list
     authorize(@shopping_list)
 
     @shopping_list_item = @shopping_list.shopping_list_items.new(quantity: 1)

@@ -1,0 +1,14 @@
+<!-- Remove item -->
+<%= turbo_stream.remove dom_id(@shopping_list_item) %>
+
+<!-- Refresh entire active items section to ensure proper placement of items and aisles -->
+<%= turbo_stream.update 'js-active-items' do %>
+  <%= render partial: '/shopping_list_items/active_items', locals: { shopping_list: @shopping_list_item.shopping_list } %>
+<% end %>
+
+<!-- Update the list count in the nav bar -->
+<% if update_nav_bar_shopping_list_count?(@shopping_list_item.list) %>
+  <%= turbo_stream.update 'js_shopping_list_nav_item' do %>
+    <%= render partial: 'shared/navbar/shopping_list_nav_item' %>
+  <% end %>
+<% end %>

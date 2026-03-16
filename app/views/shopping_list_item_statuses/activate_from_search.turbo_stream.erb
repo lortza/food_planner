@@ -1,0 +1,4 @@
+<!-- Display success checkmark -->
+<%= turbo_stream.replace dom_id(@shopping_list_item) do %>
+  <%= render partial: '/shopping_list_items/item', locals: { item: @shopping_list_item, checkmark_badge: true }.deep_merge(destination_path: activate_from_search_path(id: @shopping_list_item.id)) %>
+<% end %>

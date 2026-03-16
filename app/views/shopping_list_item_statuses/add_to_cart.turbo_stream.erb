@@ -1,0 +1,3 @@
+<%= turbo_stream.replace dom_id(@shopping_list_item) do %>
+  <%= render partial: '/shopping_list_items/item', locals: { item: @shopping_list_item } %>
+<% end %>

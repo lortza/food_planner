@@ -1,0 +1,5 @@
+<% if nav_bar_shopping_list %>
+  <li id="js_shopping_list_nav_item" class="nav-item">
+    <%= link_to "#{nav_bar_shopping_list.name.titleize}: #{nav_bar_shopping_list.active_items.size}", shopping_list_path(nav_bar_shopping_list), class: "nav-link" %>
+  </li>
+<% end %>

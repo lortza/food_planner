@@ -1,0 +1,12 @@
+<section id='js-active-items'>
+  <% shopping_list.active_items_by_aisle.each do |aisle, items| %>
+    <% if aisle %>
+      <%= tag.div id: dom_id(aisle) do %>
+        <h4 class='aisle'><%= aisle.name %></h4>
+        <% items.each do |item| %>
+          <%= render partial: '/shopping_list_items/item', locals: { item: item } %>
+        <% end %><!-- each -->
+      <% end %>
+    <% end %>
+  <% end %>
+</section>
