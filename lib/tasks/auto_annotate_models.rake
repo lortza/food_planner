@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # NOTE: only doing this in development as some production environments (Heroku)
 # NOTE: are sensitive to local FS writes, and besides -- it's just not proper
 # NOTE: to have a dev-mode tool do its thing in production.
@@ -17,6 +19,7 @@ if Rails.env.development?
       "position_in_fixture" => "before",
       "position_in_factory" => "before",
       "position_in_serializer" => "before",
+      "show_check_constraints" => "false",
       "show_foreign_keys" => "true",
       "show_complete_foreign_keys" => "false",
       "show_indexes" => "true",
@@ -25,8 +28,8 @@ if Rails.env.development?
       "root_dir" => "",
       "include_version" => "false",
       "require" => "",
-      "exclude_tests" => "true",
-      "exclude_fixtures" => "true",
+      "exclude_tests" => "false",
+      "exclude_fixtures" => "false",
       "exclude_factories" => "false",
       "exclude_serializers" => "false",
       "exclude_scaffolds" => "true",
@@ -51,7 +54,8 @@ if Rails.env.development?
       "trace" => "false",
       "wrapper_open" => nil,
       "wrapper_close" => nil,
-      "with_comment" => "true"
+      "with_comment" => "true",
+      "with_comment_column" => "false"
     )
   end
 

@@ -68,7 +68,7 @@ gem "will_paginate", "~> 4.0.1" # pagination. Styles: http://mislav.github.io/wi
 gem "commonmarker"                # Fast, safe and extensible Markdown parser in Ruby using the cmark library
 
 group :development do
-  gem "annotate"
+  gem "annot8"                      # Annotate models, routes, etc. Run `bundle exec annotate` to add annotations. https://github.com/chemica/annotate_models
   gem "bullet"                      # detects n+1 queries
   # gem 'magic_frozen_string_literal'. # Automatically adds `# frozen_string_literal: true` to new Ruby files. Run `bundle exec magic_frozen_string_literal --help` for more info.
   gem "rails-erd", require: false   # generates table diagram run `bundle exec erd`
