@@ -3,6 +3,21 @@
 class ShoppingListsController < ApplicationController
   before_action :set_shopping_list, only: %i[search edit update destroy]
 
+  def new
+    @shopping_list = current_user.shopping_lists.new
+  end
+
+  def create
+    @shopping_list = current_user.shopping_lists.new(shopping_list_params)
+    authorize(@shopping_list)
+
+    if @shopping_list.save
+      redirect_to shopping_list_url(@shopping_list)
+    else
+      render :new
+    end
+  end
+
   def index
     @shopping_lists = current_user.shopping_lists.search(field: "name", terms: params[:search]).by_favorite.by_name
     @shopping_list = current_user.shopping_lists.new
@@ -19,21 +34,6 @@ class ShoppingListsController < ApplicationController
   def search
     search_term = params[:search]&.strip&.squish
     @shopping_list_items = @shopping_list.search_results(search_term)
-  end
-
-  def new
-    @shopping_list = current_user.shopping_lists.new
-  end
-
-  def create
-    @shopping_list = current_user.shopping_lists.new(shopping_list_params)
-    authorize(@shopping_list)
-
-    if @shopping_list.save
-      redirect_to shopping_list_url(@shopping_list)
-    else
-      render :new
-    end
   end
 
   def edit
@@ -73,6 +73,6 @@ class ShoppingListsController < ApplicationController
   end
 
   def shopping_list_params
-    params.require(:shopping_list).permit(:user_id, :name, :favorite)
+    params.require(:shopping_list).permit(:name, :favorite)
   end
 end
