@@ -1,5 +1,5 @@
 <div class="recipe-form">
-  <%= form_for(recipe) do |form| %>
+  <%= form_with(model: recipe) do |form| %>
     <%= render 'shared/errors', object: recipe %>
 
     <div class="row">

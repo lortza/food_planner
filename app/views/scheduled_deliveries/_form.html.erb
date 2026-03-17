@@ -1,4 +1,4 @@
-<%= form_for([shopping_list, scheduled_delivery]) do |form| %>
+<%= form_with(model: [shopping_list, scheduled_delivery]) do |form| %>
   <%= render 'shared/errors', object: scheduled_delivery %>
 
   <div class='field'>
