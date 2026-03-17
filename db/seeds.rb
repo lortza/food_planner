@@ -8,6 +8,8 @@ user = User.find_or_create_by(email: 'admin@email.com') do |user|
   user.password_confirmation = 'password'
   user.admin = true
 end
+# Add default shopping_list, inventory, and aisles for the user:
+UserDataSetup.setup(user)
 
 # Recipes
 puts "Seeding active recipes..."
@@ -78,21 +80,21 @@ user.meal_plans.each do |meal_plan|
 end
 
 # Aisles
-puts "Seeding aisles..."
-aisle_names = ['Unassigned', 'Produce: fruits', 'Produce: greens', 'Produce: vegetables',
-               'Produce: potatoes & roots', 'Bakery', 'Deli', 'Prepared hot foods',
-               'Canned foods', 'International', 'Snacks', 'Dairy', 'Frozen foods',
-               'Cleaning supplies', 'Personal care']
+# puts "Seeding aisles..."
+# aisle_names = ['Unassigned', 'Produce: fruits', 'Produce: greens', 'Produce: vegetables',
+#                'Produce: potatoes & roots', 'Bakery', 'Deli', 'Prepared hot foods',
+#                'Canned foods', 'International', 'Snacks', 'Dairy', 'Frozen foods',
+#                'Cleaning supplies', 'Personal care']
 
-order_number = 0
-aisle_names.each do |aisle_name|
-  user.aisles.find_or_create_by!(name: aisle_name, order_number: order_number)
-  order_number += 10
-end
+# order_number = 0
+# aisle_names.each do |aisle_name|
+#   user.aisles.find_or_create_by!(name: aisle_name, order_number: order_number)
+#   order_number += 10
+# end
 
 # Shopping Lists
-puts "Seeding shopping lists..."
-user.shopping_lists.find_or_create_by!(name: 'grocery', main: true)
+# puts "Seeding shopping lists..."
+# user.shopping_lists.find_or_create_by!(name: 'grocery', main: true)
 
 # Shopping List Items
 shopping_list_item_names = ['apple', 'blueberries', 'salad greens', 'oat milk', 'sliced cheese', 'loaf of crusty bread', 'cereal', 'ground coffee']
