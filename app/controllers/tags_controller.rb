@@ -57,6 +57,6 @@ class TagsController < ApplicationController
   end
 
   def tag_params
-    params.require(:tag).permit(:user_id, :recipe_id, :name)
+    params.require(:tag).permit(:name)
   end
 end

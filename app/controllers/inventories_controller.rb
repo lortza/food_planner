@@ -9,11 +9,10 @@ class InventoriesController < ApplicationController
 
   def update
     authorize(@inventory)
-
     if @inventory.update(inventory_params)
       redirect_to inventory_recipe_suggestions_path(@inventory)
     else
-      render :edit
+      render :edit, status: :unprocessable_entity, alert: "Failed to update inventory."
     end
   end
 
@@ -24,6 +23,6 @@ class InventoriesController < ApplicationController
   end
 
   def inventory_params
-    params.require(:inventory).permit(:user_id, :items)
+    params.require(:inventory).permit(:items)
   end
 end

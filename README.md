@@ -36,6 +36,7 @@ Live on heroku as [myfoodplanner](http://myfoodplanner.herokuapp.com)
 - Separate notes section to keep your favorite conversions or other things you may need to jot down that aren't related to one specific recipe.
 - Mark a note as "favorite" for it to appear in in the Notes dropdown.
 - Copy a whole meal plan to reuse it easily.
+- Enter an inventory of ingredients and get a list of recipe suggestions (PR #237)
 
 
 ## Getting Started
