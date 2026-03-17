@@ -1,6 +1,6 @@
 <h1>Your Inventory</h1>
 <div class="recipe-form">
-  <%= form_for(@inventory) do |form| %>
+  <%= form_with(model: @inventory) do |form| %>
     <%= render 'shared/errors', object: @inventory %>
     <div class="col-lg-6 col-md-12">
       <div class="mb-3">

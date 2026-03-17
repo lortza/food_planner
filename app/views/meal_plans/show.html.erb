@@ -55,7 +55,7 @@
               <label class="mb-0 inline">
                 <%= detail_display(preparation) %> (<%= link_to preparation.recipe.title, recipe_path(preparation.recipe) %>)
                 <%= link_to MaterialIcon.new(icon: :plus_square, title: "Add ingredient to shopping list", size: :medium).render,
-                            shopping_list_item_builders_path(shopping_list_id: current_user.shopping_lists.default&.id, ingredient_ids: preparation.id), method: 'POST' %>
+                            shopping_list_item_builders_path(shopping_list_id: current_user.shopping_lists.default&.id, ingredient_ids: preparation.id), data: { turbo_method: :post } %>
               </label>
             </div>
           <% end %>

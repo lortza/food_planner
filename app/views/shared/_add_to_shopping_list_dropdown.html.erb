@@ -1,6 +1,6 @@
 <% if current_user.shopping_lists.any? %>
   <h5>Add Ingredients to List:</h5>
-  <%= form_tag(shopping_list_item_builders_path, method: 'post', id: 'add-to-list-form' ) do %>
+  <%= form_with(url: shopping_list_item_builders_path, id: 'add-to-list-form') do %>
 
     <div class="row align-items-center">
       <%= hidden_field_tag :ingredient_ids, ingredient_ids %>
