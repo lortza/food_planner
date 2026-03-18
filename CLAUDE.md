@@ -8,7 +8,7 @@ Food Planner is a Rails 7 application for meal planning, recipe management, and 
 
 **Tech Stack:**
 - Ruby 3.3.10
-- Rails 8.1.2
+- Rails 8.1.2 (originally Rails 4)
 - PostgreSQL
 - Bootstrap 5.3.3
 - Plain CSS with CSS custom properties (no SASS/SCSS)
