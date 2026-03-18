@@ -61,7 +61,6 @@ RSpec.describe "Recipes", type: :request do
       get recipe_path(recipe.id)
 
       expect(response).to be_successful
-      expect(response).to have_http_status(200)
     end
 
     it "renders recipes#new" do
@@ -98,7 +97,7 @@ RSpec.describe "Recipes", type: :request do
       delete recipe_path(recipe)
 
       expect(response).to redirect_to recipes_url
-      expect(response.body).to_not include(recipe.title)
+      expect(Recipe.find_by(id: recipe.id)).to be_nil
     end
   end
 
@@ -116,7 +115,6 @@ RSpec.describe "Recipes", type: :request do
       get recipe_path(others_recipe.id)
 
       expect(response).to be_successful
-      expect(response).to have_http_status(200)
     end
 
     it "denies access to recipes#edit" do
