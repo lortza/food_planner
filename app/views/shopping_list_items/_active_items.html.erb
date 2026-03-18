@@ -3,9 +3,7 @@
     <% if aisle %>
       <%= tag.div id: dom_id(aisle) do %>
         <h4 class='aisle'><%= aisle.name %></h4>
-        <% items.each do |item| %>
-          <%= render partial: '/shopping_list_items/item', locals: { item: item } %>
-        <% end %><!-- each -->
+        <%= render partial: '/shopping_list_items/item', collection: items, as: :item %>
       <% end %>
     <% end %>
   <% end %>
