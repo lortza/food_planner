@@ -29,5 +29,7 @@
 
 <h4 class='aisle'>Crossed Off</h4>
 <section id='js-inactive-items' class='inactive-items'>
-  <%= render partial: '/shopping_list_items/item', collection: @shopping_list.shopping_list_items.includes(:list).inactive.by_recently_edited.limit(30), as: :item %>
+  <% @shopping_list.items.includes([:list]).each do |item| %>
+    <%= render partial: '/shopping_list_items/item', locals: { item: item, destination_path: activate_shopping_list_item_path(item) } %>
+  <% end %>
 </section>
