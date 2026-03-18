@@ -25,39 +25,45 @@ Rails.application.routes.draw do
   # devise_for :users, controllers: { registrations: 'registrations' }
 
   resources :aisles, only: [:index, :new, :create, :edit, :update, :destroy]
-
+  resources :shopping_list_favorites, only: [:create, :destroy]
+  resources :shopping_list_item_builders, only: [:create]
+  resources :tags, only: [:show, :index, :new, :create, :edit, :update, :destroy]
+  resources :notes, only: [:show, :index, :new, :create, :edit, :update, :destroy]
   resources :pending_recipes, only: [:new, :create]
-  resources :recipes
-  post '/recipe_copy_for_user', to: 'recipes#copy_for_user'
+  resources :meal_plan_recipes, only: [:create]
 
-  resources :meal_plans do
+  resources :recipes, only: [:show, :index, :new, :create, :edit, :update, :destroy] do
+    member do
+      post :copy_for_user
+    end
+  end
+
+  resources :meal_plans, only: [:show, :index, :new, :create, :edit, :update, :destroy] do
     member do
       get :copy
       get :prep_day
     end
   end
 
-  resources :meal_plan_recipes, only: [:create]
   resources :shopping_lists, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
-    resources :scheduled_deliveries, only: [:new, :create, :edit, :update, :destroy]
-    resources :shopping_list_items, only: [:new, :create, :edit, :update, :destroy]
     member do
       get :search
+      post :deactivate_all_items, to: 'shopping_list_item_statuses#deactivate_all_items'
+    end
+    resources :scheduled_deliveries, only: [:new, :create, :edit, :update, :destroy]
+    resources :shopping_list_items, only: [:new, :create, :edit, :update, :destroy]
+  end
+
+  resources :shopping_list_items, only: [] do
+    member do
+      post :activate,             to: 'shopping_list_item_statuses#activate'
+      post :deactivate,           to: 'shopping_list_item_statuses#deactivate'
+      post :add_to_cart,          to: 'shopping_list_item_statuses#add_to_cart'
+      post :remove_from_cart,     to: 'shopping_list_item_statuses#remove_from_cart'
+      post :activate_from_search, to: 'shopping_list_item_statuses#activate_from_search'
     end
   end
 
-  # TODO: refactor these routes to use `member do`
-  post 'shopping_list_items/:id/search/activate', to: 'shopping_list_item_statuses#activate_from_search', as: 'activate_from_search'
-  post 'shopping_list_items/:id/activate', to: 'shopping_list_item_statuses#activate', as: 'activate_item'
-  post 'shopping_list_items/:id/deactivate', to: 'shopping_list_item_statuses#deactivate', as: 'deactivate_item'
-  post 'shopping_list_items/:id/add_to_cart', to: 'shopping_list_item_statuses#add_to_cart', as: 'add_to_cart'
-  post 'shopping_list_items/:id/remove_from_cart', to: 'shopping_list_item_statuses#remove_from_cart', as: 'remove_from_cart'
-  post 'shopping_list_items/:id/deactivate_all', to: 'shopping_list_item_statuses#deactivate_all', as: 'deactivate_all_items'
-
-  resources :shopping_list_favorites, only: [:create, :destroy]
-  resources :shopping_list_item_builders, only: [:create]
-  resources :tags, only: [:show, :index, :new, :create, :edit, :update, :destroy]
-  resources :notes, only: [:show, :index, :new, :create, :edit, :update, :destroy]
   resources :inventories, only: [:edit, :update] do
     resources :recipe_suggestions, only: [:index]
   end

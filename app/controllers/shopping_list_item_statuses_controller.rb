@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ShoppingListItemStatusesController < ApplicationController
-  before_action :set_shopping_list_item, except: %i[deactivate_all]
+  before_action :set_shopping_list_item, except: %i[deactivate_all_items]
 
   def activate
     # makes a crossed off item active again
@@ -37,7 +37,7 @@ class ShoppingListItemStatusesController < ApplicationController
     respond_to :turbo_stream
   end
 
-  def deactivate_all
+  def deactivate_all_items
     # crosses all items on the list
     list = current_user.shopping_lists.find(params[:id])
     list.items.map(&:deactivate!)

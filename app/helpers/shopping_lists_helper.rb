@@ -18,7 +18,7 @@ module ShoppingListsHelper
   end
 
   def toggle_active_inactive_path(item)
-    item.inactive? ? activate_item_path(id: item.id) : deactivate_item_path(id: item.id)
+    item.inactive? ? activate_shopping_list_item_path(item) : deactivate_shopping_list_item_path(item)
   end
 
   def scheduled_delivery_status(item)
@@ -29,7 +29,7 @@ module ShoppingListsHelper
         title: "Click to mark item as scheduled for home delivery."
       ).render
 
-      return button_to(icon, add_to_cart_path(id: item.id), data: {turbo_method: :post}, class: "icon-button", remote: true)
+      return button_to(icon, add_to_cart_shopping_list_item_path(item), data: {turbo_method: :post}, class: "icon-button", remote: true)
     end
 
     if item.in_cart?
@@ -39,7 +39,7 @@ module ShoppingListsHelper
         title: "Item is scheduled for home delivery. Click to remove."
       ).render
 
-      button_to(icon, remove_from_cart_path(id: item.id), data: {turbo_method: :post}, class: "icon-button", remote: true)
+      button_to(icon, remove_from_cart_shopping_list_item_path(item), data: {turbo_method: :post}, class: "icon-button", remote: true)
     end
   end
 
