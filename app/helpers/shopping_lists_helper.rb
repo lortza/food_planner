@@ -17,10 +17,6 @@ module ShoppingListsHelper
     "#{item.name} #{display_quantity(item)} #{display_upc(item)}"
   end
 
-  def toggle_active_inactive_path(item)
-    item.inactive? ? activate_shopping_list_item_path(item) : deactivate_shopping_list_item_path(item)
-  end
-
   def scheduled_delivery_status(item)
     if item.active? && item.list.scheduled_deliveries.today_and_beyond.any?
       icon = MaterialIcon.new(

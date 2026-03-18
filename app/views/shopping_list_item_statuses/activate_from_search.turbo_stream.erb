@@ -1,4 +1,6 @@
 <!-- Display success checkmark -->
-<%= turbo_stream.replace dom_id(@shopping_list_item) do %>
-  <%= render partial: '/shopping_list_items/item', locals: { item: @shopping_list_item, checkmark_badge: true }.deep_merge(destination_path: activate_from_search_shopping_list_item_path(@shopping_list_item)) %>
+<%= turbo_stream.replace dom_id(@shopping_list_item, :badge) do %>
+  <%= tag.span(id: dom_id(@shopping_list_item, :badge), class: "badge text-bg-success ms-2") do %>
+    <%= MaterialIcon.new(icon: :checkmark).render %> Added to list
+  <% end %>
 <% end %>
