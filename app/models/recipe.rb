@@ -111,7 +111,7 @@ class Recipe < ApplicationRecord
   end
 
   def last_prepared
-    meal_plans.pluck(:prepared_on).max
+    meal_plans.maximum(:prepared_on)
   end
 
   def total_time

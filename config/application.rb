@@ -29,6 +29,5 @@ module FoodPlanner
       g.orm :active_record, primary_key_type: :uuid
     end
 
-    config.active_support.cache_format_version = 7.0
   end
 end
