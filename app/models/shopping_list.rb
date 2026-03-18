@@ -54,11 +54,11 @@ class ShoppingList < ApplicationRecord
   end
 
   def default?
-    main == true
+    main?
   end
 
   def deletable?
-    main == false
+    main? == false
   end
 
   def favorite!

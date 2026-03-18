@@ -67,15 +67,15 @@ class MealPlan < ApplicationRecord
   end
 
   def total_servings
-    recipes.pluck(:servings).reduce(:+) || 0
+    recipes.sum(:servings) || 0
   end
 
   def total_prep_time
-    recipes.pluck(:prep_time).reduce(:+) || 0
+    recipes.sum(:prep_time) || 0
   end
 
   def total_cook_time
-    recipes.pluck(:cook_time).reduce(:+) || 0
+    recipes.sum(:cook_time) || 0
   end
 
   def total_time

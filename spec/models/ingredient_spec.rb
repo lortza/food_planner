@@ -29,16 +29,18 @@ RSpec.describe Ingredient, type: :model do
   end
 
   describe "normalization" do
+    let(:expected_name) { "example ingredient" }
+
     it "strips leading/trailing whitespace and squishes internal whitespace in the name" do
       ingredient = build(:ingredient, name: "  Example    Ingredient  ")
       expect(ingredient.valid?).to be(true)
-      expect(ingredient.name).to eq("Example Ingredient")
+      expect(ingredient.name).to eq(expected_name)
     end
 
-    it "does not affect case" do
+    it "downcases the name" do
       ingredient = build(:ingredient, name: "  ExAmPlE    iNGREdiENT  ")
       expect(ingredient.valid?).to be(true)
-      expect(ingredient.name).to eq("ExAmPlE iNGREdiENT")
+      expect(ingredient.name).to eq(expected_name)
     end
   end
 

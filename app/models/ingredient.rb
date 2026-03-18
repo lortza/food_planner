@@ -23,7 +23,6 @@
 #
 class Ingredient < ApplicationRecord
   belongs_to :recipe, inverse_of: :ingredients
-  before_save :format_name
 
   STANDARD_UNITS = %w[
     4oz\ can
@@ -111,14 +110,10 @@ class Ingredient < ApplicationRecord
   validates :quantity, numericality: true
   validates :measurement_unit, inclusion: {in: UNITS}
 
-  normalizes :name, with: ->(name) { name.strip.squish }
+  normalizes :name, with: ->(name) { name.strip.squish.downcase }
 
   def self.by_id
     order(:id)
-  end
-
-  def format_name
-    self.name = name.downcase
   end
 
   def measurement_and_name
