@@ -17,7 +17,7 @@
 <% if @shopping_list_items.present? %>
   <section id='searched-items'>
     <% @shopping_list_items.by_recently_edited.each do |item| %>
-      <%= render partial: '/shopping_list_items/item', locals: { item: item, checkmark_badge: false }.deep_merge(destination_path: activate_from_search_path(id: item.id)) %>
+      <%= render partial: '/shopping_list_items/item', locals: { item: item, checkmark_badge: false }.deep_merge(destination_path: activate_from_search_shopping_list_item_path(item)) %>
     <% end %>
   </section>
 <% else %>
