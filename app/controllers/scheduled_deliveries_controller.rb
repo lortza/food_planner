@@ -6,11 +6,12 @@ class ScheduledDeliveriesController < ApplicationController
 
   def new
     @scheduled_delivery = @shopping_list.scheduled_deliveries.new(service_provider: "Instacart")
+    authorize(@scheduled_delivery)
   end
 
   def create
     @scheduled_delivery = @shopping_list.scheduled_deliveries.new(scheduled_delivery_params)
-    # authorize(@scheduled_delivery)
+    authorize(@scheduled_delivery)
 
     if @scheduled_delivery.save
       redirect_to @shopping_list
@@ -20,11 +21,11 @@ class ScheduledDeliveriesController < ApplicationController
   end
 
   def edit
-    # authorize(@scheduled_delivery)
+    authorize(@scheduled_delivery)
   end
 
   def update
-    # authorize(@scheduled_delivery)
+    authorize(@scheduled_delivery)
 
     if @scheduled_delivery.update(scheduled_delivery_params)
       redirect_to @scheduled_delivery.shopping_list
@@ -35,7 +36,7 @@ class ScheduledDeliveriesController < ApplicationController
 
   def destroy
     scheduled_delivery = ScheduledDelivery.find(params[:id])
-    # authorize(scheduled_delivery)
+    authorize(scheduled_delivery)
 
     scheduled_delivery.destroy
     flash[:success] = "Your #{@scheduled_delivery.scheduled_for.to_fs(:timestamp)} delivery was deleted."
