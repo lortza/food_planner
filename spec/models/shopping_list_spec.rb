@@ -53,6 +53,16 @@ RSpec.describe ShoppingList, type: :model do
     end
   end
 
+  describe "scope: by_favorite" do
+    it "returns results with the favorite first" do
+      favorite_list = create(:shopping_list, favorite: true)
+      create(:shopping_list, favorite: false)
+      ordered_lists = ShoppingList.by_favorite
+
+      expect(ordered_lists.first).to eq(favorite_list)
+    end
+  end
+
   describe "self.default" do
     let(:user) { create(:user) }
     let(:shopping_list) { create(:shopping_list, user: user) }
@@ -65,13 +75,24 @@ RSpec.describe ShoppingList, type: :model do
     end
   end
 
-  describe ".by_favorite" do
-    it "returns results with the favorite first" do
-      favorite_list = create(:shopping_list, favorite: true)
-      create(:shopping_list, favorite: false)
-      ordered_lists = ShoppingList.by_favorite
+  describe "self.favorite" do
+    let(:user) { create(:user) }
+    let(:shopping_list) { create(:shopping_list, user: user) }
 
-      expect(ordered_lists.first).to eq(favorite_list)
+    context "when a user has not established a favorite list" do
+      it "returns nil" do
+        non_favorite_list = create(:shopping_list, user: user, favorite: false)
+
+        expect(user.shopping_lists.favorite).to_not eq(non_favorite_list)
+        expect(user.shopping_lists.favorite).to be_nil
+      end
+    end
+
+    context "when a user has marked a list as favorite" do
+      it "returns that list" do
+        favorite_list = create(:shopping_list, user: user, favorite: true)
+        expect(user.shopping_lists.favorite).to eq(favorite_list)
+      end
     end
   end
 
