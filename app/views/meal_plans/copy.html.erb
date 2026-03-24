@@ -1,0 +1,7 @@
+<% content_for(:title, 'Editing Meal Plan') %>
+
+<p><%= link_to MaterialIcon.new(icon: :arrow_left).render + 'Meal Plan', @meal_plan %></p>
+
+<h1>New Meal Plan from Copy</h1>
+
+<%= render partial: 'form', locals: { meal_plan: @meal_plan, recipes: @meal_plan.recipes } %>
