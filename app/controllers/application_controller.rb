@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   def nav_bar_shopping_list
     return unless current_user&.shopping_lists&.default
 
-    @nav_bar_shopping_list ||= current_user.shopping_lists.default
+    @nav_bar_shopping_list ||= current_user.shopping_lists.favorite || current_user.shopping_lists.default
   end
 
   helper_method :nav_bar_shopping_list

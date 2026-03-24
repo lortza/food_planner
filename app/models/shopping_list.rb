@@ -36,12 +36,14 @@ class ShoppingList < ApplicationRecord
 
   normalizes :name, with: ->(name) { name.strip.squish }
 
+  scope :by_favorite, -> { order(favorite: :desc) }
+
   def self.default
     find_by(main: true)
   end
 
-  def self.by_favorite
-    order(favorite: :desc)
+  def self.favorite
+    find_by(favorite: true)
   end
 
   def active_items_by_aisle
