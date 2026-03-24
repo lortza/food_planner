@@ -46,6 +46,51 @@ RSpec.describe MealPlan, type: :model do
     end
   end
 
+  describe "callbacks" do
+    describe "update_recipe_last_prepared_on" do
+      let(:user) { create(:user) }
+      let(:recipe) { create(:recipe, user: user) }
+
+      context "when a recipe is added" do
+        it "sets last_prepared_on to the meal plan's prepared_on date" do
+          meal_plan = create(:meal_plan, user: user, prepared_on: Date.new(2026, 1, 1))
+          meal_plan.recipes << recipe
+
+          expect(recipe.reload.last_prepared_on).to eq(Date.new(2026, 1, 1))
+        end
+
+        it "sets last_prepared_on to the most recent date when the recipe is in multiple meal plans" do
+          earlier_plan = create(:meal_plan, user: user, prepared_on: Date.new(2026, 1, 1))
+          later_plan = create(:meal_plan, user: user, prepared_on: Date.new(2026, 2, 1))
+          earlier_plan.recipes << recipe
+          later_plan.recipes << recipe
+
+          expect(recipe.reload.last_prepared_on).to eq(Date.new(2026, 2, 1))
+        end
+      end
+
+      context "when a recipe is removed" do
+        it "clears last_prepared_on when the recipe's only meal plan association is removed" do
+          meal_plan = create(:meal_plan, user: user, prepared_on: Date.new(2026, 1, 1))
+          meal_plan.recipes << recipe
+          meal_plan.recipes.delete(recipe)
+
+          expect(recipe.reload.last_prepared_on).to be_nil
+        end
+
+        it "updates last_prepared_on to the next most recent date when one association is removed" do
+          earlier_plan = create(:meal_plan, user: user, prepared_on: Date.new(2026, 1, 1))
+          later_plan = create(:meal_plan, user: user, prepared_on: Date.new(2026, 2, 1))
+          earlier_plan.recipes << recipe
+          later_plan.recipes << recipe
+          later_plan.recipes.delete(recipe)
+
+          expect(recipe.reload.last_prepared_on).to eq(Date.new(2026, 1, 1))
+        end
+      end
+    end
+  end
+
   describe "self.most_recent_first" do
     it "displays all meal plans in descending prepared_on order" do
       meal_plan1 = create(:meal_plan, prepared_on: Time.zone.yesterday)

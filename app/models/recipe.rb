@@ -46,7 +46,10 @@ class Recipe < ApplicationRecord
     reject_if: :all_blank, # at least 1 ingredient should be present
     allow_destroy: true # allows user to delete ingredient via checkbox
   has_many :meal_plan_recipes, dependent: :destroy
-  has_many :meal_plans, through: :meal_plan_recipes
+  has_many :meal_plans, through: :meal_plan_recipes,
+    after_add: :update_recipe_last_prepared_on,
+    after_remove: :update_recipe_last_prepared_on
+
   has_many :recipe_tags, dependent: :destroy
   has_many :tags, through: :recipe_tags
 
@@ -110,10 +113,6 @@ class Recipe < ApplicationRecord
     self.prep_day_instructions = instructions if prep_day_instructions.blank?
   end
 
-  def last_prepared
-    meal_plans.maximum(:prepared_on)
-  end
-
   def total_time
     prep_time + cook_time
   end
@@ -134,5 +133,11 @@ class Recipe < ApplicationRecord
       copied_ingredient = ingredient.dup
       copied_recipe.ingredients << copied_ingredient
     end
+  end
+
+  private
+
+  def update_recipe_last_prepared_on(meal_plan)
+    update(last_prepared_on: meal_plans.maximum(:prepared_on))
   end
 end

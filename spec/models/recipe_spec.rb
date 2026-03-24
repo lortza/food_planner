@@ -240,6 +240,51 @@ RSpec.describe Recipe, type: :model do
     end
   end
 
+  describe "callbacks" do
+    describe "update_recipe_last_prepared_on" do
+      let(:user) { create(:user) }
+      let(:recipe) { create(:recipe, user: user) }
+
+      context "when a meal_plan is added to a recipe's collection" do
+        it "sets last_prepared_on to the meal plan's prepared_on date" do
+          meal_plan = create(:meal_plan, user: user, prepared_on: Date.new(2026, 1, 1))
+          recipe.meal_plans << meal_plan
+
+          expect(recipe.reload.last_prepared_on).to eq(Date.new(2026, 1, 1))
+        end
+
+        it "sets last_prepared_on to the most recent date when the recipe is in multiple meal plans" do
+          earlier_plan = create(:meal_plan, user: user, prepared_on: Date.new(2026, 1, 1))
+          later_plan = create(:meal_plan, user: user, prepared_on: Date.new(2026, 2, 1))
+          recipe.meal_plans << earlier_plan
+          recipe.meal_plans << later_plan
+
+          expect(recipe.reload.last_prepared_on).to eq(Date.new(2026, 2, 1))
+        end
+      end
+
+      context "when a meal_plan is removed from a recipe's collection" do
+        it "clears last_prepared_on when the recipe's only meal plan association is removed" do
+          meal_plan = create(:meal_plan, user: user, prepared_on: Date.new(2026, 1, 1))
+          recipe.meal_plans << meal_plan
+          recipe.meal_plans.delete(meal_plan)
+
+          expect(recipe.reload.last_prepared_on).to be_nil
+        end
+
+        it "updates last_prepared_on to the next most recent date when one association is removed" do
+          earlier_plan = create(:meal_plan, user: user, prepared_on: Date.new(2026, 1, 1))
+          later_plan = create(:meal_plan, user: user, prepared_on: Date.new(2026, 2, 1))
+          recipe.meal_plans << earlier_plan
+          recipe.meal_plans << later_plan
+          recipe.meal_plans.delete(later_plan)
+
+          expect(recipe.reload.last_prepared_on).to eq(Date.new(2026, 1, 1))
+        end
+      end
+    end
+  end
+
   describe "scopes" do
     describe "active_or_pending" do
       let(:pending_recipe) { create(:recipe, status: :pending) }
@@ -275,19 +320,6 @@ RSpec.describe Recipe, type: :model do
 
       expect(ordered_recipes.first).to eq(old_recipe)
       expect(ordered_recipes.last).to eq(recent_recipe)
-    end
-  end
-
-  describe "#last_prepared" do
-    let(:meal_plan_today) { create(:meal_plan, prepared_on: Time.zone.today) }
-    let(:meal_plan_yesterday) { create(:meal_plan, prepared_on: Time.zone.yesterday) }
-    let(:recipe) { create(:recipe) }
-
-    it "returns the prepared_on of the most recent meal plan this recipe was included in" do
-      meal_plan_today.recipes << recipe
-      meal_plan_yesterday.recipes << recipe
-
-      expect(recipe.last_prepared).to eq(meal_plan_today.prepared_on)
     end
   end
 

@@ -27,7 +27,7 @@ class MealPlansController < ApplicationController
     }
     @meal_plan = current_user.meal_plans.new(default_params)
     authorize(@meal_plan)
-    @recipes = current_user.recipes.includes(:meal_plan_recipes, :meal_plans).active.by_title
+    @recipes = current_user.recipes.active.by_title
   end
 
   def copy
@@ -53,7 +53,7 @@ class MealPlansController < ApplicationController
 
   def edit
     authorize(@meal_plan)
-    @recipes = current_user.recipes.includes(:meal_plan_recipes, :meal_plans).active.by_title
+    @recipes = current_user.recipes.active.by_title
   end
 
   def update
@@ -62,8 +62,8 @@ class MealPlansController < ApplicationController
     if @meal_plan.update(meal_plan_params)
       redirect_to meal_plan_url(@meal_plan), notice: "#{@meal_plan.prepared_on} Meal Plan Updated"
     else
-      @recipes = current_user.recipes.includes(:meal_plan_recipes, :meal_plans).active.by_title
-      render :edit
+      @recipes = current_user.recipes.active.by_title
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -79,7 +79,7 @@ class MealPlansController < ApplicationController
   private
 
   def set_meal_plan
-    @meal_plan = MealPlan.includes(:recipes).find(params[:id])
+    @meal_plan = MealPlan.find(params[:id])
   end
 
   def meal_plan_params

@@ -30,7 +30,7 @@
         <div class='form-check'>
           <%= r.check_box class: 'form-check-input' %>
           <%= r.label class: 'form-check-label' do %>
-            <%= link_to r.object.title, r.object %> (serves <%= r.object.servings %>) <%= r.object.last_prepared if r.object.last_prepared.present? %>
+            <%= link_to r.object.title, r.object %> (serves <%= r.object.servings %>) <%= r.object.last_prepared_on %>
           <% end %>
         </div>
       <% end %>

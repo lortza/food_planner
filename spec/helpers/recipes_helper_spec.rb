@@ -74,7 +74,7 @@ RSpec.describe RecipesHelper, type: :helper do
       four_months_ago = Time.zone.today - 5.months
       recipe.meal_plans << create(:meal_plan, prepared_on: four_months_ago)
 
-      expect(helper.status_flag(recipe)).to include("calendar_clock")
+      expect(helper.status_flag(recipe.reload)).to include("calendar_clock")
     end
 
     it "does not return a flag when recipe was made recently" do
@@ -82,7 +82,7 @@ RSpec.describe RecipesHelper, type: :helper do
       four_days_ago = Time.zone.today - 4.days
       recipe.meal_plans << create(:meal_plan, prepared_on: four_days_ago)
 
-      expect(helper.status_flag(recipe)).to eq("")
+      expect(helper.status_flag(recipe.reload)).to eq("")
     end
   end
 
