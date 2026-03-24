@@ -23,12 +23,12 @@ module RecipesHelper
       content_tag(:span, "Pending",
         class: "badge text-bg-light ml-2 text-small font-weight-normal cursor-default",
         title: "Recipe has not been vetted or imported yet.") { icon + " Pending" }
-    elsif recipe.last_prepared.nil? || first_time_is_this_week?(recipe)
+    elsif recipe.last_prepared_on.nil? || first_time_is_this_week?(recipe)
       icon = MaterialIcon.new(icon: :new, size: :small, title: "New", classes: "cursor-default").render
       content_tag(:span, "New!",
         class: "badge text-bg-warning ml-2 text-small font-weight-normal cursor-default",
         title: "New! Has not been made yet!") { icon + " New!" }
-    elsif recipe.last_prepared < Time.zone.today.prev_month(4)
+    elsif recipe.last_prepared_on < Time.zone.today.prev_month(4)
       MaterialIcon.new(icon: :calendar_clock, classes: "cursor-default", title: "It's been a while since this was last made").render
     else
       ""

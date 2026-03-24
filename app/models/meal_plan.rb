@@ -23,7 +23,9 @@
 class MealPlan < ApplicationRecord
   belongs_to :user
   has_many :meal_plan_recipes, dependent: :destroy
-  has_many :recipes, through: :meal_plan_recipes
+  has_many :recipes, through: :meal_plan_recipes,
+    after_add: :update_recipe_last_prepared_on,
+    after_remove: :update_recipe_last_prepared_on
   has_many :ingredients, through: :recipes
 
   validates :people_served, presence: true
@@ -107,6 +109,10 @@ class MealPlan < ApplicationRecord
   end
 
   private
+
+  def update_recipe_last_prepared_on(recipe)
+    recipe.update(last_prepared_on: recipe.meal_plans.maximum(:prepared_on))
+  end
 
   def efficiency_rate
     EFFICIENCY_RATE

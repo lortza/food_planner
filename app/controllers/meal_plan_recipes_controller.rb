@@ -4,16 +4,15 @@ class MealPlanRecipesController < ApplicationController
   before_action :set_recipe, only: :create
   before_action :set_meal_plan, only: :create
   def create
-    meal_plan_recipe = MealPlanRecipe.new(meal_plan: @meal_plan, recipe: @recipe)
-
-    if meal_plan_recipe.save
+    if @meal_plan.recipes.include?(@recipe)
+      flash[:error] = "#{@recipe.title} was already part of the #{@meal_plan.prepared_on.to_fs(:short)} meal plan."
+      redirect_back(fallback_location: recipes_url)
+    else
+      @meal_plan.recipes << @recipe
       redirect_back(
         fallback_location: recipes_url,
         notice: "#{@recipe.title} added to #{@meal_plan.prepared_on.to_fs(:short)} meal plan"
       )
-    else
-      flash[:error] = "#{@recipe.title} was already part of the #{@meal_plan.prepared_on.to_fs(:short)} meal plan."
-      redirect_back(fallback_location: recipes_url)
     end
   end
 
