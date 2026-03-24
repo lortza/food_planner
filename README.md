@@ -25,7 +25,7 @@ Live on heroku as [myfoodplanner](http://myfoodplanner.herokuapp.com)
 - Display ingredient breakdown for meal prep
 - Display page of all meal plan recipes for prep day. Check off ingredients and steps for each recipe. Toggle off a recipe when it is complete.
 - ERD https://dbdiagram.io/d/5d6ea192ced98361d6de29cd
-- Favorite a shopping list to have it appear at the top of the lists page
+- Favorite a shopping list to have it appear at the top of the lists page and sets it as the list in the navbar
 - Mark items as arriving with upcoming delivery order
 - Toggle items on/off the shopping list
 - Upcoming meal plan displayed in nav bar (if present)
