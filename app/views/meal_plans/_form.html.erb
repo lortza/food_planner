@@ -2,7 +2,7 @@
   <%= render 'shared/errors', object: meal_plan %>
 
   <div class="form-group row mb-3">
-    <%= form.label :prepared_on, class: 'col-sm-3 col-form-label' %>
+    <%= form.label "Preparation Date", class: 'col-sm-3 col-form-label' %>
     <div class="col-sm-9">
       <%= form.date_field :prepared_on, autofocus: true, class: 'form-control' %>
     </div>

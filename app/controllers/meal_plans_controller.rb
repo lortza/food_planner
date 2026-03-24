@@ -36,8 +36,6 @@ class MealPlansController < ApplicationController
     @meal_plan = @meal_plan.dup
     @meal_plan.recipes << existing_recipes
     @meal_plan.prepared_on = nil
-
-    render :new
   end
 
   def create
@@ -47,8 +45,9 @@ class MealPlansController < ApplicationController
     if @meal_plan.save
       redirect_to meal_plan_url(@meal_plan)
     else
-      @recipes = current_user.recipes.includes(:meal_plan_recipes, :meal_plans).active.by_title
-      render :new
+
+      @recipes = current_user.recipes.active.by_title
+      render :new, status: :unprocessable_entity
     end
   end
 
