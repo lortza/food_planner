@@ -49,6 +49,7 @@ FactoryBot.define do
     instructions { Faker::Lorem.sentences(number: 15).join("\n\n") }
     prep_day_instructions { Faker::Hipster.sentences(number: 8).join("\n\n") }
     reheat_instructions { Faker::Lorem.sentences(number: 4).join("\n\n") }
+    last_prepared_on { nil }
 
     trait :db_default do
       title { "" }
