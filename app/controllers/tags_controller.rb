@@ -25,6 +25,7 @@ class TagsController < ApplicationController
 
   def show
     authorize(@tag)
+    @recipes = @tag.recipes.active_or_pending.includes([:meal_plans]).order(:title)
   end
 
   def edit
