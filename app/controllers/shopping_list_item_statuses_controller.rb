@@ -15,6 +15,7 @@ class ShoppingListItemStatusesController < ApplicationController
 
   def activate_from_search
     @shopping_list_item.activate! unless @shopping_list_item.in_cart?
+    @shopping_list = @shopping_list_item.list
     respond_to :turbo_stream
   end
 

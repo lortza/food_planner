@@ -10,19 +10,22 @@
   </div>
 </header>
 
-<article class='index-item'>
-  <%= form_with(url: search_shopping_list_path(@shopping_list), method: :get, id: 'search-form') do %>
+<%#= tag.article(id: dom_id(@shopping_list, :item_search_form)) do %>
+  <%#= render partial: "item_search_form", locals: {shopping_list: @shopping_list} %>
+<%# end %>
+<%= tag.article(id: dom_id(@shopping_list, :item_search_form)) do %>
+  <%= form_with(url: search_shopping_list_path(@shopping_list), method: :get, id: 'search-form',
+                data: { controller: "search", turbo_frame: dom_id(@shopping_list, :search_results) }) do %>
     <div class="col-xs-12 mb-2">
-      <%= text_field_tag :search, params[:search], list: 'name', placeholder: 'Find or Add an item...', class: 'form-control form-control-sm' %>
-      <datalist id="name">
-        <option value="  "></option>
-        <% @shopping_list.items.each do |item| %>
-          <option id="<%= item.id %>" value="<%= item.name %>"></option>
-        <% end %>
-      </datalist>
+      <%= text_field_tag :search, nil,
+          placeholder: 'Find or Add an item...',
+          class: 'form-control form-control-sm',
+          autocomplete: 'off',
+          data: { search_target: "input", action: "input->search#submit" } %>
     </div>
   <% end %>
-</article>
+  <%= turbo_frame_tag dom_id(@shopping_list, :search_results) %>
+<% end %>
 
 <%= render 'scheduled_deliveries/scheduled_deliveries', shopping_list: @shopping_list %>
 <%= render partial: 'shopping_list_items/active_items', locals: { shopping_list: @shopping_list } %>

@@ -14,13 +14,15 @@
 <% end %>
 <p class='clear-search'><%= link_to 'Clear Search', search_shopping_list_path(@shopping_list) %></p>
 
-<% if @shopping_list_items.present? %>
-  <section id='searched-items'>
-    <% @shopping_list_items.by_recently_edited.each do |item| %>
-      <%= render partial: '/shopping_list_items/item', locals: { item: item, destination_path: activate_from_search_shopping_list_item_path(item) } %>
-    <% end %>
-  </section>
-<% else %>
-  <p>Sorry, there are no results matching <strong>"<%= params[:search] %>"</strong></p>
-  <%= link_to 'Create New Item', new_shopping_list_shopping_list_item_path(@shopping_list, search_term: params[:search]), class: button_classes('primary btn-block mt-3') %>
+<%= turbo_frame_tag dom_id(@shopping_list, :search_results) do %>
+  <% if @shopping_list_items.present? %>
+    <section id='searched-items'>
+      <% @shopping_list_items.by_recently_edited.each do |item| %>
+        <%= render partial: '/shopping_list_items/item', locals: { item: item, destination_path: activate_from_search_shopping_list_item_path(item) } %>
+      <% end %>
+    </section>
+  <% elsif params[:search].present? %>
+    <p>Sorry, there are no results matching <strong>"<%= params[:search] %>"</strong></p>
+    <%= link_to 'Create New Item', new_shopping_list_shopping_list_item_path(@shopping_list, search_term: params[:search]), data: {turbo_frame: '_top'},  class: button_classes('primary btn-block mt-3') %>
+  <% end %>
 <% end %>

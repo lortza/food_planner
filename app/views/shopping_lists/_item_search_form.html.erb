@@ -1,0 +1,11 @@
+  <%= form_with(url: search_shopping_list_path(shopping_list), method: :get, id: 'search-form',
+                data: { controller: "search", turbo_frame: dom_id(shopping_list, :search_results) }) do %>
+    <div class="col-xs-12 mb-2">
+      <%= text_field_tag :search, nil,
+          placeholder: 'Find or Add an item...',
+          class: 'form-control form-control-sm',
+          autocomplete: 'off',
+          data: { search_target: "input", action: "input->search#submit" } %>
+    </div>
+  <% end %>
+  <%= turbo_frame_tag dom_id(shopping_list, :search_results) %>

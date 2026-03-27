@@ -1,6 +1,17 @@
-<!-- Display success checkmark -->
-<%= turbo_stream.replace dom_id(@shopping_list_item, :badge) do %>
-  <%= tag.span(id: dom_id(@shopping_list_item, :badge), class: "badge text-bg-success ms-2") do %>
-    <%= MaterialIcon.new(icon: :checkmark).render %> Added to list
+<!-- Clear the search results frame -->
+<%= turbo_stream.update dom_id(@shopping_list, :search_results), "" %>
+<%#= turbo_stream.update dom_id(@shopping_list, :item_search_form) do %>
+  <%#= render partial: "/shopping_list/item_search_form", locals: {shopping_list: @shopping_list} %>
+<%# end %>
+
+<!-- Refresh active items to show the newly added item -->
+<%= turbo_stream.update "js-active-items" do %>
+  <%= render partial: '/shopping_list_items/active_items', locals: { shopping_list: @shopping_list_item.shopping_list } %>
+<% end %>
+
+<!-- Update the list count in the nav bar -->
+<% if update_nav_bar_shopping_list_count?(@shopping_list_item.list) %>
+  <%= turbo_stream.update 'js_shopping_list_nav_item' do %>
+    <%= render partial: 'shared/navbar/shopping_list_nav_item' %>
   <% end %>
 <% end %>
