@@ -94,7 +94,7 @@ class Recipe < ApplicationRecord
   end
 
   def self.by_last_prepared
-    order("meal_plans.prepared_on asc")
+    order(last_prepared_on: :asc)
   end
 
   def frequency
