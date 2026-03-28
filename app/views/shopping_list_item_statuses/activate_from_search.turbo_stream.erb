@@ -4,6 +4,9 @@
   <%#= render partial: "/shopping_list/item_search_form", locals: {shopping_list: @shopping_list} %>
 <%# end %>
 
+<!-- Remove item from crossed off section if it is on the list -->
+<%= turbo_stream.remove dom_id(@shopping_list_item) %>
+
 <!-- Refresh active items to show the newly added item -->
 <%= turbo_stream.update "js-active-items" do %>
   <%= render partial: '/shopping_list_items/active_items', locals: { shopping_list: @shopping_list_item.shopping_list } %>
