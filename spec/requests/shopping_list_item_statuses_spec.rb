@@ -95,19 +95,19 @@ RSpec.describe "ShoppingListItemStatusesController", type: :request do
     end
 
     describe "POST #activate_from_search" do
+      let(:subject) { post activate_from_search_shopping_list_item_path(item) }
+
       context "when item is inactive" do
         let(:item) { create(:shopping_list_item, shopping_list: shopping_list, status: "inactive") }
 
         it "sets the item status to active" do
-          post activate_from_search_shopping_list_item_path(item), headers: turbo_stream_headers
-
+          subject
           expect(item.reload.status).to eq("active")
         end
 
-        it "responds with redirect to list page" do
-          post activate_from_search_shopping_list_item_path(item), headers: turbo_stream_headers
-
-          expect(response.media_type).to eq("text/html")
+        it "redirects to the shopping list" do
+          subject
+          expect(response).to redirect_to(shopping_list_url(shopping_list))
         end
       end
 
@@ -115,8 +115,7 @@ RSpec.describe "ShoppingListItemStatusesController", type: :request do
         let(:item) { create(:shopping_list_item, shopping_list: shopping_list, status: "in_cart") }
 
         it "keeps the item status as in_cart" do
-          post activate_from_search_shopping_list_item_path(item), headers: turbo_stream_headers
-
+          subject
           expect(item.reload.status).to eq("in_cart")
         end
       end
