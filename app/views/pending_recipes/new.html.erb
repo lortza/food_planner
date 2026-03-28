@@ -4,12 +4,13 @@
 
 <h1>Save a Pending Recipe</h1>
 
-<div id="js-loading-state-content-area" class="hidden">
-  <%= render partial: "shared/recipe_parsing_loading_state" %>
-</div>
+<div data-controller="loading-spinner">
+  <div data-loading-spinner-target="loading" class="hidden">
+    <%= render partial: "shared/recipe_parsing_loading_state" %>
+  </div>
 
-<div class="js-pending-recipe-form">
-  <%= form_with model: @recipe, url: pending_recipes_path, method: :post, id: "js-pending-recipe-form" do |form| %>
+  <div data-loading-spinner-target="form">
+    <%= form_with model: @recipe, url: pending_recipes_path, method: :post, data: { action: "submit->loading-spinner#show" } do |form| %>
     <%= render 'shared/errors', object: @recipe %>
     <%= form.hidden_field :status %>
 
@@ -63,5 +64,6 @@
       <% end %>
 
     <%= form.submit class: button_classes('primary mt-3') %>
-  <% end %>
+    <% end %>
+  </div>
 </div>
