@@ -1,6 +1,0 @@
-<!-- Display success checkmark -->
-<%= turbo_stream.replace dom_id(@shopping_list_item, :badge) do %>
-  <%= tag.span(id: dom_id(@shopping_list_item, :badge), class: "badge text-bg-success ms-2") do %>
-    <%= MaterialIcon.new(icon: :checkmark).render %> Added to list
-  <% end %>
-<% end %>

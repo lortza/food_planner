@@ -34,6 +34,7 @@ class ShoppingListsController < ApplicationController
   def search
     search_term = params[:search]&.strip&.squish
     @shopping_list_items = @shopping_list.search_results(search_term)
+    # responds to turbo frame with search results partial, which will display results in the search area of the shopping list show page
   end
 
   def edit

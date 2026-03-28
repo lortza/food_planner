@@ -204,6 +204,9 @@ The Solid Trio (`solid_cache`, `solid_cable`, `solid_queue`) are implemented as 
 
 ## Styling & Assets
 
+**Ruby/Rails:**
+- Use Rails helpers when available and appropriate. For example, use `<%= turbo_frame_tag dom_id(@item) %>` instead of `<turbo-frame id="foo">`
+
 **CSS Architecture:**
 - All styles use plain CSS (no SASS/SCSS preprocessor)
 - CSS custom properties defined in `app/assets/stylesheets/variables.css`
