@@ -2,7 +2,7 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/bce541f2a6d63bc5fa1e/maintainability)](https://codeclimate.com/github/lortza/food_planner/maintainability)
 
-WIP food planning app.
+Meal planning and recipe management app.
 
 Live on heroku as [myfoodplanner](http://myfoodplanner.herokuapp.com)
 
@@ -14,29 +14,35 @@ Live on heroku as [myfoodplanner](http://myfoodplanner.herokuapp.com)
 - [Bootstrap 5.3.3](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 - [Material Icons](https://fonts.google.com/icons)
 - Plain CSS (no SASS/SCSS)
-- Vanilla JavaScript (no jQuery)
-
+- Turbo frames and streams for JS behavior
+- Stimulus controllers for custom DOM JavaScript
+- ERD https://dbdiagram.io/d/5d6ea192ced98361d6de29cd
 * [Dependabot](https://app.dependabot.com/accounts/lortza/) dependency manager
+
 
 ## Features
 
-- List of recipes & ingredients
-- Display full recipes
-- Display ingredient breakdown for meal prep
-- Display page of all meal plan recipes for prep day. Check off ingredients and steps for each recipe. Toggle off a recipe when it is complete.
-- ERD https://dbdiagram.io/d/5d6ea192ced98361d6de29cd
-- Favorite a shopping list to have it appear at the top of the lists page and sets it as the list in the navbar
-- Mark items as arriving with upcoming delivery order
-- Toggle items on/off the shopping list
-- Upcoming meal plan displayed in nav bar (if present)
-- Create a recipe from scratch or create one via a source url and AI parsing
-- Archive recipes you no longer care to see in your list
-- Share a recipe with a friend
-- Add recurring items to your shopping list with a cadence of weekly, biweekly, or monthly
-- Separate notes section to keep your favorite conversions or other things you may need to jot down that aren't related to one specific recipe.
-- Mark a note as "favorite" for it to appear in in the Notes dropdown.
-- Copy a whole meal plan to reuse it easily.
-- Enter an inventory of ingredients and get a list of recipe suggestions (PR #237)
+- Recipe Organization
+  - List of recipes & ingredients
+  - Display full recipes
+  - Create a recipe from scratch or create one via a source url and AI parsing
+  - Archive recipes you no longer care to see in your list
+  - Share a recipe with a friend
+- Recipe Suggestions Based on Ingredient Inventory
+  - Enter an inventory of ingredients and get a list of recipe suggestions (PR #237)
+- Meal Planning
+  - Display ingredient breakdown for meal prep
+  - Display page of all meal plan recipes for prep day. Check off ingredients and steps for each recipe. Toggle off a recipe when it is complete.
+  - Upcoming meal plan displayed in nav bar (if present)
+  - Copy a whole meal plan to reuse it easily.
+- Grocery Lists
+  - Favorite a shopping list to have it appear at the top of the lists page and sets it as the list in the navbar
+  - Mark items as arriving with upcoming delivery order
+  - Toggle items on/off the shopping list
+  - Add recurring items to your shopping list with a cadence of weekly, biweekly, or monthly
+- Notes
+  - Separate notes section to keep your favorite conversions or other things you may need to jot down that aren't related to one specific recipe.
+  - Mark a note as "favorite" for it to appear in the Notes dropdown.
 
 
 ## Getting Started
@@ -76,7 +82,6 @@ bundle exec reek
 ## Related Docs
 
 - [Devise](https://github.com/plataformatec/devise)
-- [Uglifier](https://github.com/lautis/uglifier) in harmony mode
 - [Shoulda Matchers](https://github.com/thoughtbot/shoulda-matchers)
 
 ## Heroku Scheduler
@@ -107,7 +112,7 @@ If this file gets borked, [this post](https://stackoverflow.com/a/54279636/50095
 - log into Heroku CLI with `heroku login`
 - assuming your local copy of the `main` branch is up to date, run `git push heroku main`
 
-## WIP USDA Food Composition Databases
+## Reference: USDA Food Composition Databases
 - API docs: https://ndb.nal.usda.gov/ndb/doc/index
 - Ex Food show page: https://ndb.nal.usda.gov/ndb/foods/show/01009?fgcd=&manu=&format=&count=&max=25&offset=&sort=default&order=asc&qlookup=01009&ds=&qt=&qp=&qa=&qn=&q=&ing=
 - Ex Nutrient show page: https://ndb.nal.usda.gov/ndb/nutrients/report/nutrientsfrm?max=25&offset=0&totCount=0&nutrient1=324&nutrient2=&subset=0&sort=c&measureby=g
