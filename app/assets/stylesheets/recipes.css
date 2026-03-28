@@ -1,4 +1,4 @@
-[data-controller="instructions"] li {
+[data-controller="toggle-strikethrough"] li {
   cursor: pointer;
 }
 
