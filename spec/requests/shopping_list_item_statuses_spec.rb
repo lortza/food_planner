@@ -104,10 +104,10 @@ RSpec.describe "ShoppingListItemStatusesController", type: :request do
           expect(item.reload.status).to eq("active")
         end
 
-        it "responds with turbo_stream" do
+        it "responds with redirect to list page" do
           post activate_from_search_shopping_list_item_path(item), headers: turbo_stream_headers
 
-          expect(response.media_type).to eq("text/vnd.turbo-stream.html")
+          expect(response.media_type).to eq("text/html")
         end
       end
 
