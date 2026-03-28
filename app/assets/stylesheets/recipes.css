@@ -1,3 +1,7 @@
+[data-controller="instructions"] li {
+  cursor: pointer;
+}
+
 .table--recipes-index {
   margin-top: 1.5rem;
 }

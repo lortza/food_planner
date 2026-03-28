@@ -11,7 +11,7 @@
 .flex-row { flex-direction: row; }
 
 /* text-decoration */
-.line-through { text-decoration-line: line-through; }
+.line-through { text-decoration: line-through; }
 
 /* cursor */
 .cursor-pointer { cursor: pointer; }
