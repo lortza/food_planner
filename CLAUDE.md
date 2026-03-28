@@ -215,9 +215,7 @@ The Solid Trio (`solid_cache`, `solid_cable`, `solid_queue`) are implemented as 
 - Bootstrap 5.3.3 loaded via CDN in layout
 
 **JavaScript:**
-- Vanilla JavaScript only (no jQuery)
-- Custom scripts in `app/javascript/custom/`
-- Bootstrap 5 components work without jQuery dependency
+- Any custom Javascript is handled by Stimulus controllers
 - Bootstrap 5 is loaded via importmap
 
 **Key Utility Classes:**
