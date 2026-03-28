@@ -2,8 +2,5 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 
-// TODO: remove this when js is converted over to stimulus controllers
-import "custom/prep_day"
-
 // External libraries
 import "bootstrap"
