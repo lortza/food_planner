@@ -5,7 +5,6 @@ import "controllers"
 // TODO: remove this when js is converted over to stimulus controllers
 import "custom/pending_recipes"
 import "custom/prep_day"
-import "custom/recipes"
 
 // External libraries
 import "bootstrap"
