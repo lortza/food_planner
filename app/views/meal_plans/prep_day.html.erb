@@ -1,7 +1,7 @@
 <% content_for(:title, "Prep Day #{@meal_plan.prepared_on}") %>
 <% content_for :full_width, true %>
 
-<div class="container-navbar-padding">
+<div class="container-navbar-padding" data-controller="recipe-toggle">
   <div class="flex flex-row justify-content-between mb-3">
   <p><%= link_to MaterialIcon.new(icon: :arrow_left).render + "Meal Plans", meal_plans_path %></p>
   <p><%= link_to "Toggle View", meal_plan_path(@meal_plan) %></p>
@@ -29,10 +29,14 @@
     <strong>Select Recipes:</strong>
     <% @meal_plan.recipes.each do |recipe| %>
       <div class="form-check form-check-inline">
-        <input class="form-check-input recipe-toggle-checkbox" type="checkbox" id="recipe-checkbox-<%= recipe.id %>" value="<%= recipe.id %>" checked>
-        <label class="form-check-label" for="recipe-checkbox-<%= recipe.id %>">
+        <%= tag.input(class: "form-check-input",
+                        type: "checkbox",
+                        id: "recipe-checkbox-#{recipe.id}",
+                        checked: true,
+                        data: { action: "change->recipe-toggle#toggle", recipe_toggle_column_id_param: "recipe-column-#{recipe.id}" }) %>
+        <%= tag.label(recipe.title, class: "form-check-label", for: "recipe-checkbox-#{recipe.id}") do %>
           <%= recipe.title %>
-        </label>
+        <% end %>
       </div>
     <% end %>
   </div>
