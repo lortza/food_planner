@@ -1,4 +1,4 @@
-<section id='js-active-items'>
+<section id='js-active-items' class="mt-2">
   <% shopping_list.active_items_by_aisle.each do |aisle, items| %>
     <% if aisle %>
       <%= tag.div id: dom_id(aisle) do %>

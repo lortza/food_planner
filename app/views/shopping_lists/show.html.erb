@@ -10,11 +10,6 @@
   </div>
 </header>
 
-<!-- TODO: turn this into a partial maybe? -->
-<!-- TODO: clear form after item is selected -->
-<%#= tag.article(id: dom_id(@shopping_list, :item_search_form)) do %>
-  <%#= render partial: "item_search_form", locals: {shopping_list: @shopping_list} %>
-<%# end %>
 <%= tag.article(id: dom_id(@shopping_list, :item_search_form)) do %>
   <%= form_with(url: search_shopping_list_path(@shopping_list), method: :get, id: 'search-form',
                 data: { controller: "search", turbo_frame: dom_id(@shopping_list, :search_results) }) do %>
@@ -26,7 +21,7 @@
           data: { search_target: "input", action: "input->search#submit" } %>
     </div>
   <% end %>
-  <%= turbo_frame_tag dom_id(@shopping_list, :search_results) %>
+  <%= turbo_frame_tag dom_id(@shopping_list, :search_results), target: "_top" %>
 <% end %>
 
 <%= render 'scheduled_deliveries/scheduled_deliveries', shopping_list: @shopping_list %>

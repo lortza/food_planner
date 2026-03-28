@@ -1,32 +1,14 @@
-<% content_for(:title, @shopping_list.name) %>
-
-<p><%= link_to MaterialIcon.new(icon: :arrow_left).render + @shopping_list.name, @shopping_list %></p>
-
-<h1>
-  <%= link_to MaterialIcon.new(icon: :plus_circle, classes: 'float-end').render, new_shopping_list_shopping_list_item_path(@shopping_list, search_term: params[:search]) %>
-  Find an Item
-</h1>
-
-<%= form_with(url: search_shopping_list_path(@shopping_list), method: :get, id: 'search-form') do %>
-  <div class="col-xs-12">
-    <%= text_field_tag :search, params[:search], placeholder: 'Find an item...', class: 'form-control form-control-sm' %>
+<%= turbo_frame_tag dom_id(@shopping_list, :search_results) do %>
+  <div class="search-results">
+    <% if @shopping_list_items.present? %>
+      <section id='searched-items'>
+        <% @shopping_list_items.by_recently_edited.each do |item| %>
+          <%= render partial: '/shopping_list_items/item', locals: { item: item, destination_path: activate_from_search_shopping_list_item_path(item) } %>
+        <% end %>
+      </section>
+    <% elsif params[:search].present? %>
+      <p>Sorry, there are no results matching <strong>"<%= params[:search] %>"</strong></p>
+      <%= link_to 'Create New Item', new_shopping_list_shopping_list_item_path(@shopping_list, search_term: params[:search]), data: {turbo_frame: '_top'},  class: button_classes('primary btn-block mt-3') %>
+    <% end %>
   </div>
 <% end %>
-<p class='clear-search'><%= link_to 'Clear Search', search_shopping_list_path(@shopping_list) %></p>
-
-<!-- TODO: remove unused HTML -->
-<!-- TODO: make the result section look a little different -->
-<%= turbo_frame_tag dom_id(@shopping_list, :search_results) do %>
-<div class="search-results">
-  <% if @shopping_list_items.present? %>
-    <section id='searched-items'>
-      <% @shopping_list_items.by_recently_edited.each do |item| %>
-        <%= render partial: '/shopping_list_items/item', locals: { item: item, destination_path: activate_from_search_shopping_list_item_path(item) } %>
-      <% end %>
-    </section>
-  <% elsif params[:search].present? %>
-    <p>Sorry, there are no results matching <strong>"<%= params[:search] %>"</strong></p>
-    <%= link_to 'Create New Item', new_shopping_list_shopping_list_item_path(@shopping_list, search_term: params[:search]), data: {turbo_frame: '_top'},  class: button_classes('primary btn-block mt-3') %>
-  <% end %>
-<% end %>
-</div>
