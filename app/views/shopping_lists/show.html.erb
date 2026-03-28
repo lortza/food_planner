@@ -10,13 +10,15 @@
   </div>
 </header>
 
+<!-- TODO: turn this into a partial maybe? -->
+<!-- TODO: clear form after item is selected -->
 <%#= tag.article(id: dom_id(@shopping_list, :item_search_form)) do %>
   <%#= render partial: "item_search_form", locals: {shopping_list: @shopping_list} %>
 <%# end %>
 <%= tag.article(id: dom_id(@shopping_list, :item_search_form)) do %>
   <%= form_with(url: search_shopping_list_path(@shopping_list), method: :get, id: 'search-form',
                 data: { controller: "search", turbo_frame: dom_id(@shopping_list, :search_results) }) do %>
-    <div class="col-xs-12 mb-2">
+    <div class="col-xs-12">
       <%= text_field_tag :search, nil,
           placeholder: 'Find or Add an item...',
           class: 'form-control form-control-sm',
