@@ -18,6 +18,7 @@ class MaterialIcon
     when :archived then archived
     when :arrow_left then arrow_left
     when :calendar_clock then calendar_clock
+    when :calendar_meal then calendar_meal
     when :book then book
     when :checkmark then checkmark
     when :clock then clock
@@ -79,6 +80,13 @@ class MaterialIcon
       class: "#{symbol_classes} text-warning",
       alt: @title.presence || "It's been a while",
       title: @title.presence || "It's been a while")
+  end
+
+  def calendar_meal
+    content_tag(:span, "calendar_meal",
+      class: symbol_classes,
+      alt: @title.presence || "Meal Plan",
+      title: @title.presence || "Meal Plan")
   end
 
   def clock
