@@ -40,6 +40,7 @@ Live on heroku as [myfoodplanner](http://myfoodplanner.herokuapp.com)
   - Mark items as arriving with upcoming delivery order
   - Toggle items on/off the shopping list
   - Add recurring items to your shopping list with a cadence of weekly, biweekly, or monthly
+  - Toggle recipe list from upcoming meal plan
 - Notes
   - Separate notes section to keep your favorite conversions or other things you may need to jot down that aren't related to one specific recipe.
   - Mark a note as "favorite" for it to appear in the Notes dropdown.
