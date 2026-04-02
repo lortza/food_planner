@@ -7,6 +7,7 @@ RSpec.describe "shopping_lists/show", type: :view do
     @user = create(:user)
     @shopping_list = create(:shopping_list, user_id: @user.id)
     allow(view).to receive(:current_user).and_return(@user)
+    view.singleton_class.define_method(:upcoming_meal_plan) { nil }
     render
   end
 
@@ -44,6 +45,23 @@ RSpec.describe "shopping_lists/show", type: :view do
 
     it "does not display the add_to_shopping_cart icon" do
       expect(rendered).to_not match(/add_shopping_cart/)
+    end
+  end
+
+  context "when there is an upcoming meal plan" do
+    before do
+      meal_plan = create(:meal_plan)
+      view.singleton_class.define_method(:upcoming_meal_plan) { meal_plan }
+      render
+    end
+    it "displays the meal plan toggle button" do
+      expect(rendered).to match(/calendar_meal/)
+    end
+  end
+
+  context "when there is no upcoming meal plan" do
+    it "does not display the meal plan toggle button" do
+      expect(rendered).not_to match(/calendar_meal/)
     end
   end
 end
