@@ -1,0 +1,5 @@
+<%= turbo_stream.append 'js_ingredients_table' do %>
+  <%= fields_for 'recipe[ingredients_attributes][]', Ingredient.new, index: Time.current.to_i do |f_ingredient| %>
+    <%= render partial: '/ingredients/form_fields', locals: { f_ingredient: f_ingredient } %>
+  <% end %>
+<% end %>

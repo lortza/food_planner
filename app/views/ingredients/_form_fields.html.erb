@@ -1,5 +1,5 @@
 <div class="row border-bottom mb-0">
-  <div class="col-2 p-2 fw-bolder"><%= f_ingredient.number_field :quantity, class: 'form-control', step: 'any' %></div>
+  <div class="col-2 p-2"><%= f_ingredient.number_field :quantity, class: 'form-control', step: 'any' %></div>
   <div class="col-2 p-2">
     <%= f_ingredient.select :measurement_unit,
       options_for_select(Ingredient::UNITS, selected: f_ingredient.object.measurement_unit),
@@ -8,5 +8,12 @@
   </div>
   <div class="col-4 p-2"><%= f_ingredient.text_field :name, class: 'form-control' %></div>
   <div class="col-3 p-2"><%= f_ingredient.text_field :preparation_style, class: 'form-control' %></div>
-  <div class="col-1 p-2"><%= f_ingredient.check_box :_destroy, class: 'form-check-input' if f_ingredient.object.persisted? %></div>
+  <div class="col-1 p-2">
+    <% if f_ingredient.object.persisted? %>
+      <%= f_ingredient.check_box :_destroy, class: 'form-check-input' %>
+    <% else %>
+      <%= link_to MaterialIcon.new(icon: :close).render.html_safe, "#",
+          data: { controller: "remove-form-field", action: "click->remove-form-field#remove" } %>
+    <% end %>
+  </div>
 </div>

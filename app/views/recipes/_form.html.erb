@@ -11,7 +11,7 @@
       </div>
     </div> <!-- row -->
 
-    <div class="row">
+    <div class="row mb-3">
       <div class="field col-sm">
         <%= form.label :source_name, class: 'fw-bold' %>
         <%= form.text_field :source_name, class: 'form-control' %>
@@ -28,7 +28,7 @@
       <%= form.text_field :image_url, class: 'form-control' %>
     </div>
 
-    <div class="row">
+    <div class="row mb-3">
       <div class="field col-sm">
         <%= form.label :servings, class: 'fw-bold' %>
         <%= form.number_field :servings, class: 'form-control' %>
@@ -98,12 +98,13 @@
         <div class="col-1 py-1 px-2"><%= MaterialIcon.new(icon: :trash, size: :large).render %></div>
       </div>
       <%= form.fields_for :ingredients do |f_ingredient| %>
-        <%= render 'ingredients/form_fields', f_ingredient: f_ingredient %>
+        <%= render partial: '/ingredients/form_fields', locals: { f_ingredient: f_ingredient } %>
       <% end %>
     </div>
+    <%= link_to "Add ingredient", new_ingredient_path(recipe_id: recipe), class: "mt-2 #{button_classes}", data: {turbo_stream: true} %>
 
     <% if tags.present? %>
-      <div class="row mt-3">
+      <div class="row mt-4">
         <div class="col-sm-3">
           <%= form.label 'Select Tags', class: 'fw-bold' %>
         </div>
