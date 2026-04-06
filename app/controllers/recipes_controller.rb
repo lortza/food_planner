@@ -38,9 +38,6 @@ class RecipesController < ApplicationController
 
   def edit
     authorize(@recipe)
-
-    ingredient_qty = @recipe.ingredients.any? ? 3 : 15
-    ingredient_qty.times { @recipe.ingredients.build(quantity: nil) }
   end
 
   def update
