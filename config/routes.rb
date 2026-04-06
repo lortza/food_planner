@@ -34,6 +34,7 @@ Rails.application.routes.draw do
 
   resources :recipes, only: [:show, :index, :new, :create, :edit, :update, :destroy] do
     member do
+      resources :ingredients, only: [:new]
       post :copy_for_user
     end
   end
