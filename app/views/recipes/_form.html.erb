@@ -89,25 +89,17 @@
     </div> <!-- row -->
 
     <%= form.label 'Ingredients*', class: 'font-weight-bold mt-5' %>
-    <div class="ingredients-container w-100 overflow-x-scroll">
-      <table>
-        <thead>
-          <tr class='border-bottom'>
-            <th class='w-10 mw-5'>Qty</th>
-            <th class='w-10 mw-6'>Unit</th>
-            <th class='w-20 mw-15'>Name</th>
-            <th class='w-20 mw-15'>Preparation Style</th>
-            <th class='w-5 mw-1'><%= MaterialIcon.new(icon: :trash, size: :large).render %></th>
-          </tr>
-        </thead>
-        <tbody>
-          <%= form.fields_for :ingredients do |f_ingredient| %>
-            <tr class='border-bottom'>
-              <%= render 'ingredients/form_fields', f_ingredient: f_ingredient %>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+    <div id="js_ingredients_table" class="container ingredients-container w-100 overflow-x-scroll">
+      <div class=" row fw-bolder border-bottom border-top mb-0 text-bg-light ">
+        <div class="col-2 py-1 px-2">Qty</div>
+        <div class="col-2 py-1 px-2">Unit</div>
+        <div class="col-4 py-1 px-2">Name</div>
+        <div class="col-3 py-1 px-2">Preparation Style</div>
+        <div class="col-1 py-1 px-2"><%= MaterialIcon.new(icon: :trash, size: :large).render %></div>
+      </div>
+      <%= form.fields_for :ingredients do |f_ingredient| %>
+        <%= render 'ingredients/form_fields', f_ingredient: f_ingredient %>
+      <% end %>
     </div>
 
     <% if tags.present? %>
