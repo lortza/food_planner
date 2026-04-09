@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   resources :pending_recipes, only: [:new, :create]
   resources :meal_plan_recipes, only: [:create]
 
+  resources :ingredients, only: [:new]
   resources :recipes, only: [:show, :index, :new, :create, :edit, :update, :destroy] do
     member do
       post :copy_for_user

@@ -22,6 +22,7 @@ class MaterialIcon
     when :book then book
     when :checkmark then checkmark
     when :clock then clock
+    when :close then close
     when :copy then copy
     when :convert then convert
     when :edit then edit_note
@@ -94,6 +95,13 @@ class MaterialIcon
       class: symbol_classes,
       alt: @title.presence || "Duration warning",
       title: @title.presence || "Duration warning")
+  end
+
+  def close
+    content_tag(:span, "close",
+      class: symbol_classes,
+      alt: @title.presence || "Close",
+      title: @title.presence || "Close")
   end
 
   def checkmark
