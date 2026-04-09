@@ -202,10 +202,13 @@ Located in `lib/tasks/`:
 ## Solid Trio Implementation
 The Solid Trio (`solid_cache`, `solid_cable`, `solid_queue`) are implemented as tables in the main database instead of separate tables. https://guides.rubyonrails.org/8_0_release_notes.html
 
-## Styling & Assets
+## Code Style & Project Conventions
 
 **Ruby/Rails:**
 - Use Rails helpers when available and appropriate. For example, use `<%= turbo_frame_tag dom_id(@item) %>` instead of `<turbo-frame id="foo">`
+
+**RSpec:**
+- Use a `before` block instead of a `let!`. Ex: use `before { user }` instead of `let!(:user) { create(:user) }` 
 
 **CSS Architecture:**
 - All styles use plain CSS (no SASS/SCSS preprocessor)
