@@ -101,7 +101,10 @@
         <%= render partial: '/ingredients/form_fields', locals: { f_ingredient: f_ingredient } %>
       <% end %>
     </div>
-    <%= link_to "Add ingredient", new_ingredient_path(recipe_id: recipe), class: "mt-2 #{button_classes}", data: {turbo_stream: true} %>
+
+    <%= link_to new_ingredient_path, class: button_classes("warning float-end mt-2"), data: { turbo_stream: true } do %>
+      <%= MaterialIcon.new(icon: :plus_circle, title: 'Add ingredient').render %>  Add ingredient
+    <% end %>
 
     <% if tags.present? %>
       <div class="row mt-4">
