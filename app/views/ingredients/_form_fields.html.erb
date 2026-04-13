@@ -1,4 +1,4 @@
-<div class="row border-bottom mb-0">
+<%= tag.div( data: { add_ingredient_fields_target: "ingredientFieldsRow" }, class: "row border-bottom mb-0" ) do %>
   <div class="col-2 p-2"><%= f_ingredient.number_field :quantity, class: 'form-control', step: 'any' %></div>
   <div class="col-2 p-2">
     <%= f_ingredient.select :measurement_unit,
@@ -13,7 +13,7 @@
       <%= f_ingredient.check_box :_destroy, class: 'form-check-input' %>
     <% else %>
       <%= link_to MaterialIcon.new(icon: :close).render.html_safe, "#",
-          data: { controller: "remove-form-field", action: "click->remove-form-field#remove" } %>
+          data: { controller: "add-ingredient-fields", action: "click->add-ingredient-fields#remove" } %>
     <% end %>
   </div>
-</div>
+<% end %>

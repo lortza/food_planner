@@ -89,22 +89,29 @@
     </div> <!-- row -->
 
     <%= form.label 'Ingredients*', class: 'fw-bold mt-5' %>
-    <div id="js_ingredients_table" class="container ingredients-container w-100 overflow-x-scroll">
-      <div class=" row fw-bolder border-bottom border-top mb-0 text-bg-light ">
-        <div class="col-2 py-1 px-2">Qty</div>
-        <div class="col-2 py-1 px-2">Unit</div>
-        <div class="col-4 py-1 px-2">Name</div>
-        <div class="col-3 py-1 px-2">Preparation Style</div>
-        <div class="col-1 py-1 px-2"><%= MaterialIcon.new(icon: :trash, size: :large).render %></div>
+    <div data-controller="add-ingredient-fields">
+      <div data-add-ingredient-fields-target="container" class="container ingredients-container w-100 overflow-x-scroll">
+        <div class=" row fw-bolder border-bottom border-top mb-0 text-bg-light ">
+          <div class="col-2 py-1 px-2">Qty</div>
+          <div class="col-2 py-1 px-2">Unit</div>
+          <div class="col-4 py-1 px-2">Name</div>
+          <div class="col-3 py-1 px-2">Preparation Style</div>
+          <div class="col-1 py-1 px-2"><%= MaterialIcon.new(icon: :trash, size: :large).render %></div>
+        </div>
+        <%= form.fields_for :ingredients do |f_ingredient| %>
+          <%= render partial: '/ingredients/form_fields', locals: { f_ingredient: f_ingredient } %>
+        <% end %>
+
+        <template data-add-ingredient-fields-target="template">
+          <%= form.fields_for :ingredients, Ingredient.new(quantity: nil), child_index: 'NEW_RECORD' do |f_ingredient| %>
+            <%= render partial: '/ingredients/form_fields', locals: { f_ingredient: f_ingredient } %>
+          <% end %>
+        </template>
       </div>
-      <%= form.fields_for :ingredients do |f_ingredient| %>
-        <%= render partial: '/ingredients/form_fields', locals: { f_ingredient: f_ingredient } %>
+      <%= link_to '#', data: { action: "click->add-ingredient-fields#append" }, class: button_classes("warning float-end mt-2") do %>
+        <%= MaterialIcon.new(icon: :plus_circle, title: 'Add ingredient').render %>  Add ingredient
       <% end %>
     </div>
-
-    <%= link_to new_ingredient_path, class: button_classes("warning float-end mt-2"), data: { turbo_stream: true } do %>
-      <%= MaterialIcon.new(icon: :plus_circle, title: 'Add ingredient').render %>  Add ingredient
-    <% end %>
 
     <% if tags.present? %>
       <div class="row mt-4">
