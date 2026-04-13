@@ -103,7 +103,7 @@
         <% end %>
 
         <template data-add-ingredient-fields-target="template">
-          <%= form.fields_for :ingredients, Ingredient.new, child_index: 'NEW_RECORD' do |f_ingredient| %>
+          <%= form.fields_for :ingredients, Ingredient.new(quantity: nil), child_index: 'NEW_RECORD' do |f_ingredient| %>
             <%= render partial: '/ingredients/form_fields', locals: { f_ingredient: f_ingredient } %>
           <% end %>
         </template>
