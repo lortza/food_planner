@@ -28,6 +28,7 @@ Live on heroku as [myfoodplanner](http://myfoodplanner.herokuapp.com)
   - Create a recipe from scratch or create one via a source url and AI parsing
   - Archive recipes you no longer care to see in your list
   - Share a recipe with a friend
+  - Dynamically add ingredient lines to recipe form for long recipes
 - Recipe Suggestions Based on Ingredient Inventory
   - Enter an inventory of ingredients and get a list of recipe suggestions (PR #237)
 - Meal Planning
