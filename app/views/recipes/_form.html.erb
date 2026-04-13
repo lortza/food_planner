@@ -108,7 +108,7 @@
           <% end %>
         </template>
       </div>
-      <%= link_to '#', data: { action: "click->add-ingredient-fields#add" }, class: button_classes("warning float-end mt-2") do %>
+      <%= link_to '#', data: { action: "click->add-ingredient-fields#append" }, class: button_classes("warning float-end mt-2") do %>
         <%= MaterialIcon.new(icon: :plus_circle, title: 'Add ingredient').render %>  Add ingredient
       <% end %>
     </div>
