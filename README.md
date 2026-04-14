@@ -45,7 +45,9 @@ Live on heroku as [myfoodplanner](http://myfoodplanner.herokuapp.com)
 - Notes
   - Separate notes section to keep your favorite conversions or other things you may need to jot down that aren't related to one specific recipe.
   - Mark a note as "favorite" for it to appear in the Notes dropdown.
-
+- Tags
+  - Add tags to recipes easily without leaving the recipe form
+  - Filter recipe index page by tag
 
 ## Getting Started
 - Fork & Clone
