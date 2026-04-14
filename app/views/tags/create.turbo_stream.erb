@@ -13,9 +13,9 @@
       <% end %>
     </div>
   <% end %>
-  <%= turbo_stream.update "inline-tag-error", "" %>
+  <%= turbo_stream.update "js_inline_tag_error", "" %>
 <% else %>
-  <%= turbo_stream.update "inline-tag-error" do %>
+  <%= turbo_stream.update "js_inline_tag_error" do %>
     <%= @tag.errors.full_messages.to_sentence %>
   <% end %>
 <% end %>
