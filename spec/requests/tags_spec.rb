@@ -93,6 +93,34 @@ RSpec.describe "Tags", type: :request do
       post tags_path(tag: tag_attributes)
 
       expect(Tag.count).to eq(starting_count + 1)
+      expect(response).to redirect_to(tags_url)
+    end
+
+    it "renders new with 422 on invalid tags#create" do
+      post tags_path, params: {tag: {name: ""}}
+
+      expect(response).to have_http_status(:unprocessable_entity)
+      expect(response).to render_template(:new)
+    end
+
+    it "creates tag and returns turbo stream on tags#create" do
+      tag_attributes = build(:tag, user: user).attributes
+
+      expect {
+        post tags_path, params: {tag: tag_attributes}, headers: {"Accept" => "text/vnd.turbo-stream.html"}
+      }.to change(Tag, :count).by(1)
+
+      expect(response).to be_successful
+      expect(response.media_type).to eq("text/vnd.turbo-stream.html")
+    end
+
+    it "returns 422 turbo stream on invalid tags#create" do
+      expect {
+        post tags_path, params: {tag: {name: ""}}, headers: {"Accept" => "text/vnd.turbo-stream.html"}
+      }.not_to change(Tag, :count)
+
+      expect(response).to have_http_status(:unprocessable_entity)
+      expect(response.media_type).to eq("text/vnd.turbo-stream.html")
     end
 
     it "renders tags#update" do
