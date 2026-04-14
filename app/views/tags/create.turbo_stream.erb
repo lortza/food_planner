@@ -1,0 +1,21 @@
+<% if @tag.persisted? %>
+  <%= turbo_stream.append "js_recipe_tags_list" do %>
+    <div class="form-check">
+      <%= tag.input(
+          type: "checkbox",
+          class: "form-check-input",
+          name: "recipe[tag_ids][]",
+          id: "recipe_tag_ids_#{@tag.id}",
+          value: @tag.id,
+          checked: true) %>
+      <%= tag.label(for: "recipe_tag_ids_#{@tag.id}", class: "form-check-label") do %>
+        <%= @tag.name %>
+      <% end %>
+    </div>
+  <% end %>
+  <%= turbo_stream.update "inline-tag-error", "" %>
+<% else %>
+  <%= turbo_stream.update "inline-tag-error" do %>
+    <%= @tag.errors.full_messages.to_sentence %>
+  <% end %>
+<% end %>

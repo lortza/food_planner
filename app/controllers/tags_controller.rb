@@ -17,9 +17,15 @@ class TagsController < ApplicationController
     authorize(@tag)
 
     if @tag.save
-      redirect_to tags_url
+      respond_to do |format|
+        format.html { redirect_to tags_url }
+        format.turbo_stream
+      end
     else
-      render :new
+      respond_to do |format|
+        format.html { render :new, status: :unprocessable_entity }
+        format.turbo_stream { render status: :unprocessable_entity }
+      end
     end
   end
 
