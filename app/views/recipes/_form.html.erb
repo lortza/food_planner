@@ -114,21 +114,35 @@
     </div>
 
     <% if tags.present? %>
-      <div class="row mt-4">
+      <%= tag.div(data: {controller: "inline-tag-creator", inline_tag_creator_url_value: tags_path}, class: "row mt-4" ) do %>
         <div class="col-sm-3">
-          <%= form.label 'Select Tags', class: 'fw-bold' %>
-        </div>
-        <div class="col-sm-9">
-          <%= form.collection_check_boxes :tag_ids, tags, :id, :name do |r| %>
-            <div class='form-check'>
-              <%= r.check_box class: 'form-check-input' %>
-              <%= r.label class: 'form-check-label' do %>
-                <%= r.object.name %>
-              <% end %>
-            </div>
+          <p class="fw-bold mb-1">Select Tags</p>
+          <div class="field">
+            <%= tag.input(type: "text",
+                id: "new_tag_name",
+                placeholder: "new tag",
+                class: "form-control",
+                data: { inline_tag_creator_target: "input", action: "keydown.enter->inline-tag-creator#createTag" },
+                autocomplete: "off") %>
+            <div id="inline-tag-error" class="text-danger small mt-1"></div>
+          </div>
+          <%= tag.button(type: "button", data: { action: "click->inline-tag-creator#createTag" }, class: "#{button_classes} mt-2") do %>
+            Add Tag
           <% end %>
         </div>
-      </div>
+        <div class="col-sm-9">
+          <div id="js_recipe_tags_list">
+            <%= form.collection_check_boxes :tag_ids, tags, :id, :name do |r| %>
+              <div class="form-check">
+                <%= r.check_box class: 'form-check-input' %>
+                <%= r.label class: 'form-check-label' do %>
+                  <%= r.object.name %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
 
     <div class="row">
