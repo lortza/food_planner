@@ -1,4 +1,4 @@
-<%= form_with(model: tag) do |form| %>
+<%= form_with(model: tag, data: { turbo: false }) do |form| %>
   <%= render 'shared/errors', object: tag %>
 
   <div class='row'>

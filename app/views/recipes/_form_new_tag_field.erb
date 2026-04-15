@@ -1,0 +1,11 @@
+<%= tag.input(
+    type: "text",
+    id: "js_recipe_form_new_tag_field",
+    placeholder: "new tag",
+    class: "form-control",
+    data: {
+            inline_tag_creator_target: "input",
+            action: "keydown.enter->inline-tag-creator#createTag"
+          },
+    autocomplete: "off"
+) %>
