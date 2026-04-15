@@ -117,12 +117,7 @@
       <div class="col-sm-3">
         <p class="fw-bold mb-1">Select Tags</p>
         <div class="field">
-          <%= tag.input(type: "text",
-              id: "new_tag_name",
-              placeholder: "new tag",
-              class: "form-control",
-              data: { inline_tag_creator_target: "input", action: "keydown.enter->inline-tag-creator#createTag" },
-              autocomplete: "off") %>
+          <%= render partial: 'form_new_tag_field' %>
           <div id="js_inline_tag_error" class="text-danger small mt-1"></div>
         </div>
         <%= tag.button(type: "button", data: { action: "click->inline-tag-creator#createTag" }, class: "#{button_classes} mt-2") do %>

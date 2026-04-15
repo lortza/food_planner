@@ -15,9 +15,5 @@ export default class extends Controller {
       body: { tag: { name } },
       responseKind: "turbo-stream"
     })
-
-    if (response.ok) {
-      this.inputTarget.value = ""
-    }
   }
 }

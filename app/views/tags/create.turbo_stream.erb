@@ -14,6 +14,7 @@
     </div>
   <% end %>
   <%= turbo_stream.update "js_inline_tag_error", "" %>
+  <%= turbo_stream.replace "js_recipe_form_new_tag_field", partial: '/recipes/form_new_tag_field' %>
 <% else %>
   <%= turbo_stream.update "js_inline_tag_error" do %>
     <%= @tag.errors.full_messages.to_sentence %>
