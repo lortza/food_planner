@@ -13,11 +13,4 @@ export default class extends Controller {
       this.element.requestSubmit()
     }, 300)
   }
-
-  clear() {
-    if (this.hasInputTarget) {
-      this.inputTarget.value = ""
-    }
-    this.element.requestSubmit()
-  }
 }
