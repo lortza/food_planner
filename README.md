@@ -35,16 +35,16 @@ Live on heroku as [myfoodplanner](http://myfoodplanner.herokuapp.com)
   - Display ingredient breakdown for meal prep
   - Display page of all meal plan recipes for prep day. Check off ingredients and steps for each recipe. Toggle off a recipe when it is complete.
   - Upcoming meal plan displayed in nav bar (if present)
-  - Copy a whole meal plan to reuse it easily.
+  - Copy a whole meal plan to reuse it easily. ([PR #150](https://github.com/lortza/food_planner/pull/150))
 - Grocery Lists
-  - Favorite a shopping list to have it appear at the top of the lists page and sets it as the list in the navbar
+  - Favorite a shopping list to have it appear at the top of the lists page and sets it as the list in the navbar ([PR #1251](https://github.com/lortza/food_planner/pull/1251))
   - Mark items as arriving with upcoming delivery order
   - Toggle items on/off the shopping list
   - Add recurring items to your shopping list with a cadence of weekly, biweekly, or monthly
   - Toggle recipe list from upcoming meal plan ([PR #1193](https://github.com/lortza/food_planner/pull/1193))
 - Notes
   - Separate notes section to keep your favorite conversions or other things you may need to jot down that aren't related to one specific recipe. ([PR #1155](https://github.com/lortza/food_planner/pull/1155))
-  - Mark a note as "favorite" for it to appear in the Notes dropdown. ([PR #1251](https://github.com/lortza/food_planner/pull/1251))
+  - Mark a note as "favorite" for it to appear in the Notes dropdown.
 - Tags
   - Add tags to recipes easily without leaving the recipe form ([PR #1275](https://github.com/lortza/food_planner/pull/1275))
   - Filter recipe index page by tag ([PR #1121](https://github.com/lortza/food_planner/pull/1121))
