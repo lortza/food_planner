@@ -25,12 +25,12 @@ Live on heroku as [myfoodplanner](http://myfoodplanner.herokuapp.com)
 - Recipe Organization
   - List of recipes & ingredients
   - Display full recipes
-  - Create a recipe from scratch or create one via a source url and AI parsing
+  - Create a recipe from scratch or create one via a source url and AI parsing ([PR #1115](https://github.com/lortza/food_planner/pull/1115))
   - Archive recipes you no longer care to see in your list
   - Share a recipe with a friend
-  - Dynamically add ingredient lines to recipe form for long recipes
+  - Dynamically add ingredient lines to recipe form for long recipes ([PR #1276](https://github.com/lortza/food_planner/pull/1267))
 - Recipe Suggestions Based on Ingredient Inventory
-  - Enter an inventory of ingredients and get a list of recipe suggestions (PR #237)
+  - Enter an inventory of ingredients and get a list of recipe suggestions ([PR #237](https://github.com/lortza/food_planner/pull/237))
 - Meal Planning
   - Display ingredient breakdown for meal prep
   - Display page of all meal plan recipes for prep day. Check off ingredients and steps for each recipe. Toggle off a recipe when it is complete.
@@ -41,13 +41,13 @@ Live on heroku as [myfoodplanner](http://myfoodplanner.herokuapp.com)
   - Mark items as arriving with upcoming delivery order
   - Toggle items on/off the shopping list
   - Add recurring items to your shopping list with a cadence of weekly, biweekly, or monthly
-  - Toggle recipe list from upcoming meal plan
+  - Toggle recipe list from upcoming meal plan ([PR #1193](https://github.com/lortza/food_planner/pull/1193))
 - Notes
-  - Separate notes section to keep your favorite conversions or other things you may need to jot down that aren't related to one specific recipe.
-  - Mark a note as "favorite" for it to appear in the Notes dropdown.
+  - Separate notes section to keep your favorite conversions or other things you may need to jot down that aren't related to one specific recipe. ([PR #1155](https://github.com/lortza/food_planner/pull/1155))
+  - Mark a note as "favorite" for it to appear in the Notes dropdown. ([PR #1251](https://github.com/lortza/food_planner/pull/1251))
 - Tags
-  - Add tags to recipes easily without leaving the recipe form
-  - Filter recipe index page by tag
+  - Add tags to recipes easily without leaving the recipe form ([PR #1275](https://github.com/lortza/food_planner/pull/1275))
+  - Filter recipe index page by tag ([PR #1121](https://github.com/lortza/food_planner/pull/1121))
 
 ## Getting Started
 - Fork & Clone
