@@ -60,7 +60,6 @@ gem "sentry-rails"              # Rails support for Sentry
 gem "sentry-ruby"               # Error reporting to Sentry.io
 
 # HTTP Requests & Web scraping
-gem "requestjs-rails"           # JS library for making HTTP requests in Stimulus. https://github.com/rails/requestjs-rails
 gem "httparty"                  # Makes HTTP requests easier
 gem "nokogiri", ">= 1.8.5"      # HTML, XML, SAX, and Reader parser. Loofah depends on Nokogiri.
 
