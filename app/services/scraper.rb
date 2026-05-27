@@ -6,29 +6,33 @@
 class Scraper
   require "open-uri"
 
-  attr_reader :site_data
+  attr_reader :site_content, :print_url
 
   def initialize(endpoint)
     @endpoint = endpoint
-    @site_data = scrape_recipe_site
+    @site_content = nil
+    @print_url = nil
+    scrape
+  end
+
+  def scrape
+    html = URI.parse(@endpoint).open
+    doc = Nokogiri::HTML(html)
+    @print_url = extract_print_url(doc)
+    @site_content = extract_site_content(doc)
+  rescue => e
+    puts "Error scraping site: #{e.message}"
   end
 
   private
 
-  def scrape_recipe_site
-    html = URI.parse(@endpoint).open
-    doc = Nokogiri::HTML(html)
+  def extract_print_url(doc)
+    print_link = doc.css("a").find { |link| link.text.downcase.include?("print") }
+    print_link ? print_link["href"] : nil
+  end
+
+  def extract_site_content(doc)
     items = doc.css("li").filter_map { |li| li.text.squish unless li.text.blank? }
     items.join("\n")
-  rescue
-    "could not scrape"
-
-    # lis = doc.css('li')
-    # ingredient_heading = doc.at('h2:contains("Ingredients")') || doc.at('h3:contains("Ingredients")') || doc.at('h4:contains("Ingredients")')
-    # instructions_heading = doc.at('h2:contains("Instructions")') || doc.at('h3:contains("Instructions")') || doc.at('h4:contains("Instructions")')
-
-    # doc.xpath("//h3[text()='Ingredients']/following-sibling::ul/li").each do |node|
-    #   puts node.to_html
-    # end
   end
 end
