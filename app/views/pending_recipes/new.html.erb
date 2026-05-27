@@ -14,21 +14,20 @@
     <%= render 'shared/errors', object: @recipe %>
     <%= form.hidden_field :status %>
 
-    <div class="row">
-      <div class="col">
-        <div class="mb-3">
-          <%= form.label "Title*" %>
-          <%= form.text_field :title, autofocus: true, class: 'form-control' %>
-        </div>
-      </div>
-    </div> <!-- row -->
+    <div class="field mb-3">
+      <%= form.label "Source URL*" %>
+      <%= form.text_field :source_url, autofocus: true, class: 'form-control' %>
+    </div>
 
-    <div class="row">
+    <div class="field mb-3">
+      <%= form.label "Title" %>
+      <%= form.text_field :title, class: 'form-control' %>
+    </div>
 
-      <div class="field col-sm">
-        <%= form.label "Source URL*" %>
-        <%= form.text_field :source_url, class: 'form-control' %>
-      </div>
+    <div class="field mb-3">
+      <%= label_tag :body, "Body" %>
+      <p class="form-text text-muted">If you have the recipe instructions in a text format, you can paste them here. The system will attempt to extract the relevant information from the text.</p>
+      <%= text_area_tag :body, nil,{class: 'form-control'} %>
     </div>
 
     <div class="mb-3">
@@ -36,14 +35,10 @@
       <%= form.text_field :image_url, class: 'form-control' %>
     </div>
 
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="mb-3">
-          <%= form.label :notes %>
-          <%= form.text_area :notes, class: 'form-control' %>
-        </div>
-      </div>
-    </div> <!-- row -->
+    <div class="field mb-3">
+      <%= form.label :notes %>
+      <%= form.text_area :notes, class: 'form-control' %>
+    </div>
 
     <% if current_user.tags.present? %>
         <div class="row mt-3">

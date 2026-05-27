@@ -13,11 +13,10 @@ class PendingRecipesController < ApplicationController
     authorize(@recipe)
 
     extracted_uri = URI.extract(@recipe.source_url)[0]
-    @recipe.source_url = extracted_uri if extracted_uri.present?
-    @recipe.source_name = URI.parse(@recipe.source_url).host.gsub("www.", "")
+    @recipe.source_url = extracted_uri
 
-    extracted_content = RecipeDataExtractor.extract_from_site(@recipe.source_url)
-    @recipe = RecipeDataExtractor.format_data(recipe: @recipe, extracted_data: extracted_content)
+    extracted_content = RecipeDataExtractor.extract(source_url: @recipe.source_url, provided_body: params[:body])
+    @recipe = RecipeDataExtractor.build_recipe(recipe: @recipe, extracted_data: extracted_content)
 
     if @recipe.save
       redirect_to recipes_url(@recipe), notice: "Pending recipe created."
