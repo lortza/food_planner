@@ -22,6 +22,7 @@ class Scraper
     @site_content = extract_site_content(doc)
   rescue => e
     puts "Error scraping site: #{e.message}"
+    Rails.logger.error("Scraper: Error scraping site: #{e.message}")
   end
 
   private

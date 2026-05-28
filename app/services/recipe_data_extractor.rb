@@ -22,7 +22,7 @@ class RecipeDataExtractor
     end
 
     def build_recipe(recipe:, extracted_data:)
-      recipe.source_name = URI.parse(recipe.source_url).host.gsub("www.", "")
+      recipe.source_name = source_name_from_url(recipe.source_url)
       recipe.title = extracted_data["title"] if extracted_data["title"].present? && recipe.title.blank?
       recipe.instructions = extracted_data["ingredients_text"] + "\n\n" + extracted_data["instructions"] if extracted_data["instructions"].present? && extracted_data["ingredients_text"].present?
       recipe.servings = extracted_data["servings"] if extracted_data["servings"].present?
@@ -48,6 +48,15 @@ class RecipeDataExtractor
 
     private
 
+    def source_name_from_url(source_url)
+      return nil if source_url.blank?
+
+      host = URI.parse(source_url).host
+      host&.gsub("www.", "")
+    rescue URI::InvalidURIError
+      nil
+    end
+
     def parse_with_llm(content)
       prompt_text = "Please extract the recipe from the provided block of text. #{formatting_instructions} Here is the provided text: #{content}"
 
@@ -55,6 +64,7 @@ class RecipeDataExtractor
         response = AnthropicApiClient.create_message(prompt: prompt_text, max_tokens: MAX_TOKENS)
         if response["stop_reason"] == "max_tokens"
           puts "WARNING: Response was truncated due to max_tokens limit"
+          Rails.logger.warn("RecipeDataExtractor: Response was truncated due to max_tokens limit")
         end
 
         response_text = response["content"][0]["text"]
@@ -63,9 +73,13 @@ class RecipeDataExtractor
         puts "JSON parsing error: #{e.message}"
         puts "Response content (first 500 chars): #{response_text&.[](0..500)}"
         puts "Response content (last 200 chars): #{response_text&.[](-200..)}"
+        Rails.logger.error("RecipeDataExtractor: JSON parsing error: #{e.message}")
+        Rails.logger.error("RecipeDataExtractor: Response content (first 500 chars): #{response_text&.[](0..500)}")
+        Rails.logger.error("RecipeDataExtractor: Response content (last 200 chars): #{response_text&.[](-200..)}")
         FALLBACK_RESPONSE
       rescue => e
         puts "An error occurred: #{e.message}"
+        Rails.logger.error("RecipeDataExtractor: An error occurred: #{e.message}")
         FALLBACK_RESPONSE
       end
     end
@@ -79,6 +93,8 @@ class RecipeDataExtractor
       unless cleaned_content.start_with?("{") && cleaned_content.end_with?("}")
         puts "WARNING: JSON response appears incomplete. First 100 chars: #{cleaned_content[0..100]}"
         puts "Last 100 chars: #{cleaned_content[-100..]}"
+        Rails.logger.warn("RecipeDataExtractor: JSON response appears incomplete. First 100 chars: #{cleaned_content[0..100]}")
+        Rails.logger.warn("RecipeDataExtractor: Last 100 chars: #{cleaned_content[-100..]}")
       end
 
       JSON.parse(cleaned_content)

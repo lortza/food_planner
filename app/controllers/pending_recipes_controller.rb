@@ -21,7 +21,8 @@ class PendingRecipesController < ApplicationController
     if @recipe.save
       redirect_to recipes_url(@recipe), notice: "Pending recipe created."
     else
-      render :new, status: :unprocessable_entity, alert: "Something went wrong. Please try again."
+      flash.now[:alert] = "Something went wrong. Please try again."
+      render :new, status: :unprocessable_content
     end
   end
 
