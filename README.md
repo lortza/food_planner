@@ -25,7 +25,7 @@ Live on heroku as [myfoodplanner](http://myfoodplanner.herokuapp.com)
 - Recipe Organization
   - List of recipes & ingredients
   - Display full recipes
-  - Create a recipe from scratch or create one via a source url and AI parsing ([PR #1115](https://github.com/lortza/food_planner/pull/1115))
+  - Flexible recipe creation. Create a recipe from scratch, by copy/pasting text into a simple body field for AI parsing ([PR #1309](https://github.com/lortza/food_planner/pull/1309)), or via a single source url for AI parsing ([PR #1115](https://github.com/lortza/food_planner/pull/1115))
   - Archive recipes you no longer care to see in your list
   - Share a recipe with a friend
   - Dynamically add ingredient lines to recipe form for long recipes ([PR #1276](https://github.com/lortza/food_planner/pull/1267))

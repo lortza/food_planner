@@ -21,9 +21,12 @@ class AnthropicApiClient
 
   require "httparty"
   BASE_URL = "https://api.anthropic.com/v1"
+  DEFAULT_MAX_TOKENS = 1024
+  OPUS_MODEL_ID = "claude-opus-4-7"
+  SONNET_MODEL_ID = "claude-sonnet-4-6"
 
   class << self
-    def create_message(prompt:, model: "claude-sonnet-4-5", max_tokens: 1024)
+    def create_message(prompt:, model: SONNET_MODEL_ID, max_tokens: DEFAULT_MAX_TOKENS)
       response = HTTParty.post(
         "#{BASE_URL}/messages",
         headers: {
