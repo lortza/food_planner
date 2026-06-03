@@ -1,0 +1,24 @@
+<%= tag.div(class: "row mt-4") do %>
+  <div class="col-sm-3">
+    <p class="fw-bold mb-1">Select Tags</p>
+    <div class="field">
+      <%= render partial: 'recipes/form_new_tag_field' %>
+      <div id="js_inline_tag_error" class="text-danger small mt-1"></div>
+    </div>
+    <%= tag.button(type: "submit", form: "tag-creation", class: "#{button_classes} mt-2") do %>
+      Add Tag
+    <% end %>
+  </div>
+  <div class="col-sm-9">
+    <div id="js_recipe_tags_list">
+      <%= form.collection_check_boxes :tag_ids, current_user.tags.by_name, :id, :name do |r| %>
+        <div class="form-check">
+          <%= r.check_box class: 'form-check-input' %>
+          <%= r.label class: 'form-check-label' do %>
+            <%= r.object.name %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
