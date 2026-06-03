@@ -5,7 +5,8 @@
 
 class Scraper
   MAX_REDIRECTS = 3
-  MAX_BODY_BYTES = 5 * 1024 * 1024
+  BYTES_IN_1MB = 1024 * 1024
+  MAX_BODY_BYTES = 5 * BYTES_IN_1MB
   OPEN_TIMEOUT = 5
   READ_TIMEOUT = 10
   USER_AGENT = "FoodPlanner recipe importer"
