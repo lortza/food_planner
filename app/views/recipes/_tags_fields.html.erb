@@ -5,7 +5,7 @@
       <%= render partial: 'recipes/form_new_tag_field' %>
       <div id="js_inline_tag_error" class="text-danger small mt-1"></div>
     </div>
-    <%= tag.button(type: "submit", form: "tag-creation", class: "#{button_classes} mt-2") do %>
+    <%= tag.button(type: "submit", form: tag_form_id, class: "#{button_classes} mt-2") do %>
       Add Tag
     <% end %>
   </div>
