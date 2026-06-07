@@ -30,7 +30,7 @@ class RecipeDataExtractor
       recipe.prep_time = extracted_data["prep_time"] if extracted_data["prep_time"].present?
       recipe.cook_time = extracted_data["cook_time"] if extracted_data["cook_time"].present?
       recipe.image_url = extracted_data["image_url"] unless recipe.image_url.present?
-      recipe.notes += " #{extracted_data["notes"]}" if extracted_data["notes"].present?
+      recipe.notes = "#{recipe.notes} #{extracted_data["notes"]}".strip if extracted_data["notes"].present?
 
       if extracted_data["ingredients"].present?
         extracted_data["ingredients"].each do |ingredient|
