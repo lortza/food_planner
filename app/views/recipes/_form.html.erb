@@ -138,7 +138,7 @@
       <%= form.label 'Original Instructions*', class: 'fw-bold mt-3' %>
       <% if recipe.source_url.present? %>
         <%= form.label class: 'fw-bold mt-5' do %>
-          <%= link_to recipe.source_url, target: '_blank' do %>
+          <%= link_to recipe.source_url, target: '_blank', rel: 'noopener noreferrer' do %>
             <%= MaterialIcon.new(icon: :open_in_new, title: "View source recipe").render %>
           <% end %>
         <% end %>

@@ -54,6 +54,7 @@ class Recipe < ApplicationRecord
   has_many :tags, through: :recipe_tags
 
   DEFAULT_SOURCE = {source_name: "Original Creation", source_url: "/"}.freeze
+  ALLOWED_URL_SCHEMES = %w[http https].freeze
   DEFAULT_PARAMS = {
     prep_time: 10,
     cook_time: 20,
@@ -65,6 +66,12 @@ class Recipe < ApplicationRecord
 
   validates :title, :source_url, presence: true
   validates :title, uniqueness: {scope: :user_id, case_sensitive: false}
+
+  # Runs for all statuses, including pending: these URLs are rendered as links
+  # and image sources, so a disallowed scheme (e.g. javascript:, data:) must be
+  # rejected even before a recipe is finalized. See issue #1319.
+  validate :source_url_scheme_allowed
+  validate :image_url_scheme_allowed
 
   # These validations are skipped if the recipe is pending, but run for all other statuses
   with_options unless: :pending? do
@@ -106,6 +113,14 @@ class Recipe < ApplicationRecord
     self.source_url = DEFAULT_SOURCE[:source_url] if source_url.blank?
   end
 
+  def source_url_scheme_allowed
+    validate_url_scheme(:source_url)
+  end
+
+  def image_url_scheme_allowed
+    validate_url_scheme(:image_url)
+  end
+
   def guarantee_instructions_values
     return false if prep_day_instructions.blank? && instructions.blank?
 
@@ -136,6 +151,22 @@ class Recipe < ApplicationRecord
   end
 
   private
+
+  # Allows blank values and the "/" relative default; otherwise the URL must
+  # parse and use an http/https scheme. Blocks javascript:, data:, file:, and
+  # protocol-relative ("//host") values before they are rendered.
+  def validate_url_scheme(attribute)
+    value = self[attribute]
+    return if value.blank?
+    return if value == DEFAULT_SOURCE[:source_url]
+
+    scheme = URI.parse(value).scheme&.downcase
+    unless ALLOWED_URL_SCHEMES.include?(scheme)
+      errors.add(attribute, "must be a valid http or https URL")
+    end
+  rescue URI::InvalidURIError
+    errors.add(attribute, "is not a valid URL")
+  end
 
   def update_recipe_last_prepared_on(meal_plan)
     update(last_prepared_on: meal_plans.maximum(:prepared_on))

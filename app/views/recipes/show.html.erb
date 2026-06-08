@@ -10,7 +10,7 @@
       <sup><%= extra_work_flag(@recipe) if current_user.present? %> <%= status_flag(@recipe) %></sup>
     </h1>
     <div class='recipe-show-stats text-small'>
-      <div>Source: <%= link_to @recipe.source_name, @recipe.source_url, title: @recipe.source_name, target: '_blank' %></div>
+      <div>Source: <%= link_to @recipe.source_name, @recipe.source_url, title: @recipe.source_name, target: '_blank', rel: 'noopener noreferrer' %></div>
       <div>Servings: <%= @recipe.servings %></div>
       <div>Prep Time: <%= display_time(@recipe.prep_time) %></div>
       <div>Cook Time: <%= display_time(@recipe.cook_time) %></div>
