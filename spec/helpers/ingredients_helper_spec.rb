@@ -50,6 +50,15 @@ RSpec.describe IngredientsHelper, type: :helper do
       expected_output = "1.5 cloves garlic: minced"
       expect(helper.ingredient_display(ingredient: ingredient, multiplier: 0.5)).to eq(expected_output)
     end
+
+    it "doubles the quantity with a multiplier of 2" do
+      ingredient = build(:ingredient,
+        measurement_unit: "cup",
+        quantity: 1,
+        name: "water")
+      expected_output = "2 cups water"
+      expect(helper.ingredient_display(ingredient: ingredient, multiplier: 2)).to eq(expected_output)
+    end
   end
 
   describe "detail_display" do
@@ -116,12 +125,12 @@ RSpec.describe IngredientsHelper, type: :helper do
     end
 
     it "handles 1/3 gracefully" do
-      ingredient = build(:ingredient, quantity: 0.3)
+      ingredient = build(:ingredient, quantity: 0.3333)
       expect(helper.qty_display(ingredient.quantity)).to eq("1/3")
     end
 
-    it "handles 1/6 gracefully" do
-      ingredient = build(:ingredient, quantity: 0.6)
+    it "handles 2/3 gracefully" do
+      ingredient = build(:ingredient, quantity: 0.66666)
       expect(helper.qty_display(ingredient.quantity)).to eq("2/3")
     end
 

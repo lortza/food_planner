@@ -36,25 +36,24 @@ module IngredientsHelper
   private
 
   def process_fraction(number)
-    if known_fraction(number)
-      known_fraction(number)
-    elsif number.between?(0.3, 0.4)
-      known_fraction(0.33)
-    elsif number.between?(0.6, 0.7)
-      known_fraction(0.66)
-    else
-      number.round(3)
-    end
+    # Use an exact known fraction (e.g. 0.5), otherwise round the value down to
+    # two decimal places and try again (e.g. 0.6666 -> 0.66 -> "2/3"). Anything
+    # that still has no known fraction falls back to a rounded decimal.
+    known_fraction(number) || known_fraction(number.floor(2)) || number.round(3)
   end
 
   def known_fraction(number)
     fractions = {
+      0.0625 => "1/16",
       0.125 => "1/8",
       0.25 => "1/4",
       0.33 => "1/3",
+      0.375 => "3/8",
       0.5 => "1/2",
+      0.625 => "5/8",
       0.66 => "2/3",
-      0.75 => "3/4"
+      0.75 => "3/4",
+      0.875 => "7/8"
     }
     fractions[number]
   end
