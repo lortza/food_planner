@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 module IngredientsHelper
-  def ingredient_display(ingredient)
+  def ingredient_display(ingredient:, multiplier: 1)
+    quantity = ingredient.quantity * multiplier
     display_name = if Ingredient::DESCRIPTIVE_UNITS.include?(ingredient.measurement_unit)
-      pluralize(qty_display(ingredient), "#{ingredient.measurement_unit} #{ingredient.name}")
+      pluralize(qty_display(quantity), "#{ingredient.measurement_unit} #{ingredient.name}")
     else
-      "#{pluralize(qty_display(ingredient), ingredient.measurement_unit)} #{ingredient.name}"
+      "#{pluralize(qty_display(quantity), ingredient.measurement_unit)} #{ingredient.name}"
     end
 
     return "#{display_name}: #{ingredient.preparation_style}" if ingredient.preparation_style.present?
@@ -15,9 +16,9 @@ module IngredientsHelper
 
   def detail_display(detail)
     pluralized = if Ingredient::DESCRIPTIVE_UNITS.include?(detail.measurement_unit)
-      "#{qty_display(detail)} #{detail.measurement_unit}"
+      "#{qty_display(detail.quantity)} #{detail.measurement_unit}"
     else
-      pluralize(qty_display(detail), detail.measurement_unit)
+      pluralize(qty_display(detail.quantity), detail.measurement_unit)
     end
 
     [
@@ -26,10 +27,10 @@ module IngredientsHelper
     ].compact.join(" ")
   end
 
-  def qty_display(ingredient)
-    return ingredient.quantity.to_i if NumbersHelper.whole_number?(ingredient.quantity)
+  def qty_display(quantity)
+    return quantity.to_i if NumbersHelper.whole_number?(quantity)
 
-    process_fraction(ingredient.quantity)
+    process_fraction(quantity)
   end
 
   private

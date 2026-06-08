@@ -10,7 +10,7 @@ RSpec.describe IngredientsHelper, type: :helper do
         quantity: 1,
         name: "water")
       expected_output = "1 cup water"
-      expect(helper.ingredient_display(ingredient)).to eq(expected_output)
+      expect(helper.ingredient_display(ingredient: ingredient)).to eq(expected_output)
     end
 
     it "pluralizes the unit when it is a standard unit" do
@@ -19,7 +19,7 @@ RSpec.describe IngredientsHelper, type: :helper do
         quantity: 2,
         name: "water")
       expected_output = "2 cups water"
-      expect(helper.ingredient_display(ingredient)).to eq(expected_output)
+      expect(helper.ingredient_display(ingredient: ingredient)).to eq(expected_output)
     end
 
     it "pluralizes the name when the unit is a descriptive unit" do
@@ -28,7 +28,7 @@ RSpec.describe IngredientsHelper, type: :helper do
         quantity: 2,
         name: "carrot")
       expected_output = "2 whole carrots"
-      expect(helper.ingredient_display(ingredient)).to eq(expected_output)
+      expect(helper.ingredient_display(ingredient: ingredient)).to eq(expected_output)
     end
 
     it "if present, displays the preparation_style" do
@@ -38,7 +38,17 @@ RSpec.describe IngredientsHelper, type: :helper do
         quantity: 3,
         name: "garlic")
       expected_output = "3 cloves garlic: minced"
-      expect(helper.ingredient_display(ingredient)).to eq(expected_output)
+      expect(helper.ingredient_display(ingredient: ingredient)).to eq(expected_output)
+    end
+
+    it "if present, it multiplies the quantity by a multiplier" do
+      ingredient = build(:ingredient,
+        preparation_style: "minced",
+        measurement_unit: "clove",
+        quantity: 3,
+        name: "garlic")
+      expected_output = "1.5 cloves garlic: minced"
+      expect(helper.ingredient_display(ingredient: ingredient, multiplier: 0.5)).to eq(expected_output)
     end
   end
 
@@ -97,27 +107,27 @@ RSpec.describe IngredientsHelper, type: :helper do
   describe "qty_display" do
     it "displays whole numbers as integers" do
       ingredient = build(:ingredient, quantity: 1)
-      expect(helper.qty_display(ingredient)).to eq(1)
+      expect(helper.qty_display(ingredient.quantity)).to eq(1)
     end
 
     it "displays known fractions as fractions" do
       ingredient = build(:ingredient, quantity: 0.125)
-      expect(helper.qty_display(ingredient)).to eq("1/8")
+      expect(helper.qty_display(ingredient.quantity)).to eq("1/8")
     end
 
     it "handles 1/3 gracefully" do
       ingredient = build(:ingredient, quantity: 0.3)
-      expect(helper.qty_display(ingredient)).to eq("1/3")
+      expect(helper.qty_display(ingredient.quantity)).to eq("1/3")
     end
 
     it "handles 1/6 gracefully" do
       ingredient = build(:ingredient, quantity: 0.6)
-      expect(helper.qty_display(ingredient)).to eq("2/3")
+      expect(helper.qty_display(ingredient.quantity)).to eq("2/3")
     end
 
     it "rounds other unknown floats to 3 places" do
       ingredient = build(:ingredient, quantity: 0.711765)
-      expect(helper.qty_display(ingredient)).to eq(0.712)
+      expect(helper.qty_display(ingredient.quantity)).to eq(0.712)
     end
   end
 end
