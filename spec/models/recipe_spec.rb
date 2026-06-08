@@ -127,6 +127,56 @@ RSpec.describe Recipe, type: :model do
       end
     end
 
+    describe "url scheme validation" do
+      it "is valid with an http source_url" do
+        recipe = build(:recipe, source_url: "http://example.com/recipe")
+        expect(recipe).to be_valid
+      end
+
+      it "is valid with an https source_url" do
+        recipe = build(:recipe, source_url: "https://example.com/recipe")
+        expect(recipe).to be_valid
+      end
+
+      it "is valid with the '/' default source_url" do
+        recipe = build(:recipe, source_url: "/")
+        expect(recipe).to be_valid
+      end
+
+      it "is valid with a blank image_url" do
+        recipe = build(:recipe, image_url: "")
+        expect(recipe).to be_valid
+      end
+
+      it "is invalid with a javascript: scheme in source_url" do
+        recipe = build(:recipe, source_url: "javascript:alert(1)")
+        expect(recipe).to_not be_valid
+        expect(recipe.errors[:source_url]).to be_present
+      end
+
+      it "is invalid with a javascript: scheme in image_url" do
+        recipe = build(:recipe, image_url: "javascript:alert(1)")
+        expect(recipe).to_not be_valid
+        expect(recipe.errors[:image_url]).to be_present
+      end
+
+      it "is invalid with a data: scheme in image_url" do
+        recipe = build(:recipe, image_url: "data:text/html,<script>alert(1)</script>")
+        expect(recipe).to_not be_valid
+      end
+
+      it "is invalid with a protocol-relative source_url" do
+        recipe = build(:recipe, source_url: "//evil.example.com")
+        expect(recipe).to_not be_valid
+      end
+
+      it "rejects a disallowed scheme even when the recipe is pending" do
+        recipe = build(:recipe, status: :pending, source_url: "javascript:alert(1)")
+        expect(recipe).to_not be_valid
+        expect(recipe.errors[:source_url]).to be_present
+      end
+    end
+
     describe "title uniqueness" do
       let(:user_1) { create(:user) }
       let(:user_2) { create(:user) }
