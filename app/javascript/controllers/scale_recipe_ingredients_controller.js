@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["button", "js_half_scale", "js_full_scale", "js_double_scale"]
 
-  select() {
+  select(event) {
     // remove active from all buttons, set the clicked one active
     this.buttonTargets.forEach((button) => button.classList.remove("active"))
     event.currentTarget.classList.add("active")
@@ -14,6 +14,5 @@ export default class extends Controller {
     this.js_double_scaleTarget.classList.add("hidden")
 
     this[`${event.params.list}Target`].classList.remove("hidden")
-
   }
 }
