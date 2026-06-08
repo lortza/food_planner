@@ -29,6 +29,7 @@ Live on heroku as [myfoodplanner](http://myfoodplanner.herokuapp.com)
   - Archive recipes you no longer care to see in your list
   - Share a recipe with a friend
   - Dynamically add ingredient lines to recipe form for long recipes ([PR #1276](https://github.com/lortza/food_planner/pull/1267))
+  - Scale recipes' ingredients to 1/2x or 2x ([PR #1318](https://github.com/lortza/food_planner/pull/1318))
 - Recipe Suggestions Based on Ingredient Inventory
   - Enter an inventory of ingredients and get a list of recipe suggestions ([PR #237](https://github.com/lortza/food_planner/pull/237))
 - Meal Planning

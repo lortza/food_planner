@@ -1,0 +1,44 @@
+<h3>Ingredients</h3>
+
+<%= tag.div data: {controller: "scale-recipe-ingredients"} do %>
+  <p class="d-inline-flex gap-1">
+    <%= tag.button type: "button", class: "fw-bold btn",
+      data: {
+        bs_toggle: "button",
+        "scale-recipe-ingredients-target": "button",
+        action: "scale-recipe-ingredients#select",
+        "scale-recipe-ingredients-list-param": "js_half_scale" } do %>
+      &frac12;x
+    <% end %>
+    <%= tag.button type: "button", class: "fw-bold btn active",
+      data: {
+        bs_toggle: "button",
+        "scale-recipe-ingredients-target": "button",
+        action: "scale-recipe-ingredients#select",
+        "scale-recipe-ingredients-list-param": "js_full_scale" } do %>
+      1x
+    <% end %>
+    <%= tag.button type: "button", class: "fw-bold btn",
+      data: {
+        bs_toggle: "button",
+        "scale-recipe-ingredients-target": "button",
+        action: "scale-recipe-ingredients#select",
+        "scale-recipe-ingredients-list-param": "js_double_scale" } do %>
+      2x
+    <% end %>
+  </p>
+
+  <div id="ingredients" class='ms-3 mb-4'>
+    <%= tag.div class: "hidden", data: {"scale-recipe-ingredients-target": "js_half_scale"} do %>
+      <%= render partial: "recipes/ingredients_list", locals: {ingredients: ingredients, multiplier: 0.5} %>
+    <% end %>
+
+    <%= tag.div data: {"scale-recipe-ingredients-target": "js_full_scale"} do %>
+      <%= render partial: "recipes/ingredients_list", locals: {ingredients: ingredients, multiplier: 1} %>
+    <% end %>
+
+    <%= tag.div class: "hidden", data: {"scale-recipe-ingredients-target": "js_double_scale"} do %>
+      <%= render partial: "recipes/ingredients_list", locals: {ingredients: ingredients, multiplier: 2} %>
+    <% end %>
+  </div>
+<% end %>

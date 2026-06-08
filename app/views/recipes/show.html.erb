@@ -30,15 +30,9 @@
   <!-- Left side content -->
   <div class='col-md-8 col-sm-12'>
     <div class='row'>
-      <div class='col-md-6 col-sm-12'>
-       <h3>Ingredients</h3>
-        <div class='ms-3 mb-4'>
-          <% @recipe.ingredients.by_id.each do |ingredient| %>
-            <input type="checkbox">
-            <label class="mb-0 inline"><%= ingredient_display(ingredient) %></label><br>
-          <% end %>
-        </div>
-      </div> <!-- col-6 -->
+      <div class="col-md-6 col-sm-12">
+        <%= render partial: "recipes/ingredients_section", locals: {ingredients: @recipe.ingredients.by_id} %>
+      </div>
 
       <div class='col-md-6 col-sm-12'>
         <% if @recipe.extra_work_required? %>
