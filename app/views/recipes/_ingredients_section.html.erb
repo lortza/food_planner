@@ -30,15 +30,15 @@
 
   <div id="ingredients" class='ms-3 mb-4'>
     <%= tag.div class: "hidden", data: {"scale-recipe-ingredients-target": "js_half_scale"} do %>
-      <%= render partial: "recipes/ingredients_list", locals: {recipe: recipe, multiplier: 0.5} %>
+      <%= render partial: "recipes/ingredients_list", locals: {ingredients: ingredients, multiplier: 0.5} %>
     <% end %>
 
     <%= tag.div data: {"scale-recipe-ingredients-target": "js_full_scale"} do %>
-      <%= render partial: "recipes/ingredients_list", locals: {recipe: recipe, multiplier: 1} %>
+      <%= render partial: "recipes/ingredients_list", locals: {ingredients: ingredients, multiplier: 1} %>
     <% end %>
 
     <%= tag.div class: "hidden", data: {"scale-recipe-ingredients-target": "js_double_scale"} do %>
-      <%= render partial: "recipes/ingredients_list", locals: {recipe: recipe, multiplier: 2} %>
+      <%= render partial: "recipes/ingredients_list", locals: {ingredients: ingredients, multiplier: 2} %>
     <% end %>
   </div>
 <% end %>

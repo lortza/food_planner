@@ -1,4 +1,4 @@
-<% recipe.ingredients.by_id.each do |ingredient| %>
+<% ingredients.each do |ingredient| %>
   <input type="checkbox">
   <label class="mb-0 inline"><%= ingredient_display(ingredient: ingredient, multiplier: multiplier) %></label><br>
 <% end %>
