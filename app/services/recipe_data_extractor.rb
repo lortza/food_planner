@@ -30,6 +30,7 @@ class RecipeDataExtractor
       recipe.prep_time = extracted_data["prep_time"] if extracted_data["prep_time"].present?
       recipe.cook_time = extracted_data["cook_time"] if extracted_data["cook_time"].present?
       recipe.image_url = extracted_data["image_url"] unless recipe.image_url.present?
+      recipe.notes = "#{recipe.notes} #{extracted_data["notes"]}".strip if extracted_data["notes"].present?
 
       if extracted_data["ingredients"].present?
         extracted_data["ingredients"].each do |ingredient|
@@ -128,7 +129,7 @@ class RecipeDataExtractor
         include ```json or any markdown formatting. 
         
         Use the following keys: "title", "instructions", "ingredients", "ingredients_text", "servings", "prep_time", 
-        "cook_time", "total_time", "image_url". 
+        "cook_time", "total_time", "image_url", "notes". 
         
         Ingredients data will be stored redundantly in two different keys. 
         The data in the "ingredients_text" key should be stored as text with each ingredient separated by a newline character. 
@@ -151,7 +152,9 @@ class RecipeDataExtractor
         If time is given in hours, convert that to minutes and provide just the integer. 
         
         If there are several image urls on the page, use the one that includes words from the recipe 
-        title for the "image_url" field.'
+        title for the "image_url" field.
+        
+        If there are notes in a dedicated notes section, or variation or substitution notes, please include them in the "notes" field. Do not include random life story notes.'
       TEXT
     end
   end

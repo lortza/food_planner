@@ -9,6 +9,9 @@
     <%= render partial: "shared/recipe_parsing_loading_state" %>
   </div>
 
+  <%= form_with(model: current_user.tags.new, url: tags_path, html: { id: "tag-creation" }) do %>
+  <% end %>
+
   <div data-loading-spinner-target="form">
     <%= form_with model: @recipe, url: pending_recipes_path, method: :post, data: { action: "submit->loading-spinner#show" } do |form| %>
     <%= render 'shared/errors', object: @recipe %>
@@ -40,23 +43,7 @@
       <%= form.text_area :notes, class: 'form-control' %>
     </div>
 
-    <% if current_user.tags.present? %>
-        <div class="row mt-3">
-          <div class="col-sm-3">
-            <%= form.label 'Select Tags', class: 'fw-bold' %>
-          </div>
-          <div class="col-sm-9">
-            <%= form.collection_check_boxes :tag_ids, current_user.tags, :id, :name do |r| %>
-              <div class='form-check'>
-                <%= r.check_box class: 'form-check-input' %>
-                <%= r.label class: 'form-check-label' do %>
-                  <%= r.object.name %>
-                <% end %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
+    <%= render partial: "recipes/tags_fields", locals: {form: form, tag_form_id: "tag-creation"} %>
 
     <%= form.submit class: button_classes('primary mt-3') %>
     <% end %>
