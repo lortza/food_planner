@@ -27,6 +27,37 @@ class AnthropicApiClient
 
   class << self
     def create_message(prompt:, model: SONNET_MODEL_ID, max_tokens: DEFAULT_MAX_TOKENS)
+      post_message(
+        model: model,
+        max_tokens: max_tokens,
+        messages: [{
+          role: "user",
+          content: prompt
+        }]
+      )
+    end
+
+    # Sends an image alongside a text prompt using Anthropic's vision content
+    # blocks. The image block comes first (Anthropic's recommended ordering),
+    # followed by the text instructions. image_data must be base64 and
+    # media_type one of the Anthropic-supported image mime types.
+    def create_message_with_image(prompt:, image_data:, media_type:, model: SONNET_MODEL_ID, max_tokens: DEFAULT_MAX_TOKENS)
+      post_message(
+        model: model,
+        max_tokens: max_tokens,
+        messages: [{
+          role: "user",
+          content: [
+            {type: "image", source: {type: "base64", media_type: media_type, data: image_data}},
+            {type: "text", text: prompt}
+          ]
+        }]
+      )
+    end
+
+    private
+
+    def post_message(body)
       response = HTTParty.post(
         "#{BASE_URL}/messages",
         headers: {
@@ -34,18 +65,12 @@ class AnthropicApiClient
           "anthropic-version" => "2023-06-01",
           "content-type" => "application/json"
         },
-        body: {
-          model: model,
-          max_tokens: max_tokens,
-          messages: [{role: "user", content: prompt}]
-        }.to_json
+        body: body.to_json
       )
 
       puts response.parsed_response
       handle_response(response)
     end
-
-    private
 
     def handle_response(response)
       # When response has "type": "error" https://docs.claude.com/en/api/errors
