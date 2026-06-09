@@ -2,13 +2,15 @@
 
 require "base64"
 require "marcel"
+require "mini_magick"
 
 class RecipeDataExtractor
   MAX_TOKENS = 8192
   MAX_INPUT_LENGTH = 100_000
   FALLBACK_RESPONSE = {}
   ALLOWED_IMAGE_TYPES = %w[image/jpeg image/png image/gif image/webp].freeze
-  MAX_IMAGE_BYTES = 3_500_000 # raw bytes; base64 inflates ~4/3, staying under Anthropic's ~5MB limit
+  MAX_UPLOAD_BYTES = 15_000_000 # generous input guard; the image is downsized before being sent to the LLM
+  MAX_IMAGE_DIMENSION = 1568 # Claude downsamples images larger than this on the long edge, so resizing past it adds cost without detail
 
   class << self
     def extract(source_url:, provided_body: nil, image: nil)
@@ -132,28 +134,39 @@ class RecipeDataExtractor
       FALLBACK_RESPONSE
     end
 
-    # Validates an uploaded image. Returns [media_type, bytes] on success or
-    # [nil, nil] on any failure (never raises). Defenses: a content-type allowlist
-    # gate, a size cap, and a Marcel magic-byte check that confirms the bytes are
-    # a real image of an allowed type and derives the TRUE media type (so a spoofed
-    # browser content-type can't mislead what we send to Anthropic).
+    # Validates and downsizes an uploaded image. Returns [media_type, bytes] on
+    # success or [nil, nil] on any failure (never raises). Defenses: a content-type
+    # allowlist gate, a generous upload-size guard, and a Marcel magic-byte check
+    # that confirms the bytes are a real image of an allowed type and derives the
+    # TRUE media type (so a spoofed browser content-type can't mislead what we send
+    # to Anthropic). The bytes are then downsized so large photos are accepted but
+    # handed to the LLM at a reasonable resolution.
     def read_and_validate_image(image)
       return [nil, nil] unless image.respond_to?(:content_type) && image.respond_to?(:read)
       return [nil, nil] unless ALLOWED_IMAGE_TYPES.include?(image.content_type)
-      return [nil, nil] if image.size.to_i > MAX_IMAGE_BYTES
+      return [nil, nil] if image.size.to_i > MAX_UPLOAD_BYTES
 
       bytes = image.read
       return [nil, nil] if bytes.blank?
-      return [nil, nil] if bytes.bytesize > MAX_IMAGE_BYTES
+      return [nil, nil] if bytes.bytesize > MAX_UPLOAD_BYTES
 
       detected_type = Marcel::MimeType.for(bytes)
       return [nil, nil] unless ALLOWED_IMAGE_TYPES.include?(detected_type)
 
-      [detected_type, bytes]
+      [detected_type, downsize_for_vision(bytes)]
     rescue => e
       puts "Image processing error: #{e.message}"
       Rails.logger.error("RecipeDataExtractor: Image processing error: #{e.message}")
       [nil, nil]
+    end
+
+    # Shrinks the image so its long edge is at most MAX_IMAGE_DIMENSION while preserving
+    # the aspect ratio and stripping metadata. This bounds token cost and payload size.
+    def downsize_for_vision(bytes)
+      image = MiniMagick::Image.read(bytes)
+      image.resize "#{MAX_IMAGE_DIMENSION}x#{MAX_IMAGE_DIMENSION}>"
+      image.strip
+      image.to_blob
     end
 
     # Normalizes user- or scraper-supplied text before it is embedded in the LLM

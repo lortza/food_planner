@@ -36,7 +36,7 @@
 
         <div class="field mb-3">
           <%= label_tag :image_upload, "Extract from Image" %>
-          <p class="form-text text-muted">Upload a photo or screenshot of a recipe (JPEG, PNG, GIF, or WebP, max 3.5 MB) and the system will read the recipe text from it. An uploaded image takes priority over the Source URL and Text fields above.</p>
+          <p class="form-text text-muted">Upload a photo or screenshot of a recipe (JPEG, PNG, GIF, or WebP, max 15 MB) and the system will read the recipe text from it. An uploaded image takes priority over the Source URL and Text fields above.</p>
           <%= file_field_tag :image_upload, accept: "image/jpeg,image/png,image/gif,image/webp", class: 'form-control' %>
         </div>
       </div>
