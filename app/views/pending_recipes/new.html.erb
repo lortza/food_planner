@@ -1,8 +1,8 @@
-<% content_for(:title, 'Save a Pending Recipe') %>
+<% content_for(:title, 'Extract a Recipe') %>
 
 <p><%= link_to MaterialIcon.new(icon: :arrow_left).render + 'Recipes', recipes_path %></p>
 
-<h1>Save a Pending Recipe</h1>
+<h1>Extract a Recipe from an Outside Source</h1>
 
 <div data-controller="loading-spinner">
   <div data-loading-spinner-target="loading" class="hidden">
@@ -13,33 +13,48 @@
   <% end %>
 
   <div data-loading-spinner-target="form">
-    <%= form_with model: @recipe, url: pending_recipes_path, method: :post, data: { action: "submit->loading-spinner#show" } do |form| %>
+    <%= form_with model: @recipe, url: pending_recipes_path, method: :post, multipart: true, data: { action: "submit->loading-spinner#show" } do |form| %>
     <%= render 'shared/errors', object: @recipe %>
     <%= form.hidden_field :status %>
 
-    <div class="field mb-3">
-      <%= form.label "Source URL*" %>
-      <%= form.text_field :source_url, autofocus: true, class: 'form-control' %>
+    <div class="card mb-4 ">
+      <div class="card-body">
+
+        <h2 class="fs-3">Select an Extraction Source*</h2>
+        <p class="form-text text-muted">Select one of the recipe extraction options below.</p>
+        <div class="field mb-3">
+          <%= form.label "Extract from Source URL" %>
+          <p class="form-text text-muted">Most convenient. Paste the recipe url here. The system will attempt to extract the relevant information from the page.</p>
+          <%= form.text_field :source_url, autofocus: true, class: 'form-control' %>
+        </div>
+
+        <div class="field mb-3">
+          <%= label_tag :body, "Extract from Text" %>
+          <p class="form-text text-muted">Most accurate. If you have the recipe information in a text format, you can paste it here. The system will attempt to extract the relevant information from the text. This text takes priority over the Source URL field above.</p>
+          <%= text_area_tag :body, nil,{class: 'form-control'} %>
+        </div>
+
+        <div class="field mb-3">
+          <%= label_tag :image_upload, "Extract from Image" %>
+          <p class="form-text text-muted">Upload a photo or screenshot of a recipe (JPEG, PNG, GIF, or WebP, max 3.5 MB) and the system will read the recipe text from it. An uploaded image takes priority over the Source URL and Text fields above.</p>
+          <%= file_field_tag :image_upload, accept: "image/jpeg,image/png,image/gif,image/webp", class: 'form-control' %>
+        </div>
+      </div>
     </div>
 
     <div class="field mb-3">
-      <%= form.label "Title" %>
+      <%= form.label "Title (optional)" %>
       <%= form.text_field :title, class: 'form-control' %>
     </div>
 
-    <div class="field mb-3">
-      <%= label_tag :body, "Body" %>
-      <p class="form-text text-muted">If you have the recipe instructions in a text format, you can paste them here. The system will attempt to extract the relevant information from the text.</p>
-      <%= text_area_tag :body, nil,{class: 'form-control'} %>
-    </div>
-
     <div class="mb-3">
-      <%= form.label :image_url %>
+      <%= form.label "Image URL (optional)" %>
+      <p class="form-text text-muted">The image of the food itself to accompany the recipe.</p>
       <%= form.text_field :image_url, class: 'form-control' %>
     </div>
 
     <div class="field mb-3">
-      <%= form.label :notes %>
+      <%= form.label "Notes (optional)" %>
       <%= form.text_area :notes, class: 'form-control' %>
     </div>
 
