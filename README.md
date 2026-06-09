@@ -22,10 +22,14 @@ Live on heroku as [myfoodplanner](http://myfoodplanner.herokuapp.com)
 
 ## Features
 
+- Flexible Recipe Creation
+  - Create a recipe from scratch by filling out a form
+  - Or copy/paste text into a simple body field for AI parsing ([PR #1309](https://github.com/lortza/food_planner/pull/1309))
+  - Or provide a single source url for AI parsing ([PR #1115](https://github.com/lortza/food_planner/pull/1115))
+  - Or upload an image of a recipe for AI parsing ([PR #1324](https://github.com/lortza/food_planner/pull/1324))
 - Recipe Organization
   - List of recipes & ingredients
   - Display full recipes
-  - Flexible recipe creation. Create a recipe from scratch, by copy/pasting text into a simple body field for AI parsing ([PR #1309](https://github.com/lortza/food_planner/pull/1309)), or via a single source url for AI parsing ([PR #1115](https://github.com/lortza/food_planner/pull/1115))
   - Archive recipes you no longer care to see in your list
   - Share a recipe with a friend
   - Dynamically add ingredient lines to recipe form for long recipes ([PR #1276](https://github.com/lortza/food_planner/pull/1267))
