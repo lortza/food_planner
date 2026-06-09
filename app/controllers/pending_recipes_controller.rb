@@ -15,7 +15,7 @@ class PendingRecipesController < ApplicationController
     extracted_uri = URI.extract(@recipe.source_url)[0]
     @recipe.source_url = extracted_uri
 
-    extracted_content = RecipeDataExtractor.extract(source_url: @recipe.source_url, provided_body: params[:body])
+    extracted_content = RecipeDataExtractor.extract(source_url: @recipe.source_url, provided_body: params[:body], image: params[:image_upload])
     @recipe = RecipeDataExtractor.build_recipe(recipe: @recipe, extracted_data: extracted_content)
 
     if @recipe.save

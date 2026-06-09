@@ -54,4 +54,34 @@ RSpec.describe "PendingRecipes", type: :request do
       sign_in user
     end
   end
+
+  describe "creating a pending recipe from an uploaded image" do
+    let(:image) { fixture_file_upload(Rails.root.join("spec/fixtures/files/recipe.png"), "image/png") }
+
+    before { sign_in user }
+
+    it "passes the uploaded image to the extractor and persists a pending recipe" do
+      received_kwargs = nil
+      allow(RecipeDataExtractor).to receive(:extract) do |**kwargs|
+        received_kwargs = kwargs
+        {"title" => "Recipe From Image"}
+      end
+
+      expect {
+        post pending_recipes_path, params: {recipe: {status: "pending", source_url: "", title: ""}, image_upload: image}
+      }.to change(Recipe, :count).by(1)
+
+      expect(received_kwargs[:image]).to be_present
+      expect(response).to have_http_status(:redirect)
+      expect(Recipe.last.title).to eq("Recipe From Image")
+    end
+
+    it "does not let the transient upload populate the persisted image_url" do
+      allow(RecipeDataExtractor).to receive(:extract).and_return("title" => "No Image URL Recipe")
+
+      post pending_recipes_path, params: {recipe: {status: "pending", source_url: "", title: ""}, image_upload: image}
+
+      expect(Recipe.last.image_url).to eq("")
+    end
+  end
 end
