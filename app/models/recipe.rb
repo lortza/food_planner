@@ -66,10 +66,6 @@ class Recipe < ApplicationRecord
 
   validates :title, :source_url, presence: true
   validates :title, uniqueness: {scope: :user_id, case_sensitive: false}
-
-  # Runs for all statuses, including pending: these URLs are rendered as links
-  # and image sources, so a disallowed scheme (e.g. javascript:, data:) must be
-  # rejected even before a recipe is finalized. See issue #1319.
   validate :source_url_scheme_allowed
   validate :image_url_scheme_allowed
 
@@ -94,11 +90,6 @@ class Recipe < ApplicationRecord
   normalizes :title, with: ->(title) { title.strip.squish }
 
   scope :active_or_pending, -> { where(status: [:pending, :active]) }
-
-  def self.for_prep_date(date)
-    # WIP
-    # Recipe.joins(:preparations).where(preparations: {date: date})
-  end
 
   def self.by_last_prepared
     order(last_prepared_on: :asc)

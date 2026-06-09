@@ -74,7 +74,7 @@ jobs:
       DATABASE_URL: "postgres://rails:password@localhost:5432/rails_test"
     steps:
       - name: Install packages
-        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y google-chrome-stable curl libjemalloc2 libvips sqlite3
+        run: sudo apt-get update && sudo apt-get install --no-install-recommends -y google-chrome-stable curl libjemalloc2 libvips imagemagick sqlite3
 
       - name: Checkout code
         uses: actions/checkout@v6
