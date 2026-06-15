@@ -29,15 +29,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v6
 
-      - name: Unfreeze Bundler for Dependabot
-        if: github.actor == 'dependabot[bot]'
-        run: bundle config set frozen false
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
           bundler-cache: true
           cache-version: 1 # Increment this to clear cache if needed
+      - name: Unfreeze Bundler for Dependabot
+        if: github.actor == 'dependabot[bot]'
+        run: bundle config set frozen false
 
       - name: Scan for security vulnerabilities in JavaScript dependencies
         run: bin/importmap audit
@@ -48,15 +48,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v6
 
-      - name: Unfreeze Bundler for Dependabot
-        if: github.actor == 'dependabot[bot]'
-        run: bundle config set frozen false
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
           bundler-cache: true
           cache-version: 1 # Increment this to clear cache if needed
+      - name: Unfreeze Bundler for Dependabot
+        if: github.actor == 'dependabot[bot]'
+        run: bundle config set frozen false
 
       - name: Lint code for consistent style
         run: bundle exec standardrb
@@ -87,17 +87,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v6
 
-      - name: Unfreeze Bundler for Dependabot
-        if: github.actor == 'dependabot[bot]'
-        run: bundle config set frozen false
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: .ruby-version
           bundler-cache: true
           cache-version: 1 # Increment this to clear cache if needed
+      - name: Unfreeze Bundler for Dependabot
+        if: github.actor == 'dependabot[bot]'
+        run: bundle config set frozen false
 
-      - name: Run tests
+      - name: Run testsgb
         env:
           RAILS_ENV: test
         # REDIS_URL: redis://localhost:6379/0
@@ -133,14 +133,14 @@ jobs:
         uses: actions/checkout@v6
 
       # Add or replace dependency steps here
-      - name: Unfreeze Bundler for Dependabot
-        if: github.actor == 'dependabot[bot]'
-        run: bundle config set frozen false
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
           cache-version: 1 # Increment this to clear cache if needed
+      - name: Unfreeze Bundler for Dependabot
+        if: github.actor == 'dependabot[bot]'
+        run: bundle config set frozen false
       # Add or replace database setup steps here
       - name: Set up database schema
         run: bin/rails db:schema:load
