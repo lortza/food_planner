@@ -121,25 +121,25 @@ If this file gets borked, [this post](https://stackoverflow.com/a/54279636/50095
 ## Deploying
 
 ### Heroku Setup for libvips
-The app requires libvips for image processing. Configure buildpacks via the Heroku Dashboard:
+The app requires libvips for image processing. This is handled via an `Aptfile` in the repo root that lists the required system packages.
 
-1. Go to https://dashboard.heroku.com/apps/myfoodplanner/settings
+**Configure buildpacks** via the Heroku Dashboard:
+
+1. Go to your app settings at https://dashboard.heroku.com/apps/YOUR_APP_NAME/settings
 2. Scroll to "Buildpacks" section
 3. Ensure buildpacks are in this order:
-   - `https://github.com/Newlywords/heroku-buildpack-vips`
+   - `https://github.com/heroku/heroku-buildpack-apt`
    - `heroku/ruby`
 
-**Alternative via CLI** (if Heroku CLI is working):
+**Alternative via CLI:**
 ```bash
-heroku buildpacks:add --index 1 hthttps://github.com/Newlywords/heroku-buildpack-vips -a myfoodplanner
-heroku buildpacks:add --index 2 heroku/ruby -a myfoodplanner
+heroku buildpacks:clear -a YOUR_APP_NAME
+heroku buildpacks:add --index 1 https://github.com/heroku/heroku-buildpack-apt -a YOUR_APP_NAME
+heroku buildpacks:add --index 2 heroku/ruby -a YOUR_APP_NAME
 ```
 
-**Note:** If you encounter Heroku CLI errors, use the dashboard method above or reinstall the CLI with:
-```bash
-brew uninstall heroku
-brew install heroku/brew/heroku
-```
+The `heroku-buildpack-apt` will read the `Aptfile` and install libvips before the Ruby buildpack runs.
+
 
 ### Deployment
 - log into Heroku CLI with `heroku login`
