@@ -56,6 +56,7 @@ Live on heroku as [myfoodplanner](http://myfoodplanner.herokuapp.com)
 
 ## Getting Started
 - Fork & Clone
+- Install libvips (required for image processing): `brew install vips`
 - `bundle`
 - Set up DB: `rake db:setup` (Runs `db:create`, `db:schema:load` and `db:seed`)
 - User: In development, see the seeds file for the user credentials so you can log in
@@ -118,6 +119,29 @@ EDITOR="code --wait" bin/rails credentials:edit
 If this file gets borked, [this post](https://stackoverflow.com/a/54279636/5009528) and [this post](https://medium.com/@kirill_shevch/encrypted-secrets-credentials-in-rails-6-rails-5-1-5-2-f470accd62fc) will help.
 
 ## Deploying
+
+### Heroku Setup for libvips
+The app requires libvips for image processing. Configure buildpacks via the Heroku Dashboard:
+
+1. Go to https://dashboard.heroku.com/apps/myfoodplanner/settings
+2. Scroll to "Buildpacks" section
+3. Ensure buildpacks are in this order:
+   - `https://github.com/Newlywords/heroku-buildpack-vips`
+   - `heroku/ruby`
+
+**Alternative via CLI** (if Heroku CLI is working):
+```bash
+heroku buildpacks:add --index 1 hthttps://github.com/Newlywords/heroku-buildpack-vips -a myfoodplanner
+heroku buildpacks:add --index 2 heroku/ruby -a myfoodplanner
+```
+
+**Note:** If you encounter Heroku CLI errors, use the dashboard method above or reinstall the CLI with:
+```bash
+brew uninstall heroku
+brew install heroku/brew/heroku
+```
+
+### Deployment
 - log into Heroku CLI with `heroku login`
 - assuming your local copy of the `main` branch is up to date, run `git push heroku main`
 

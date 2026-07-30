@@ -49,8 +49,9 @@ gem "kamal", require: false
 gem "thruster", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-gem "image_processing", "~> 2.0"
-gem "mini_magick", "~> 5.3" # image_processing no longer uses mini_magick by default https://github.com/minimagick/minimagick
+# Note: Currently not using ActiveStorage - images are stored served remotely
+gem "image_processing", "~> 2.0", require: false
+gem "ruby-vips", "~> 2.0", require: false
 
 # Authentication and Authorization
 gem "devise"                    # User authentication
