@@ -2,6 +2,7 @@
 
 require "base64"
 require "marcel"
+require "image_processing"
 require "vips"
 
 class RecipeDataExtractor
