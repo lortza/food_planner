@@ -51,7 +51,7 @@ gem "thruster", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # Note: Currently not using ActiveStorage - images are stored served remotely
 gem "image_processing", "~> 2.0"
-gem "ruby-vips", "~> 2.0"
+gem "ruby-vips", "~> 2.0", require: false
 
 # Authentication and Authorization
 gem "devise"                    # User authentication
