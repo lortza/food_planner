@@ -112,6 +112,8 @@ jobs:
 
       - name: Setup Ruby with dependencies
         uses: ./.github/actions/setup-ruby-deps
+        with:
+          install-system-packages: 'true'
 
       # Database setup steps
       - name: Set up database schema
