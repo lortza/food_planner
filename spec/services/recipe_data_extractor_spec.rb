@@ -201,8 +201,8 @@ RSpec.describe RecipeDataExtractor, type: :service do
 
         RecipeDataExtractor.extract(source_url: source_url, image: large_image)
 
-        sent_dimensions = MiniMagick::Image.read(Base64.strict_decode64(captured)).dimensions
-        expect(sent_dimensions.max).to be <= RecipeDataExtractor::MAX_IMAGE_DIMENSION
+        sent_image = Vips::Image.new_from_buffer(Base64.strict_decode64(captured), "")
+        expect([sent_image.width, sent_image.height].max).to be <= RecipeDataExtractor::MAX_IMAGE_DIMENSION
       end
 
       context "with a disallowed content type" do

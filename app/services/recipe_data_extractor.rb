@@ -2,7 +2,7 @@
 
 require "base64"
 require "marcel"
-require "mini_magick"
+require "vips"
 
 class RecipeDataExtractor
   MAX_TOKENS = 8192
@@ -163,10 +163,16 @@ class RecipeDataExtractor
     # Shrinks the image so its long edge is at most MAX_IMAGE_DIMENSION while preserving
     # the aspect ratio and stripping metadata. This bounds token cost and payload size.
     def downsize_for_vision(bytes)
-      image = MiniMagick::Image.read(bytes)
-      image.resize "#{MAX_IMAGE_DIMENSION}x#{MAX_IMAGE_DIMENSION}>"
-      image.strip
-      image.to_blob
+      image = Vips::Image.new_from_buffer(bytes, "")
+
+      # Calculate scaling to fit within MAX_IMAGE_DIMENSION
+      scale = [MAX_IMAGE_DIMENSION.to_f / image.width, MAX_IMAGE_DIMENSION.to_f / image.height, 1.0].min
+
+      # Only resize if needed (scale < 1)
+      image = image.resize(scale) if scale < 1.0
+
+      # Strip metadata and write to buffer as PNG (lossless, works for all input formats)
+      image.write_to_buffer(".png", strip: true)
     end
 
     # Normalizes user- or scraper-supplied text before it is embedded in the LLM
