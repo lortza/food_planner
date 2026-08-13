@@ -10,6 +10,7 @@ class RecipeDataExtractor
   MAX_INPUT_LENGTH = 100_000
   FALLBACK_RESPONSE = {}
   ALLOWED_IMAGE_TYPES = %w[image/jpeg image/png image/gif image/webp].freeze
+  IMAGE_CONVERSION_TYPE = "image/png"
   MAX_UPLOAD_BYTES = 15_000_000 # generous input guard; the image is downsized before being sent to the LLM
   MAX_IMAGE_DIMENSION = 1568 # Claude downsamples images larger than this on the long edge, so resizing past it adds cost without detail
 
@@ -154,7 +155,7 @@ class RecipeDataExtractor
       detected_type = Marcel::MimeType.for(bytes)
       return [nil, nil] unless ALLOWED_IMAGE_TYPES.include?(detected_type)
 
-      [detected_type, downsize_for_vision(bytes)]
+      [IMAGE_CONVERSION_TYPE, downsize_for_vision(bytes)]
     rescue => e
       puts "Image processing error: #{e.message}"
       Rails.logger.error("RecipeDataExtractor: Image processing error: #{e.message}")
