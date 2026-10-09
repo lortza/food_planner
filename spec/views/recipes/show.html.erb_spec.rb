@@ -9,7 +9,7 @@ RSpec.describe "recipes/show.html.erb", type: :view do
   before do
     assign(:recipe, recipe)
     allow(view).to receive(:current_user).and_return(user)
-    permits_update = double("RecipePolicy", update?: true) # rubocop:disable RSpec/VerifiedDoubles
+    permits_update = double("RecipePolicy", update?: true)
     view.define_singleton_method(:policy) { |_| permits_update }
   end
 
@@ -40,7 +40,7 @@ RSpec.describe "recipes/show.html.erb", type: :view do
 
       before do
         allow(view).to receive(:current_user).and_return(nil)
-        denies_update = double("RecipePolicy", update?: false) # rubocop:disable RSpec/VerifiedDoubles
+        denies_update = double("RecipePolicy", update?: false)
         view.define_singleton_method(:policy) { |_| denies_update }
         render
       end
@@ -190,7 +190,7 @@ RSpec.describe "recipes/show.html.erb", type: :view do
 
   context "when the recipe update policy does not permit" do
     before do
-      denies_update = double("RecipePolicy", update?: false) # rubocop:disable RSpec/VerifiedDoubles
+      denies_update = double("RecipePolicy", update?: false)
       view.define_singleton_method(:policy) { |_| denies_update }
       render
     end
