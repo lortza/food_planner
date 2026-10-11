@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class AnthropicApiClient
+  # Claude Models: https://platform.claude.com/docs/en/models/overview
+
   # Claude AI API docs https://docs.claude.com/en/api/overview
   #
   # Sample response:
@@ -23,7 +25,7 @@ class AnthropicApiClient
   BASE_URL = "https://api.anthropic.com/v1"
   DEFAULT_MAX_TOKENS = 1024
   OPUS_MODEL_ID = "claude-opus-4-7"
-  SONNET_MODEL_ID = "claude-sonnet-4-6"
+  SONNET_MODEL_ID = "claude-sonnet-5-5"
 
   class << self
     def create_message(prompt:, model: SONNET_MODEL_ID, max_tokens: DEFAULT_MAX_TOKENS)

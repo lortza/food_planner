@@ -211,7 +211,18 @@ class RecipeDataExtractor
         Use the following keys: "title", "instructions", "ingredients", "ingredients_text", "servings", "prep_time", 
         "cook_time", "total_time", "image_url", "notes". 
         
-        The title is usually the largest print at the top of the page. Locate it and store it in the "title" key without editing its content.
+        For the "title" key: Extract the recipe name/title using these steps:
+        1. Look for the main heading or largest text near the top of the content
+        2. The title describes what dish is being made (e.g., "Chocolate Chip Cookies", "Beef Stew")
+        3. Exclude section labels like "Ingredients", "Instructions", "Desserts", "Main Course"
+        4. Exclude blog post titles or author names
+        5. If you find multiple candidates, choose the one that specifically names the dish
+        6. Store the exact title text without any modification
+        7. If no clear recipe title exists, create one using your best guess based on the content and following the style of the examples of valid titles below.
+
+        Examples of valid titles: "Classic Margherita Pizza", "Chicken Soup", "5-Minute Chocolate Mug Cake"
+        Not titles: "Recipes", "Dinner Ideas", "By Chef John", "Ingredients", "Nutrition Facts"
+
         Ingredients data will be stored redundantly in two different keys. 
         The data in the "ingredients_text" key should be stored as text with each ingredient separated by a newline character. 
         The data in the "ingredients" key should be stored as an array with each ingredient broken into its own hash with the following keys: "name", "quantity", "measurement_unit", and "preparation_style". 
