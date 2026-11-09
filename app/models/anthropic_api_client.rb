@@ -72,9 +72,15 @@ class AnthropicApiClient
 
     private
 
+    # ANTHROPIC_API_KEY lets a developer use their own key locally without the
+    # master key; everywhere else the key comes from Rails credentials.
+    def api_key
+      ENV["ANTHROPIC_API_KEY"].presence || Rails.application.credentials.anthropic_api_key
+    end
+
     def post_message(body, betas: [], timeout: nil)
       headers = {
-        "x-api-key" => Rails.application.credentials.anthropic_api_key,
+        "x-api-key" => api_key,
         "anthropic-version" => "2023-06-01",
         "content-type" => "application/json"
       }

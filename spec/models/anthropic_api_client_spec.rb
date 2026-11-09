@@ -78,6 +78,30 @@ RSpec.describe AnthropicApiClient do
     end
   end
 
+  describe "API key" do
+    it "uses the key from credentials by default" do
+      allow(ENV).to receive(:[]).and_call_original
+      allow(ENV).to receive(:[]).with("ANTHROPIC_API_KEY").and_return(nil)
+
+      AnthropicApiClient.create_message(prompt: "hi")
+
+      expect(HTTParty).to have_received(:post) do |_url, options|
+        expect(options[:headers]["x-api-key"]).to eq("test-key")
+      end
+    end
+
+    it "prefers the ANTHROPIC_API_KEY environment variable when set" do
+      allow(ENV).to receive(:[]).and_call_original
+      allow(ENV).to receive(:[]).with("ANTHROPIC_API_KEY").and_return("env-key")
+
+      AnthropicApiClient.create_message(prompt: "hi")
+
+      expect(HTTParty).to have_received(:post) do |_url, options|
+        expect(options[:headers]["x-api-key"]).to eq("env-key")
+      end
+    end
+  end
+
   describe "error handling" do
     {400 => BadRequestError, 401 => UnauthorizedError, 429 => RateLimitError, 500 => ServerError, 418 => APIError}.each do |code, error_class|
       it "raises #{error_class} on a #{code} response" do
