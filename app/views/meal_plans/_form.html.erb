@@ -26,9 +26,10 @@
     <div class="col-sm-3">Select Recipes</div>
 
     <div class="col-sm-9">
+      <% preselected_recipe_ids = local_assigns[:preselected_recipe_ids].presence %>
       <%= form.collection_check_boxes :recipe_ids, recipes, :id, :title do |r| %>
         <div class='form-check'>
-          <%= r.check_box class: 'form-check-input' %>
+          <%= r.check_box({ class: 'form-check-input' }.merge(preselected_recipe_ids ? { checked: preselected_recipe_ids.include?(r.object.id) } : {})) %>
           <%= r.label class: 'form-check-label' do %>
             <%= link_to r.object.title, r.object %> (serves <%= r.object.servings %>) <%= r.object.last_prepared_on %>
           <% end %>

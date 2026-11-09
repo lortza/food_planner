@@ -38,6 +38,9 @@ Rails.application.routes.draw do
     end
   end
 
+  # Declared before resources :meal_plans so /meal_plans/assistant isn't routed to meal_plans#show
+  resource :meal_plan_assistant, only: [:show, :create], path: 'meal_plans/assistant'
+
   resources :meal_plans, only: [:show, :index, :new, :create, :edit, :update, :destroy] do
     member do
       get :copy

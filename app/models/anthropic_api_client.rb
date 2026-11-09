@@ -29,14 +29,14 @@ class AnthropicApiClient
 
   class << self
     def create_message(prompt:, model: SONNET_MODEL_ID, max_tokens: DEFAULT_MAX_TOKENS)
-      post_message(
+      post_message({
         model: model,
         max_tokens: max_tokens,
         messages: [{
           role: "user",
           content: prompt
         }]
-      )
+      })
     end
 
     # Sends an image alongside a text prompt using Anthropic's vision content
@@ -44,7 +44,7 @@ class AnthropicApiClient
     # followed by the text instructions. image_data must be base64 and
     # media_type one of the Anthropic-supported image mime types.
     def create_message_with_image(prompt:, image_data:, media_type:, model: SONNET_MODEL_ID, max_tokens: DEFAULT_MAX_TOKENS)
-      post_message(
+      post_message({
         model: model,
         max_tokens: max_tokens,
         messages: [{
@@ -54,21 +54,36 @@ class AnthropicApiClient
             {type: "text", text: prompt}
           ]
         }]
+      })
+    end
+
+    # Multi-turn conversation with a system prompt. `system` may be a string or
+    # an array of text blocks (to place cache_control breakpoints); `messages`
+    # is the full alternating user/assistant history. Extra request fields
+    # (output_config, fallbacks, ...) pass straight through to the API, and
+    # `betas` become the anthropic-beta header.
+    def create_conversation(system:, messages:, model:, max_tokens: DEFAULT_MAX_TOKENS, betas: [], timeout: nil, **request_fields)
+      post_message(
+        {model: model, max_tokens: max_tokens, system: system, messages: messages, **request_fields},
+        betas: betas,
+        timeout: timeout
       )
     end
 
     private
 
-    def post_message(body)
-      response = HTTParty.post(
-        "#{BASE_URL}/messages",
-        headers: {
-          "x-api-key" => Rails.application.credentials.anthropic_api_key,
-          "anthropic-version" => "2023-06-01",
-          "content-type" => "application/json"
-        },
-        body: body.to_json
-      )
+    def post_message(body, betas: [], timeout: nil)
+      headers = {
+        "x-api-key" => Rails.application.credentials.anthropic_api_key,
+        "anthropic-version" => "2023-06-01",
+        "content-type" => "application/json"
+      }
+      headers["anthropic-beta"] = betas.join(",") if betas.any?
+
+      options = {headers: headers, body: body.to_json}
+      options[:timeout] = timeout if timeout
+
+      response = HTTParty.post("#{BASE_URL}/messages", **options)
 
       puts response.parsed_response
       handle_response(response)

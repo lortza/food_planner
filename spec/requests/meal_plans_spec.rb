@@ -94,6 +94,21 @@ RSpec.describe "MealPlans", type: :request do
       expect(response).to render_template(:new)
     end
 
+    it "pre-checks recipes passed as recipe_ids on meal_plans#new, ignoring other users' recipes" do
+      picked_recipe = create(:recipe, user: user)
+      unpicked_recipe = create(:recipe, user: user)
+      other_users_recipe = create(:recipe)
+
+      get new_meal_plan_path(recipe_ids: [picked_recipe.id, other_users_recipe.id])
+
+      page = Nokogiri::HTML(response.body)
+      checkbox = ->(recipe) { page.at_css("input[type=checkbox][value='#{recipe.id}']") }
+      expect(checkbox.call(picked_recipe)["checked"]).to eq("checked")
+      expect(checkbox.call(unpicked_recipe)["checked"]).to be_nil
+      expect(checkbox.call(other_users_recipe)).to be_nil
+      expect(user.reload.meal_plans.count).to eq(1)
+    end
+
     it "renders meal_plans#edit" do
       get edit_meal_plan_path(user_meal_plan.id)
 

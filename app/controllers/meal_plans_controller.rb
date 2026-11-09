@@ -28,6 +28,14 @@ class MealPlansController < ApplicationController
     @meal_plan = current_user.meal_plans.new(default_params)
     authorize(@meal_plan)
     @recipes = current_user.recipes.active.by_title
+
+    # Recipes picked in the meal plan assistant arrive as recipe_ids. They are
+    # pre-checked in the form (and listed first) rather than assigned to the
+    # unsaved meal plan, which would trigger the last_prepared_on callbacks.
+    @preselected_recipe_ids = @recipes.where(id: Array(params[:recipe_ids])).ids
+    if @preselected_recipe_ids.any?
+      @recipes = @recipes.to_a.partition { |recipe| @preselected_recipe_ids.include?(recipe.id) }.flatten
+    end
   end
 
   def copy

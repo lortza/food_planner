@@ -40,6 +40,44 @@ RSpec.describe AnthropicApiClient do
     end
   end
 
+  describe ".create_conversation" do
+    it "posts the system prompt, full history, extra fields, beta header, and timeout" do
+      AnthropicApiClient.create_conversation(
+        model: "claude-opus-5-5",
+        system: [{type: "text", text: "be helpful"}],
+        messages: [{role: "user", content: "hi"}, {role: "assistant", content: "hello"}, {role: "user", content: "again"}],
+        max_tokens: 500,
+        output_config: {effort: "medium"},
+        fallbacks: "default",
+        betas: ["beta-one", "beta-two"],
+        timeout: 90
+      )
+
+      expect(HTTParty).to have_received(:post) do |_url, options|
+        body = JSON.parse(options[:body])
+        expect(body).to include(
+          "model" => "claude-opus-5-5",
+          "max_tokens" => 500,
+          "system" => [{"type" => "text", "text" => "be helpful"}],
+          "output_config" => {"effort" => "medium"},
+          "fallbacks" => "default"
+        )
+        expect(body["messages"].map { |m| m["role"] }).to eq(%w[user assistant user])
+        expect(options[:headers]["anthropic-beta"]).to eq("beta-one,beta-two")
+        expect(options[:timeout]).to eq(90)
+      end
+    end
+
+    it "omits the beta header and timeout when not given" do
+      AnthropicApiClient.create_conversation(model: "m", system: "s", messages: [{role: "user", content: "hi"}])
+
+      expect(HTTParty).to have_received(:post) do |_url, options|
+        expect(options[:headers]).not_to have_key("anthropic-beta")
+        expect(options).not_to have_key(:timeout)
+      end
+    end
+  end
+
   describe "error handling" do
     {400 => BadRequestError, 401 => UnauthorizedError, 429 => RateLimitError, 500 => ServerError, 418 => APIError}.each do |code, error_class|
       it "raises #{error_class} on a #{code} response" do
