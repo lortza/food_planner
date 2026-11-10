@@ -1,21 +1,12 @@
-<% if @user_message.present? %>
-  <%= turbo_stream.append 'assistant_conversation' do %>
-    <div class="d-flex justify-content-end mb-2">
-      <div class="meal-plan-assistant-user-message"><%= @user_message %></div>
-    </div>
-  <% end %>
-<% end %>
-
 <%= turbo_stream.append 'assistant_conversation' do %>
-  <% if @reply %>
-    <%= render 'reply', reply: @reply %>
+  <% if @turn %>
+    <%= render 'turn', turn: @turn %>
   <% else %>
+    <% if @user_message.present? %>
+      <div class="d-flex justify-content-end mb-2">
+        <div class="meal-plan-assistant-user-message"><%= @user_message %></div>
+      </div>
+    <% end %>
     <div class="alert alert-warning mb-3"><%= @error %></div>
-  <% end %>
-<% end %>
-
-<% if @reply %>
-  <%= turbo_stream.replace 'assistant_history' do %>
-    <%= hidden_field_tag :history, @reply.history.to_json, id: 'assistant_history' %>
   <% end %>
 <% end %>

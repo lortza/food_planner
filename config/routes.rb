@@ -39,7 +39,9 @@ Rails.application.routes.draw do
   end
 
   # Declared before resources :meal_plans so /meal_plans/assistant isn't routed to meal_plans#show
-  resource :meal_plan_assistant, only: [:show, :create], path: 'meal_plans/assistant'
+  resource :meal_plan_assistant, only: [:show, :create, :destroy], path: 'meal_plans/assistant' do
+    resources :recipes, only: [:create, :destroy], controller: 'meal_plan_assistant_recipes'
+  end
 
   resources :meal_plans, only: [:show, :index, :new, :create, :edit, :update, :destroy] do
     member do

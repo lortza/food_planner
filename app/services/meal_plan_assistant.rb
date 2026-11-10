@@ -5,10 +5,13 @@
 # taking into account how recently each was made, servings, prep time, and the
 # recipes already picked for this week (the "tray").
 #
-# The conversation is stateless on the server: the caller passes back the
-# `history` returned by the previous reply. Only text is kept in the history
-# (no thinking blocks), so the history can round-trip through the browser and
-# never trips the API's preserved-thinking check.
+# The caller supplies the conversation `history` (see
+# MealPlanAssistant::Conversation) and receives the updated history in the
+# reply. Only text is kept in the history (no thinking blocks), so it never
+# trips the API's preserved-thinking check.
+#
+# The "tray" is the meal plan for the upcoming prep day: the existing upcoming
+# meal plan if there is one, otherwise MealPlan.suggested_date.
 class MealPlanAssistant
   MODEL_ID = "claude-opus-5-5"
   EFFORT = "medium"
@@ -68,12 +71,21 @@ class MealPlanAssistant
   Suggestion = Data.define(:recipe, :reason)
   Reply = Data.define(:message, :suggestions, :history)
 
-  def self.reply(user:, message:, history: [], tray_recipe_ids: [])
-    new(user).reply(message: message, history: history, tray_recipe_ids: tray_recipe_ids)
+  def self.reply(user:, message:, history: [], tray_recipe_ids: [], prep_day: nil)
+    new(user, prep_day: prep_day).reply(message: message, history: history, tray_recipe_ids: tray_recipe_ids)
   end
 
-  def initialize(user)
+  def self.prep_day_for(user)
+    user.meal_plans.upcoming&.prepared_on || MealPlan.suggested_date(user)
+  end
+
+  def self.meal_plan_for(user, prep_day: prep_day_for(user))
+    user.meal_plans.find_by(prepared_on: prep_day)
+  end
+
+  def initialize(user, prep_day: nil)
     @user = user
+    @prep_day = prep_day || self.class.prep_day_for(user)
   end
 
   def reply(message:, history: [], tray_recipe_ids: [])
@@ -97,7 +109,7 @@ class MealPlanAssistant
 
   private
 
-  attr_reader :user
+  attr_reader :user, :prep_day
 
   def request_reply(messages)
     AnthropicApiClient.create_conversation(
@@ -177,7 +189,6 @@ class MealPlanAssistant
 
   def date_context
     today = Time.zone.today
-    prep_day = MealPlan.suggested_date(user)
     "Today is #{today.strftime("%A, %B %-d, %Y")}. They are planning for the prep day on #{prep_day.strftime("%A, %B %-d, %Y")}."
   end
 

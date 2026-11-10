@@ -41,7 +41,27 @@ RSpec.describe MealPlanAssistant do
     request
   end
 
+  describe ".prep_day_for and .meal_plan_for" do
+    it "targets the upcoming meal plan when there is one" do
+      upcoming = create(:meal_plan, user: user, prepared_on: Time.zone.today + 4)
+
+      expect(described_class.prep_day_for(user)).to eq(upcoming.prepared_on)
+      expect(described_class.meal_plan_for(user)).to eq(upcoming)
+    end
+
+    it "falls back to the suggested date with no meal plan yet" do
+      expect(described_class.prep_day_for(user)).to eq(MealPlan.suggested_date(user))
+      expect(described_class.meal_plan_for(user)).to be_nil
+    end
+  end
+
   describe ".reply" do
+    it "tells Claude which prep day is being planned" do
+      described_class.reply(user: user, message: "something cozy", prep_day: Date.new(2026, 11, 14))
+
+      expect(sent_request[:system].last[:text]).to include("Saturday, November 14, 2026")
+    end
+
     it "returns Claude's message and suggestions mapped to the user's recipes" do
       reply = described_class.reply(user: user, message: "something cozy")
 
