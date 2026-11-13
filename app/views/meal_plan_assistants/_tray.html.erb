@@ -1,0 +1,36 @@
+<% recipes = meal_plan ? meal_plan.recipes.order(:title).to_a : [] %>
+<div id="assistant_tray" class="card mb-3 meal-plan-assistant-tray">
+  <div class="card-body">
+    <h5 class="card-title">
+      This week: <%= l prep_day, format: :month_as_text %>
+      <% if recipes.any? %>
+        <small class="text-muted">
+          <%= pluralize(recipes.size, 'recipe') %> &middot; <%= recipes.sum(&:servings) %> servings
+        </small>
+      <% end %>
+    </h5>
+
+    <% if recipes.empty? %>
+      <p class="card-text text-muted mb-0">
+        Tap <strong>+ Add</strong> on a suggestion to put it on this week's meal plan.
+      </p>
+    <% else %>
+      <ul class="list-group list-group-flush mb-2">
+        <% recipes.each do |recipe| %>
+          <li class="list-group-item d-flex justify-content-between align-items-center px-0"
+              data-meal-plan-assistant-target="trayItem"
+              data-recipe-id="<%= recipe.id %>">
+            <span><%= link_to recipe.title, recipe %> (serves <%= recipe.servings %>)</span>
+            <%= button_to 'Remove', meal_plan_assistant_recipe_path(recipe),
+                          method: :delete,
+                          class: 'btn btn-sm btn-link text-danger' %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <% if meal_plan %>
+      <%= link_to 'View meal plan', meal_plan_path(meal_plan), class: 'btn btn-primary btn-sm' %>
+    <% end %>
+  </div>
+</div>

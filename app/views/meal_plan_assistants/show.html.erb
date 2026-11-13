@@ -1,0 +1,60 @@
+<% content_for(:title, 'Plan with Claude') %>
+<%# Always fetch fresh on back/forward so the tray matches the real meal plan %>
+<% content_for(:head) do %>
+  <meta name="turbo-cache-control" content="no-cache">
+<% end %>
+
+<div data-controller="meal-plan-assistant">
+  <p><%= link_to MaterialIcon.new(icon: :arrow_left).render + 'Meal Plans', meal_plans_path %></p>
+
+  <h1>Plan with Claude</h1>
+
+  <% if @overdue_recipes.any? %>
+    <p class="text-muted">
+      Haven't had in a while:
+      <%= safe_join(@overdue_recipes.map { |recipe| "#{recipe.title} (#{time_ago_in_words(recipe.last_prepared_on)} ago)" }, ', ') %>.
+    </p>
+  <% end %>
+
+  <%= render 'tray', meal_plan: @meal_plan, prep_day: @prep_day %>
+
+  <div id="assistant_conversation" data-meal-plan-assistant-target="conversation">
+    <%= render partial: 'turn', collection: @turns %>
+  </div>
+
+  <p class="text-muted hidden" data-meal-plan-assistant-target="thinking">
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    Claude is thinking&hellip;
+  </p>
+
+  <%= form_with url: meal_plan_assistant_path,
+                data: {
+                  meal_plan_assistant_target: 'form',
+                  action: 'turbo:submit-start->meal-plan-assistant#submitStart turbo:submit-end->meal-plan-assistant#submitEnd'
+                } do |form| %>
+    <div class="d-flex flex-wrap gap-2 mb-2">
+      <% @starters.each do |starter| %>
+        <%= button_tag starter, type: 'submit', name: 'starter', value: starter, class: 'btn btn-sm btn-outline-secondary' %>
+      <% end %>
+    </div>
+
+    <div class="input-group">
+      <%= form.text_area :message,
+                         rows: 2,
+                         class: 'form-control',
+                         placeholder: "…or tell me what you're in the mood for",
+                         data: {
+                           meal_plan_assistant_target: 'message',
+                           action: 'keydown.enter->meal-plan-assistant#submitOnEnter'
+                         } %>
+      <%= form.submit 'Ask', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+
+  <% if @turns.any? %>
+    <%= button_to 'Start over', meal_plan_assistant_path,
+                  method: :delete,
+                  class: 'btn btn-sm btn-link text-muted mt-2',
+                  form: { data: { turbo_confirm: 'Clear this conversation? Recipes on the meal plan stay.' } } %>
+  <% end %>
+</div>
