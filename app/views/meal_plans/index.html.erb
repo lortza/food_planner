@@ -5,6 +5,8 @@
   <%= link_to MaterialIcon.new(icon: :plus_circle, title: 'Create new Meal Plan', classes: 'float-end').render, new_meal_plan_path %>
 </h1>
 
+<p><%= link_to 'Plan with Claude', meal_plan_assistant_path, class: 'btn btn-outline-primary' %></p>
+
 <% @meal_plans.each do |plan| %>
   <div class="card mb-3">
     <div class="card-body">

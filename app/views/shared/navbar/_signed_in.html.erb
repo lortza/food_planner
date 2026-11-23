@@ -10,6 +10,7 @@
     <%= link_to '+ New Recipe', new_recipe_path, class: 'dropdown-item' %>
     <%= link_to '+ New Extracted Recipe', new_pending_recipe_path, class: 'dropdown-item' %>
     <%= link_to '+ New Meal Plan', new_meal_plan_path, class: 'dropdown-item' %>
+    <%= link_to 'Plan with Claude', meal_plan_assistant_path, class: 'dropdown-item' %>
     <% if current_user.inventory.present? %>
       <div class='dropdown-divider'></div>
       <%= link_to 'Recipe Suggestions', inventory_recipe_suggestions_path(current_user.inventory), class: 'dropdown-item' %>
