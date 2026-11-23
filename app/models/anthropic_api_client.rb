@@ -90,8 +90,6 @@ class AnthropicApiClient
       options[:timeout] = timeout if timeout
 
       response = HTTParty.post("#{BASE_URL}/messages", **options)
-
-      puts response.parsed_response
       handle_response(response)
     end
 

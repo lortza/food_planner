@@ -63,7 +63,7 @@ class MealPlanAssistant
 
     Respond with JSON matching the provided schema:
     - "message": one to three friendly, plain-text sentences (no markdown). If the request is ambiguous, still make suggestions and ask one short follow-up question here. If nothing fits well, say so and offer the closest matches.
-    - "suggestions": each with the recipe id and a "reason", one short sentence explaining why it fits. The reason appears under the recipe title on a card, so don't repeat the title. Be concrete (for example "Not made since August, and it covers the cozy request.").
+    - "suggestions": each with the recipe id and a "reason", one short sentence explaining why it fits. The reason appears under the recipe title on a card, so don't repeat the title. Be concrete (for example "Not made in about three months, and it covers the cozy request.").
   PROMPT
 
   class Error < StandardError; end
@@ -164,7 +164,7 @@ class MealPlanAssistant
     tags = recipe.tags.map(&:name).compact.sort
     ingredients = recipe.ingredients.map(&:name).reject(&:blank?).uniq.first(INGREDIENTS_PER_RECIPE)
     times_made = times_made_by_recipe_id.fetch(recipe.id, 0)
-    last_made = recipe.last_prepared_on ? "last made #{recipe.last_prepared_on.iso8601}" : "never made"
+    last_made = recipe.last_prepared_on ? "last made #{relative_date(recipe.last_prepared_on)}" : "never made"
 
     [
       "id #{recipe.id}",
@@ -183,8 +183,22 @@ class MealPlanAssistant
       .most_recent_first
       .includes(:recipes)
       .limit(RECENT_MEAL_PLAN_COUNT)
-      .map { |plan| "#{plan.prepared_on.iso8601}: #{plan.recipes.map(&:title).sort.join(", ")}" }
+      .map { |plan| "#{relative_date(plan.prepared_on)}: #{plan.recipes.map(&:title).sort.join(", ")}" }
       .join("\n")
+  end
+
+  # Coarse relative dates ("3 weeks ago") instead of exact ones, so Claude gets
+  # enough to judge recency without a dated log of the household's meals.
+  def relative_date(date)
+    days = (Time.zone.today - date).to_i
+    return "on an upcoming meal plan" if days.negative?
+    return "within the last week" if days < 7
+
+    weeks = days / 7
+    return "#{weeks} #{"week".pluralize(weeks)} ago" if weeks < 9
+
+    months = days / 30
+    "#{months} months ago"
   end
 
   def date_context

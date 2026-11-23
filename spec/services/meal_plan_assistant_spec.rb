@@ -71,12 +71,13 @@ RSpec.describe MealPlanAssistant do
     end
 
     it "sends only the user's active recipes in the recipe box, with history details" do
-      described_class.reply(user: user, message: "something cozy")
+      travel_to(Date.new(2026, 11, 23)) { described_class.reply(user: user, message: "something cozy") }
 
       system_text = sent_request[:system].map { |block| block[:text] }.join("\n")
       expect(system_text).to include("id #{chili.id} | Black Bean Chili")
       expect(system_text).to include("serves 6")
-      expect(system_text).to include("last made 2026-08-01")
+      expect(system_text).to include("last made 3 months ago")
+      expect(system_text).not_to include("2026-08-01")
       expect(system_text).to include("Sesame Noodles")
       expect(system_text).to include("never made")
       expect(system_text).not_to include("Old Casserole")
@@ -89,13 +90,33 @@ RSpec.describe MealPlanAssistant do
       meal_plan = create(:meal_plan, user: user, prepared_on: Date.new(2026, 8, 1))
       meal_plan.recipes << chili
 
-      described_class.reply(user: user, message: "something cozy")
+      travel_to(Date.new(2026, 11, 23)) { described_class.reply(user: user, message: "something cozy") }
 
       recipe_box = sent_request[:system].first[:text]
       expect(recipe_box).to include("tags: cozy")
       expect(recipe_box).to include("ingredients: black beans")
       expect(recipe_box).to include("(made 1 time)")
-      expect(recipe_box).to include("2026-08-01: Black Bean Chili")
+      expect(recipe_box).to include("3 months ago: Black Bean Chili")
+    end
+
+    describe "relative dates" do
+      around { |example| travel_to(Date.new(2026, 11, 23)) { example.run } }
+
+      {
+        Date.new(2026, 11, 30) => "last made on an upcoming meal plan",
+        Date.new(2026, 11, 20) => "last made within the last week",
+        Date.new(2026, 11, 16) => "last made 1 week ago",
+        Date.new(2026, 10, 1) => "last made 7 weeks ago",
+        Date.new(2026, 5, 1) => "last made 6 months ago"
+      }.each do |date, expected|
+        it "describes #{date} as \"#{expected}\"" do
+          chili.update_column(:last_prepared_on, date)
+
+          described_class.reply(user: user, message: "something cozy")
+
+          expect(sent_request[:system].first[:text]).to include(expected)
+        end
+      end
     end
 
     it "requests structured JSON from Claude Opus with a cached recipe box and refusal fallback" do
