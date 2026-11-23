@@ -144,7 +144,7 @@ GEM
     concurrent-ruby (1.3.8)
     connection_pool (3.0.2)
     crass (1.0.8)
-    csv (3.3.6)
+    csv (3.3.7)
     date (3.6.0)
     debug (1.11.1)
       irb (~> 1.10)
@@ -249,7 +249,7 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
-    httparty (0.24.3)
+    httparty (0.25.0)
       csv
       mini_mime (>= 1.0.0)
       multi_xml (>= 0.5.2)
@@ -751,7 +751,7 @@ CHECKSUMS
   concurrent-ruby (1.3.8) sha256=b2f1be836e968ccc78ccfce277ea79c72a88633f22306782c16ff23fb415d1e1
   connection_pool (3.0.2) sha256=33fff5ba71a12d2aa26cb72b1db8bba2a1a01823559fb01d29eb74c286e62e0a
   crass (1.0.8) sha256=7a0145c7a2c59f8e7923b3a69ce819c444823a00a5127d805298fea13be24efe
-  csv (3.3.6) sha256=aba61e7e507a66f03d45cb1f3c4b6359861c3504038b422962875dce099e4456
+  csv (3.3.7) sha256=15a3f16f6628da8664d455eb634e7f22031bcf53044923caf56975109e71b9f8
   date (3.6.0) sha256=18ac945c4e24ebd93534f8eab8c2fd8c5604b3e977105b3798d62a1e8d27b580
   debug (1.11.1) sha256=2e0b0ac6119f2207a6f8ac7d4a73ca8eb4e440f64da0a3136c30343146e952b6
   debug_inspector (1.2.0) sha256=9bdfa02eebc3da163833e6a89b154084232f5766087e59573b70521c77ea68a2
@@ -792,7 +792,7 @@ CHECKSUMS
   guard (2.20.2) sha256=2d0574d35619669f2f71739a0313290810b9cf66b2263f5d97e815fcce598d4d
   guard-compat (1.2.1) sha256=3ad21ab0070107f92edfd82610b5cdc2fb8e368851e72362ada9703443d646fe
   guard-rspec (4.7.3) sha256=a47ba03cbd1e3c71e6ae8645cea97e203098a248aede507461a43e906e2f75ca
-  httparty (0.24.3) sha256=5c95cf29ca70d5bfd834e56140ddfca6e94166c3b870cde9c25d157cdb5a00d2
+  httparty (0.25.0) sha256=1efa6359fe5ee7dd1534b6d53b124e6a56f709fee9f0c8e4f580276dc1b479cc
   i18n (1.15.2) sha256=00f9eb62412fe593b2a65a97daa75300d37abb8f7202ec748e94b6d46a9dd1b5
   ice_nine (0.11.2) sha256=5d506a7d2723d5592dc121b9928e4931742730131f22a1a37649df1c1e2e63db
   image_processing (2.2.0) sha256=e0cb9892a4395ac2b7bb2fac5c6f5bc63361f2f18ed08773e21fce5b111c6974
